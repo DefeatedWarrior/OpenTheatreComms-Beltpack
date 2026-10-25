@@ -1,0 +1,7 @@
+(kicad_sch (version 20230121) (generator eeschema)
+  (uuid 6a0efdc1-5f7d-40d6-990a-28a52a360b02)
+  (paper "A4")
+  (title_block (title "Beltpack main PCB") (date "2026-10-26") (rev "0.1") (company "OpenTheatreComms"))
+  (lib_symbols)
+  (sheet_instances (path "/" (page "1")))
+)

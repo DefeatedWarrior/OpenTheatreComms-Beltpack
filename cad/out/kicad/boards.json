@@ -303,13 +303,40 @@
      "hgt": 2.5
     },
     {
-     "label": "U.FL",
+     "label": "U.FL (A)",
      "X": 31.0,
      "Y": 10.5,
      "w": 3.0,
      "h": 3.0,
      "side": "B",
      "hgt": 1.25
+    },
+    {
+     "label": "U.FL (B)",
+     "X": 24.5,
+     "Y": 10.5,
+     "w": 3.0,
+     "h": 3.0,
+     "side": "B",
+     "hgt": 1.25
+    },
+    {
+     "label": "PE4259 RF switch",
+     "X": 25.8,
+     "Y": 4.0,
+     "w": 2.0,
+     "h": 2.1,
+     "side": "B",
+     "hgt": 1.0
+    },
+    {
+     "label": "RF match + DC block",
+     "X": 26.0,
+     "Y": 7.2,
+     "w": 3.0,
+     "h": 1.6,
+     "side": "B",
+     "hgt": 0.6
     },
     {
      "label": "NAU88C22YG",
@@ -348,7 +375,7 @@
      "hgt": 2.9
     },
     {
-     "label": "Mill-Max 0906 pogo",
+     "label": "pogo 1",
      "X": 6.0,
      "Y": -15.0,
      "w": 1.8,
@@ -357,7 +384,7 @@
      "hgt": 3.7
     },
     {
-     "label": "Mill-Max 0906 pogo",
+     "label": "pogo 2",
      "X": 12.0,
      "Y": -15.0,
      "w": 1.8,
@@ -366,7 +393,7 @@
      "hgt": 3.7
     },
     {
-     "label": "Mill-Max 0906 pogo",
+     "label": "pogo 3",
      "X": 18.0,
      "Y": -15.0,
      "w": 1.8,

@@ -80,11 +80,15 @@ for x, z in info["end_screws"]: tmech.append(("circle", (x, -z - TOP_OFF), 2.2, 
 boards["top_pcb"] = dict(parts=tp, holes=[(x, -z - TOP_OFF, 2.2) for x, z in info["top_holes"]], mech=tmech)
 # main board: (X, Y) = (x, y), viewed from the front (F = front face)
 mp = [dict(label=p["label"], X=p["x"], Y=p["y"], w=p["w"], h=p["h"], side="F" if p["face"] == "front" else "B", hgt=p["t"]) for p in info["main_parts"]]
+_k = 0
+for p in mp:                                   # short labels for the three pogo pins so they don't overprint
+    if p["label"].startswith("Mill-Max 0906"): _k += 1; p["label"] = f"pogo {_k}"
 px0, px1, py0, py1, pz = C["PACK"]
 mmech = [("rect", ((px0 + px1) / 2, (py0 + py1) / 2), (px1 - px0, py1 - py0), "battery pack behind (B parts max 3.7 mm)"),
          ("rect", (C["XLR_X"], -27.0), (19.5, 21.0), "XLR-4 body"),
-         ("rect", (-43.0, 5.0), (7.0, 18.0), "no copper: ESP32 antenna"),
-         ("rect", (44.5, -11.0), (7.0, 38.0), "flex antenna on the end wall"),
+         ("rect", (44.5, -11.0), (7.0, 38.0), "flex antenna A on the end wall"),
+         ("rect", (-50.0, -5.0), (7.0, 38.0), "flex antenna B on the end wall"),
+         ("rect", (-43.0, 0.0), (7.0, 28.6), "no copper: both antennas"),
          ("circle", (-18.0, 17.4), 5.3, "button cap"), ("rect", (0.0, 17.4), (21.6, 9.6), "button cap"), ("circle", (18.0, 17.4), 5.3, "button cap")]
 holes = [(x, y, 2.2) for nm, (x, y) in info["main_holes"].items()]
 boards["main_pcb"] = dict(parts=mp, holes=holes, mech=mmech, hole_names=list(info["main_holes"].keys()))
@@ -154,12 +158,12 @@ for name, B in boards.items():
         col = FCOL if p["side"] == "F" else BCOL
         ax.add_patch(Rectangle((p["X"] - p["w"] / 2, p["Y"] - p["h"] / 2), p["w"], p["h"], fill=True, fc=col, alpha=0.10, ec=col, lw=0.9,
                                ls="-" if p["side"] == "F" else (0, (3, 1.5)), zorder=2))
-        if p["w"] * p["h"] > 9 or name == "pack_lid_pcb":
+        if p["w"] * p["h"] > 9 or name == "pack_lid_pcb" or p["label"].startswith(("PE4259", "U.FL", "RF match", "pogo")):
             ax.text(p["X"], p["Y"], p["label"].replace(" (", "\n("), fontsize=5.2 if p["w"] < 8 else 6, color=col, ha="center", va="center", zorder=5)
     for i, (x, y, d) in enumerate(B["holes"]):
         ax.add_patch(Circle((x, y), d / 2, fill=False, ec=ACC, lw=1.1, zorder=6))
         ax.plot([x - 2, x + 2], [y, y], color=ACC, lw=0.5, zorder=6); ax.plot([x, x], [y - 2, y + 2], color=ACC, lw=0.5, zorder=6)
-        lab = (B.get("hole_names") or [f"M{i+1}" for i in range(len(B["holes"]))])[i]
+        lab = (B.get("hole_names") or [f"H{i+1}" for i in range(len(B["holes"]))])[i]
         ax.text(x + 1.6, y + 1.4, f"{lab} ({x:.1f}, {y:.1f})", fontsize=5.8, color=ACC, zorder=6)
     # overall dimensions
     def dim_h(x0, x1, y, txt):

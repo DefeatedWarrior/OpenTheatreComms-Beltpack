@@ -1,0 +1,4 @@
+part,side,x,y,rot,ref
+pad BAT+,F,6.0,-15.0,,
+pad NTC,F,12.0,-15.0,,
+pad BAT-,F,18.0,-15.0,,

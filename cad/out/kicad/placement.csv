@@ -28,14 +28,17 @@ main_pcb,3 mm white LED,F,32.0,-34.5,3.8,5.3,3.8
 main_pcb,Coin vibration motor,F,32.0,-20.0,8.0,8.0,2.7
 main_pcb,ESP32-S3-WROOM-1,B,-33.25,5.0,25.5,18.0,3.1
 main_pcb,LR2021 module,B,33.0,3.0,10.0,10.0,2.5
-main_pcb,U.FL,B,31.0,10.5,3.0,3.0,1.25
+main_pcb,U.FL (A),B,31.0,10.5,3.0,3.0,1.25
+main_pcb,U.FL (B),B,24.5,10.5,3.0,3.0,1.25
+main_pcb,PE4259 RF switch,B,25.8,4.0,2.0,2.1,1.0
+main_pcb,RF match + DC block,B,26.0,7.2,3.0,1.6,0.6
 main_pcb,NAU88C22YG,B,-6.0,-25.0,5.0,5.0,0.9
 main_pcb,Li-ion charger,B,-2.0,-31.5,4.9,3.9,1.6
 main_pcb,3.3 V LDO,B,20.0,-31.0,3.0,3.0,1.2
 main_pcb,JST SM10B-SRSS-TB,B,8.0,26.38,13.0,4.25,2.9
-main_pcb,Mill-Max 0906 pogo,B,6.0,-15.0,1.8,1.8,3.7
-main_pcb,Mill-Max 0906 pogo,B,12.0,-15.0,1.8,1.8,3.7
-main_pcb,Mill-Max 0906 pogo,B,18.0,-15.0,1.8,1.8,3.7
+main_pcb,pogo 1,B,6.0,-15.0,1.8,1.8,3.7
+main_pcb,pogo 2,B,12.0,-15.0,1.8,1.8,3.7
+main_pcb,pogo 3,B,18.0,-15.0,1.8,1.8,3.7
 main_pcb,M2 hole 1,-,-30.0,-9.0,2.2,2.2,0
 main_pcb,M2 hole 2,-,38.0,12.0,2.2,2.2,0
 main_pcb,M2 hole 3,-,-6.0,25.5,2.2,2.2,0

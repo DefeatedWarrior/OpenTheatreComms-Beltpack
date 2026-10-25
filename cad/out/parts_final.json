@@ -1097,9 +1097,9 @@
   },
   {
    "name": "ufl",
-   "label": "U.FL",
+   "label": "U.FL (A)",
    "group": "Electronics",
-   "desc": "Hirose U.FL-R-SMT-1 for the flex antenna.",
+   "desc": "Hirose U.FL-R-SMT-1 for antenna A (right end).",
    "explode": [
     0,
     0,
@@ -1116,6 +1116,72 @@
     -9.799999900000001
    ],
    "volume": 11.2
+  },
+  {
+   "name": "ufl_b",
+   "label": "U.FL (B)",
+   "group": "Electronics",
+   "desc": "Hirose U.FL-R-SMT-1 for antenna B (left end).",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    22.9999999,
+    8.999999899999999,
+    -11.050000100000002,
+    26.0000001,
+    12.000000100000001,
+    -9.799999900000001
+   ],
+   "volume": 11.2
+  },
+  {
+   "name": "rf_switch",
+   "label": "PE4259 RF switch",
+   "group": "Electronics",
+   "desc": "pSemi PE4259 SPDT, SC-70-6, 10 MHz-3 GHz, single-pin control from an ESP32 GPIO: switched antenna diversity.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    24.799999899999996,
+    2.9499998999999963,
+    -10.800000100000005,
+    26.800000100000005,
+    5.050000100000004,
+    -9.799999899999998
+   ],
+   "volume": 4.2
+  },
+  {
+   "name": "rf_match",
+   "label": "RF match + DC block",
+   "group": "Electronics",
+   "desc": "Unpopulated pi network between the module and the switch, plus 100 pF DC-block footprints on the switch ports.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    24.4999999,
+    6.399999899999998,
+    -10.400000100000002,
+    27.5000001,
+    8.000000100000001,
+    -9.7999999
+   ],
+   "volume": 2.9
   },
   {
    "name": "codec",
@@ -1405,9 +1471,9 @@
   },
   {
    "name": "antenna",
-   "label": "915 MHz flex antenna",
+   "label": "915 MHz flex antenna A",
    "group": "Radio",
-   "desc": "Molex 211140-0100, 38 x 10 x 0.1 mm, stuck to the inside of the right end, cable to the U.FL.",
+   "desc": "Molex 211140-0100, 38 x 10 x 0.1 mm, stuck inside the right end. Diversity antenna A.",
    "explode": [
     24,
     0,
@@ -1426,10 +1492,32 @@
    "volume": 38.2
   },
   {
-   "name": "coax",
-   "label": "1.13 mm coax",
+   "name": "antenna_b",
+   "label": "915 MHz flex antenna B",
    "group": "Radio",
-   "desc": "Antenna pigtail, about 100 mm, routed above the pack.",
+   "desc": "Molex 211140-0100, stuck inside the left end, below the dial well and clear of the XLR. Diversity antenna B; it sits a few mm from the ESP32's Wi-Fi antenna.",
+   "explode": [
+    -24,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -50.25000010000001,
+    -24.00823023668533,
+    -21.615307758877414,
+    -49.166489840657945,
+    14.008230236685328,
+    -11.780191890440957
+   ],
+   "volume": 38.2
+  },
+  {
+   "name": "coax",
+   "label": "1.13 mm coax A",
+   "group": "Radio",
+   "desc": "Antenna A pigtail, about 100 mm, routed above the pack.",
    "explode": [
     14,
     0,
@@ -1446,6 +1534,28 @@
     -10.553505083984646
    ],
    "volume": 26.7
+  },
+  {
+   "name": "coax_b",
+   "label": "1.13 mm coax B",
+   "group": "Radio",
+   "desc": "Antenna B pigtail, about 150 mm, runs across above the pack and the ESP32.",
+   "explode": [
+    -14,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -49.870090321838376,
+    11.141912307102064,
+    -17.10955812689503,
+    25.055460663989532,
+    15.556901244632318,
+    -10.552510939480214
+   ],
+   "volume": 76.3
   },
   {
    "name": "belt_plate",
@@ -1725,12 +1835,42 @@
   },
   {
    "name": "ufl",
-   "label": "U.FL",
+   "label": "U.FL (A)",
    "x": 31.0,
    "y": 10.5,
    "w": 3.0,
    "h": 3.0,
    "t": 1.25,
+   "face": "back"
+  },
+  {
+   "name": "ufl_b",
+   "label": "U.FL (B)",
+   "x": 24.5,
+   "y": 10.5,
+   "w": 3.0,
+   "h": 3.0,
+   "t": 1.25,
+   "face": "back"
+  },
+  {
+   "name": "rf_switch",
+   "label": "PE4259 RF switch",
+   "x": 25.8,
+   "y": 4.0,
+   "w": 2.0,
+   "h": 2.1,
+   "t": 1.0,
+   "face": "back"
+  },
+  {
+   "name": "rf_match",
+   "label": "RF match + DC block",
+   "x": 26.0,
+   "y": 7.2,
+   "w": 3.0,
+   "h": 1.6,
+   "t": 0.6,
    "face": "back"
   },
   {

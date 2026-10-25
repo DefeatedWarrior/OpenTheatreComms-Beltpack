@@ -317,7 +317,10 @@ main_part("vib_motor", "Coin vibration motor", 32.0, -20.0, 8.0, 8.0, 2.7, "fron
 # back face
 main_part("esp32s3", "ESP32-S3-WROOM-1", -33.25, 5.0, 25.5, 18.0, 3.1, "back", SILVER, "Espressif ESP32-S3-WROOM-1-N8R8, 25.5 x 18 x 3.1, PCB antenna at the left end (keep copper clear under it).", "ESP32S3")
 main_part("lr2021", "LR2021 module", 33.0, 3.0, 10.0, 10.0, 2.5, "back", (0.15, 0.15, 0.17), "Elecrow LR2021 module, 10 x 10 x 2.5, 20 castellated pads at 1.27 mm.", "LR2021")
-main_part("ufl", "U.FL", 31.0, 10.5, 3.0, 3.0, 1.25, "back", GOLD, "Hirose U.FL-R-SMT-1 for the flex antenna.", "UFL")
+main_part("ufl", "U.FL (A)", 31.0, 10.5, 3.0, 3.0, 1.25, "back", GOLD, "Hirose U.FL-R-SMT-1 for antenna A (right end).", "UFL")
+main_part("ufl_b", "U.FL (B)", 24.5, 10.5, 3.0, 3.0, 1.25, "back", GOLD, "Hirose U.FL-R-SMT-1 for antenna B (left end).", "UFL")
+main_part("rf_switch", "PE4259 RF switch", 25.8, 4.0, 2.0, 2.1, 1.0, "back", BLACK, "pSemi PE4259 SPDT, SC-70-6, 10 MHz-3 GHz, single-pin control from an ESP32 GPIO: switched antenna diversity.", "PE4259")
+main_part("rf_match", "RF match + DC block", 26.0, 7.2, 3.0, 1.6, 0.6, "back", (0.55, 0.45, 0.30), "Unpopulated pi network between the module and the switch, plus 100 pF DC-block footprints on the switch ports.", None)
 main_part("codec", "NAU88C22YG", -6.0, -25.0, 5.0, 5.0, 0.9, "back", BLACK, "Nuvoton NAU88C22 codec, QFN-32 5 x 5 (needs hot air / hot plate).", "NAU88C22")
 main_part("charger", "Li-ion charger", -2.0, -31.5, 4.9, 3.9, 1.6, "back", BLACK, "1 A Li-ion charger, ESOP-8 (TP4056 class).", None)
 main_part("ldo", "3.3 V LDO", 20.0, -31.0, 3.0, 3.0, 1.2, "back", BLACK, "1 A LDO, SOT-23-5 (e.g. TLV75733).", None)
@@ -360,18 +363,28 @@ for x in (6.0, 12.0, 18.0):
     p = cylZ(x, -15.0, 1.5, pz - 0.05, pz); pads = p if pads is None else W_(pads).union(p)
 add("pack_pads", pads, GOLD, "Power", "Pack pads", "Gold pads.", False, (0, 0, -50))
 
-# ================================================================= antenna + coax
+# ================================================================= antennas (switched diversity) + coax
 ang = 10.0 / 12.65
-ant = W_(cylY(DX, DZ, 12.75, -30.0, 8.0)).cut(cylY(DX, DZ, 12.65, -31, 9)).intersect(
-    cq.Workplane("XZ").polyline([(DX, DZ), (DX + 30 * math.cos(ang / 2), DZ + 30 * math.sin(ang / 2)), (DX + 30 * math.cos(-ang / 2), DZ + 30 * math.sin(-ang / 2))]).close().extrude(-60).translate((0, -30, 0)))
-add("antenna", ant, FLEX, "Radio", "915 MHz flex antenna", "Molex 211140-0100, 38 x 10 x 0.1 mm, stuck to the inside of the right end, cable to the U.FL.", False, (24, 0, 0), src="antenna")
-pts = [V(49.4, 7.0, DZ), V(47.0, 14.5, -12.5), V(31.0, 14.5, -11.5), V(31.0, 11.2, -11.1)]
-coax = None
-for a, b in zip(pts[:-1], pts[1:]):
-    d = b - a; seg = Solid.makeCylinder(0.55, d.Length, a, d.normalized())
-    coax = seg if coax is None else W_(coax).union(seg)
-for p in pts[1:-1]: coax = W_(coax).union(Solid.makeSphere(0.55, p))
-add("coax", coax, (0.1, 0.1, 0.1), "Radio", "1.13 mm coax", "Antenna pigtail, about 100 mm, routed above the pack.", False, (14, 0, 0))
+def flex_antenna(sx, y0, y1):
+    cx = sx * DX
+    wedge = cq.Workplane("XZ").polyline([(cx, DZ), (cx + sx * 30 * math.cos(ang / 2), DZ + 30 * math.sin(ang / 2)),
+                                         (cx + sx * 30 * math.cos(ang / 2), DZ - 30 * math.sin(ang / 2))]).close().extrude(-60).translate((0, -30, 0))
+    return W_(cylY(cx, DZ, 12.75, y0, y1)).cut(cylY(cx, DZ, 12.65, y0 - 1, y1 + 1)).intersect(wedge)
+def coax_run(pts):
+    c = None
+    for a, b in zip(pts[:-1], pts[1:]):
+        d = b - a; seg = Solid.makeCylinder(0.55, d.Length, a, d.normalized())
+        c = seg if c is None else W_(c).union(seg)
+    for p in pts[1:-1]: c = W_(c).union(Solid.makeSphere(0.55, p))
+    return c
+add("antenna", flex_antenna(1, -30.0, 8.0), FLEX, "Radio", "915 MHz flex antenna A",
+    "Molex 211140-0100, 38 x 10 x 0.1 mm, stuck inside the right end. Diversity antenna A.", False, (24, 0, 0), src="antenna")
+add("antenna_b", flex_antenna(-1, -24.0, 14.0), FLEX, "Radio", "915 MHz flex antenna B",
+    "Molex 211140-0100, stuck inside the left end, below the dial well and clear of the XLR. Diversity antenna B; it sits a few mm from the ESP32's Wi-Fi antenna.", False, (-24, 0, 0), src="antenna")
+add("coax", coax_run([V(49.4, 7.0, DZ), V(47.0, 14.5, -12.5), V(31.0, 14.5, -11.5), V(31.0, 11.2, -11.1)]), (0.1, 0.1, 0.1), "Radio", "1.13 mm coax A",
+    "Antenna A pigtail, about 100 mm, routed above the pack.", False, (14, 0, 0))
+add("coax_b", coax_run([V(-49.4, 12.0, DZ), V(-46.5, 15.0, -13.0), V(-24.0, 15.0, -11.5), V(24.5, 15.0, -11.5), V(24.5, 11.2, -11.1)]), (0.1, 0.1, 0.1),
+    "Radio", "1.13 mm coax B", "Antenna B pigtail, about 150 mm, runs across above the pack and the ESP32.", False, (-14, 0, 0))
 
 # ================================================================= belt plate
 pl = W_(arc_shell(R_B - 6.6, R_B - 0.6)).intersect(box(-25, 25, -29, 31, -80, 0)).edges("|Z").fillet(4.0)

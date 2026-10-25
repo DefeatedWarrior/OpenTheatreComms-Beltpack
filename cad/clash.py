@@ -6,7 +6,7 @@ info = json.load(open(os.path.join(OUT, "parts_final.json")))
 shapes = {p["name"]: Shape.importBrep(os.path.join(OUT, "brep", p["name"] + ".brep")) for p in info["parts"]}
 # contacts that are meant to touch / mate
 OK = {frozenset(x) for x in [("coax", "ufl"), ("coax", "antenna"), ("hub_left", "knob_left"), ("hub_right", "knob_right"),
-      ("enc_left", "hub_left"), ("enc_right", "hub_right"), ("oled_glass", "oled_fpc")]}
+      ("enc_left", "hub_left"), ("enc_right", "hub_right"), ("oled_glass", "oled_fpc"), ("coax_b", "ufl_b"), ("coax_b", "antenna_b")]}
 t = time.time(); bad = []
 names = list(shapes)
 bbs = {n: shapes[n].BoundingBox() for n in names}

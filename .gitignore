@@ -1,4 +1,7 @@
-cad/out/brep/
-cad/out/*.zip
-__pycache__/
+*-backups/
+*.kicad_prl
 *.pyc
+__pycache__/
+cad/out/*.zip
+cad/out/brep/
+fp-info-cache

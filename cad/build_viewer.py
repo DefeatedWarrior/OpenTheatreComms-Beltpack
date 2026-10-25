@@ -49,12 +49,12 @@ rep("const EDGE_PARTS = /^(case_front|case_back|battery_pack|keycap_\\d|knob_(le
 rep("const METAL = /shield|xlr4_shell|xlr4_pins|_nut|_shaft|_pins|usb_c|screw|insert|magnet|springs|esp32_antenna|rf_trace|trrs_collar|belt_clip|ufl|pack_pads/;",
     "const METAL = /xlr4|usb_c|enc_|ufl|pack_pads|pogo|standoff|vib_motor|esp32s3/;")
 rep("const INTERNAL = new Set(['esp32_shield', 'lr2021_shield', 'nau88c22', 'cell_pouch', 'antenna_flex', 'keypad_pcb']);",
-    "const INTERNAL = new Set(['esp32s3', 'lr2021', 'codec', 'cell', 'antenna', 'top_pcb', 'main_pcb', 'enc_right']);")
+    "const INTERNAL = new Set(['esp32s3', 'lr2021', 'codec', 'cell', 'antenna', 'antenna_b', 'rf_switch', 'top_pcb', 'main_pcb', 'enc_right']);")
 rep(re.search(r"const LABELS = \[.*?\];", t, re.S).group(0), """const LABELS = [
   ['xlr4', 'Headset XLR-4'], ['trrs', '3.5 mm'], ['usb_c', 'USB-C'], ['power_plunger', 'Power'], ['lamp_led', 'Flashlight'],
   ['knob_left', 'Keys 1–2 level'], ['knob_right', 'Keys 3–4 level'], ['oled_glass', 'OLED'], ['keycap_1', 'Talk 1'], ['keycap_4', 'Talk 4'],
   ['front_back', 'Back'], ['front_function', 'Function'], ['front_menu', 'Menu'],
-  ['antenna', '915 MHz antenna'], ['lr2021', 'LR2021 radio'], ['esp32s3', 'ESP32-S3'], ['codec', 'Codec'],
+  ['antenna', '915 MHz antenna A'], ['antenna_b', '915 MHz antenna B'], ['lr2021', 'LR2021 radio'], ['rf_switch', 'RF switch'], ['esp32s3', 'ESP32-S3'], ['codec', 'Codec'],
   ['top_pcb', 'Top PCB'], ['main_pcb', 'Main PCB'], ['enc_right', 'PEC12R encoder'], ['cell', '2500 mAh cell'],
   ['battery_pack', 'Battery pack'], ['belt_plate', 'Belt plate'],
 ];""")
