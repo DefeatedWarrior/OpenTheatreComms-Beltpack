@@ -1,0 +1,177 @@
+[
+ {
+  "name": "r_hero",
+  "dir": [
+   0.78,
+   0.42,
+   1.0
+  ],
+  "dist": 270,
+  "tgt": [
+   0,
+   -2,
+   -16
+  ]
+ },
+ {
+  "name": "r_wearer",
+  "dir": [
+   0.1,
+   1.0,
+   -0.55
+  ],
+  "dist": 240,
+  "tgt": [
+   0,
+   22,
+   -16
+  ]
+ },
+ {
+  "name": "r_bottom",
+  "labels": true,
+  "dir": [
+   0.15,
+   -1.0,
+   0.5
+  ],
+  "dist": 230,
+  "tgt": [
+   0,
+   -32,
+   -15
+  ],
+  "hide": [
+   "Keys 1\u20132 level",
+   "Keys 3\u20134 level",
+   "Back",
+   "Function",
+   "Menu",
+   "Battery pack",
+   "Belt plate"
+  ]
+ },
+ {
+  "name": "r_back",
+  "dir": [
+   -0.45,
+   0.28,
+   -1.0
+  ],
+  "dist": 270,
+  "tgt": [
+   0,
+   0,
+   -18
+  ]
+ },
+ {
+  "name": "r_ghost",
+  "case": "ghost",
+  "labels": true,
+  "dir": [
+   0.7,
+   0.5,
+   1.0
+  ],
+  "dist": 290,
+  "tgt": [
+   0,
+   0,
+   -16
+  ],
+  "hide": [
+   "Battery pack",
+   "Belt plate",
+   "Codec",
+   "Top PCB",
+   "Main PCB",
+   "Talk 1",
+   "Talk 4",
+   "Back",
+   "Function",
+   "Menu",
+   "Power",
+   "Flashlight",
+   "3.5 mm",
+   "USB-C",
+   "Headset XLR-4"
+  ]
+ },
+ {
+  "name": "r_int_front",
+  "case": "hidden",
+  "labels": true,
+  "dir": [
+   0.12,
+   0.22,
+   1.0
+  ],
+  "dist": 270,
+  "tgt": [
+   0,
+   0,
+   -14
+  ],
+  "hideParts": [
+   "standoff"
+  ],
+  "hide": [
+   "ESP32-S3",
+   "LR2021 radio",
+   "Codec",
+   "2500 mAh cell",
+   "915 MHz antenna",
+   "Talk 1",
+   "Talk 4"
+  ]
+ },
+ {
+  "name": "r_int_back",
+  "case": "hidden",
+  "labels": true,
+  "dir": [
+   -0.3,
+   0.25,
+   -1.0
+  ],
+  "dist": 270,
+  "tgt": [
+   0,
+   0,
+   -14
+  ],
+  "hideParts": [
+   "cell",
+   "pack_",
+   "belt"
+  ],
+  "hide": [
+   "Back",
+   "Function",
+   "Menu",
+   "3.5 mm",
+   "Flashlight",
+   "USB-C",
+   "Power",
+   "Talk 1",
+   "Talk 4",
+   "OLED"
+  ]
+ },
+ {
+  "name": "r_exploded",
+  "explode": 1.0,
+  "dir": [
+   1.0,
+   0.42,
+   0.3
+  ],
+  "dist": 720,
+  "tgt": [
+   0,
+   8,
+   -16
+  ]
+ }
+]

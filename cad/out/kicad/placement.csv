@@ -1,0 +1,46 @@
+board,part,side,x,y,w,h,height
+top_pcb,PTS815 (key 1),F,-37.5,1.7,4.2,3.2,2.5
+top_pcb,0603 key LED,F,-37.5,-2.3,1.6,0.8,0.55
+top_pcb,PTS815 (key 2),F,-23.5,0.67,4.2,3.2,2.5
+top_pcb,0603 key LED,F,-23.5,-2.73,1.6,0.8,0.55
+top_pcb,PTS815 (key 3),F,23.5,0.67,4.2,3.2,2.5
+top_pcb,0603 key LED,F,23.5,-2.73,1.6,0.8,0.55
+top_pcb,PTS815 (key 4),F,37.5,1.7,4.2,3.2,2.5
+top_pcb,0603 key LED,F,37.5,-2.3,1.6,0.8,0.55
+top_pcb,0603 status LED,F,-46.5,1.7,1.6,0.8,0.55
+top_pcb,0603 status LED,F,46.5,1.7,1.6,0.8,0.55
+top_pcb,OLED FPC connector,B,0.0,8.0,18.0,4.0,1.2
+top_pcb,JST BM10B-SRSS-TB,B,-10.0,-1.35,13.0,4.3,4.4
+top_pcb,TCA9535PWR,B,8.0,1.0,7.8,6.4,1.2
+top_pcb,PEC12R encoder,B,-37.5,1.7,12.5,13.4,6.5
+top_pcb,PEC12R encoder,B,37.5,1.7,12.5,13.4,6.5
+top_pcb,M2 hole 1,-,-20.0,-9.0,2.2,2.2,0
+top_pcb,M2 hole 2,-,-20.0,10.5,2.2,2.2,0
+top_pcb,M2 hole 3,-,20.0,-9.0,2.2,2.2,0
+top_pcb,M2 hole 4,-,20.0,10.5,2.2,2.2,0
+main_pcb,PTS815 (Back),F,-18.0,17.4,4.2,3.2,2.5
+main_pcb,PTS815 (Function),F,0.0,17.4,4.2,3.2,2.5
+main_pcb,PTS815 (Menu),F,18.0,17.4,4.2,3.2,2.5
+main_pcb,USB4105-GF-A,F,9.0,-33.12,8.94,7.35,3.16
+main_pcb,PJ-320D,F,22.0,-30.0,6.0,12.0,5.0
+main_pcb,Side tact (TL1014),F,-3.0,-33.8,6.2,3.6,3.5
+main_pcb,3 mm white LED,F,32.0,-34.5,3.8,5.3,3.8
+main_pcb,Coin vibration motor,F,32.0,-20.0,8.0,8.0,2.7
+main_pcb,ESP32-S3-WROOM-1,B,-33.25,5.0,25.5,18.0,3.1
+main_pcb,LR2021 module,B,33.0,3.0,10.0,10.0,2.5
+main_pcb,U.FL,B,31.0,10.5,3.0,3.0,1.25
+main_pcb,NAU88C22YG,B,-6.0,-25.0,5.0,5.0,0.9
+main_pcb,Li-ion charger,B,-2.0,-31.5,4.9,3.9,1.6
+main_pcb,3.3 V LDO,B,20.0,-31.0,3.0,3.0,1.2
+main_pcb,JST SM10B-SRSS-TB,B,8.0,26.38,13.0,4.25,2.9
+main_pcb,Mill-Max 0906 pogo,B,6.0,-15.0,1.8,1.8,3.7
+main_pcb,Mill-Max 0906 pogo,B,12.0,-15.0,1.8,1.8,3.7
+main_pcb,Mill-Max 0906 pogo,B,18.0,-15.0,1.8,1.8,3.7
+main_pcb,M2 hole 1,-,-30.0,-9.0,2.2,2.2,0
+main_pcb,M2 hole 2,-,38.0,12.0,2.2,2.2,0
+main_pcb,M2 hole 3,-,-6.0,25.5,2.2,2.2,0
+main_pcb,M2 hole 4,-,38.0,-32.5,2.2,2.2,0
+main_pcb,M2 hole 5,-,-10.0,-32.5,2.2,2.2,0
+pack_lid_pcb,pad BAT+,F,6.0,-15.0,3.0,3.0,0
+pack_lid_pcb,pad NTC,F,12.0,-15.0,3.0,3.0,0
+pack_lid_pcb,pad BAT-,F,18.0,-15.0,3.0,3.0,0

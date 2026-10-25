@@ -1,0 +1,1979 @@
+{
+ "envelope": [
+  108.21,
+  80.74,
+  39.28
+ ],
+ "slope": {
+  "y0": 38.5,
+  "s": 1.0,
+  "c": 0.0
+ },
+ "oled": [
+  0.0,
+  13.65,
+  29.42,
+  14.7
+ ],
+ "oled_flip": true,
+ "parts": [
+  {
+   "name": "front_shell",
+   "label": "Front shell",
+   "group": "Enclosure",
+   "desc": "PETG/ASA. Curved ribbed front, both round ends, bottom face. Holds the main PCB on 5 heat-set M2 inserts, the knob wells and the XLR.",
+   "explode": [
+    0,
+    0,
+    34
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -52.52300202334281,
+    -38.71088904619706,
+    -30.283402950942005,
+    52.50698777454702,
+    36.411004228553246,
+    0.21088904619711757
+   ],
+   "volume": 29257.8
+  },
+  {
+   "name": "back_shell",
+   "label": "Back shell",
+   "group": "Enclosure",
+   "desc": "Hip-side skin with the battery opening and two dovetail rails for the belt plate. 4 x M2 screws.",
+   "explode": [
+    0,
+    0,
+    -30
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -44.09178671330391,
+    -38.36612331984637,
+    -32.12501963735592,
+    44.091786713303904,
+    36.402388816676066,
+    -27.73277841509284
+   ],
+   "volume": 7664.7
+  },
+  {
+   "name": "top_plate",
+   "label": "Top plate",
+   "group": "Enclosure",
+   "desc": "Carries the keycaps, OLED and top PCB as one module; 4 x M2 countersunk screws at the ends, hidden under the TPU cap.",
+   "explode": [
+    0,
+    52,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -52.25092336227639,
+    33.19851932200513,
+    -31.490235539497423,
+    52.254592411286076,
+    40.40018659079952,
+    -0.13945004526188126
+   ],
+   "volume": 4242.5
+  },
+  {
+   "name": "tpu_top",
+   "label": "TPU top cap",
+   "group": "Enclosure",
+   "desc": "TPU 95A in the department colour; stretches over the top/bottom 7 mm and hides the end screws.",
+   "explode": [
+    0,
+    72,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -54.10465290092993,
+    31.389575545998905,
+    -33.333055461911506,
+    54.104652900929935,
+    40.21195925806996,
+    1.7119592580699847
+   ],
+   "volume": 3989.3
+  },
+  {
+   "name": "tpu_bottom",
+   "label": "TPU bottom cap",
+   "group": "Enclosure",
+   "desc": "TPU 95A bumper; cut round the XLR flange and every bottom opening.",
+   "explode": [
+    0,
+    -50,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -54.11006661794241,
+    -40.343629349369806,
+    -33.473469181042624,
+    54.104652900929935,
+    -31.3895755459989,
+    1.842721368476908
+   ],
+   "volume": 3732.7
+  },
+  {
+   "name": "knob_left",
+   "label": "Left dial tyre",
+   "group": "Controls",
+   "desc": "TPU 95A truncated cone, 12 mm tall, 36 grip flutes. Hollow: the encoder body sits inside it.",
+   "explode": [
+    -34,
+    0,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -52.497574041824635,
+    18.88367517310218,
+    -31.695323866483825,
+    -22.502425958175348,
+    30.916324826897817,
+    -1.7001757828345334
+   ],
+   "volume": 3029.0
+  },
+  {
+   "name": "hub_left",
+   "label": "Left dial hub",
+   "group": "Controls",
+   "desc": "PETG insert bonded into the tyre. D-bore on the 6 mm flatted shaft; its stem runs in a bearing hole in the well floor.",
+   "explode": [
+    -34,
+    -14,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -47.30000010000001,
+    15.898756628003257,
+    -26.500795941051194,
+    -27.69999989999999,
+    24.60304611639201,
+    -6.894703708267171
+   ],
+   "volume": 1430.0
+  },
+  {
+   "name": "knob_right",
+   "label": "Right dial tyre",
+   "group": "Controls",
+   "desc": "TPU 95A truncated cone, 12 mm tall, 36 grip flutes. Hollow: the encoder body sits inside it.",
+   "explode": [
+    34,
+    0,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    22.50242595817536,
+    18.88367517310218,
+    -31.69532386648383,
+    52.497574041824656,
+    30.916324826897817,
+    -1.7001757828345032
+   ],
+   "volume": 3029.0
+  },
+  {
+   "name": "hub_right",
+   "label": "Right dial hub",
+   "group": "Controls",
+   "desc": "PETG insert bonded into the tyre. D-bore on the 6 mm flatted shaft; its stem runs in a bearing hole in the well floor.",
+   "explode": [
+    34,
+    -14,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    27.69999989999999,
+    15.898756628003257,
+    -26.50079594105119,
+    47.300000100000005,
+    24.603046116392008,
+    -6.89470370826718
+   ],
+   "volume": 1430.0
+  },
+  {
+   "name": "keycap_1",
+   "label": "Talk key 1",
+   "group": "Controls",
+   "desc": "Translucent PETG cap, flange retained under the top plate, sits straight on a PTS815; key LED lights it from below.",
+   "explode": [
+    0,
+    64,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -44.80226907139404,
+    35.69773092860596,
+    -23.999993755292877,
+    -30.197730928605957,
+    40.102471899568776,
+    -9.399993555292866
+   ],
+   "volume": 582.0
+  },
+  {
+   "name": "keycap_2",
+   "label": "Talk key 2",
+   "group": "Controls",
+   "desc": "Translucent PETG cap, flange retained under the top plate, sits straight on a PTS815; key LED lights it from below.",
+   "explode": [
+    0,
+    64,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -29.30180284439527,
+    35.69819715560473,
+    -21.466770380378843,
+    -17.69819715560473,
+    40.107215095552384,
+    -9.866770180378836
+   ],
+   "volume": 344.9
+  },
+  {
+   "name": "keycap_3",
+   "label": "Talk key 3",
+   "group": "Controls",
+   "desc": "Translucent PETG cap, flange retained under the top plate, sits straight on a PTS815; key LED lights it from below.",
+   "explode": [
+    0,
+    64,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    17.69819715560473,
+    35.69819715560473,
+    -21.466770380378843,
+    29.30180284439527,
+    40.11089445614514,
+    -9.866770180378836
+   ],
+   "volume": 344.8
+  },
+  {
+   "name": "keycap_4",
+   "label": "Talk key 4",
+   "group": "Controls",
+   "desc": "Translucent PETG cap, flange retained under the top plate, sits straight on a PTS815; key LED lights it from below.",
+   "explode": [
+    0,
+    64,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    30.19773092860595,
+    35.69773092860595,
+    -23.99999375529288,
+    44.80226907139405,
+    40.102471899568776,
+    -9.399993555292863
+   ],
+   "volume": 581.0
+  },
+  {
+   "name": "front_back",
+   "label": "Back button",
+   "group": "Controls",
+   "desc": "PETG cap with a flange behind the recess wall; plunger onto a PTS815 on the main PCB.",
+   "explode": [
+    0,
+    0,
+    46
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -23.312208249222724,
+    12.087553084744918,
+    -5.700310917999187,
+    -12.687475498323627,
+    22.711684916792137,
+    -1.4753300179203237
+   ],
+   "volume": 269.2
+  },
+  {
+   "name": "front_function",
+   "label": "Function button",
+   "group": "Controls",
+   "desc": "PETG cap with a flange behind the recess wall; plunger onto a PTS815 on the main PCB.",
+   "explode": [
+    0,
+    0,
+    46
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -10.936922531100253,
+    12.462998046901708,
+    -5.700310917999187,
+    10.936924748843497,
+    22.337001953098287,
+    -0.4998191912177186
+   ],
+   "volume": 610.3
+  },
+  {
+   "name": "front_menu",
+   "label": "Menu button",
+   "group": "Controls",
+   "desc": "PETG cap with a flange behind the recess wall; plunger onto a PTS815 on the main PCB.",
+   "explode": [
+    0,
+    0,
+    46
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    12.687692300138062,
+    12.087482776844903,
+    -5.700310917999187,
+    23.31252571638377,
+    22.71151819485147,
+    -0.8765362912793206
+   ],
+   "volume": 271.9
+  },
+  {
+   "name": "power_plunger",
+   "label": "Power button",
+   "group": "Controls",
+   "desc": "Recessed 0.2 mm below the bottom face so it is hard to knock; long-press to turn on/off.",
+   "explode": [
+    0,
+    -42,
+    0
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -6.500000100000003,
+    -38.30077714499796,
+    -9.951087962997144,
+    0.5000001000000017,
+    -36.448912037002856,
+    -2.9489120370028545
+   ],
+   "volume": 45.9
+  },
+  {
+   "name": "status_pipe_L",
+   "label": "Status light pipe",
+   "group": "Display",
+   "desc": "2.4 mm clear rod over an 0603 RGB/white LED on the top PCB.",
+   "explode": [
+    0,
+    60,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -47.70083925425393,
+    33.79916074574608,
+    -17.89858907891311,
+    -45.29916074574607,
+    38.500839254253926,
+    -15.496910570405259
+   ],
+   "volume": 21.3
+  },
+  {
+   "name": "status_pipe_R",
+   "label": "Status light pipe",
+   "group": "Display",
+   "desc": "2.4 mm clear rod over an 0603 RGB/white LED on the top PCB.",
+   "explode": [
+    0,
+    60,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    45.29916074574607,
+    33.79916074574608,
+    -17.89858907891311,
+    47.70083925425393,
+    38.500839254253926,
+    -15.496910570405259
+   ],
+   "volume": 21.3
+  },
+  {
+   "name": "top_pcb",
+   "label": "Top PCB",
+   "group": "Electronics",
+   "desc": "1.6 mm FR4, 2 layers. Keys, OLED, status LEDs on top; both encoders, OLED connector, IO expander and the JST SH link underneath.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -49.90856389827378,
+    31.405606722866587,
+    -29.10416693701183,
+    49.90856389827378,
+    33.39439327713341,
+    -2.599999900000023
+   ],
+   "volume": 3618.6
+  },
+  {
+   "name": "sw_key1",
+   "label": "PTS815 (key 1)",
+   "group": "Electronics",
+   "desc": "C&K PTS815 SJM 250 SMTR LFS, 4.2 x 3.2 x 2.5 mm SMD tact.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -39.60000010000001,
+    33.199999899999995,
+    -18.29999375529288,
+    -35.39999989999999,
+    35.70000010000001,
+    -15.099993555292864
+   ],
+   "volume": 33.6
+  },
+  {
+   "name": "led_key1",
+   "label": "0603 key LED",
+   "group": "Electronics",
+   "desc": "0603 LED under the translucent keycap (alert flash).",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -38.3000001,
+    33.1999999,
+    -13.099993755292871,
+    -36.6999999,
+    33.7500001,
+    -12.299993555292872
+   ],
+   "volume": 0.7
+  },
+  {
+   "name": "sw_key2",
+   "label": "PTS815 (key 2)",
+   "group": "Electronics",
+   "desc": "C&K PTS815 SJM 250 SMTR LFS, 4.2 x 3.2 x 2.5 mm SMD tact.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -25.600000100000006,
+    33.1999999,
+    -17.266770380378848,
+    -21.399999899999994,
+    35.700000100000004,
+    -14.066770180378839
+   ],
+   "volume": 33.6
+  },
+  {
+   "name": "led_key2",
+   "label": "0603 key LED",
+   "group": "Electronics",
+   "desc": "0603 LED under the translucent keycap (alert flash).",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -24.300000100000002,
+    33.1999999,
+    -12.666770380378843,
+    -22.699999899999998,
+    33.7500001,
+    -11.86677018037884
+   ],
+   "volume": 0.7
+  },
+  {
+   "name": "sw_key3",
+   "label": "PTS815 (key 3)",
+   "group": "Electronics",
+   "desc": "C&K PTS815 SJM 250 SMTR LFS, 4.2 x 3.2 x 2.5 mm SMD tact.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    21.399999899999994,
+    33.1999999,
+    -17.266770380378848,
+    25.600000100000006,
+    35.700000100000004,
+    -14.066770180378839
+   ],
+   "volume": 33.6
+  },
+  {
+   "name": "led_key3",
+   "label": "0603 key LED",
+   "group": "Electronics",
+   "desc": "0603 LED under the translucent keycap (alert flash).",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    22.699999899999998,
+    33.1999999,
+    -12.666770380378843,
+    24.300000100000002,
+    33.7500001,
+    -11.86677018037884
+   ],
+   "volume": 0.7
+  },
+  {
+   "name": "sw_key4",
+   "label": "PTS815 (key 4)",
+   "group": "Electronics",
+   "desc": "C&K PTS815 SJM 250 SMTR LFS, 4.2 x 3.2 x 2.5 mm SMD tact.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    35.39999989999999,
+    33.199999899999995,
+    -18.29999375529288,
+    39.60000010000001,
+    35.70000010000001,
+    -15.099993555292864
+   ],
+   "volume": 33.6
+  },
+  {
+   "name": "led_key4",
+   "label": "0603 key LED",
+   "group": "Electronics",
+   "desc": "0603 LED under the translucent keycap (alert flash).",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    36.6999999,
+    33.1999999,
+    -13.099993755292871,
+    38.3000001,
+    33.7500001,
+    -12.299993555292872
+   ],
+   "volume": 0.7
+  },
+  {
+   "name": "led_status_L",
+   "label": "0603 status LED",
+   "group": "Electronics",
+   "desc": "Status LED under the light pipe.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -47.300000100000005,
+    33.199999899999995,
+    -17.09774992465919,
+    -45.699999899999995,
+    33.75000010000001,
+    -16.297749724659177
+   ],
+   "volume": 0.7
+  },
+  {
+   "name": "led_status_R",
+   "label": "0603 status LED",
+   "group": "Electronics",
+   "desc": "Status LED under the light pipe.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    45.699999899999995,
+    33.199999899999995,
+    -17.09774992465919,
+    47.300000100000005,
+    33.75000010000001,
+    -16.297749724659177
+   ],
+   "volume": 0.7
+  },
+  {
+   "name": "oled_zif",
+   "label": "OLED FPC connector",
+   "group": "Electronics",
+   "desc": "Placeholder: 0.5 mm ZIF or solder pads for the panel's FPC (pin count depends on the panel).",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -9.000000100000003,
+    30.399999899999997,
+    -25.000000100000005,
+    9.000000100000003,
+    31.600000100000006,
+    -20.999999899999995
+   ],
+   "volume": 86.4
+  },
+  {
+   "name": "jst_top",
+   "label": "JST BM10B-SRSS-TB",
+   "group": "Electronics",
+   "desc": "JST SH 10-pin top-entry, cable to the main PCB.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -16.500000100000005,
+    27.1999999,
+    -15.800000100000005,
+    -3.4999998999999957,
+    31.600000100000006,
+    -11.499999899999995
+   ],
+   "volume": 246.0
+  },
+  {
+   "name": "io_exp",
+   "label": "TCA9535PWR",
+   "group": "Electronics",
+   "desc": "16-bit I2C IO expander, TSSOP-24: keys and LEDs.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    4.099999899999996,
+    30.399999899999997,
+    -19.200000100000004,
+    11.900000100000005,
+    31.600000100000006,
+    -12.799999899999996
+   ],
+   "volume": 59.9
+  },
+  {
+   "name": "enc_left",
+   "label": "PEC12R encoder",
+   "group": "Electronics",
+   "desc": "Bourns PEC12R-4215F-N0024: 12 mm, no bushing, 15 mm insulated flatted shaft, 24 detents / 24 pulses, no switch. Mounted upside-down on the top PCB.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -43.75000010000001,
+    16.59790201436519,
+    -23.39774992465919,
+    -31.24999989999999,
+    31.600000100000006,
+    -9.997749724659176
+   ],
+   "volume": 1283.8
+  },
+  {
+   "name": "enc_right",
+   "label": "PEC12R encoder",
+   "group": "Electronics",
+   "desc": "Bourns PEC12R-4215F-N0024: 12 mm, no bushing, 15 mm insulated flatted shaft, 24 detents / 24 pulses, no switch. Mounted upside-down on the top PCB.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    31.24999989999999,
+    16.59790201436519,
+    -23.39774992465919,
+    43.75000010000001,
+    31.600000100000006,
+    -9.997749724659176
+   ],
+   "volume": 1283.8
+  },
+  {
+   "name": "oled_glass",
+   "label": "1.3 in OLED",
+   "group": "Display",
+   "desc": "Bare 1.3 in 128 x 64 SH1106 panel, 34.5 x 23.0 x 1.4, AA 29.42 x 14.7, on 1.5 mm foam tape.",
+   "explode": [
+    0,
+    40,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -17.250000100000005,
+    34.6999999,
+    -27.000000100000005,
+    17.250000100000005,
+    36.1000001,
+    -3.9999998999999966
+   ],
+   "volume": 1110.9
+  },
+  {
+   "name": "oled_spacer",
+   "label": "Foam spacer",
+   "group": "Display",
+   "desc": "1.5 mm double-sided foam tape.",
+   "explode": [
+    0,
+    33,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -15.000000100000003,
+    33.1999999,
+    -21.000000100000005,
+    15.000000100000003,
+    34.700000100000004,
+    -6.499999899999996
+   ],
+   "volume": 652.5
+  },
+  {
+   "name": "oled_fpc",
+   "label": "OLED FPC",
+   "group": "Display",
+   "desc": "Panel tail wraps round the notch in the PCB back edge to the connector underneath.",
+   "explode": [
+    0,
+    26,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -6.000000100000008,
+    31.199999899999998,
+    -26.50000010000001,
+    6.000000100000008,
+    34.80000010000001,
+    -24.99999989999999
+   ],
+   "volume": 6.0
+  },
+  {
+   "name": "main_pcb",
+   "label": "Main PCB",
+   "group": "Electronics",
+   "desc": "1.6 mm FR4, 4 layers suggested. Vertical behind the front: MCU, radio, codec, power, the three front buttons and every bottom connector.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -46.500699395211605,
+    -36.000699395211605,
+    -9.800769324732768,
+    41.000699395211605,
+    28.500699395211605,
+    -8.199230675267232
+   ],
+   "volume": 6925.1
+  },
+  {
+   "name": "sw_back",
+   "label": "PTS815 (Back)",
+   "group": "Electronics",
+   "desc": "C&K PTS815, front button switch.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -20.100000100000006,
+    15.799999899999996,
+    -8.200000100000002,
+    -15.899999899999997,
+    19.000000100000005,
+    -5.6999998999999955
+   ],
+   "volume": 33.6
+  },
+  {
+   "name": "sw_function",
+   "label": "PTS815 (Function)",
+   "group": "Electronics",
+   "desc": "C&K PTS815, front button switch.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -2.1000001000000035,
+    15.799999899999996,
+    -8.200000100000002,
+    2.1000001000000035,
+    19.000000100000005,
+    -5.6999998999999955
+   ],
+   "volume": 33.6
+  },
+  {
+   "name": "sw_menu",
+   "label": "PTS815 (Menu)",
+   "group": "Electronics",
+   "desc": "C&K PTS815, front button switch.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    15.899999899999996,
+    15.799999899999994,
+    -8.200000100000004,
+    20.100000100000006,
+    19.000000100000005,
+    -5.699999899999995
+   ],
+   "volume": 33.6
+  },
+  {
+   "name": "usb_c",
+   "label": "USB4105-GF-A",
+   "group": "Electronics",
+   "desc": "GCT USB4105-GF-A USB 2.0 Type-C receptacle, 16-pin top-mount (dims to verify).",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    4.5291607457460765,
+    -36.80083925425392,
+    -8.200839254253923,
+    13.470839254253923,
+    -29.449160745746074,
+    -5.0391607457460745
+   ],
+   "volume": 102.8
+  },
+  {
+   "name": "trrs",
+   "label": "PJ-320D",
+   "group": "Electronics",
+   "desc": "PJ-320D 3.5 mm 4-pole SMD jack, 14.1 x 6.0 x 5.0 incl. nose.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    18.999999899999995,
+    -38.101748338029005,
+    -8.201748338029006,
+    25.000000100000005,
+    -23.999999899999995,
+    -3.1982516619709926
+   ],
+   "volume": 288.2
+  },
+  {
+   "name": "sw_power",
+   "label": "Side tact (TL1014)",
+   "group": "Electronics",
+   "desc": "Side-actuated SMD tact switch, e.g. E-Switch TL1014 (dims assumed 6.2 x 3.6 x 3.5).",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -6.100000100000007,
+    -36.40055953616928,
+    -8.200000100000006,
+    0.10000010000000681,
+    -31.99999989999999,
+    -4.699999899999992
+   ],
+   "volume": 79.7
+  },
+  {
+   "name": "lamp_led",
+   "label": "3 mm white LED",
+   "group": "Electronics",
+   "desc": "3 mm THT white LED, legs bent 90 deg, through a 3.3 mm hole: the flashlight.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    30.098671239097957,
+    -37.80333847279566,
+    -8.101328760902046,
+    33.90132876090205,
+    -32.59867123909795,
+    -4.298671239097953
+   ],
+   "volume": 34.0
+  },
+  {
+   "name": "vib_motor",
+   "label": "Coin vibration motor",
+   "group": "Electronics",
+   "desc": "8 x 2.7 mm coin motor, stuck to the board and driven by a SOT-23 MOSFET.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    27.997202719153588,
+    -24.002797280846412,
+    -8.20279728084641,
+    36.00279728084641,
+    -15.99720271915359,
+    -5.497202719153588
+   ],
+   "volume": 135.7
+  },
+  {
+   "name": "esp32s3",
+   "label": "ESP32-S3-WROOM-1",
+   "group": "Electronics",
+   "desc": "Espressif ESP32-S3-WROOM-1-N8R8, 25.5 x 18 x 3.1, PCB antenna at the left end (keep copper clear under it).",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -46.0000001,
+    -4.0000001,
+    -12.9000001,
+    -20.4999999,
+    14.0000001,
+    -9.799999900000001
+   ],
+   "volume": 1422.9
+  },
+  {
+   "name": "lr2021",
+   "label": "LR2021 module",
+   "group": "Electronics",
+   "desc": "Elecrow LR2021 module, 10 x 10 x 2.5, 20 castellated pads at 1.27 mm.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    27.9999999,
+    -2.0000001000000016,
+    -12.300000100000002,
+    38.0000001,
+    8.000000100000001,
+    -9.7999999
+   ],
+   "volume": 250.0
+  },
+  {
+   "name": "ufl",
+   "label": "U.FL",
+   "group": "Electronics",
+   "desc": "Hirose U.FL-R-SMT-1 for the flex antenna.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    29.4999999,
+    8.999999899999999,
+    -11.050000100000002,
+    32.5000001,
+    12.000000100000001,
+    -9.799999900000001
+   ],
+   "volume": 11.2
+  },
+  {
+   "name": "codec",
+   "label": "NAU88C22YG",
+   "group": "Electronics",
+   "desc": "Nuvoton NAU88C22 codec, QFN-32 5 x 5 (needs hot air / hot plate).",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -8.500000100000001,
+    -27.5000001,
+    -10.700000100000002,
+    -3.4999998999999984,
+    -22.4999999,
+    -9.7999999
+   ],
+   "volume": 22.5
+  },
+  {
+   "name": "charger",
+   "label": "Li-ion charger",
+   "group": "Electronics",
+   "desc": "1 A Li-ion charger, ESOP-8 (TP4056 class).",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -4.450000100000008,
+    -33.45000010000001,
+    -11.400000100000007,
+    0.4500001000000073,
+    -29.549999899999992,
+    -9.799999899999994
+   ],
+   "volume": 30.6
+  },
+  {
+   "name": "ldo",
+   "label": "3.3 V LDO",
+   "group": "Electronics",
+   "desc": "1 A LDO, SOT-23-5 (e.g. TLV75733).",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    18.4999999,
+    -32.5000001,
+    -11.0000001,
+    21.5000001,
+    -29.4999999,
+    -9.799999900000001
+   ],
+   "volume": 10.8
+  },
+  {
+   "name": "jst_main",
+   "label": "JST SM10B-SRSS-TB",
+   "group": "Electronics",
+   "desc": "JST SH 10-pin side-entry at the top of the tab, cable from the top PCB.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    1.4999998999999982,
+    24.2499999,
+    -12.700000100000002,
+    14.500000100000001,
+    28.5000001,
+    -9.7999999
+   ],
+   "volume": 160.2
+  },
+  {
+   "name": "pogo_1",
+   "label": "Mill-Max 0906 pogo",
+   "group": "Electronics",
+   "desc": "Mill-Max 0906-1-15-20-72-14-11-0 spring pin (4.5 mm tall, 1.4 mm stroke), compressed 0.8 onto the pack pads.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    5.099370534309556,
+    -15.900629465690443,
+    -13.500349747605803,
+    6.900629465690444,
+    -14.099370534309557,
+    -9.799370534309558
+   ],
+   "volume": 7.7
+  },
+  {
+   "name": "pogo_2",
+   "label": "Mill-Max 0906 pogo",
+   "group": "Electronics",
+   "desc": "Mill-Max 0906-1-15-20-72-14-11-0 spring pin (4.5 mm tall, 1.4 mm stroke), compressed 0.8 onto the pack pads.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    11.099370534309555,
+    -15.900629465690445,
+    -13.500349747605803,
+    12.900629465690445,
+    -14.099370534309555,
+    -9.799370534309556
+   ],
+   "volume": 7.7
+  },
+  {
+   "name": "pogo_3",
+   "label": "Mill-Max 0906 pogo",
+   "group": "Electronics",
+   "desc": "Mill-Max 0906-1-15-20-72-14-11-0 spring pin (4.5 mm tall, 1.4 mm stroke), compressed 0.8 onto the pack pads.",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    17.099370534309557,
+    -15.900629465690445,
+    -13.500349747605805,
+    18.900629465690443,
+    -14.099370534309555,
+    -9.799370534309556
+   ],
+   "volume": 7.7
+  },
+  {
+   "name": "standoff_H1",
+   "label": "M2 standoff 18 mm",
+   "group": "Hardware",
+   "desc": "M2 male-female hex standoff: holds the main PCB and takes back-shell screw S3.",
+   "explode": [
+    0,
+    0,
+    -12
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -32.0207260421637,
+    -10.750000100000005,
+    -28.77110629678434,
+    -27.979273957836305,
+    -7.249999899999994,
+    -9.799300604788396
+   ],
+   "volume": 141.7
+  },
+  {
+   "name": "xlr4",
+   "label": "XLR-4 male (D-type)",
+   "group": "Connectors",
+   "desc": "Generic D-size panel XLR-4M, front mount: 24 mm cutout, 2 x M3 on 24 x 19, flange 31 x 26 (Neutrik NC4MD-L-1 envelope: verify your part).",
+   "explode": [
+    0,
+    -30,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -39.50139869042321,
+    -39.50671333403138,
+    -28.696868210119145,
+    -8.498601309576795,
+    -16.494405538307184,
+    -2.6940708292727233
+   ],
+   "volume": 5484.6
+  },
+  {
+   "name": "battery_pack",
+   "label": "Battery pack",
+   "group": "Power",
+   "desc": "Printed tray: its back is the case back. Hooks at the top, snap at the bottom; the belt plate locks it in.",
+   "explode": [
+    0,
+    0,
+    -50
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -13.585752011887822,
+    -33.200000100000004,
+    -31.72213738505329,
+    39.50377041857729,
+    17.200000100000004,
+    -13.499999899999866
+   ],
+   "volume": 20126.3
+  },
+  {
+   "name": "cell",
+   "label": "104050 Li-ion cell",
+   "group": "Power",
+   "desc": "1S 3.7 V 2500 mAh 104050 (10 x 40 x 50) with protection board.",
+   "explode": [
+    0,
+    0,
+    -64
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -12.001901719937084,
+    -29.001901719937088,
+    -24.80190171993709,
+    38.00190171993709,
+    11.001901719937088,
+    -14.798098280062913
+   ],
+   "volume": 19945.7
+  },
+  {
+   "name": "pack_lid_pcb",
+   "label": "Pack pad board",
+   "group": "Power",
+   "desc": "0.8 mm FR4, 3 ENIG pads (BAT+, NTC, BAT-) for the beltpack pogo pins and the charger.",
+   "explode": [
+    0,
+    0,
+    -50
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    -1.0000000355271367e-07,
+    -19.000000100000005,
+    -14.300000100000004,
+    24.000000100000005,
+    -10.999999899999997,
+    -13.498950957182593
+   ],
+   "volume": 152.5
+  },
+  {
+   "name": "pack_pads",
+   "label": "Pack pads",
+   "group": "Power",
+   "desc": "Gold pads.",
+   "explode": [
+    0,
+    0,
+    -50
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    4.498950957182595,
+    -16.501049042817407,
+    -13.551049042817407,
+    19.501049042817407,
+    -13.498950957182593,
+    -13.498950957182593
+   ],
+   "volume": 1.1
+  },
+  {
+   "name": "antenna",
+   "label": "915 MHz flex antenna",
+   "group": "Radio",
+   "desc": "Molex 211140-0100, 38 x 10 x 0.1 mm, stuck to the inside of the right end, cable to the U.FL.",
+   "explode": [
+    24,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    49.16648984065788,
+    -30.00823023668532,
+    -21.61530775887741,
+    50.2500001,
+    8.008230236685323,
+    -11.780191890440955
+   ],
+   "volume": 38.2
+  },
+  {
+   "name": "coax",
+   "label": "1.13 mm coax",
+   "group": "Radio",
+   "desc": "Antenna pigtail, about 100 mm, routed above the pack.",
+   "explode": [
+    14,
+    0,
+    0
+   ],
+   "printed": false,
+   "price": null,
+   "bbox": [
+    30.445079731361222,
+    6.701561845886205,
+    -17.183509123414392,
+    49.930147424486314,
+    15.057781414492872,
+    -10.553505083984646
+   ],
+   "volume": 26.7
+  },
+  {
+   "name": "belt_plate",
+   "label": "Belt plate",
+   "group": "Enclosure",
+   "desc": "PETG. Slides up onto the rails until the tongue clicks; doubles as the battery door. Belt slots take up to 38 mm.",
+   "explode": [
+    0,
+    0,
+    -76
+   ],
+   "printed": true,
+   "price": null,
+   "bbox": [
+    -25.059942767658562,
+    -29.059942767658562,
+    -37.441236495506885,
+    25.059942767658562,
+    31.059942767658562,
+    -29.799131267575028
+   ],
+   "volume": 10949.2
+  }
+ ],
+ "top_parts": [
+  {
+   "name": "sw_key1",
+   "label": "PTS815 (key 1)",
+   "x": -37.5,
+   "z": -16.69999365529287,
+   "w": 4.2,
+   "d": 3.2,
+   "h": 2.5,
+   "side": "top"
+  },
+  {
+   "name": "led_key1",
+   "label": "0603 key LED",
+   "x": -37.5,
+   "z": -12.699993655292872,
+   "w": 1.6,
+   "d": 0.8,
+   "h": 0.55,
+   "side": "top"
+  },
+  {
+   "name": "sw_key2",
+   "label": "PTS815 (key 2)",
+   "x": -23.5,
+   "z": -15.666770280378842,
+   "w": 4.2,
+   "d": 3.2,
+   "h": 2.5,
+   "side": "top"
+  },
+  {
+   "name": "led_key2",
+   "label": "0603 key LED",
+   "x": -23.5,
+   "z": -12.266770280378841,
+   "w": 1.6,
+   "d": 0.8,
+   "h": 0.55,
+   "side": "top"
+  },
+  {
+   "name": "sw_key3",
+   "label": "PTS815 (key 3)",
+   "x": 23.5,
+   "z": -15.666770280378842,
+   "w": 4.2,
+   "d": 3.2,
+   "h": 2.5,
+   "side": "top"
+  },
+  {
+   "name": "led_key3",
+   "label": "0603 key LED",
+   "x": 23.5,
+   "z": -12.266770280378841,
+   "w": 1.6,
+   "d": 0.8,
+   "h": 0.55,
+   "side": "top"
+  },
+  {
+   "name": "sw_key4",
+   "label": "PTS815 (key 4)",
+   "x": 37.5,
+   "z": -16.69999365529287,
+   "w": 4.2,
+   "d": 3.2,
+   "h": 2.5,
+   "side": "top"
+  },
+  {
+   "name": "led_key4",
+   "label": "0603 key LED",
+   "x": 37.5,
+   "z": -12.699993655292872,
+   "w": 1.6,
+   "d": 0.8,
+   "h": 0.55,
+   "side": "top"
+  },
+  {
+   "name": "led_status_L",
+   "label": "0603 status LED",
+   "x": -46.5,
+   "z": -16.697749824659184,
+   "w": 1.6,
+   "d": 0.8,
+   "h": 0.55,
+   "side": "top"
+  },
+  {
+   "name": "led_status_R",
+   "label": "0603 status LED",
+   "x": 46.5,
+   "z": -16.697749824659184,
+   "w": 1.6,
+   "d": 0.8,
+   "h": 0.55,
+   "side": "top"
+  },
+  {
+   "name": "oled_zif",
+   "label": "OLED FPC connector",
+   "x": 0.0,
+   "z": -23.0,
+   "w": 18.0,
+   "d": 4.0,
+   "h": 1.2,
+   "side": "bottom"
+  },
+  {
+   "name": "jst_top",
+   "label": "JST BM10B-SRSS-TB",
+   "x": -10.0,
+   "z": -13.65,
+   "w": 13.0,
+   "d": 4.3,
+   "h": 4.4,
+   "side": "bottom"
+  },
+  {
+   "name": "io_exp",
+   "label": "TCA9535PWR",
+   "x": 8.0,
+   "z": -16.0,
+   "w": 7.8,
+   "d": 6.4,
+   "h": 1.2,
+   "side": "bottom"
+  },
+  {
+   "name": "enc_left",
+   "label": "PEC12R encoder",
+   "x": -37.5,
+   "z": -16.697749824659184,
+   "w": 12.5,
+   "d": 13.4,
+   "h": 6.5,
+   "side": "bottom"
+  },
+  {
+   "name": "enc_right",
+   "label": "PEC12R encoder",
+   "x": 37.5,
+   "z": -16.697749824659184,
+   "w": 12.5,
+   "d": 13.4,
+   "h": 6.5,
+   "side": "bottom"
+  }
+ ],
+ "main_parts": [
+  {
+   "name": "sw_back",
+   "label": "PTS815 (Back)",
+   "x": -18.0,
+   "y": 17.4,
+   "w": 4.2,
+   "h": 3.2,
+   "t": 2.5,
+   "face": "front"
+  },
+  {
+   "name": "sw_function",
+   "label": "PTS815 (Function)",
+   "x": 0.0,
+   "y": 17.4,
+   "w": 4.2,
+   "h": 3.2,
+   "t": 2.5,
+   "face": "front"
+  },
+  {
+   "name": "sw_menu",
+   "label": "PTS815 (Menu)",
+   "x": 18.0,
+   "y": 17.4,
+   "w": 4.2,
+   "h": 3.2,
+   "t": 2.5,
+   "face": "front"
+  },
+  {
+   "name": "usb_c",
+   "label": "USB4105-GF-A",
+   "x": 9.0,
+   "y": -33.125,
+   "w": 8.94,
+   "h": 7.35,
+   "t": 3.16,
+   "face": "front"
+  },
+  {
+   "name": "trrs",
+   "label": "PJ-320D",
+   "x": 22.0,
+   "y": -30.0,
+   "w": 6.0,
+   "h": 12.0,
+   "t": 5.0,
+   "face": "front"
+  },
+  {
+   "name": "sw_power",
+   "label": "Side tact (TL1014)",
+   "x": -3.0,
+   "y": -33.8,
+   "w": 6.2,
+   "h": 3.6,
+   "t": 3.5,
+   "face": "front"
+  },
+  {
+   "name": "lamp_led",
+   "label": "3 mm white LED",
+   "x": 32.0,
+   "y": -34.5,
+   "w": 3.8,
+   "h": 5.3,
+   "t": 3.8,
+   "face": "front"
+  },
+  {
+   "name": "vib_motor",
+   "label": "Coin vibration motor",
+   "x": 32.0,
+   "y": -20.0,
+   "w": 8.0,
+   "h": 8.0,
+   "t": 2.7,
+   "face": "front"
+  },
+  {
+   "name": "esp32s3",
+   "label": "ESP32-S3-WROOM-1",
+   "x": -33.25,
+   "y": 5.0,
+   "w": 25.5,
+   "h": 18.0,
+   "t": 3.1,
+   "face": "back"
+  },
+  {
+   "name": "lr2021",
+   "label": "LR2021 module",
+   "x": 33.0,
+   "y": 3.0,
+   "w": 10.0,
+   "h": 10.0,
+   "t": 2.5,
+   "face": "back"
+  },
+  {
+   "name": "ufl",
+   "label": "U.FL",
+   "x": 31.0,
+   "y": 10.5,
+   "w": 3.0,
+   "h": 3.0,
+   "t": 1.25,
+   "face": "back"
+  },
+  {
+   "name": "codec",
+   "label": "NAU88C22YG",
+   "x": -6.0,
+   "y": -25.0,
+   "w": 5.0,
+   "h": 5.0,
+   "t": 0.9,
+   "face": "back"
+  },
+  {
+   "name": "charger",
+   "label": "Li-ion charger",
+   "x": -2.0,
+   "y": -31.5,
+   "w": 4.9,
+   "h": 3.9,
+   "t": 1.6,
+   "face": "back"
+  },
+  {
+   "name": "ldo",
+   "label": "3.3 V LDO",
+   "x": 20.0,
+   "y": -31.0,
+   "w": 3.0,
+   "h": 3.0,
+   "t": 1.2,
+   "face": "back"
+  },
+  {
+   "name": "jst_main",
+   "label": "JST SM10B-SRSS-TB",
+   "x": 8.0,
+   "y": 26.375,
+   "w": 13.0,
+   "h": 4.25,
+   "t": 2.9,
+   "face": "back"
+  },
+  {
+   "name": "pogo_1",
+   "label": "Mill-Max 0906 pogo",
+   "x": 6.0,
+   "y": -15.0,
+   "w": 1.8,
+   "h": 1.8,
+   "t": 3.7,
+   "face": "back"
+  },
+  {
+   "name": "pogo_2",
+   "label": "Mill-Max 0906 pogo",
+   "x": 12.0,
+   "y": -15.0,
+   "w": 1.8,
+   "h": 1.8,
+   "t": 3.7,
+   "face": "back"
+  },
+  {
+   "name": "pogo_3",
+   "label": "Mill-Max 0906 pogo",
+   "x": 18.0,
+   "y": -15.0,
+   "w": 1.8,
+   "h": 1.8,
+   "t": 3.7,
+   "face": "back"
+  }
+ ],
+ "main_pts": [
+  [
+   -13.0,
+   -36.0
+  ],
+  [
+   41.0,
+   -36.0
+  ],
+  [
+   41.0,
+   16.0
+  ],
+  [
+   21.0,
+   16.0
+  ],
+  [
+   21.0,
+   28.5
+  ],
+  [
+   -21.0,
+   28.5
+  ],
+  [
+   -21.0,
+   16.0
+  ],
+  [
+   -46.5,
+   16.0
+  ],
+  [
+   -46.5,
+   -14.3
+  ],
+  [
+   -13.0,
+   -14.3
+  ]
+ ],
+ "main_holes": {
+  "H1": [
+   -30.0,
+   -9.0
+  ],
+  "H2": [
+   38.0,
+   12.0
+  ],
+  "H3": [
+   -6.0,
+   25.5
+  ],
+  "H4": [
+   38.0,
+   -32.5
+  ],
+  "H5": [
+   -10.0,
+   -32.5
+  ]
+ },
+ "top_holes": [
+  [
+   -20.0,
+   -6.0
+  ],
+  [
+   -20.0,
+   -25.5
+  ],
+  [
+   20.0,
+   -6.0
+  ],
+  [
+   20.0,
+   -25.5
+  ]
+ ],
+ "end_screws": [
+  [
+   -46.241911491736936,
+   -6.279545398241083
+  ],
+  [
+   -46.241911491736936,
+   -27.115954251077284
+  ],
+  [
+   46.241911491736936,
+   -6.279545398241083
+  ],
+  [
+   46.241911491736936,
+   -27.115954251077284
+  ]
+ ],
+ "back_screws": {
+  "S1": [
+   -22.0,
+   25.0
+  ],
+  "S2": [
+   22.0,
+   25.0
+  ],
+  "S3": [
+   -30.0,
+   -9.0
+  ],
+  "S4": [
+   -41.0,
+   -33.0
+  ]
+ },
+ "keys": [
+  [
+   -37.5,
+   16.69999365529287,
+   13.0
+  ],
+  [
+   -23.5,
+   15.666770280378842,
+   10.0
+  ],
+  [
+   23.5,
+   15.666770280378842,
+   10.0
+  ],
+  [
+   37.5,
+   16.69999365529287,
+   13.0
+  ]
+ ],
+ "consts": {
+  "TP0": 31.6,
+  "TP1": 33.2,
+  "MZ0": -9.8,
+  "MZ1": -8.2,
+  "DZ": -16.697749824659184,
+  "DX": 37.5,
+  "R_B": 400.0,
+  "R_F": 430.0,
+  "Z_AX": -430.0,
+  "H": 77.0,
+  "W": 105.0,
+  "D0": 30.0,
+  "XLR_X": -24.0,
+  "XLR_Z": -15.695469519695934,
+  "USB_X": 9.0,
+  "TRRS_X": 22.0,
+  "PWR_X": -3.0,
+  "LAMP_X": 32.0,
+  "PACK": [
+   -13.5,
+   39.5,
+   -31.0,
+   15.0,
+   -13.5
+  ],
+  "GL_V0": 4.0,
+  "GL_V1": 27.0,
+  "AA_V": 13.65,
+  "ENC_Y0": 25.1,
+  "SHAFT_Y0": 16.6
+ }
+}

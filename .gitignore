@@ -1,0 +1,4 @@
+cad/out/brep/
+cad/out/*.zip
+__pycache__/
+*.pyc
