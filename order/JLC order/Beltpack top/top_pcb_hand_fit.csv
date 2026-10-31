@@ -22,7 +22,6 @@ D8,green,Lite-On LTST-C191KGKT,C125098,top,,
 ENC1,PEC12R,Alps EC11N1520402,C470704,bottom,,"Alps EC11, no switch, 30 detents / 15 pulses; fits the PEC12R footprint"
 ENC2,PEC12R,Alps EC11N1520402,C470704,bottom,,"Alps EC11, no switch, 30 detents / 15 pulses; fits the PEC12R footprint"
 J1,Main PCB link,JST BM10B-SRSS-TB,C160396,bottom,,
-J2,OLED FPC,Hirose FH12-30S-0.5SH(55),C506793,bottom,,
 R1,220,0603 1%,C22962,top,,
 R2,220,0603 1%,C22962,top,,
 R3,220,0603 1%,C22962,top,,

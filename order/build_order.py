@@ -73,7 +73,7 @@ OTHER = {
     "8 x 2.7 mm coin vibration motor, 3 V": "8 mm coin vibration motor, 3 V, flying leads (Core Electronics or AliExpress)",
     "Bourns PEC12R-4215F-N0024": "element14 AU / DigiKey (LCSC only has the -S0024 switch version, 28 in stock)",
 }
-NOT_A_PART = ("Neutrik",)                     # wire pads for panel connectors (bought with the case hardware)
+NOT_A_PART = ("Neutrik", "OLED panel tail")                     # wire pads for panel connectors (bought with the case hardware)
 
 def rank(p): return (p["attrs"].get("Basic/Extended") == "Basic", p["lib"] == "expand", p["stock"])
 def num(x):
@@ -268,7 +268,7 @@ OTHER_BUY = [  # supplier, part, qty, approx A$ each (None = varies), used on, n
     ("Core Electronics", "CE09458 915 MHz U.FL flex antenna, 15 x 65 mm, 200 mm lead", 4, 2.30, "Beltpack main J5, J6 (two per pack)", "Check 65 mm fits the pack ends"),
     ("Core Electronics or AliExpress", "8 mm coin vibration motor, 3 V, flying leads", 2, None, "Beltpack main M1", ""),
     ("AliExpress", "1.3 in 128x64 I2C OLED module (SH1106)", 1, None, "Base station", "Check its pin order is GND, VCC, SCL, SDA"),
-    ("AliExpress", "GME12864-110 OLED panel, 30-pin FPC", 2, None, "Beltpack top", "Check pin 1 and the tail direction"),
+    ("AliExpress (item 1005006789720033, colour \"sh1106 white\")", "1.3 in 128x64 OLED panel, SH1106, 30-pin 0.7 mm solder tail", 3, 1.79, "Beltpack top J2", "One spare. The tail solders straight to the board"),
     ("AliExpress", "JST SH 4-pin cable, 1.0 mm pitch, 40-60 mm, same-side (pin 1 to pin 1), pack of 10 (2 needed)", 1, 3.0, "Beltpack main J12 to the dock contact board", "Packs of 10, about A$3. Check with a meter"),
     ("Jaycar or element14 AU", "REAN 4-pin XLR panel connector (headset)", 2, 8.0, "Beltpack", ""),
     ("Your choice", "Beltpack Li-ion cells with a JST XH 2-pin plug", 2, None, "Beltpack J11", "Check the plug polarity: pin 1 must be +"),

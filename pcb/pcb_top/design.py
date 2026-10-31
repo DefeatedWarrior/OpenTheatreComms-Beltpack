@@ -44,25 +44,25 @@ comp("C1", "Device:C", "100n", C0603, {"1": "+3V3", "2": "GND"}, (120, 142), ("B
 comp("R9", "Device:R", "10k", R0603, {"1": "+3V3", "2": "INT_N"}, (22, 128), ("B", -12.2, -8.2, 0), "0603 1%", "INT pull-up")
 comp("R10", "Device:R", "4.7k", R0603, {"1": "+3V3", "2": "SDA"}, (34, 128), ("B", -8.6, -6.4, 0), "0603 1%", "I2C pull-up")
 comp("R11", "Device:R", "4.7k", R0603, {"1": "+3V3", "2": "SCL"}, (46, 128), ("B", -8.6, -8.2, 0), "0603 1%", "I2C pull-up")
-# ---------------------------------------------------------------- OLED (Seeed 1.3in 128x64 white FPC, GME12864-110, SH1106, I2C)
+# ---------------------------------------------------------------- OLED (1.3in 128x64 30-pin panel, SH1106, I2C, 0.7 mm solder tail)
 oled = {1: "GND", 2: "C2P", 3: "C2N", 4: "C1P", 5: "C1N", 6: "+3V3", 7: None, 8: "GND", 9: "+3V3", 10: "GND", 11: "+3V3",
         12: "GND", 13: "GND", 14: "OLED_RES_N", 15: "GND", 16: "GND", 17: "GND", 18: "SCL", 19: "SDA", 20: "SDA",
         21: "GND", 22: "GND", 23: "GND", 24: "GND", 25: "GND", 26: "IREF", 27: "VCOMH", 28: "VCC_OLED", 29: "GND", 30: "GND"}
-# The panel tail leaves the glass toward the back edge and folds round the notch, which keeps every contact at the same X.
-# FH12 on the B side (rot 0, entry toward +Y) puts its pad 1 at -X. With the panel's pin 1 at +X (on the left when the
+# The panel tail leaves the glass toward the back edge and folds round the notch, which keeps every contact at the same X,
+# and is soldered flat onto 30 pads on B (0.7 mm pitch, lib/OpenTheatreComms.pretty, written by make_lib.py). Pad 1 is at -X. With the panel's pin 1 at +X (on the left when the
 # panel is viewed face up with the tail toward you), panel pin k lands on pad 31 - k. Set False if your panel is the other way.
 OLED_PIN1_AT_PLUS_X = True
 def oled_pad(k): return 31 - k if OLED_PIN1_AT_PLUS_X else k
-comp("J2", "Connector_Generic:Conn_01x30", "OLED FPC", "Connector_FFC-FPC:Hirose_FH12-30S-0.5SH_1x30-1MP_P0.50mm_Horizontal",
-     {str(oled_pad(k)): v for k, v in oled.items()}, (192, 165), ("B", 0.0, 5.8, 0), "Hirose FH12-30S-0.5SH(55)",
-     "30-pin 0.5 mm ZIF for the OLED panel FPC. Pin map per the GME12864-110 datasheet; I2C (BS2..0 = 010), address 0x3C")
-comp("C2", "Device:C", "0.22u", C0603, {"1": "C1P", "2": "C1N"}, (222, 138), ("B", 6.4, 1.2, 180), "0603 X7R 25 V", "SH1106 charge-pump flying cap")
-comp("C3", "Device:C", "0.22u", C0603, {"1": "C2P", "2": "C2N"}, (234, 138), ("B", 9.8, 1.2, 180), "0603 X7R 25 V", "SH1106 charge-pump flying cap")
-comp("C4", "Device:C", "4.7u", C0603, {"1": "VCC_OLED", "2": "GND"}, (222, 168), ("B", -11.4, 1.7, 0), "0603 X5R 25 V", "VPP (OLED drive) reservoir")
-comp("C5", "Device:C", "4.7u", C0603, {"1": "VCOMH", "2": "GND"}, (234, 168), ("B", -8.0, 1.7, 0), "0603 X5R 25 V", "VCOMH")
+comp("J2", "Connector_Generic:Conn_01x30", "OLED tail", "OpenTheatreComms:OLED_Tail_30P_0.7mm_Solder",
+     {str(oled_pad(k)): v for k, v in oled.items()}, (192, 165), ("B", 0.0, 5.5, 0), "OLED panel tail soldered to pads (no part)",
+     "Solder pads for the panel's 30-lead tail (0.7 mm pitch). Standard 1.3 in SH1106 30-pin pin map; I2C (BS2..0 = 010), address 0x3C")
+comp("C2", "Device:C", "0.22u", C0603, {"1": "C1P", "2": "C1N"}, (222, 138), ("B", 8.5, 1.2, 180), "0603 X7R 25 V", "SH1106 charge-pump flying cap")
+comp("C3", "Device:C", "0.22u", C0603, {"1": "C2P", "2": "C2N"}, (234, 138), ("B", 11.9, 1.2, 180), "0603 X7R 25 V", "SH1106 charge-pump flying cap")
+comp("C4", "Device:C", "4.7u", C0603, {"1": "VCC_OLED", "2": "GND"}, (222, 168), ("B", -13.5, 1.7, 0), "0603 X5R 25 V", "VPP (OLED drive) reservoir")
+comp("C5", "Device:C", "4.7u", C0603, {"1": "VCOMH", "2": "GND"}, (234, 168), ("B", -10.1, 1.7, 0), "0603 X5R 25 V", "VCOMH")
 comp("C6", "Device:C", "4.7u", C0603, {"1": "+3V3", "2": "GND"}, (246, 168), ("B", 7.8, -0.6, 0), "0603 X5R 10 V", "Charge-pump supply (VBAT pin)")
 comp("C7", "Device:C", "1u", C0603, {"1": "+3V3", "2": "GND"}, (258, 168), ("B", 3.0, 1.7, 0), "0603 X5R 10 V", "Logic supply (VDD pin)")
-comp("R12", "Device:R", "510k", R0603, {"1": "IREF", "2": "GND"}, (246, 138), ("B", -4.6, 1.7, 0), "0603 1%", "Segment current reference, about 12.5 uA")
+comp("R12", "Device:R", "510k", R0603, {"1": "IREF", "2": "GND"}, (246, 138), ("B", -6.7, 1.7, 0), "0603 1%", "Segment current reference, about 12.5 uA")
 # ---------------------------------------------------------------- dials: Alps EC11N (PEC12R footprint) with the datasheet RC filter on A and B
 for e, (x, y) in enumerate(ENC):
     side = "L" if x < 0 else "R"; n = e + 1; sy = 118 + e * 50

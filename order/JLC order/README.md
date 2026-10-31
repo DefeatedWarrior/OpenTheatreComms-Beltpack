@@ -47,7 +47,7 @@ Upload `LCSC_cart_upload.csv` to LCSC's BOM tool (two columns: LCSC part number,
 `LCSC_cart_hand_parts.csv` to see what each line is for. Place it from JLC's parts manager, or tick "ship with JLCPCB
 order", so it travels in the same box as the boards.
 
-- **Size and cost:** 76 lines, **about A$138**, including the base antennas. Everything ships from stock.
+- **Size and cost:** 75 lines, **about A$135**, including the base antennas. Everything ships from stock.
 - **Quantities and spares:** already rounded up to LCSC's minimum and multiple. Small parts include spares: +20% or at
   least 2 for passives, +1 for other parts under US$1. The accelerometer, fuel gauge and codec get one spare each,
   because they're the easiest to ruin.
@@ -83,7 +83,7 @@ Each board folder has a `*_hand_fit.csv` listing every part on that board, and w
 | 8 mm coin vibration motor, 3 V | 2 | Core Electronics (same order as the antennas), AliExpress |
 | 1.3 in 128x64 I2C OLED module (SH1106), base | 1 | AliExpress. Check its pin order is GND, VCC, SCL, SDA |
 | Beltpack Li-ion cells with a JST XH 2-pin plug | 2 | Your choice. Check the plug polarity: J11 pin 1 is + |
-| GME12864-110 OLED panel (beltpack top, 30-pin FPC) | 2 | AliExpress |
+| 1.3 in 128x64 OLED panel, SH1106, 30-pin 0.7 mm solder tail (beltpack top) | 3 (one spare) | AliExpress item 1005006789720033, colour "sh1106 white", A$1.79 each |
 | JST SH 4-pin cable, 1.0 mm pitch, 40–60 mm, beltpack J12 to the dock contact board, wired pin 1 to pin 1 (check with a meter: they come straight and reversed) | 2 | AliExpress (packs of 10, about A$3) |
 | **REAN** XLR-4 panel connector (headset), beltpacks | 2 | Jaycar, element14 AU (about A$8) |
 | Beltpack cells | per the enclosure | |
@@ -109,10 +109,14 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
    - Then fit the LR2021 module, SMAs, sockets, switches, encoder and DC jack.
 2. **Beltpack top, about 1–1.25 hours each.**
    - Paste and place the top side (resistors, LEDs, PTS815 buttons) and reflow on the hot plate.
-   - Flip the board onto spare boards, paste the bottom with low-temp paste, place the parts (TCA9555, FPC connector,
+   - Flip the board onto spare boards, paste the bottom with low-temp paste, place the parts (TCA9555,
      link connector, caps) and reflow with hot air.
    - Hand-solder the encoders. Clip off each EC11N's two dummy pins first (the unused switch positions, 7 mm past the
      mounting tabs): the footprint has no holes for them.
+   - **OLED last, by iron.** The pads have no paste and must stay off the hot plate: the panel can't take reflow heat.
+     Tin the 30 pads on the bottom side (labelled 1 and 30), lay the panel face up on the top side, wrap its tail
+     round the notch in the back edge, line up the tail's two alignment marks with the circles on the silkscreen, then
+     drag-solder with plenty of flux. Check for bridges with a meter: pins 18 to 20 are I2C, the rest are mostly ground.
 3. **Beltpack main, about 3–3.5 hours each.**
    - **Bottom side first, on the hot plate.** Paste and place the accelerometer, codec, fuel gauge, antenna switch,
      TCA9555, the regulators and their passives, the U.FLs, the vertical dock socket J12 (bottom edge) and its diode D12,
@@ -140,7 +144,8 @@ shows no errors. These checks are yours, because they depend on parts in your ha
 1. **Base station NANO sockets.** Print `base_pcb_print_1to1.pdf` from the base station fab folder (`beltpack_boards_v7/kicad_proj/base_pcb/fab`) at 100 % scale on A4. Push two loose
    sockets into a NANO and check they land on the hole marks.
 2. **Base station OLED pin order** on the module you buy (see section 3).
-3. **Beltpack top OLED panel:** pin 1 and the direction the FPC tail leaves the panel.
+3. **Beltpack top OLED panel:** when it arrives, check its pin 1 is on the left with the panel face up and the tail toward you,
+   as on the listing's drawing.
 4. **Battery plug polarity:** J11 pin 1 is +. Check your cells' plugs with a meter.
 5. **Schematic values:** a read-through of each schematic PDF, especially the charger's NTC and R5.
 6. **Gerbers in JLC's viewer** when you upload: one last look at each board.
@@ -153,13 +158,13 @@ path and the encoder shafts.
 | Where | What | Approx. A$ |
 |---|---|---|
 | JLCPCB | 5 board types (5 of each; ENIG on the pack lid and dock contacts), 5 stencils, shipping | 150 |
-| LCSC | every part and the base antennas, shipped with the JLC boards | 143 |
+| LCSC | every part and the base antennas, shipped with the JLC boards | 140 |
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |
 | Core Electronics | 4 flex antennas, 2 coin motors, shipping | 25 |
 | AliExpress | 1.3 in OLED module and 2 beltpack OLED panels | 25 |
 | REAN XLRs | 2 headset connectors for the packs | 16 |
-| **Total** | | **about A$445** |
+| **Total** | | **about A$440** |
 
 Not included: paste and tools, beltpack cells, enclosures and the optional PoE module (about A$15). The JLC line is an
 estimate until you see JLC's quote.

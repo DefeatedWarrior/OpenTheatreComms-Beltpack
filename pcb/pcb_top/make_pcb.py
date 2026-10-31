@@ -30,6 +30,8 @@ pro["net_settings"]["netclass_patterns"] = [{"netclass": "Power", "pattern": "+3
 pro["meta"]["filename"] = "top_pcb.kicad_pro"
 os.makedirs(PROJ, exist_ok=True)
 json.dump(pro, open(os.path.join(PROJ, "top_pcb.kicad_pro"), "w"), indent=2)
+shutil.copytree(os.path.join(HERE, "lib"), os.path.join(PROJ, "lib"), dirs_exist_ok=True)     # the OLED tail pads
+open(os.path.join(PROJ, "fp-lib-table"), "w").write('(fp_lib_table\n  (version 7)\n  (lib (name "OpenTheatreComms")(type "KiCad")(uri "${KIPRJMOD}/lib/OpenTheatreComms.pretty")(options "")(descr "Top PCB parts"))\n)\n')
 
 # ------------------------------------------------------------------ schematic netlist (pad -> net) and symbol uuids
 netl = parse(open(os.path.join(OUT, "top_pcb.net")).read())[0]
@@ -58,7 +60,7 @@ for c in C:
     lib, name = c["fp"].split(":")
     if c["ref"] in existing: fp = existing[c["ref"]]                 # the template's mounting holes
     else:
-        fp = pcbnew.FootprintLoad(os.path.join(FPLIB, lib + ".pretty"), name)
+        fp = pcbnew.FootprintLoad(os.path.join(HERE, "lib", lib + ".pretty") if lib == "OpenTheatreComms" else os.path.join(FPLIB, lib + ".pretty"), name)
         fp.SetFPID(pcbnew.LIB_ID(lib, name)); b.Add(fp)
         put(fp, side, x, y, rot)
     fp.SetReference(c["ref"]); fp.SetValue(c["value"])
@@ -80,21 +82,20 @@ for c in C:
 
 # orientation checks for the parts whose direction matters
 j2 = fps["J2"]
-assert padxy(j2, "MP")[0][1] > padxy(j2, "1")[0][1], "J2 entry must face the back edge"
 assert padxy(j2, "1")[0][0] < 0, "J2 pad 1 expected at -X (design.oled_pad assumes it)"
 for e in ("ENC1", "ENC2"):
     sh = padxy(fps[e], "SH"); assert padxy(fps[e], "C")[0][1] < sh[0][1] - 5, e + " pins should face the front"
 assert padxy(fps["J1"], "1")[0][1] > padxy(fps["J1"], "MP")[0][1], "J1 pin row should face the back"
-j2.SetZoneConnection(pcbnew.ZONE_CONNECTION_FULL)                    # GND pads join the B pour under the connector body
+j2.SetZoneConnection(pcbnew.ZONE_CONNECTION_FULL)                    # GND pads join the B pour (the GND bar between the pads and the notch)
 for pad in fps["U1"].Pads():                                            # fine-pitch GND pins: solid to the pour
     if pad.GetNetname() == "GND": pad.SetZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
 
-# no tracks under the FPC connector body on B: the pour there becomes a GND bar joining the back ends of its GND pads
+# no tracks between the tail pads and the notch on B: the pour there becomes a GND bar joining the back ends of its GND pads
 ra = pcbnew.ZONE(b); ra.SetIsRuleArea(True); ra.SetLayer(pcbnew.B_Cu); ra.SetZoneName("J2 GND bar")
 ra.SetDoNotAllowTracks(True); ra.SetDoNotAllowVias(False); ra.SetDoNotAllowCopperPour(False)
 ra.SetDoNotAllowPads(False); ra.SetDoNotAllowFootprints(False)
 ol = ra.Outline(); ol.NewOutline()
-for x, y in ((-9.0, 4.75), (9.0, 4.75), (9.0, 6.3), (-9.0, 6.3)): ol.Append(MM(float(150 + x)), MM(float(105 - y)))
+for x, y in ((-10.6, 6.4), (10.6, 6.4), (10.6, 8.6), (-10.6, 8.6)): ol.Append(MM(float(150 + x)), MM(float(105 - y)))
 b.Add(ra)
 
 # silkscreen: the stacked status LEDs' outlines touch; keep the outline on the red one only (polarity is on the assembly drawing)
@@ -160,9 +161,9 @@ for fp in b.GetFootprints():
     for pad in fp.Pads():
         if pad.GetNetname() == "GND" and pad.GetAttribute() == pcbnew.PAD_ATTRIB_SMD:
             if fanout(pad, L) is None: skipped.append(f"{fp.GetReference()}.{pad.GetNumber()}")
-# J2: the GND pads join a B-side copper area under the connector body; stitch it to the F pour
-for vx in (-6.5, -2.5, 2.5, 6.5):
-    if cu.via_ok(vx, 5.55, "GND"): cu.add_track(add_via(vx, 5.55, GND))
+# J2: the GND pads join the B-side GND bar above them; stitch it to the F pour
+for vx in (-9.0, -6.0, -2.5, 2.5, 6.0, 9.0):
+    if cu.via_ok(vx, 7.9, "GND"): cu.add_track(add_via(vx, 7.9, GND))
 print("fanout skipped:", skipped)
 b.Save(os.path.join(OUT, "placed.kicad_pcb"))
 dsn = os.path.join(OUT, "top_pcb.dsn")
