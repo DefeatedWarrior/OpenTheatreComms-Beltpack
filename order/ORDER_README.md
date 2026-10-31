@@ -18,9 +18,9 @@ This order covers **2 beltpacks + 1 base station**. The 4-slot charging dock com
 
 | Folder | Board settings | Stencil (in the same PCB order) |
 |---|---|---|
-| `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | **Top and bottom**, as two small stencils (100 x 100 mm option) |
-| `Beltpack top` | 2 layers, 1.6 mm, **HASL lead-free**, qty 5 | **Top and bottom**, as two small stencils, or one sheet if JLC accepts both sides in 100 x 100 mm |
-| `Base station` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | **Top only**, standard frameless stencil (the board is too big for the small option) |
+| `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, **0.10 mm** (the 0.4 mm QFN and the LGA need the thinner foil) |
+| `Beltpack top` | 2 layers, 1.6 mm, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, 0.12 mm |
+| `Base station` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top only**, 0.12 mm |
 | `Beltpack pack lid` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (its pads are spring contacts: gold stays clean) | none |
 | `Beltpack dock contacts` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (dock spring pins land on its pads) | none (one SMD socket, iron it) |
 
@@ -35,8 +35,9 @@ This order covers **2 beltpacks + 1 base station**. The 4-slot charging dock com
 Upload each `*_gerbers.zip` and set the options above. Each zip carries both sides' paste layers, with paste on every SMD
 pad, unfitted ones included. Don't turn on PCB Assembly.
 
-**Stencil costs:** small stencils are US$3 each, and the base station's standard stencil is about US$7. That's about A$27
-in all.
+**Stencils:** three frameless 380 x 280 mm sheets, about US$7 each (about A$30 in all). "Top + Bottom on a single stencil" cuts
+both sides of a board side by side on one sheet: print one side, flip the board, print the other. The pack lid and dock
+contact boards need no stencil.
 
 **Not needed any more:** the MAX17048 pre-order, the JLC rotation preview and the extended-part fees. All of those went
 with JLC's assembly.
@@ -157,7 +158,7 @@ path and the encoder shafts.
 
 | Where | What | Approx. A$ |
 |---|---|---|
-| JLCPCB | 5 board types (5 of each; ENIG on the pack lid and dock contacts), 5 stencils, shipping | 150 |
+| JLCPCB | 5 board types (5 of each; ENIG on the pack lid and dock contacts), 3 stencils, shipping | 150 |
 | LCSC | every part and the base antennas, shipped with the JLC boards | 140 |
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |
