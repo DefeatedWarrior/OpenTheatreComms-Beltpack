@@ -1,7 +1,8 @@
 # Base station carrier PCB, rev 0.1
 
 The OpenTheatreComms base station: a carrier for the Waveshare ESP32-P4-NANO with the beltpack's LR2021 radio, a DC input,
-the front-panel controls and an optional audio section. The NANO brings Ethernet (for AES67), USB-C and an optional PoE
+and the front-panel controls. It has no audio of its own: the operator's headset is a beltpack plugged into the NANO's
+USB-C (or USB-A) port, which the base runs as its local station. The NANO brings Ethernet (for AES67), USB and an optional PoE
 module; the carrier brings everything else.
 
 ![Preview](fab/base_pcb_preview.png)
@@ -19,11 +20,11 @@ module; the carrier brings everything else.
 |---|---|
 | NANO: RJ45 (PoE with Waveshare's module) and USB-A | OLED module (1.3 in, 128x64, I2C SH1106) on a 4-pin socket |
 | DC jack, 7-24 V, 5.5 x 2.1 mm, centre + | Menu and Back keys, menu dial (EC11 with push) |
-| 4-wire wire pads: line in (XLR-3F), line out (XLR-3M) | Four talk keys (12 mm), each with an RGB channel light |
+| | Four talk keys (12 mm), each with an RGB channel light |
 | SMA antenna B, SMA antenna A (915 MHz), Molex 73251-2120 edge jacks | Row of eight RGB beltpack lights |
 
-The local headset (XLR-4 male, Clear-Com wiring) wires to pads J6 on the left edge. The NANO's USB-C points toward the
-front, under the case lid: it's for flashing, so the case needs a slot or a removable lid there.
+The NANO's USB-C points toward the front, under the case lid. It's both the flashing port and where the operator's
+beltpack plugs in, so the case needs an opening there (or a short USB-C extension to the front panel).
 
 Lights: twelve WS2812B-Mini-V3J (3.5 x 3.5 mm, JLC-assembled) on one 5 V data chain from GPIO32 through the 74AHCT1G125 shifter: channel lights 1-4 first, then pack lights 1-8.
 
@@ -35,7 +36,7 @@ Any of three sources powers the station, and they can be connected together:
 2. **PoE** (802.3af): Waveshare's PoE module plugs onto the NANO's PoE header and feeds its 5 V rail.
 3. **DC jack** (7-24 V): SS34 reverse protection, SMAJ26A clamp, AP63205 5 V 2 A buck, then SS34 D2 onto the NANO's 5 V rail.
 
-The carrier takes its 5 V from that rail (header pins L2, L4, R1) and makes its own 3.3 V with a TLV75733 (radio, codec,
+The carrier takes its 5 V from that rail (header pins L2, L4, R1) and makes its own 3.3 V with a TLV75733 (radio,
 expander, OLED). The NANO's own 3.3 V is left to the NANO.
 
 ## NANO pin map
@@ -45,15 +46,15 @@ expander, OLED). The NANO's own 3.3 V is left to the NANO.
 | 7 / 8 | L3 / L5 | I2C SDA / SCL (shared with the NANO's ES8311 at 0x18) | 20 / 21 / 22 / 23 | L13 / L15 / L16 / L7 | LR2021 NSS / SCK / MOSI / MISO |
 | 5 | L11 | LR2021 BUSY | 4 | L12 | LR2021 DIO6 (IRQ) |
 | 3 | R9 | LR2021 NRESET | 2 | R11 | Antenna switch (high = A) |
-| 33 / 46 / 47 / 48 / 6 | L24 / R17 / R15 / R16 / R12 | I2S MCLK / BCLK / FS / DOUT (to codec) / DIN (from codec) | 24 / 25 | L18 / L19 | Dial A / B |
+| 33 / 46 / 47 / 48 / 6 | L24 / R17 / R15 / R16 / R12 | Free (were the codec's I2S) | 24 / 25 | L18 / L19 | Dial A / B |
 | 26 | L21 | Expander interrupt | 32 | L23 | RGB light data (via a 5 V level shifter) |
 | 27 | L22 | Spare (test pad TP1) | | | |
 
 Left unconnected because the NANO uses them: GPIO 0/1 (32 kHz crystal option), 37/38 (UART0, the USB-C serial port),
 36 (strapping), 45 (SD power), 53 (its speaker amplifier), 54 and the C6 lines (its Wi-Fi chip).
 
-I2C addresses: NANO's ES8311 0x18, NAU88C22 codec 0x1A, TCA9555 expander 0x21, OLED 0x3C.
-Expander: P00-P03 talk keys 1-4, P04 Menu, P05 Back, P06 dial push, P07 headset sense, P10 LR2021 DIO5, P11 LR2021 TX/RX enable.
+I2C addresses: NANO's ES8311 0x18, TCA9555 expander 0x21, OLED 0x3C.
+Expander: P00-P03 talk keys 1-4, P04 Menu, P05 Back, P06 dial push, P07 free, P10 LR2021 DIO5, P11 LR2021 TX/RX enable.
 
 ## Radio
 
@@ -63,16 +64,6 @@ In1 ground (about 50 ohm on JLC's 7628 stack). The 2.4 GHz port has a footprint-
 
 Radio capacity, for the firmware: eight beltpack uplinks plus four channel mixes downlink at Opus 24 kbps is about
 300 kbps of audio, well inside the LR2021's 915 MHz FLRC rates, so one radio covers 8 packs on 4 channels with TDMA.
-
-## Audio (optional)
-
-Leave the whole Audio block unfitted for a radio-only station. Fitted, the NAU88C22 gives:
-
-- **Local headset** (XLR-4, front): dynamic mic into the left mic input, earpiece on the BTL speaker outputs. For headsets
-  with pin 3 tied to pin 1, swap R17 for a 100 uF 1206, remove R18 and fit R19.
-- **4-wire in** (XLR-3F, rear): balanced, through a 10k/4.7k/10k pad (about 12 dB down for +4 dBu lines) into the right
-  mic pair. For low-level sources fit 0 ohm in R20/R21 and remove R22.
-- **4-wire out** (XLR-3M, rear): the headphone pair driven as a balanced (BTL) line, through 10 uF and 100 ohm per leg.
 
 ## Check before ordering
 

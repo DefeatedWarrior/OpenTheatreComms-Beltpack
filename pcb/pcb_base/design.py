@@ -37,9 +37,9 @@ def TP(ref, net, block, near=None, pcb=None):
 B = "NANO"
 NANO_L = {1: "NANO_3V3", 2: "+5V", 3: "I2C_SDA", 4: "+5V", 5: "I2C_SCL", 6: "GND", 7: "LR_MISO", 8: None, 9: "GND", 10: None,
           11: "LR_BUSY", 12: "LR_DIO6", 13: "LR_NSS", 14: "GND", 15: "LR_SCK", 16: "LR_MOSI", 17: "NANO_3V3", 18: "ENC_A", 19: "ENC_B",
-          20: "GND", 21: "EXP_INT_N", 22: "P4_IO27", 23: "LED_DIN", 24: "I2S_MCLK", 25: "GND", 26: None}
+          20: "GND", 21: "EXP_INT_N", 22: "P4_IO27", 23: "LED_DIN", 24: None, 25: "GND", 26: None}
 NANO_R = {1: "+5V", 2: None, 3: "GND", 4: "GND", 5: "NANO_3V3", 6: None, 7: "GND", 8: None, 9: "LR_NRESET", 10: "GND", 11: "RF_CTRL",
-          12: "I2S_DIN", 13: None, 14: None, 15: "I2S_FS", 16: "I2S_DOUT", 17: "I2S_BCLK", 18: "GND", 19: None, 20: None, 21: None,
+          12: None, 13: None, 14: None, 15: None, 16: None, 17: None, 18: "GND", 19: None, 20: None, 21: None,
           22: None, 23: None, 24: None, 25: "GND", 26: "GND"}
 nano = {f"L{k}": v for k, v in NANO_L.items()} | {f"R{k}": v for k, v in NANO_R.items()}
 NX, NY = -41.5, YR - 1.64 - 25.0                     # NANO centre: its RJ45 (1.64 mm past its edge) flush with the rear edge
@@ -123,7 +123,7 @@ comp("J4", "Connector:Conn_Coaxial", "2.4 GHz", "Connector_Coaxial:U.FL_Hirose_U
 # =============================================================== UI: OLED header, encoder, talk keys, RGB status lights, IO expander
 B = "UI"
 tca = {"~{INT}": "EXP_INT_N", "A0": "+3V3", "A1": "GND", "A2": "GND", "SCL": "I2C_SCL", "SDA": "I2C_SDA", "VCC": "+3V3", "GND": "GND",
-       "P00": "KEY1", "P01": "KEY2", "P02": "KEY3", "P03": "KEY4", "P04": "KEY_MENU", "P05": "KEY_BACK", "P06": "ENC_SW", "P07": "HS_DET",
+       "P00": "KEY1", "P01": "KEY2", "P02": "KEY3", "P03": "KEY4", "P04": "KEY_MENU", "P05": "KEY_BACK", "P06": "ENC_SW", "P07": None,
        "P10": "LR_DIO5", "P11": "LR_TXRX_EN", "P12": None, "P13": None, "P14": None, "P15": None, "P16": None, "P17": None}
 comp("U6", "Interface_Expansion:TCA9555PWR", "TCA9555PWR", "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm", tca, B, pcb=("F", 30.0, -3.0, 0),
      mpn="TI TCA9555PWR", desc="IO expander at 0x21 (A0 high): keys, encoder push, headset sense, radio DIO5 and TX/RX enable")
@@ -161,60 +161,6 @@ for i, (ref, x, y, d) in enumerate(LEDS):
          mpn="Worldsemi WS2812B-Mini-V3J", desc=f"{d} light, under a light pipe")
     Cap(f"C{26 + i}", "100n", "+5V", "GND", B, near=(ref, "1", "F"))
 
-# =============================================================== AUDIO (optional): codec, local XLR-4 headset, 4-wire line in and out
-# Fit only if wanted: everything in this block is a normal part, but the station works without it.
-B = "Audio"
-cod = {"1": "MICL_P", "2": "MICL_N", "3": None, "4": "LINE_IN_P", "5": "LINE_IN_N", "6": None, "7": "I2S_FS", "8": "I2S_BCLK", "9": "I2S_DIN",
-       "10": "I2S_DOUT", "11": "I2S_MCLK", "12": "GND", "13": "+3V3", "14": "+3V3", "15": "GND", "16": "I2C_SCL", "17": "I2C_SDA", "18": "GND",
-       "19": None, "20": None, "21": None, "22": None, "23": "SPK_P", "24": "GND", "25": "SPK_N", "26": "+3V3", "27": "COD_VREF", "28": "GND",
-       "29": "LINE_OUT_P", "30": "LINE_OUT_N", "31": "VDDA_COD", "32": "MICBIAS", "33": "GND"}
-comp("U8", "OpenTheatreComms:NAU88C22", "NAU88C22", "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm_ThermalVias", cod, B,
-     pcb=("F", 15.0, 6.0, 0), mpn="Nuvoton NAU88C22YG",
-     desc="Codec, I2C 0x1A, MODE low = 2-wire. Headset mic left, 4-wire in right (differential), earpiece on the BTL speaker pair, 4-wire out on the headphone pair (BTL)")
-comp("FB2", "Device:FerriteBead_Small", "600R", "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder", {"1": "+3V3", "2": "VDDA_COD"}, B,
-     near=("U8", "31", "F"), mpn="600R 0603 ferrite bead (Sunlord GZ1608D601TF or equal)")
-Cap("C38", "10u", "VDDA_COD", "GND", B, near=("U8", "31", "F"))
-Cap("C39", "100n", "VDDA_COD", "GND", B, near=("U8", "31", "F"))
-Cap("C40", "4.7u", "+3V3", "GND", B, near=("U8", "13", "F"), desc="Codec VDDC/VDDB bulk (datasheet: 4.7u + 0.1u per supply)")
-Cap("C41", "100n", "+3V3", "GND", B, near=("U8", "14", "F"))
-Cap("C42", "10u", "+3V3", "GND", B, near=("U8", "26", "F"))
-Cap("C43", "100n", "+3V3", "GND", B, near=("U8", "26", "F"))
-Cap("C44", "4.7u", "COD_VREF", "GND", B, near=("U8", "27", "F"))
-Cap("C45", "4.7u", "MICBIAS", "GND", B, near=("U8", "32", "F"), desc="MICBIAS filter (datasheet: 4.7u)")
-# local headset, XLR-4 male on the front panel, Clear-Com wiring: 1 mic common, 2 mic +, 3 earpiece -, 4 earpiece +; pad 5 = shell
-comp("J6", "Connector_Generic:Conn_01x05", "Headset XLR-4", "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical",
-     {"1": "GND", "2": "XLR_MIC", "3": "XLR_EAR_N", "4": "XLR_EAR_P", "5": "GND"}, B, pcb=("F", -72.5, -20.0, 0),
-     mpn="Neutrik NC4MD-L-1 (panel, wired)", desc="Wire pads for the front-panel XLR-4 male: 1 mic common, 2 mic +, 3 ear -, 4 ear +, 5 shell")
-for ref, net, pin in (("D5", "XLR_MIC", "2"), ("D6", "XLR_EAR_N", "3"), ("D7", "XLR_EAR_P", "4")):
-    comp(ref, "Device:D_TVS", "PESD5V0S1BA", SOD323, {"1": net, "2": "GND"}, B, near=("J6", pin, "F"), mpn=TVS, desc="Headset ESD")
-Cap("C46", "1u", "XLR_MIC", "MICL_N", B, near=("U8", "2", "F"), desc="Headset mic AC coupling")
-Cap("C47", "1u", "MICL_P", "GND", B, near=("U8", "1", "F"), desc="Pseudo-differential reference")
-R("R15", "0", "XLR_MIC", "HS_DET", B, near=("J6", "2", "F"), dnp=True, desc="Headset sense (unfitted): reads the mic line through R16")
-R("R16", "100k", "+3V3", "HS_DET", B, near=("U6", "11", "F"), desc="Headset sense pull-up")
-R("R17", "0", "SPK_P", "XLR_EAR_P", B, near=("U8", "23", "F"), fp=R1206, mpn="1206 0R", desc="BTL link (or a 100u 1206 cap for single-ended)")
-R("R18", "0", "SPK_N", "XLR_EAR_N", B, near=("U8", "25", "F"), desc="BTL link (remove for single-ended)")
-R("R19", "0", "XLR_EAR_N", "GND", B, near=("J6", "3", "F"), desc="Single-ended option: earpiece - to ground", dnp=True)
-# 4-wire: balanced line in (XLR-3 female) into the right mic pair, balanced line out (XLR-3 male) from the headphone pair (BTL)
-comp("J7", "Connector_Generic:Conn_01x03", "4-wire in", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
-     {"1": "GND", "2": "FW_IN_P", "3": "FW_IN_N"}, B, pcb=("F", 10.0, 41.5, 90),
-     mpn="Neutrik NC3FD-L-1 (panel, wired)", desc="Wire pads for the rear XLR-3 female 4-wire input: 1 ground, 2 hot, 3 cold")
-comp("J8", "Connector_Generic:Conn_01x03", "4-wire out", "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
-     {"1": "GND", "2": "FW_OUT_P", "3": "FW_OUT_N"}, B, pcb=("F", 22.0, 41.5, 90),
-     mpn="Neutrik NC3MD-L-1 (panel, wired)", desc="Wire pads for the rear XLR-3 male 4-wire output: 1 ground, 2 hot, 3 cold")
-for ref, net, j, pin in (("D8", "FW_IN_P", "J7", "2"), ("D9", "FW_IN_N", "J7", "3"), ("D10", "FW_OUT_P", "J8", "2"), ("D11", "FW_OUT_N", "J8", "3")):
-    comp(ref, "Device:D_TVS", "PESD5V0S1BA", SOD323, {"1": net, "2": "GND"}, B, near=(j, pin, "F"), mpn=TVS, desc="4-wire ESD")
-R("R20", "10k", "FW_IN_P", "FW_IN_PR", B, near=("J7", "2", "F"), desc="Line input pad: with R22, about 12 dB down for +4 dBu lines")
-R("R21", "10k", "FW_IN_N", "FW_IN_NR", B, near=("J7", "3", "F"))
-R("R22", "4.7k", "FW_IN_PR", "FW_IN_NR", B, near=("J7", "2", "F"), desc="Line input pad shunt (fit 0R in R20/R21 and remove this for low-level sources)")
-Cap("C48", "1u", "FW_IN_PR", "LINE_IN_P", B, near=("U8", "4", "F"), desc="4-wire input AC coupling")
-Cap("C49", "1u", "FW_IN_NR", "LINE_IN_N", B, near=("U8", "5", "F"), desc="4-wire input AC coupling")
-Cap("C50", "10u", "LINE_OUT_P", "FW_OUT_PR", B, near=("U8", "29", "F"), desc="4-wire output DC block")
-Cap("C51", "10u", "LINE_OUT_N", "FW_OUT_NR", B, near=("U8", "30", "F"), desc="4-wire output DC block")
-R("R23", "100", "FW_OUT_PR", "FW_OUT_P", B, near=("J8", "2", "F"), desc="Output build-out resistor")
-R("R24", "100", "FW_OUT_NR", "FW_OUT_N", B, near=("J8", "3", "F"), desc="Output build-out resistor")
-R("R25", "10k", "FW_OUT_P", "GND", B, near=("J8", "2", "F"), desc="Pop bleed")
-R("R26", "10k", "FW_OUT_N", "GND", B, near=("J8", "3", "F"), desc="Pop bleed")
-
 # =============================================================== mounting: four M3 corner holes
 for h, (hx, hy) in (("H1", (-XR + 3.5, -YR + 3.5)), ("H2", (XR - 3.5, -YR + 3.5)), ("H3", (-XR + 3.5, YR - 3.5)), ("H4", (XR - 3.5, YR - 3.5))):
     comp(h, "Mechanical:MountingHole", "M3", "MountingHole:MountingHole_3.2mm_M3", {}, "Power", pcb=("F", hx, hy, 0), desc="M3 into a heat-set insert")
@@ -222,6 +168,5 @@ for h, (hx, hy) in (("H1", (-XR + 3.5, -YR + 3.5)), ("H2", (XR - 3.5, -YR + 3.5)
 BLOCKS = [("NANO", "Waveshare ESP32-P4-NANO on two 2x13 sockets: Ethernet with a PoE module option, USB-C, Wi-Fi 6. Pins it uses itself are left open"),
           ("Power", "DC input (7-24 V) through a 5 V buck into the NANO's 5 V rail (USB-C or PoE also work), 3.3 V LDO for the carrier, mounting holes"),
           ("Radio", "LR2021 module, 915 MHz pi match, PE4259 antenna diversity switch, two rear SMA jacks; 2.4 GHz port as a footprint only"),
-          ("UI", "IO expander (0x21), OLED socket, menu dial, four talk keys, Menu and Back keys, 12 RGB status lights on one data line"),
-          ("Audio", "Optional NAU88C22 codec: front XLR-4 headset (BTL earpiece), rear balanced 4-wire line in and out")]
+          ("UI", "IO expander (0x21), OLED socket, menu dial, four talk keys, Menu and Back keys, 12 RGB status lights on one data line")]
 NETS = sorted({n for c in C for n in c["pins"].values() if n})

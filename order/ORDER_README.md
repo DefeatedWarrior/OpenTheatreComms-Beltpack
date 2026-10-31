@@ -4,7 +4,7 @@ This order covers **2 beltpacks + 1 base station**.
 
 - **JLC:** makes the boards and the solder-paste stencils. It assembles nothing.
 - **You:** fit every part, from one LCSC cart plus a few other suppliers.
-- **Base station:** built radio-only for v1. Its audio pads get paste anyway, so they come back tinned for later.
+- **Base station:** no audio section. The operator's headset is a beltpack plugged into the base by USB-C.
 - **Prices:** Australian dollars, from JLC's and LCSC's own listings on 31 Oct 2026, converted at 1 USD = 1.43 AUD. JLC,
   LCSC and Elecrow charge in USD, so your card's exchange fee comes on top.
 

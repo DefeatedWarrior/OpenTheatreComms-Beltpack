@@ -58,8 +58,8 @@ python3 make_enclosure_ref.py && python3 make_kicad.py   # KiCad projects in ../
 ## Base station
 
 A 150 x 90 mm 4-layer carrier for a Waveshare ESP32-P4-NANO (Ethernet for AES67, optional PoE), with the same LR2021 radio and
-two edge SMA antennas, a DC input (7-24 V buck), a 1.3 in OLED, four talk keys with RGB lights, eight beltpack lights, a menu dial
-and an optional NAU88C22 audio section (local XLR-4 headset, 4-wire in and out). See `kicad/base_pcb/README.md`.
+two edge SMA antennas, a DC input (7-24 V buck), a 1.3 in OLED, four talk keys with RGB lights, eight beltpack lights and a menu dial.
+It has no audio of its own: the operator's headset is a beltpack plugged into the base by USB-C. See `kicad/base_pcb/README.md`.
 
 ## Status
 

@@ -1,11 +1,11 @@
-** Drc report for /home/claude/beltpack/final/kicad_proj/base_pcb/base_pcb.kicad_pcb **
-** Created on 2026-10-30 18:43:53 **
+** Drc report for ../kicad_proj/base_pcb/base_pcb.kicad_pcb **
+** Created on 2026-10-31 21:28:41 **
 
 ** Found 32 DRC violations **
 [silk_overlap]: Silkscreen overlap
     Rule: board setup constraints silk; Severity: warning
-    @(87.5190 mm, 106.8400 mm): Footprint Text 'R1' of U1
     @(88.7890 mm, 106.3400 mm): Rect on F.Silkscreen
+    @(87.5190 mm, 106.8400 mm): Footprint Text 'R1' of U1
 [silk_overlap]: Silkscreen overlap
     Rule: board setup constraints silk; Severity: warning
     @(194.0004 mm, 67.2664 mm): Reference 'J3'
