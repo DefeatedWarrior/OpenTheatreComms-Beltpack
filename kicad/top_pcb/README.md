@@ -26,7 +26,7 @@ OLED's FPC connector, both dial encoders with their RC filters, a TCA9555 IO exp
 | `fab/assembly.pdf` | Hand-assembly sheets, top and bottom (bottom drawn as seen from below) |
 | `fab/top_pcb_schematic.pdf`, `fab/top_pcb_drc.rpt` | Schematic print and the DRC report |
 
-Order as: 2 layers, 1.6 mm, ENIG finish (the 0.5 mm FPC connector and the TSSOP solder far better on ENIG than HASL), any mask colour.
+Order as: 2 layers, 1.6 mm, HASL lead-free (ENIG makes the 0.5 mm FPC connector a little easier to solder), any mask colour.
 
 ## Circuit
 

@@ -62,7 +62,7 @@ and an optional NAU88C22 audio section (local XLR-4 headset, 4-wire in and out).
 ## Status
 
 **Boards:** all four are laid out and pass KiCad DRC with 0 errors and 0 unconnected pads. The v1 order (`order/`) is ready, at about
-A$450 for 2 beltpacks + 1 base station, with every part hand-fitted from solder-paste stencils.
+A$425 for 2 beltpacks + 1 base station, with every part hand-fitted from solder-paste stencils.
 
 **Case:** to be redone around the cheaper parts chosen for v1. The pack pads move to 4.0 mm from the main board's back face for the
 Xinyangze spring pins; it needs room for the 7 mm JST XH socket on the main board's front and the Alps EC11 dials' shaft length.

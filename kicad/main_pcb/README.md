@@ -30,7 +30,7 @@ flashlight LED, the vibration motor and the JST SH link to the top PCB.
 | `fab/main_pcb_schematic.pdf`, `fab/main_pcb_drc.rpt` | Schematic print and the DRC report |
 
 Order as: 4 layers, 1.6 mm, JLC-style 7628 stack (or any 4-layer stack with about 0.2 mm from B to In2: the RF lines
-were sized for that), ENIG finish (QFN, TDFN, LGA and the USB-C), any mask colour. The ESP32 and codec footprints have
+were sized for that), HASL lead-free is fine for reflow (ENIG gives a flatter paste print on the QFN, TDFN and LGA, if you want the margin), any mask colour. The ESP32 and codec footprints have
 0.2 mm thermal vias, so allow 0.2 mm drills.
 
 ## Circuit

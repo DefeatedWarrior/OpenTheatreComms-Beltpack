@@ -12,15 +12,16 @@ This order covers **2 beltpacks + 1 base station**.
 
 | Folder | Board settings | Stencil (in the same PCB order) |
 |---|---|---|
-| `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **ENIG**, qty 5 | **Top and bottom**, as two small stencils (100 x 100 mm option) |
-| `Beltpack top` | 2 layers, 1.6 mm, **ENIG**, qty 5 | **Top and bottom**, as two small stencils, or one sheet if JLC accepts both sides in 100 x 100 mm |
+| `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | **Top and bottom**, as two small stencils (100 x 100 mm option) |
+| `Beltpack top` | 2 layers, 1.6 mm, **HASL lead-free**, qty 5 | **Top and bottom**, as two small stencils, or one sheet if JLC accepts both sides in 100 x 100 mm |
 | `Base station` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | **Top only**, standard frameless stencil (the board is too big for the small option) |
-| `Beltpack pack lid` | 2 layers, **0.8 mm**, **ENIG**, qty 5 | none |
+| `Beltpack pack lid` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (its pads are spring contacts: gold stays clean) | none |
 
 - **Stack:** the 4-layer boards need the 7628 stack because the RF lines were sized for it.
-- **Main board finish:** ENIG, because it carries an LGA accelerometer, a 0.4 mm QFN codec and a TDFN fuel gauge.
-  HASL's uneven surface makes those tilt or open when reflowed by hand.
-- **Base station finish:** HASL is fine. Its finest fitted part is a TSSOP.
+- **Finish:** HASL lead-free on the main, top and base boards. Reflow melts the HASL into each joint and pulls the parts flat.
+  The main board's finest parts (the LGA accelerometer, the 0.4 mm QFN codec and the TDFN fuel gauge) get a slightly less even
+  paste print on HASL than on ENIG. Use plenty of flux and inspect them closely. The pack lid stays ENIG because its pads are
+  bare spring contacts.
 
 Upload each `*_gerbers.zip` and set the options above. Each zip carries both sides' paste layers, with paste on every SMD
 pad, unfitted ones included. Don't turn on PCB Assembly.
@@ -127,14 +128,14 @@ the 3.3 V rail for shorts before powering up.
 
 | Where | What | Approx. A$ |
 |---|---|---|
-| JLCPCB | 4 board types (5 of each), 5 stencils, shipping | 160 |
+| JLCPCB | 4 board types (5 of each; ENIG only on the pack lid), 5 stencils, shipping | 135 |
 | LCSC | every part and the base antennas, shipped with the JLC boards | 138 |
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |
 | Core Electronics | 4 flex antennas, 2 coin motors, shipping | 25 |
 | AliExpress | 1.3 in OLED module and 2 beltpack OLED panels | 25 |
 | REAN XLRs | 2 headset connectors for the packs | 16 |
-| **Total** | | **about A$450** |
+| **Total** | | **about A$425** |
 
 Not included: paste and tools, beltpack cells, enclosures and the optional PoE module (about A$15). The JLC line is an
 estimate until you see JLC's quote.
