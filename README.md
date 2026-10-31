@@ -35,8 +35,8 @@ is the same page as `viewer/`.
 - **Controls:** four talk keys and a 1.3 in OLED on the flat top, a detented dial at each round end, Back / Function / Menu in a recessed panel on the front.
 - **Bottom:** XLR-4 male (D-type), power button, USB-C, 3.5 mm TRRS, flashlight.
 - **Power:** a 104050 Li-ion pack (2500 mAh) forms the back of the case; the belt plate slides up its rails and locks it in. Three spring pins carry battery +, NTC and battery −; a JST XH 2-pin socket (J11) on the main board is a second battery input for a wired cell or bench supply.
-- **Dock contacts:** four gold pads in the case bottom (VBUS, D+, D−, GND) on a small contact board, cabled to the main board's
-  J12. A dock charges the pack and talks USB to it (pairing, settings, firmware); a diode keeps the USB-C's 5 V off the pads.
+- **Dock contacts:** four gold pads in the case bottom (VBUS, D+, D−, GND) on a small contact board lying in the case bottom under
+  the battery pack, cabled flat to J12, a vertical socket at the main board's bottom edge. A dock charges the pack and talks USB to it (pairing, settings, firmware); a diode keeps the USB-C's 5 V off the pads.
 - **Boards:** a curved top PCB (99.8 × 26.5 mm) under the keys carrying the OLED and both encoders, and a vertical main PCB (87.5 × 64.5 mm) carrying the MCU, radio, codec, power and connectors. A 10-way JST SH cable links them.
 - **Radio:** an Elecrow LR2021 module on 915–928 MHz with switched antenna diversity: a pSemi PE4259 picks between two flex antennas, one inside each round end, every frame.
 

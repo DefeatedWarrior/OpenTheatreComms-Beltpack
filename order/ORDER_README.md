@@ -75,7 +75,7 @@ Each board folder has a `*_hand_fit.csv` listing every part on that board, and w
 | 8 mm coin vibration motor, 3 V | 2 | Core Electronics (same order as the antennas), AliExpress |
 | 1.3 in 128x64 I2C OLED module (SH1106), base | 1 | AliExpress. Check its pin order is GND, VCC, SCL, SDA |
 | GME12864-110 OLED panel (beltpack top, 30-pin FPC) | 2 | AliExpress |
-| JST SH 4-pin cable, 1.0 mm pitch, pin 1 to pin 1 ("same side" ends), 60–80 mm, beltpack J12 to the dock contact board | 2 | AliExpress (packs of 10, about A$3) |
+| JST SH 4-pin cable, 1.0 mm pitch, 40–60 mm, beltpack J12 to the dock contact board, wired pin 1 to pin 1 (check with a meter: they come straight and reversed) | 2 | AliExpress (packs of 10, about A$3) |
 | **REAN** XLR-4 panel connector (headset), beltpacks | 2 | Jaycar, element14 AU (about A$8) |
 | Beltpack cells | per the enclosure | |
 
@@ -106,7 +106,8 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
      mounting tabs): the footprint has no holes for them.
 3. **Beltpack main, about 3–3.5 hours each.**
    - **Bottom side first, on the hot plate.** Paste and place the accelerometer, codec, fuel gauge, antenna switch,
-     TCA9555, the regulators and their passives, the U.FLs, the dock socket J12 and its diode D12, and the ESP32 module.
+     TCA9555, the regulators and their passives, the U.FLs, the vertical dock socket J12 (bottom edge) and its diode D12,
+     and the ESP32 module.
      Reflow flat on the hot plate. The
      fine-pitch parts come out best on a flat first-side reflow.
    - Check the LGA and QFN under magnification. The LIS3DH has no visible joints: if the board misbehaves later, it's the
@@ -116,8 +117,8 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
      buttons, LEDs, passives) and reflow with hot air, one area at a time.
    - Then the through-hole parts: the spring pins (from the back, flange flat on the pad), the JST XH battery socket J11 on
      the front, and the motor leads.
-4. **Dock contacts, 5 minutes each.** Iron the JST SH socket onto the back (no paste needed for one part). Check the
-   cable pin 1 to pin 1 before fitting: pad 1 on the contact board (VBUS) must reach J12 pin 1.
+4. **Dock contacts, 5 minutes each.** Iron the side-entry JST SH socket onto the inside face (no paste needed for one
+   part). Check the cable with a meter before fitting: J12 pin 1 (VBUS) must reach the contact board socket's pin 1.
 
 **Tips:** Check every fine-pitch part under magnification. Fix bridges with flux and wick. Clean off the flux and check
 the 3.3 V rail for shorts before powering up.

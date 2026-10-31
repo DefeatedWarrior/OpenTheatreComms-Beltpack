@@ -1,11 +1,11 @@
-"""Build the dock contact board from design.py: a fresh 22 x 10 mm outline on the starter board's settings, footprints at their
+"""Build the dock contact board from design.py: a fresh 22 x 11 mm outline on the starter board's settings, footprints at their
 design positions, each socket pin taken through a via to its contact pad, silk labels, then DRC and save into
 kicad_proj/dock_contact_pcb/."""
 import os, sys, json, shutil
 os.environ.setdefault("KICAD7_FOOTPRINT_DIR", "/usr/share/kicad/footprints")
 import pcbnew
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
-from design import C, W, H, PAD_Y
+from design import C, W, H, PAD_Y, VIA_Y
 from pcbgeom import P, Bf, MM
 PROJ = os.path.abspath(os.path.join(HERE, "..", "kicad_proj", "dock_contact_pcb"))
 OUT = os.path.join(HERE, "out"); TPL = os.path.join(HERE, "template")
@@ -58,12 +58,12 @@ def via(p, net):
 # socket pin -> straight up on B to a via (staggered), then on F to its contact pad
 pins = {p.GetNumber(): Bf(p.GetPosition()) for p in fps["J5"].Pads() if p.GetNumber() != "MP"}
 pads = {fps[r].Pads()[0].GetNetname(): Bf(fps[r].GetPosition()) for r in ("J1", "J2", "J3", "J4")}
-net_of = {"1": "VBUS", "2": "D+", "3": "D-", "4": "GND"}
+net_of = {k: v for k, v in [c for c in C if c["ref"] == "J5"][0]["pins"].items() if v}   # from design.py
 order = sorted(pins, key=lambda n: pins[n][0])                  # socket pins left to right
 for i, n in enumerate(order):
     net = net_of[n]; px, py = pins[n]; tx, ty = pads[net]; w = 0.5 if net in ("VBUS", "GND") else 0.25
     inner = i in (1, 2)
-    vy = py + 0.775 + 0.7                                        # every via in one row just above the socket pins
+    vy = VIA_Y                                                   # every via in one row between the socket pins and the pads
     track((px, py), (px, vy), net, w, pcbnew.B_Cu); via((px, vy), net)
     if inner:                                                    # straight up beside the pad, then into its side
         track((px, vy), (px, PAD_Y), net, w, pcbnew.F_Cu); track((px, PAD_Y), (tx, PAD_Y), net, w, pcbnew.F_Cu)
@@ -72,7 +72,7 @@ for i, n in enumerate(order):
 def text(s, x, y, layer, size=0.8, mirror=False):
     t = pcbnew.PCB_TEXT(b); t.SetText(s); t.SetLayer(layer); t.SetTextSize(pcbnew.VECTOR2I(MM(size), MM(size)))
     t.SetTextThickness(MM(size * 0.15)); t.SetPosition(P(x, y)); t.SetMirrored(mirror); b.Add(t)
-for net, (x, y) in pads.items(): text(net.replace("VBUS", "V+"), x, 9.0, pcbnew.B_SilkS, 0.8, True)
+for net, (x, y) in pads.items(): text(net.replace("VBUS", "V+"), x, 10.2, pcbnew.B_SilkS, 0.8, True)
 # (no title silk: the board is too small for it beside the socket)
 
 os.makedirs(PROJ, exist_ok=True)

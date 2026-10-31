@@ -58,7 +58,7 @@ J8,Battery +,Xinyangze YZ08415060P-02,C7471674,bottom,,"Xinyangze spring pin: 4.
 J9,Pack NTC,Xinyangze YZ08415060P-02,C7471674,bottom,,"Xinyangze spring pin: 4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail in the 1.0 mm hole"
 J10,Battery -,Xinyangze YZ08415060P-02,C7471674,bottom,,"Xinyangze spring pin: 4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail in the 1.0 mm hole"
 J11,Battery (JST XH),JST B2B-XH-A(LF)(SN),C158012,top,,"JST XH 2-pin battery input, pin 1 +"
-J12,Dock,JST SM04B-SRSS-TB(LF)(SN),C160404,bottom,,Dock socket on the main board (J12)
+J12,Dock,JST BM04B-SRSS-TB(LF)(SN),C495539,bottom,,JST BM04B-SRSS-TBT: the same socket in other tape packaging (the -TB is out of stock)
 L1,0,0603 0R or RF inductor,C21189,bottom,,0R until tuned
 M1,Vibration,"8 x 2.7 mm coin vibration motor, 3 V",,top,"8 mm coin vibration motor, 3 V, flying leads (Core Electronics or AliExpress)",
 Q1,AO3401A,AOS AO3401A,C15127,bottom,,

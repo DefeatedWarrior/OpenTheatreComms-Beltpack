@@ -367,7 +367,7 @@
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Value" "VBUS"
+    (property "Value" "GND"
       (at 49.53 33.02 0)
       (effects
         (font
@@ -387,7 +387,7 @@
       (effects
         (font
           (size 1.27 1.27)) hide))
-    (property "Description" "Dock contact pad (outside face): VBUS"
+    (property "Description" "Dock contact pad (outside face): GND"
       (at 49.53 38.1 0)
       (effects
         (font
@@ -407,14 +407,41 @@
       (width 0)
       (type default))
     (uuid "04952b20-24c6-5d36-94c6-8b728f047a0d"))
-  (label "VBUS"
-    (at 49.53 40.64 270)
-    (fields_autoplaced)
-    (effects
-      (font
-        (size 1.27 1.27))
-      (justify right bottom))
-    (uuid "8a6de2e1-de33-5d8b-90d5-4d3933d76fcb"))
+  (symbol
+    (lib_id "power:GND")
+    (at 49.53 40.64 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "8a6de2e1-de33-5d8b-90d5-4d3933d76fcb")
+    (property "Reference" "#PWR001"
+      (at 49.53 40.64 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Value" "GND"
+      (at 49.53 44.94 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" ""
+      (at 49.53 40.64 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" ""
+      (at 49.53 40.64 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "d259a06e-f21a-5755-a84a-a6ac6ed3090c"))
+    (instances
+      (project "dock_contact_pcb"
+        (path "/0be15462-2254-5e0a-91df-a861d5471324"
+          (reference "#PWR001")
+          (unit 1)))))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 64.77 38.1 0)
@@ -422,7 +449,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "d259a06e-f21a-5755-a84a-a6ac6ed3090c")
+    (uuid "f3a415dd-49bc-54d1-90ba-618d851678c2")
     (property "Reference" "J2"
       (at 64.77 31.24 0)
       (effects
@@ -454,7 +481,7 @@
         (font
           (size 1.27 1.27)) hide))
     (pin "1"
-      (uuid "f3a415dd-49bc-54d1-90ba-618d851678c2"))
+      (uuid "b7a71ba7-61c9-5e0d-a8ff-365a345a2721"))
     (instances
       (project "dock_contact_pcb"
         (path "/0be15462-2254-5e0a-91df-a861d5471324"
@@ -467,7 +494,7 @@
     (stroke
       (width 0)
       (type default))
-    (uuid "b7a71ba7-61c9-5e0d-a8ff-365a345a2721"))
+    (uuid "a84462e0-19bc-54a7-8987-106f9ae3f0fe"))
   (label "D+"
     (at 64.77 40.64 270)
     (fields_autoplaced)
@@ -475,7 +502,7 @@
       (font
         (size 1.27 1.27))
       (justify right bottom))
-    (uuid "a84462e0-19bc-54a7-8987-106f9ae3f0fe"))
+    (uuid "ff18cca4-4759-54ff-9ebf-3cab109eaf5d"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 80.01 38.1 0)
@@ -483,7 +510,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "ff18cca4-4759-54ff-9ebf-3cab109eaf5d")
+    (uuid "72ef31a6-bf3f-58a8-850a-93136ec19752")
     (property "Reference" "J3"
       (at 80.01 31.24 0)
       (effects
@@ -515,7 +542,7 @@
         (font
           (size 1.27 1.27)) hide))
     (pin "1"
-      (uuid "72ef31a6-bf3f-58a8-850a-93136ec19752"))
+      (uuid "0bbe251c-fe6d-5f0e-b2e5-6401b12df86e"))
     (instances
       (project "dock_contact_pcb"
         (path "/0be15462-2254-5e0a-91df-a861d5471324"
@@ -528,7 +555,7 @@
     (stroke
       (width 0)
       (type default))
-    (uuid "0bbe251c-fe6d-5f0e-b2e5-6401b12df86e"))
+    (uuid "cf4ba081-e28b-53b1-b8a8-f79483fbe987"))
   (label "D-"
     (at 80.01 40.64 270)
     (fields_autoplaced)
@@ -536,7 +563,7 @@
       (font
         (size 1.27 1.27))
       (justify right bottom))
-    (uuid "cf4ba081-e28b-53b1-b8a8-f79483fbe987"))
+    (uuid "5ea225c7-8ff3-58db-add1-6d237f585d3e"))
   (symbol
     (lib_id "Connector:TestPoint")
     (at 95.25 38.1 0)
@@ -544,13 +571,13 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "5ea225c7-8ff3-58db-add1-6d237f585d3e")
+    (uuid "29a11ff2-b534-5b9d-b55e-e66056bf5bd1")
     (property "Reference" "J4"
       (at 95.25 31.24 0)
       (effects
         (font
           (size 1.27 1.27))))
-    (property "Value" "GND"
+    (property "Value" "VBUS"
       (at 95.25 33.02 0)
       (effects
         (font
@@ -570,13 +597,13 @@
       (effects
         (font
           (size 1.27 1.27)) hide))
-    (property "Description" "Dock contact pad (outside face): GND"
+    (property "Description" "Dock contact pad (outside face): VBUS"
       (at 95.25 38.1 0)
       (effects
         (font
           (size 1.27 1.27)) hide))
     (pin "1"
-      (uuid "29a11ff2-b534-5b9d-b55e-e66056bf5bd1"))
+      (uuid "16e91d15-316b-5990-986e-e2d0115baf55"))
     (instances
       (project "dock_contact_pcb"
         (path "/0be15462-2254-5e0a-91df-a861d5471324"
@@ -589,42 +616,15 @@
     (stroke
       (width 0)
       (type default))
-    (uuid "16e91d15-316b-5990-986e-e2d0115baf55"))
-  (symbol
-    (lib_id "power:GND")
-    (at 95.25 40.64 0)
-    (unit 1)
-    (in_bom yes)
-    (on_board yes)
-    (dnp no)
-    (uuid "3c7c2d30-d9b6-5897-a9d7-7208280c8ab3")
-    (property "Reference" "#PWR001"
-      (at 95.25 40.64 0)
-      (effects
-        (font
-          (size 1.27 1.27)) hide))
-    (property "Value" "GND"
-      (at 95.25 44.94 0)
-      (effects
-        (font
-          (size 1.27 1.27))))
-    (property "Footprint" ""
-      (at 95.25 40.64 0)
-      (effects
-        (font
-          (size 1.27 1.27)) hide))
-    (property "Datasheet" ""
-      (at 95.25 40.64 0)
-      (effects
-        (font
-          (size 1.27 1.27)) hide))
-    (pin "1"
-      (uuid "04e87d48-c788-557b-98dd-d177abd89014"))
-    (instances
-      (project "dock_contact_pcb"
-        (path "/0be15462-2254-5e0a-91df-a861d5471324"
-          (reference "#PWR001")
-          (unit 1)))))
+    (uuid "3c7c2d30-d9b6-5897-a9d7-7208280c8ab3"))
+  (label "VBUS"
+    (at 95.25 40.64 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "04e87d48-c788-557b-98dd-d177abd89014"))
   (symbol
     (lib_id "Connector_Generic_MountingPin:Conn_01x04_MountingPin")
     (at 35.56 41.91 0)
@@ -644,7 +644,7 @@
         (font
           (size 1.27 1.27))
         (justify left)))
-    (property "Footprint" "Connector_JST:JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical"
+    (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 35.56 41.91 0)
       (effects
         (font
@@ -654,7 +654,7 @@
       (effects
         (font
           (size 1.27 1.27)) hide))
-    (property "MPN" "JST BM04B-SRSS-TB(LF)(SN)"
+    (property "MPN" "JST SM04B-SRSS-TB(LF)(SN)"
       (at 35.56 41.91 0)
       (effects
         (font
@@ -706,7 +706,7 @@
       (width 0)
       (type default))
     (uuid "09b0f8e9-36e2-537c-9569-6a241d07d6f7"))
-  (label "D+"
+  (label "D-"
     (at 27.94 41.91 180)
     (fields_autoplaced)
     (effects
@@ -722,7 +722,7 @@
       (width 0)
       (type default))
     (uuid "d46a38ef-49e3-5ea8-98cf-17904476da53"))
-  (label "D-"
+  (label "D+"
     (at 27.94 44.45 180)
     (fields_autoplaced)
     (effects

@@ -1,7 +1,8 @@
 """Add the dock connection to the finished main board.
 
-J12  JST SH 4-pin side-entry (SM04B-SRSS-TB): 1 DOCK_VBUS, 2 USB_DN, 3 USB_DP, 4 GND. A 4-wire cable runs to the dock
-     contact board in the case bottom, where the dock's spring pins land.
+J12  JST SH 4-pin vertical (BM04B-SRSS-TB) on the back face at the bottom edge, below the battery pack (pack underside
+     y -31), so its plug points backward into the 5 mm strip under the pack. A flat 4-wire cable runs back from it to the
+     dock contact board lying in the case bottom, where the dock's spring pins land.
 D12  B5819W Schottky, DOCK_VBUS (anode) -> VBUS (cathode). Dock power charges the pack like USB-C does. The diode stops
      USB-C's 5 V from reaching the exposed contacts when a cable is plugged in. D+/D- are shared with the USB-C (full
      speed, short stub); U1 (USBLC6) already protects them.
@@ -26,20 +27,30 @@ def load(lib, name, ref, val):
     f.SetFPID(pcbnew.LIB_ID(lib, name)); b.Add(f); return f
 dock = pcbnew.NETINFO_ITEM(b, "/DOCK_VBUS"); b.Add(dock)
 N = lambda n: b.FindNet(n)
-j = load("Connector_JST", "JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal", "J12", "Dock")
+j = load("Connector_JST", "JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical", "J12", "Dock")
 d = load("Diode_SMD", "D_SOD-123", "D12", "B5819W")
-jn = {"1": "/DOCK_VBUS", "2": "/USB_DN", "3": "/USB_DP", "4": "GND", "MP": "GND"}
+jn = {"1": "/DOCK_VBUS", "2": "/USB_DP", "3": "/USB_DN", "4": "GND", "MP": "GND"}
 for p in j.Pads(): p.SetNet(N(jn[p.GetNumber()]))
 for p in d.Pads(): p.SetNet(N("/VBUS" if p.GetNumber() == "1" else "/DOCK_VBUS"))
 for f in (j, d): f.SetPosition(P(500, 500))
 b.Save(path); b = pcbnew.LoadBoard(path)
 j = [f for f in b.GetFootprints() if f.GetReference() == "J12"][0]; d = [f for f in b.GetFootprints() if f.GetReference() == "D12"][0]
 
+# lone ground stitching vias in the strip under the pack: make room (the pours stay connected through the rest)
+tracked = set()
+for t in b.GetTracks():
+    if t.GetClass() == "PCB_TRACK": tracked |= {(t.GetStart().x, t.GetStart().y), (t.GetEnd().x, t.GetEnd().y)}
+removed = 0
+for t in list(b.GetTracks()):
+    if t.GetClass() == "PCB_VIA" and t.GetNetname() == "GND" and (t.GetPosition().x, t.GetPosition().y) not in tracked:
+        vx, vy = Bf(t.GetPosition())
+        if 20.5 < vx < 30.0 and vy < -31.5: b.Delete(t); removed += 1
+print("stitching vias removed from the strip:", removed)
 cu = Copper(b)
 crt_of = lambda f, s: polyset_to_shapely(f.GetCourtyard(pcbnew.B_CrtYd if s == "B" else pcbnew.F_CrtYd))
 def others(s, skip):
     o = [crt_of(f, "B" if f.IsFlipped() else "F") for f in b.GetFootprints()
-         if f.GetReference() not in skip and (f.IsFlipped() == (s == "B") or f.GetReference().startswith("H"))]
+         if f.GetReference() not in skip and not f.GetReference().startswith("TP") and (f.IsFlipped() == (s == "B") or f.GetReference().startswith("H"))]
     return o + [Point(*Bf(f.GetPosition())).buffer(2.7) for f in b.GetFootprints() if f.GetReference().startswith("H")]
 keep = [polyset_to_shapely(z.Outline()) for z in b.Zones() if z.GetIsRuleArea()]
 j1 = [f for f in b.GetFootprints() if f.GetReference() == "J1"][0]
@@ -51,9 +62,20 @@ def put(f, x, y, rot, side):
     f.SetPosition(P(x, y)); f.SetOrientationDegrees(0)
     if f.IsFlipped() != (side == "B"): f.Flip(P(x, y), False)
     f.SetOrientationDegrees(rot)
-def fits(f, side, obs, extra=()):
+def fab_box(f):
+    xs, ys = [], []
+    for g in f.GraphicalItems():
+        if g.GetLayer() in (pcbnew.F_Fab, pcbnew.B_Fab):
+            r = g.GetBoundingBox(); xs += [pcbnew.ToMM(r.GetX()) - 150, pcbnew.ToMM(r.GetRight()) - 150]; ys += [105 - pcbnew.ToMM(r.GetY()), 105 - pcbnew.ToMM(r.GetBottom())]
+    return min(xs), min(ys), max(xs), max(ys)
+PACK_UNDERSIDE = -31.0
+holes = [(*Bf(p.GetPosition()), mm(p.GetDrillSize().x) / 2) for f in b.GetFootprints() for p in f.Pads()
+         if p.HasHole() and f.GetReference() not in ("J12", "D12")]          # pegs and leads poke through: keep the body off them                                           # battery pack: x -13.5..39.5, y -31..15, behind the board
+def fits(f, side, obs, extra=(), edge=0.8):
     crt = crt_of(f, side)
-    if not cu.edge.buffer(-0.8).contains(crt) or any(k.intersects(crt) for k in keep): return None
+    if (edge >= 0 and not cu.edge.buffer(-edge).contains(crt)) or any(k.intersects(crt) for k in keep): return None
+    for p in f.Pads():                                           # copper at least 0.4 mm from the board edge
+        if not cu.edge.buffer(-0.4).contains(polyset_to_shapely(p.GetEffectivePolygon())): return None
     if any(o.intersects(crt) for o in list(obs) + list(extra)): return None
     L = pcbnew.B_Cu if side == "B" else pcbnew.F_Cu
     for p in f.Pads():
@@ -62,33 +84,36 @@ def fits(f, side, obs, extra=()):
     return crt
 
 best = None
-for side in ("F", "B"):
+for side in ("B",):                                              # back face: the plug points into the strip under the pack
     obs_j = others(side, ("J12", "D12"))
-    for x in [k * 0.5 for k in range(-80, 81)]:
-        for y in [k * 0.5 for k in range(-66, 0)]:
-            if math.hypot(x - ucx, y - ucy) > 30: continue
-            for rot in (0, 90, 180, 270):
+    for x in [k * 0.5 for k in range(-26, 81)]:                  # x -13..40, under the pack
+        for y in [k * 0.25 for k in range(-144, -123)]:          # y -36..-31
+            for rot in (0, 180):                                 # pin row along the edge
                 put(j, x, y, rot, side)
-                cj = fits(j, side, obs_j)
+                body = fab_box(j)                                    # the housing (and the plug above it) must clear the pack
+                if body[3] > PACK_UNDERSIDE - 0.3 or body[1] < cu.edge.bounds[1] + 0.1: continue
+                if any(bx0 - 0.4 < hx < bx1 + 0.4 and by0 - 0.4 < hy < by1 + 0.4 for hx, hy, r in holes for bx0, by0, bx1, by1 in [body]): continue
+                cj = fits(j, side, obs_j, edge=-3.0)                 # courtyard may overhang the edge; pads are checked
                 if cj is None: continue
                 p1 = Bf([p for p in j.Pads() if p.GetNumber() == "1"][0].GetPosition())
-                score = math.hypot(x - ucx, y - ucy) + 0.3 * (y - ymin)
+                score = math.hypot(x - ucx, y - ucy)
                 if best and score >= best[0]: continue
-                # D12 next to pin 1
                 dbest = None
-                for dx in [k * 0.5 for k in range(-12, 13)]:
-                    for dy in [k * 0.5 for k in range(-12, 13)]:
-                        for drot in (0, 90, 180, 270):
-                            put(d, p1[0] + dx, p1[1] + dy, drot, side)
-                            if fits(d, side, obs_j, [cj]) is None: continue
-                            a = Bf([p for p in d.Pads() if p.GetNumber() == "2"][0].GetPosition())
-                            dd = math.dist(a, p1)
-                            if dbest is None or dd < dbest[0]: dbest = (dd, p1[0] + dx, p1[1] + dy, drot)
+                for dside in ("B", "F"):
+                    obs_d = others(dside, ("J12", "D12"))
+                    for dx in [k * 0.5 for k in range(-16, 17)]:
+                        for dy in [k * 0.5 for k in range(-4, 17)]:
+                            for drot in (0, 90, 180, 270):
+                                put(d, p1[0] + dx, p1[1] + dy, drot, dside)
+                                if fits(d, dside, obs_d, [cj] if dside == "B" else []) is None: continue
+                                a = Bf([p for p in d.Pads() if p.GetNumber() == "2"][0].GetPosition())
+                                dd = math.dist(a, p1) + (1.5 if dside != "B" else 0)
+                                if dbest is None or dd < dbest[0]: dbest = (dd, p1[0] + dx, p1[1] + dy, drot, dside)
                 if dbest is None: continue
                 best = (score, x, y, rot, side, dbest)
 if best is None: sys.exit("no spot for J12/D12")
-score, x, y, rot, side, (dd, dx, dy, drot) = best
-put(j, x, y, rot, side); put(d, dx, dy, drot, side)
+score, x, y, rot, side, (dd, dx, dy, drot, dside) = best
+put(j, x, y, rot, side); put(d, dx, dy, drot, dside)
 # ground vias next to J12 pin 4 and the mounting pads
 cu = Copper(b)
 L = pcbnew.B_Cu if side == "B" else pcbnew.F_Cu
@@ -106,4 +131,4 @@ def gnd_via(pad):
     return False
 gv = [gnd_via(p) for p in j.Pads() if p.GetNetname() == "GND"]
 b.Save(path)
-print(f"J12 at ({x:.1f}, {y:.1f}) rot {rot} on {side}; D12 at ({dx:.1f}, {dy:.1f}) rot {drot}; ground vias {gv}")
+print(f"J12 at ({x:.2f}, {y:.2f}) rot {rot} on {side} (body y {fab_box(j)[1]:.2f}..{fab_box(j)[3]:.2f}); D12 at ({dx:.1f}, {dy:.1f}) rot {drot} on {dside}; ground vias {gv}")

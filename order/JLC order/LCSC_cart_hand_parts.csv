@@ -51,9 +51,9 @@ C165948,5,TYPE-C-31-M-12,GCT USB4105-GF-A,2,273725,5,5,0.2703,1.36,Beltpack main
 C506793,3,FH12-30S-0.5SH(55),Hirose FH12-30S-0.5SH(55),2,3075,1,1,0.9989,3.0,Beltpack top J2,
 C88374,5,U.FL-R-SMT-1(80),Hirose U.FL-R-SMT-1(10),4,71905,5,5,0.1723,0.86,Beltpack main J5; Beltpack main J6,"U.FL-R-SMT-1(80), same part, bigger reel"
 C158012,10,B2B-XH-A(LF)(SN),JST B2B-XH-A(LF)(SN),2,241293,10,10,0.0585,0.59,Beltpack main J11,"JST XH 2-pin battery input, pin 1 +"
-C495539,5,BM04B-SRSS-TBT(LF)(SN),JST BM04B-SRSS-TB(LF)(SN),2,7360,5,5,0.5109,2.56,Beltpack dock contacts J5,JST BM04B-SRSS-TBT: the same socket in other tape packaging (the -TB is out of stock)
+C495539,5,BM04B-SRSS-TBT(LF)(SN),JST BM04B-SRSS-TB(LF)(SN),2,7360,5,5,0.5109,2.56,Beltpack main J12,JST BM04B-SRSS-TBT: the same socket in other tape packaging (the -TB is out of stock)
 C160396,3,BM10B-SRSS-TB(LF)(SN),JST BM10B-SRSS-TB,2,43685,1,1,0.6311,1.89,Beltpack top J1,
-C160404,5,SM04B-SRSS-TB(LF)(SN),JST SM04B-SRSS-TB(LF)(SN),2,57650,5,5,0.31,1.54,Beltpack main J12,Dock socket on the main board (J12)
+C160404,5,SM04B-SRSS-TB(LF)(SN),JST SM04B-SRSS-TB(LF)(SN),2,57650,5,5,0.31,1.54,Beltpack dock contacts J5,Dock socket on the main board (J12)
 C160409,3,SM10B-SRSS-TB(LF)(SN),JST SM10B-SRSS-TB,2,78802,1,1,0.6225,1.87,Beltpack main J4,
 C125098,20,LTST-C191KGKT,Lite-On LTST-C191KGKT,5,104460,20,20,0.0332,0.66,Beltpack top D6; Beltpack top D8; Base station D4,
 C125099,20,LTST-C191KRKT,Lite-On LTST-C191KRKT,12,294860,20,20,0.0276,0.56,Beltpack top D7; Beltpack top D2; Beltpack top D1; Beltpack top D5; Beltpack top D4; Beltpack top D3,

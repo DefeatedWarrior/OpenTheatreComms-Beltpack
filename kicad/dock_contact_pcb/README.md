@@ -7,15 +7,18 @@ carry USB, for charging and data (pairing, settings and firmware updates through
 
 | | |
 |---|---|
-| Size | 22 x 10 mm, 0.8 mm FR4, 2 layers, ENIG, two M2 holes (2.2 mm) at x 1.8 and 20.2 |
-| Outside face (F) | Four 2.5 mm ENIG pads at 4.0 mm pitch, on the board's centre line 7.6 mm from the bottom edge. Left to right: **VBUS, D+, D−, GND** |
-| Inside face (B) | JST SH 4-pin vertical socket (BM04B-SRSS-TB or -TBT), pin 1 VBUS, 2 D+, 3 D−, 4 GND |
+| Size | 22 x 11 mm, 0.8 mm FR4, 2 layers, ENIG, two M2 holes (2.2 mm) at x 1.8 and 20.2 |
+| Outside face (F) | Four 2.5 mm ENIG pads at 4.0 mm pitch, 8.6 mm from the edge that faces the main board. Seen from outside, left to right: **GND, D+, D−, VBUS** |
+| Inside face (B) | JST SH 4-pin side-entry socket (SM04B-SRSS-TB, 2.9 mm tall), mouth at the edge facing the main board: pin 1 VBUS, 2 D−, 3 D+, 4 GND |
 | DRC | 0 errors, 0 unconnected. Four warnings: the test-point pads' library graphics were moved off the silkscreen |
 
 ## Wiring
 
-A 4-way JST SH cable (1.0 mm pitch, pin 1 to pin 1, "same side" ends, about 60–80 mm) runs to the main board's **J12**
-(SM04B-SRSS-TB, at the main board's bottom edge, back face). On the main board:
+The board lies flat in the case bottom, behind the main board and under the battery pack (x about 15–37, 14–25 mm back
+from the front face), pads facing out through the bottom wall. Everything on its inside face is under 3.7 mm, inside the
+5 mm strip below the pack. A flat 4-way JST SH cable (1.0 mm pitch, about 40–60 mm) runs straight forward from its socket
+to the main board's **J12** (a vertical BM04B on the main board's back face, at the bottom edge, below the pack). Wire it
+pin 1 to pin 1, and check with a meter before fitting: pre-made SH cables come both straight and reversed. On the main board:
 
 - **VBUS** goes through **D12** (B5819W Schottky) into the pack's VBUS, so the dock charges the pack exactly like the
   USB-C does. The diode also keeps the USB-C's 5 V off these exposed pads when a cable is plugged in.
@@ -32,8 +35,9 @@ A 4-way JST SH cable (1.0 mm pitch, pin 1 to pin 1, "same side" ends, about 60�
 
 ## Case
 
-The board sits in a pocket in the case bottom with its pads flush with (or slightly proud of) the outside surface, held
-by two M2 screws. Keep it clear of the XLR, USB-C and 3.5 mm openings.
+The board sits in a pocket in the bottom wall with its pads flush with (or slightly proud of) the outside surface, held
+by two M2 screws, its socket's mouth toward the main board. The pocket is behind the main board, so it stays clear of the
+XLR, power button, USB-C, 3.5 mm and flashlight openings in front of it.
 
 ## Rebuilding
 

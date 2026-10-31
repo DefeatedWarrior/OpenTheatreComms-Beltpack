@@ -31,7 +31,7 @@ Qty,References,Value,Footprint,Part,Side,Notes
 1,J9,Pack NTC,MillMax_0906_SpringPin,Xinyangze YZ08415060P-02,bottom,"Spring pin onto the pack pad board (4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail): Pack NTC"
 1,J10,Battery -,MillMax_0906_SpringPin,Xinyangze YZ08415060P-02,bottom,"Spring pin onto the pack pad board (4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail): Battery -"
 1,J11,Battery (JST XH),JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,JST B2B-XH-A(LF)(SN),top,Battery input in parallel with the spring pins (pin 1 +). A cell here has no NTC: fit R5 to turn the charger's temperature check off
-1,J12,Dock,JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal,JST SM04B-SRSS-TB(LF)(SN),bottom,"Dock: cable to the contact board in the case bottom (1 VBUS, 2 D+, 3 D-, 4 GND)"
+1,J12,Dock,JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical,JST BM04B-SRSS-TB(LF)(SN),bottom,"Dock: vertical socket on the back face at the bottom edge, below the battery pack; its plug points back into the strip under the pack, where a flat cable runs to the dock contact board (1 VBUS, 2 D-, 3 D+, 4 GND)"
 1,L1,0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,bottom,Pi match series element: 0R until tuned
 0,L2,DNP 0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,bottom,Not fitted. 2.4 GHz match series element
 1,M1,Vibration,Motor_Coin_8mm_LeadPads,"8 x 2.7 mm coin vibration motor, 3 V",top,Call alert

@@ -1,7 +1,7 @@
 ** Drc report for ../kicad_proj/main_pcb/main_pcb.kicad_pcb **
-** Created on 2026-10-31 20:26:38 **
+** Created on 2026-10-31 20:47:14 **
 
-** Found 15 DRC violations **
+** Found 18 DRC violations **
 [silk_overlap]: Silkscreen overlap
     Rule: board setup constraints silk; Severity: warning
     @(168.5000 mm, 112.5000 mm): PCB Text '+' on F.Silkscreen
@@ -12,6 +12,15 @@
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
     @(-2.7000 mm, 2.4650 mm): Polygon on B.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(182.0000 mm, 136.5750 mm): Reference 'D12'
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(172.3900 mm, 139.3600 mm): Line on B.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(172.3900 mm, 138.2100 mm): Line on B.Silkscreen
 [lib_footprint_issues]: Footprint 'REF_Enclosure' not found in library 'OpenTheatreComms'.
     Local override; Severity: warning
     @(150.0000 mm, 105.0000 mm): Footprint REF**
