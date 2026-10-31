@@ -43,3 +43,5 @@ subprocess.run([sys.executable, os.path.join(HERE, "render_board.py"), PCB, os.p
 drc = os.path.join(HERE, "out", "drc.rpt")
 if os.path.exists(drc): shutil.copy(drc, os.path.join(FAB, "base_pcb_drc.rpt"))
 print("fab files:", sorted(os.listdir(FAB)), len(os.listdir(GER)), "gerber/drill files")
+# 1:1 print (A4 landscape, print at 100 %) for checking the NANO sockets against the hole marks before ordering
+cli("pcb", "export", "pdf", "-o", os.path.join(FAB, "base_pcb_print_1to1.pdf"), "--layers", "F.Cu,F.Silkscreen,Edge.Cuts", "--black-and-white", PCB)

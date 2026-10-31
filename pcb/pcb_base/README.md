@@ -68,7 +68,7 @@ Radio capacity, for the firmware: eight beltpack uplinks plus four channel mixes
 ## Check before ordering
 
 1. **NANO sockets.** Positions are from Waveshare's own drawing (DXF, 2026-03-31). Plug a NANO into two loose sockets on
-   a printout of `fab/base_pcb_front.png` at 1:1, or check a header against the drawing, before ordering.
+   a printout of `fab/base_pcb_print_1to1.pdf` at 100 % on A4, or check a header against the drawing, before ordering.
 2. **OLED pin order.** The socket is GND, VCC, SCL, SDA, the most common order for 1.3 in I2C modules, but some modules
    swap GND and VCC. Check yours.
 3. **PoE module height.** It sits on top of the NANO, whose board is about 12.6 mm above the carrier (8.5 mm socket,
