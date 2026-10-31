@@ -244,6 +244,7 @@ for nm, x, kind in FBTN:
     b_ = b_.union(cylZ(x, FB_Y, 1.0, MZ1 + SW_H, zi - 0.85))
     add(f"front_{nm.lower()}", b_, CAP, "Controls", f"{nm} button", "PETG cap with a flange behind the recess wall; plunger onto a PTS815 on the main PCB.", True, (0, 0, 46))
 pw = W_(cylY(PWR_X, PWR_Z, 2.5, -H / 2 + 0.2, -37.0)).union(cylY(PWR_X, PWR_Z, 3.5, -36.98, -36.45))
+pw = pw.union(cylY(PWR_X, PWR_Z, 1.0, -36.46, -36.09))     # nub: reaches the Alps SKRT plunger, which ends 0.04 mm past the board edge
 add("power_plunger", pw, CAP, "Controls", "Power button", "Recessed 0.2 mm below the bottom face so it is hard to knock; long-press to turn on/off.", True, (0, -42, 0))
 for i, (x, z) in enumerate(STATUS):
     add(f"status_pipe_{'LR'[i]}", cylY(x, z, 1.2, TP1 + 0.6, H / 2), PIPE, "Display", "Status light pipe", "2.4 mm clear rod over an 0603 RGB/white LED on the top PCB.", False, (0, 60, 0))
@@ -307,8 +308,8 @@ ty0 = MAIN_PTS[0][1]
 trrs = W_(box(TRRS_X - 3.0, TRRS_X + 3.0, ty0, ty0 + 12.0, MZ1, MZ1 + 5.0)).union(cylY(TRRS_X, TRRS_Z, 2.5, ty0 - 2.1, ty0 + 0.01)).cut(cylY(TRRS_X, TRRS_Z, 1.8, ty0 - 3, ty0 + 9))
 main_part("trrs", "PJ-320D", TRRS_X, ty0 + 6.0, 6.0, 12.0, 5.0, "front", BLACK, "PJ-320D 3.5 mm 4-pole SMD jack, 14.1 x 6.0 x 5.0 incl. nose.", "PJ-320D", trrs)
 # power switch (side-actuated tact)
-pws = W_(box(PWR_X - 3.1, PWR_X + 3.1, -35.6, -32.0, MZ1, MZ1 + 3.5)).union(cylY(PWR_X, PWR_Z, 0.8, -36.4, -35.59))
-main_part("sw_power", "Side tact (TL1014)", PWR_X, -33.8, 6.2, 3.6, 3.5, "front", (0.25, 0.25, 0.27), "Side-actuated SMD tact switch, e.g. E-Switch TL1014 (dims assumed 6.2 x 3.6 x 3.5).", "TL1014", pws)
+pws = W_(box(PWR_X - 3.1, PWR_X + 3.1, -35.6, -32.0, MZ1, MZ1 + 3.5)).union(cylY(PWR_X, PWR_Z, 0.8, -36.04, -35.59))
+main_part("sw_power", "Side tact (Alps SKRTLAE010)", PWR_X, -33.8, 6.2, 3.6, 3.5, "front", (0.25, 0.25, 0.27), "Side-actuated SMD tact switch, Alps SKRTLAE010; its plunger ends 0.04 mm past the board edge.", "SKRTLAE010", pws)
 # lamp LED (3 mm THT, bent 90 deg)
 lamp = W_(cylY(LAMP_X, LAMP_Z, 1.5, -H / 2 + 0.7 + 1.5, -32.6)).union(Solid.makeSphere(1.5, V(LAMP_X, -H / 2 + 0.7 + 1.5, LAMP_Z))).union(cylY(LAMP_X, LAMP_Z, 1.9, -33.6, -32.6))
 main_part("lamp_led", "3 mm white LED", LAMP_X, -34.5, 3.8, 5.3, 3.8, "front", WHITE, "3 mm THT white LED, legs bent 90 deg, through a 3.3 mm hole: the flashlight.", "LED3", lamp)

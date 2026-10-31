@@ -1,7 +1,7 @@
 """Build the final viewer page (index.html + beltpack.json) from the v3 viewer template."""
 import json, os, struct, base64, re
 here = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(here, "out"); V = os.path.join(here, "..", "viewer")
+OUT = os.path.join(here, "out"); V = os.path.join(here, "viewer")
 meta = json.load(open(os.path.join(OUT, "parts_final.json")))
 keep = ['name', 'label', 'group', 'desc', 'explode', 'printed', 'price', 'bbox', 'volume']
 trim = dict(envelope=meta['envelope'], slope=meta['slope'], oled=meta['oled'], oled_flip=True, oled_n=round(36.13 - 38.5, 3),
@@ -17,7 +17,7 @@ while off < length:
 js["buffers"][0]["uri"] = "data:application/octet-stream;base64," + base64.b64encode(binb).decode()
 json.dump(js, open(os.path.join(V, "beltpack.json"), "w"), separators=(",", ":"))
 
-t = open(os.path.join(V, "template_fs.html")).read()
+t = open(os.path.join(here, "..", "viewer", "template_fs.html")).read()
 def rep(a, b_, count=1):
     global t
     assert t.count(a) == count, (t.count(a), a[:70]); t = t.replace(a, b_)

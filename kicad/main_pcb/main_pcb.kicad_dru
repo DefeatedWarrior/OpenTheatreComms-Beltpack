@@ -1,0 +1,16 @@
+(version 1)
+# Low-current pads: one thermal spoke is enough to join a pad to a pour.
+(rule "single spoke"
+  (constraint min_resolved_spokes 1))
+# The USB-C receptacle's own land pattern puts its locating pegs 0.19 mm from the ground pads.
+(rule "USB-C pegs"
+  (condition "A.insideCourtyard('J1') && B.insideCourtyard('J1')")
+  (constraint hole_clearance (min 0.15mm)))
+# Likewise the side power switch: its pegs sit 0.1 mm from its own pads.
+(rule "power switch pegs"
+  (condition "A.insideCourtyard('SW1') && B.insideCourtyard('SW1')")
+  (constraint hole_clearance (min 0.08mm)))
+# The outer front buttons sit 0.4 mm from the tab edges, where the case puts them (0.3 mm is the fab minimum).
+(rule "buttons by the tab"
+  (condition "A.insideCourtyard('SW2') || A.insideCourtyard('SW4')")
+  (constraint edge_clearance (min 0.35mm)))

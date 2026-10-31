@@ -1,0 +1,8 @@
+(version 1)
+# Low-current pads: one thermal spoke is enough to join a pad to a pour.
+(rule "single spoke"
+  (constraint min_resolved_spokes 1))
+# The edge SMA jacks' ground pads run to the rear edge by design (they straddle it).
+(rule "SMA at the edge"
+  (condition "A.insideCourtyard('J2') || A.insideCourtyard('J3')")
+  (constraint edge_clearance (min 0.25mm)))

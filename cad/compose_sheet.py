@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont, ImageChops
 import os, json
-here = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(here, "..", "renders")
+here = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(here, "renders")
 info = json.load(open(os.path.join(here, "out", "parts_final.json")))
 F = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"; FB = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 def font(s, b=False): return ImageFont.truetype(FB if b else F, s)

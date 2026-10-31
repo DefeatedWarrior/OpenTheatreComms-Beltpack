@@ -1,0 +1,55 @@
+Qty,References,Value,Footprint,Part,Side,Notes
+1,C1,10u,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,1206 X7R 50 V,top,
+20,C2 C11 C15 C19 C25 C26 C27 C28 C29 C30 C31 C32 C33 C34 C35 C36 C37 C39 C41 C43,100n,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X7R,top,
+4,C3 C4 C5 C8,22u,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,1206 X5R 10 V,top,
+5,C6 C46 C47 C48 C49,1u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,top,
+7,C7 C10 C20 C38 C42 C50 C51,10u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,top,
+1,C9,47u,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,1206 X5R 6.3 V,top,Module bulk (guide: 47u + 10u + 100n)
+0,C12 C13 C18,DNP DNP,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,"0603 C0G, tune",top,Not fitted. 
+3,C14 C16 C17,100p,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 C0G 50 V,top,
+2,C21 C22,10n,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X7R,top,
+3,C40 C44 C45,4.7u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,top,
+2,D1 D2,SS34,D_SMA,SS34 (SMA),top,
+1,D3,SMAJ26A,D_SMA,SMAJ26A,top,Input surge clamp
+1,D4,green,LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder,Lite-On LTST-C191KGKT,top,Power light
+7,D5 D6 D7 D8 D9 D10 D11,PESD5V0S1BA,D_SOD-323_HandSoldering,Nexperia PESD5V0S1BA,top,
+1,ENC1,EC11,RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm,"EC11 encoder with push switch, 20 mm shaft",top,Menu dial
+1,FB1,0R,L_0603_1608Metric_Pad1.05x0.95mm_HandSolder,0603 0R (or Murata BLM18PG121SN1D),top,Radio supply link: the module has its own ferrite
+1,FB2,600R,L_0603_1608Metric_Pad1.05x0.95mm_HandSolder,600R 0603 ferrite bead (Sunlord GZ1608D601TF or equal),top,
+1,J1,DC 7-24 V,BarrelJack_CUI_PJ-063AH_Horizontal,"CUI PJ-063AH (5.5 x 2.1 mm, centre +)",top,"DC input, 7-24 V, centre positive. Optional: the NANO's USB-C or a PoE module also powers the station"
+1,J2,Antenna A,SMA_Molex_73251-2120_EdgeMount_Horizontal,"Molex 73251-2120 SMA edge-mount jack, 1.6 mm board",top,Antenna A (915 MHz whip)
+1,J3,Antenna B,SMA_Molex_73251-2120_EdgeMount_Horizontal,"Molex 73251-2120 SMA edge-mount jack, 1.6 mm board",top,Antenna B (915 MHz whip)
+0,J4,DNP 2.4 GHz,U.FL_Hirose_U.FL-R-SMT-1_Vertical,Hirose U.FL-R-SMT-1(10),top,Not fitted. 2.4 GHz fallback antenna: footprint only in v1
+1,J5,OLED,PinSocket_1x04_P2.54mm_Vertical,"1x4 female socket for a 1.3 in 128x64 I2C OLED module (SH1106, address 0x3C)",top,"OLED module socket: GND, VCC, SCL, SDA (check your module's pin order)"
+1,J6,Headset XLR-4,PinHeader_1x05_P2.54mm_Vertical,"Neutrik NC4MD-L-1 (panel, wired)",top,"Wire pads for the front-panel XLR-4 male: 1 mic common, 2 mic +, 3 ear -, 4 ear +, 5 shell"
+1,J7,4-wire in,PinHeader_1x03_P2.54mm_Vertical,"Neutrik NC3FD-L-1 (panel, wired)",top,"Wire pads for the rear XLR-3 female 4-wire input: 1 ground, 2 hot, 3 cold"
+1,J8,4-wire out,PinHeader_1x03_P2.54mm_Vertical,"Neutrik NC3MD-L-1 (panel, wired)",top,"Wire pads for the rear XLR-3 male 4-wire output: 1 ground, 2 hot, 3 cold"
+1,L1,4.7u,L_Bourns-SRN4018,"4.7 uH, 2.5 A, 4x4 mm (Bourns SRN4018-4R7M or equal)",top,
+1,L2,0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,top,Pi match series element: 0R until tuned
+0,L3,DNP 0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,top,Not fitted. 2.4 GHz match series element
+12,LED1 LED2 LED3 LED4 LED5 LED6 LED7 LED8 LED9 LED10 LED11 LED12,WS2812B-Mini,LED_WS2812B-Mini-V3J_3.5x3.5mm,Worldsemi WS2812B-Mini-V3J,top,
+0,R1 R2,DNP 4.7k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,Not fitted. 
+3,R3 R9 R10,1k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+4,R4 R5 R6 R7,470,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+2,R8 R16,100k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+7,R11 R12 R13 R20 R21 R25 R26,10k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+1,R14,33,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,LED data series resistor
+0,R15 R19,DNP 0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,Not fitted. 
+1,R17,0,R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,1206 0R,top,BTL link (or a 100u 1206 cap for single-ended)
+1,R18,0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,BTL link (remove for single-ended)
+1,R22,4.7k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,Line input pad shunt (fit 0R in R20/R21 and remove this for low-level sources)
+2,R23 R24,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+1,SW1,Talk 1,SW_PUSH-12mm,12 x 12 mm tactile switch with round cap,top,Talk 1 key (channel 1)
+1,SW2,Talk 2,SW_PUSH-12mm,12 x 12 mm tactile switch with round cap,top,Talk 2 key (channel 2)
+1,SW3,Talk 3,SW_PUSH-12mm,12 x 12 mm tactile switch with round cap,top,Talk 3 key (channel 3)
+1,SW4,Talk 4,SW_PUSH-12mm,12 x 12 mm tactile switch with round cap,top,Talk 4 key (channel 4)
+1,SW5,Menu,SW_PUSH_6mm,"6 x 6 mm tactile switch, 13 mm tall",top,Menu key
+1,SW6,Back,SW_PUSH_6mm,"6 x 6 mm tactile switch, 13 mm tall",top,Back key
+1,U1,ESP32-P4-NANO,ESP32-P4-NANO_Sockets,"Waveshare ESP32-P4-NANO (SKU 29026) on 2x 2x13 2.54 mm female sockets, 8.5 mm",top,"ESP32-P4 board: Ethernet (PoE module option), USB-C, Wi-Fi 6 co-processor. Plugs in RJ45-first toward the rear"
+1,U2,AP63205WU,TSOT-23-6,Diodes AP63205WU-7,top,"5 V, 2 A synchronous buck, 3.8-32 V in"
+1,U3,TLV75733,SOT-23-5,TI TLV75733PDBVR,top,"3.3 V, 1 A LDO for the radio, codec and expander (separate from the NANO's own 3.3 V)"
+1,U4,LR2021,LR2021_Elecrow_10x10mm,Elecrow LR2021 module (LMM16121D),top,915-928 MHz FLRC radio; 2.4 GHz port for fallback
+1,U5,PE4259,SOT-363_SC-70-6,pSemi PE4259-63,top,"Antenna diversity switch, RF1 = antenna A when CTRL is high"
+1,U6,TCA9555PWR,TSSOP-24_4.4x7.8mm_P0.65mm,TI TCA9555PWR,top,"IO expander at 0x21 (A0 high): keys, encoder push, headset sense, radio DIO5 and TX/RX enable"
+1,U7,74AHCT1G125,SOT-23-5,74AHCT1G125 (SOT-23-5),top,3.3 V to 5 V level shift for the LED data line
+1,U8,NAU88C22,QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm_ThermalVias,Nuvoton NAU88C22YG,top,"Codec, I2C 0x1A, MODE low = 2-wire. Headset mic left, 4-wire in right (differential), earpiece on the BTL speaker pair, 4-wire out on the headphone pair (BTL)"

@@ -1,0 +1,31 @@
+** Drc report for /home/claude/beltpack/final/kicad_proj/top_pcb/top_pcb.kicad_pcb **
+** Created on 2026-10-26 09:14:47 **
+
+** Found 7 DRC violations **
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(170.0000 mm, 114.0000 mm): Footprint H3
+[lib_footprint_issues]: The current configuration does not include the library 'OpenTheatreComms'.
+    Local override; Severity: warning
+    @(150.0000 mm, 105.0000 mm): Footprint REF**
+[lib_footprint_mismatch]: Footprint 'LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder' does not match copy in library 'LED_SMD'.
+    Local override; Severity: warning
+    @(103.5000 mm, 104.0600 mm): Footprint D6
+[lib_footprint_mismatch]: Footprint 'LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder' does not match copy in library 'LED_SMD'.
+    Local override; Severity: warning
+    @(196.5000 mm, 104.0600 mm): Footprint D8
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(170.0000 mm, 94.5000 mm): Footprint H4
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(130.0000 mm, 114.0000 mm): Footprint H1
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(130.0000 mm, 94.5000 mm): Footprint H2
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

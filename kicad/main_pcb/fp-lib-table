@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "OpenTheatreComms")(type "KiCad")(uri "${KIPRJMOD}/lib/OpenTheatreComms.pretty")(options "")(descr "Beltpack parts"))
+)

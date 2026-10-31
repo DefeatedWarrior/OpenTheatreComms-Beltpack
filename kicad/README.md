@@ -5,7 +5,7 @@ KiCad 7 and open in KiCad 7, 8 and 9 (newer versions offer to upgrade the files 
 
 | Folder | Board | Size | Build |
 |---|---|---|---|
-| `top_pcb/` | Top PCB under the keys | 99.8 × 26.5 mm curved pill | 1.6 mm, 2 layers |
+| `top_pcb/` | Top PCB under the keys: **schematic, routed board and fab files (rev 0.1)**, see `top_pcb/README.md` | 99.8 × 26.5 mm curved pill | 1.6 mm, 2 layers |
 | `main_pcb/` | Main PCB behind the front | 87.5 × 64.5 mm stepped | 1.6 mm, 4 layers |
 | `pack_lid_pcb/` | Battery pack pad board | 24 × 8 mm | 0.8 mm, 2 layers, ENIG |
 
@@ -21,7 +21,7 @@ KiCad 7 and open in KiCad 7, 8 and 9 (newer versions offer to upgrade the files 
   `placement.csv` (flip the sign of Y: KiCad's Y points down).
 - **3D**: a locked, board-only footprint `REF**` carries `3d/enclosure_ref.step`, so *View → 3D Viewer* shows the case,
   dials, keycaps, XLR and battery pack around the board. Keep the `3d/` folder next to the project folders.
-- **Schematic**: an empty sheet with the title block filled in.
+- **Schematic**: an empty sheet with the title block filled in (the main and pack boards; the top board is complete).
 
 ## Suggested workflow
 
@@ -59,7 +59,8 @@ KiCad 7 and open in KiCad 7, 8 and 9 (newer versions offer to upgrade the files 
   and U.FL B at (24.5, 10.5), all on the main board B side. Put 100 pF DC-block footprints on the switch ports (fit or bridge per the
   datasheet) and drive CTRL from an ESP32 GPIO. Antenna A sits inside the right end, about 8 mm past the board edge; antenna B sits inside
   the left end, 3 mm past the edge, which is why that strip has no copper.
-- Pogo pins: three Mill-Max 0906 at (6/12/18, −15), B side, through-hole; they compress 0.8 mm onto the pack pads.
+- Pogo pins: three Xinyangze YZ08415060P-02 at (6/12/18, −15), B side, through-hole (1.0 mm holes); the pack pads sit 4.0 mm
+  from the back face (the pins' working height). J11, a JST XH 2-pin battery input, sits on the front at (18.5, −11).
 
 ## Check before layout
 

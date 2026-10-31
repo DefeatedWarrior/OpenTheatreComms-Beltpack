@@ -1,0 +1,388 @@
+(footprint "ESP32-P4-NANO_Sockets"
+  (version 20221018)
+  (generator pcbnew)
+  (layer "F.Cu")
+  (descr "Waveshare ESP32-P4-NANO, plugged into two 2x13 2.54 mm female sockets (8.5 mm), positions from Waveshare's drawing; M2.5 holes for 11 mm standoffs")
+  (attr through_hole)
+  (fp_text reference "REF**"
+    (at 0 -27)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15))))
+  (fp_text value "ESP32-P4-NANO_Sockets"
+    (at 0 27)
+    (layer "F.Fab")
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15))))
+  (fp_rect
+    (start -25 -25)
+    (end 25 25)
+    (stroke
+      (width 0.1)
+      (type default))
+    (fill none)
+    (layer "F.Fab"))
+  (fp_rect
+    (start -25.3 -25.3)
+    (end 25.3 25.3)
+    (stroke
+      (width 0.05)
+      (type default))
+    (fill none)
+    (layer "F.CrtYd"))
+  (fp_text user "USB-C"
+    (at 0 -23.4)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15))))
+  (fp_text user "RJ45"
+    (at -6.75 23.4)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15))))
+  (fp_line
+    (start -25 -25)
+    (end 25 -25)
+    (stroke
+      (width 0.12)
+      (type default))
+    (layer "F.SilkS"))
+  (fp_line
+    (start -25 25)
+    (end 25 25)
+    (stroke
+      (width 0.12)
+      (type default))
+    (layer "F.SilkS"))
+  (fp_line
+    (start -25 -25)
+    (end -25 25)
+    (stroke
+      (width 0.12)
+      (type default))
+    (layer "F.SilkS"))
+  (fp_line
+    (start 25 -25)
+    (end 25 25)
+    (stroke
+      (width 0.12)
+      (type default))
+    (layer "F.SilkS"))
+  (pad "L1" thru_hole rect
+    (at -23.519 -18.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L2" thru_hole circle
+    (at -20.979 -18.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L3" thru_hole circle
+    (at -23.519 -15.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L4" thru_hole circle
+    (at -20.979 -15.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L5" thru_hole circle
+    (at -23.519 -13.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L6" thru_hole circle
+    (at -20.979 -13.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L7" thru_hole circle
+    (at -23.519 -10.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L8" thru_hole circle
+    (at -20.979 -10.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L9" thru_hole circle
+    (at -23.519 -8.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L10" thru_hole circle
+    (at -20.979 -8.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L11" thru_hole circle
+    (at -23.519 -5.73)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L12" thru_hole circle
+    (at -20.979 -5.73)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L13" thru_hole circle
+    (at -23.519 -3.19)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L14" thru_hole circle
+    (at -20.979 -3.19)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L15" thru_hole circle
+    (at -23.519 -0.65)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L16" thru_hole circle
+    (at -20.979 -0.65)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L17" thru_hole circle
+    (at -23.519 1.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L18" thru_hole circle
+    (at -20.979 1.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L19" thru_hole circle
+    (at -23.519 4.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L20" thru_hole circle
+    (at -20.979 4.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L21" thru_hole circle
+    (at -23.519 6.97)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L22" thru_hole circle
+    (at -20.979 6.97)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L23" thru_hole circle
+    (at -23.519 9.51)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L24" thru_hole circle
+    (at -20.979 9.51)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L25" thru_hole circle
+    (at -23.519 12.05)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "L26" thru_hole circle
+    (at -20.979 12.05)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (fp_rect
+    (start -24.789 -19.7)
+    (end -19.709 13.32)
+    (stroke
+      (width 0.12)
+      (type default))
+    (fill none)
+    (layer "F.SilkS"))
+  (fp_text user "L1"
+    (at -25.919 -20.2)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 0.8 0.8)
+        (thickness 0.12))))
+  (pad "R1" thru_hole rect
+    (at 20.981 -18.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R2" thru_hole circle
+    (at 23.521 -18.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R3" thru_hole circle
+    (at 20.981 -15.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R4" thru_hole circle
+    (at 23.521 -15.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R5" thru_hole circle
+    (at 20.981 -13.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R6" thru_hole circle
+    (at 23.521 -13.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R7" thru_hole circle
+    (at 20.981 -10.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R8" thru_hole circle
+    (at 23.521 -10.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R9" thru_hole circle
+    (at 20.981 -8.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R10" thru_hole circle
+    (at 23.521 -8.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R11" thru_hole circle
+    (at 20.981 -5.73)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R12" thru_hole circle
+    (at 23.521 -5.73)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R13" thru_hole circle
+    (at 20.981 -3.19)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R14" thru_hole circle
+    (at 23.521 -3.19)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R15" thru_hole circle
+    (at 20.981 -0.65)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R16" thru_hole circle
+    (at 23.521 -0.65)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R17" thru_hole circle
+    (at 20.981 1.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R18" thru_hole circle
+    (at 23.521 1.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R19" thru_hole circle
+    (at 20.981 4.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R20" thru_hole circle
+    (at 23.521 4.43)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R21" thru_hole circle
+    (at 20.981 6.97)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R22" thru_hole circle
+    (at 23.521 6.97)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R23" thru_hole circle
+    (at 20.981 9.51)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R24" thru_hole circle
+    (at 23.521 9.51)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R25" thru_hole circle
+    (at 20.981 12.05)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (pad "R26" thru_hole circle
+    (at 23.521 12.05)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask"))
+  (fp_rect
+    (start 19.711 -19.7)
+    (end 24.791 13.32)
+    (stroke
+      (width 0.12)
+      (type default))
+    (fill none)
+    (layer "F.SilkS"))
+  (fp_text user "R1"
+    (at 20.981 -20.2)
+    (layer "F.SilkS")
+    (effects
+      (font
+        (size 0.8 0.8)
+        (thickness 0.12))))
+  (pad "" np_thru_hole circle
+    (at -22.54 -22.55)
+    (size 2.7 2.7)
+    (drill 2.7)
+    (layers "*.Cu" "*.Mask"))
+  (pad "" np_thru_hole circle
+    (at 22.56 -22.55)
+    (size 2.7 2.7)
+    (drill 2.7)
+    (layers "*.Cu" "*.Mask"))
+  (pad "" np_thru_hole circle
+    (at -22.54 22.55)
+    (size 2.7 2.7)
+    (drill 2.7)
+    (layers "*.Cu" "*.Mask"))
+  (pad "" np_thru_hole circle
+    (at 22.56 22.55)
+    (size 2.7 2.7)
+    (drill 2.7)
+    (layers "*.Cu" "*.Mask")))

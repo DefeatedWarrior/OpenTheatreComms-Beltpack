@@ -19,7 +19,9 @@ and is 3D printed and hand-assembled.
 | `cad/out/beltpack_final.step` | Full assembly (STEP) |
 | `cad/out/stl/` | Every printed part as STL |
 | `cad/out/kicad/` | Board outlines (DXF), drawings, placement CSV |
-| `kicad/` | Ready-to-open KiCad projects for the three boards, the enclosure STEP for the 3D viewer, and a placement script |
+| `kicad/` | Finished KiCad projects, each with a README and `fab/` outputs (Gerbers, drill, BOM, placement, schematic PDF, previews): beltpack main board, top board and pack lid, and the base station carrier |
+| `pcb/` | The Python that generates each board: `design.py` (parts and nets), schematic, placement, routing, finishing and fab outputs |
+| `order/` | The v1 order for 2 beltpacks + 1 base station: JLCPCB board settings and stencils, the LCSC cart (all parts hand-fitted), other suppliers, and the assembly guide (`ORDER_README.md`) |
 | `renders/` | Render sheet and individual renders |
 | `viewer/` | Interactive three.js viewer (open `viewer/index.html` from a local web server) |
 
@@ -32,7 +34,7 @@ is the same page as `viewer/`.
 - **Size:** 105 × 77 × 30 mm shell (108 × 81 × 35 mm with the TPU caps, 39 mm deep with the belt plate). The back follows a 400 mm radius to sit on the hip.
 - **Controls:** four talk keys and a 1.3 in OLED on the flat top, a detented dial at each round end, Back / Function / Menu in a recessed panel on the front.
 - **Bottom:** XLR-4 male (D-type), power button, USB-C, 3.5 mm TRRS, flashlight.
-- **Power:** a 104050 Li-ion pack (2500 mAh) forms the back of the case; the belt plate slides up its rails and locks it in.
+- **Power:** a 104050 Li-ion pack (2500 mAh) forms the back of the case; the belt plate slides up its rails and locks it in. Three spring pins carry battery +, NTC and battery −; a JST XH 2-pin socket (J11) on the main board is a second battery input for a wired cell or bench supply.
 - **Boards:** a curved top PCB (99.8 × 26.5 mm) under the keys carrying the OLED and both encoders, and a vertical main PCB (87.5 × 64.5 mm) carrying the MCU, radio, codec, power and connectors. A 10-way JST SH cable links them.
 - **Radio:** an Elecrow LR2021 module on 915–928 MHz with switched antenna diversity: a pSemi PE4259 picks between two flex antennas, one inside each round end, every frame.
 
@@ -51,8 +53,22 @@ python3 build_viewer.py   # viewer/index.html + viewer/beltpack.json
 python3 make_enclosure_ref.py && python3 make_kicad.py   # KiCad projects in ../kicad (needs KiCad 7+)
 ```
 
+## Base station
+
+A 150 x 90 mm 4-layer carrier for a Waveshare ESP32-P4-NANO (Ethernet for AES67, optional PoE), with the same LR2021 radio and
+two edge SMA antennas, a DC input (7-24 V buck), a 1.3 in OLED, four talk keys with RGB lights, eight beltpack lights, a menu dial
+and an optional NAU88C22 audio section (local XLR-4 headset, 4-wire in and out). See `kicad/base_pcb/README.md`.
+
 ## Status
 
-This is a reference model to start KiCad layout, not a released design. A few part envelopes are typical sizes still to check against
-the exact parts you buy: the PEC12R body height, the XLR D-flange and depth, USB4105, the PTS815 height variant, the side tact switch,
+**Boards:** all four are laid out and pass KiCad DRC with 0 errors and 0 unconnected pads. The v1 order (`order/`) is ready, at about
+A$450 for 2 beltpacks + 1 base station, with every part hand-fitted from solder-paste stencils.
+
+**Case:** to be redone around the cheaper parts chosen for v1. The pack pads move to 4.0 mm from the main board's back face for the
+Xinyangze spring pins; it needs room for the 7 mm JST XH socket on the main board's front and the Alps EC11 dials' shaft length.
+
+**Reference model notes:**
+
+The CAD model was the reference for the KiCad layout. A few part envelopes are typical sizes still to check against
+the exact parts you buy: the encoder body height, the XLR D-flange and depth, USB4105, the PTS815 height variant, the side tact switch,
 the JST SH bodies and where the OLED panel's active area sits on its glass. See `cad/out/kicad/README.md`.

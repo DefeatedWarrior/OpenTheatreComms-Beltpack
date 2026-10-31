@@ -1,0 +1,4 @@
+(version 1)
+# Low-current board: one thermal spoke is enough to join a pad to the GND pour.
+(rule "single spoke"
+  (constraint min_resolved_spokes 1))
