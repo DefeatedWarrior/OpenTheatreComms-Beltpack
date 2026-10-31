@@ -22,6 +22,7 @@ Ref,Val,Package,PosX,PosY,Rot,Side
 "D4","PESD5V0S1BA","D_SOD-323_HandSoldering",-21.340000,-8.310000,0.000000,bottom
 "D5","PESD5V0S1BA","D_SOD-323_HandSoldering",-16.870000,-8.370000,0.000000,bottom
 "D6","PESD5V0S1BA","D_SOD-323_HandSoldering",-11.460000,-11.600000,90.000000,bottom
+"D12","B5819W","D_SOD-123",28.000000,-25.000000,-90.000000,bottom
 "FB2","0R","L_0603_1608Metric_Pad1.05x0.95mm_HandSolder",33.790000,11.710001,90.000000,bottom
 "J3","XLR-4 wires","PinHeader_1x05_P2.54mm_Vertical",-25.080000,-11.600000,-90.000000,bottom
 "J4","Top PCB link","JST_SH_SM10B-SRSS-TB_1x10-1MP_P1.00mm_Horizontal",8.000000,25.225000,0.000000,bottom
@@ -30,6 +31,7 @@ Ref,Val,Package,PosX,PosY,Rot,Side
 "J8","Battery +","MillMax_0906_SpringPin",6.000000,-15.000000,0.000000,bottom
 "J9","Pack NTC","MillMax_0906_SpringPin",12.000000,-15.000000,0.000000,bottom
 "J10","Battery -","MillMax_0906_SpringPin",18.000000,-15.000000,0.000000,bottom
+"J12","Dock","JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",26.500000,-31.500000,180.000000,bottom
 "L1","0","R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",22.837500,0.460000,180.000000,bottom
 "Q1","AO3401A","SOT-23",20.640000,-20.150000,90.000000,bottom
 "R3","1.5k","R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",10.900000,-25.180000,90.000000,bottom

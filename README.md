@@ -19,7 +19,7 @@ and is 3D printed and hand-assembled.
 | `cad/out/beltpack_final.step` | Full assembly (STEP) |
 | `cad/out/stl/` | Every printed part as STL |
 | `cad/out/kicad/` | Board outlines (DXF), drawings, placement CSV |
-| `kicad/` | Finished KiCad projects, each with a README and `fab/` outputs (Gerbers, drill, BOM, placement, schematic PDF, previews): beltpack main board, top board and pack lid, and the base station carrier |
+| `kicad/` | Finished KiCad projects, each with a README and `fab/` outputs (Gerbers, drill, BOM, placement, schematic PDF, previews): beltpack main board, top board, pack lid and dock contact board, and the base station carrier |
 | `pcb/` | The Python that generates each board: `design.py` (parts and nets), schematic, placement, routing, finishing and fab outputs |
 | `order/` | The v1 order for 2 beltpacks + 1 base station: JLCPCB board settings and stencils, the LCSC cart (all parts hand-fitted), other suppliers, and the assembly guide (`ORDER_README.md`) |
 | `renders/` | Render sheet and individual renders |
@@ -35,6 +35,8 @@ is the same page as `viewer/`.
 - **Controls:** four talk keys and a 1.3 in OLED on the flat top, a detented dial at each round end, Back / Function / Menu in a recessed panel on the front.
 - **Bottom:** XLR-4 male (D-type), power button, USB-C, 3.5 mm TRRS, flashlight.
 - **Power:** a 104050 Li-ion pack (2500 mAh) forms the back of the case; the belt plate slides up its rails and locks it in. Three spring pins carry battery +, NTC and battery −; a JST XH 2-pin socket (J11) on the main board is a second battery input for a wired cell or bench supply.
+- **Dock contacts:** four gold pads in the case bottom (VBUS, D+, D−, GND) on a small contact board, cabled to the main board's
+  J12. A dock charges the pack and talks USB to it (pairing, settings, firmware); a diode keeps the USB-C's 5 V off the pads.
 - **Boards:** a curved top PCB (99.8 × 26.5 mm) under the keys carrying the OLED and both encoders, and a vertical main PCB (87.5 × 64.5 mm) carrying the MCU, radio, codec, power and connectors. A 10-way JST SH cable links them.
 - **Radio:** an Elecrow LR2021 module on 915–928 MHz with switched antenna diversity: a pSemi PE4259 picks between two flex antennas, one inside each round end, every frame.
 
@@ -61,11 +63,12 @@ and an optional NAU88C22 audio section (local XLR-4 headset, 4-wire in and out).
 
 ## Status
 
-**Boards:** all four are laid out and pass KiCad DRC with 0 errors and 0 unconnected pads. The v1 order (`order/`) is ready, at about
-A$425 for 2 beltpacks + 1 base station, with every part hand-fitted from solder-paste stencils.
+**Boards:** all five are laid out and pass KiCad DRC with 0 errors and 0 unconnected pads. The v1 order (`order/`) is ready, at about
+A$445 for 2 beltpacks + 1 base station, with every part hand-fitted from solder-paste stencils.
 
 **Case:** to be redone around the cheaper parts chosen for v1. The pack pads move to 4.0 mm from the main board's back face for the
-Xinyangze spring pins; it needs room for the 7 mm JST XH socket on the main board's front and the Alps EC11 dials' shaft length.
+Xinyangze spring pins; it needs room for the 7 mm JST XH socket on the main board's front and the Alps EC11 dials' shaft length, and a pocket in
+the bottom for the dock contact board. The base station's dock side (spring pins, switched VBUS, USB host) is still to design.
 
 **Reference model notes:**
 

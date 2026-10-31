@@ -46,7 +46,9 @@ Order as: 2 layers, 1.6 mm, HASL lead-free (ENIG makes the 0.5 mm FPC connector 
    The connector's entry edge is 0.8 mm inside the notch edge, so check that the tail is long enough to wrap the 1.6 mm board edge and seat fully.
 3. **Encoder footprint.** It uses KiCad's PEC12R vertical footprint (3 pins at 2.5 mm, two mounting tabs). The fitted part is
    an Alps EC11N1520402 (no switch, 30 detents / 15 pulses), whose pins match and whose smaller tabs fit the PEC12R slots.
-   The firmware counts one step per detent (half a quadrature cycle). Check the shaft length against the case redesign. The encoders sit on the bottom side with their pins toward the front edge.
+   The firmware counts one step per detent (half a quadrature cycle). Check the shaft length against the case redesign.
+   **Clip off the EC11N's two dummy pins** (the unused push-switch positions, 7 mm past the mounting tabs) before fitting:
+   the PEC12R footprint has no holes for them. They're mechanical only; the soldered tabs hold the encoder. The encoders sit on the bottom side with their pins toward the front edge.
 4. **Status lights.** The red and green 0603s sit 1.5 mm apart under the 2.4 mm light pipe. A single bicolour 0603 would be tidier if you find one you like.
 5. **Main PCB side.** Fit no second set of I2C pull-ups there, and keep the SM10B pinout identical, for a straight JST SH cable (pin 1 to pin 1).
 

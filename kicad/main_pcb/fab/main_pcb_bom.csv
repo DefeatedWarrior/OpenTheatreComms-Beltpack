@@ -17,6 +17,7 @@ Qty,References,Value,Footprint,Part,Side,Notes
 3,D2 D3 D11,BAT54WS,D_SOD-323_HandSoldering,Diodes BAT54WS,bottom/top,
 6,D4 D5 D6 D7 D8 D9,PESD5V0S1BA,D_SOD-323_HandSoldering,Nexperia PESD5V0S1BA,bottom/top,
 1,D10,White 3 mm,LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm,"3 mm white LED, 20 mA",top,"Flashlight: legs bent 90 degrees, 2 mm above the board, through the bottom face"
+1,D12,B5819W,D_SOD-123,B5819W (SOD-123),bottom,Dock power into VBUS; keeps USB-C's 5 V off the exposed dock contacts
 1,FB1,600R,L_0603_1608Metric_Pad1.05x0.95mm_HandSolder,Murata BLM18PG601SN1D,top,
 1,FB2,0R,L_0603_1608Metric_Pad1.05x0.95mm_HandSolder,0603 0R (or Murata BLM18PG121SN1D),bottom,Radio supply link: the module has its own ferrite; fit a 120R bead here only if 3V3 noise needs it
 1,J1,USB-C,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,GCT USB4105-GF-A,top,"USB 2.0 Type-C receptacle: charging, firmware and USB serial"
@@ -30,6 +31,7 @@ Qty,References,Value,Footprint,Part,Side,Notes
 1,J9,Pack NTC,MillMax_0906_SpringPin,Xinyangze YZ08415060P-02,bottom,"Spring pin onto the pack pad board (4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail): Pack NTC"
 1,J10,Battery -,MillMax_0906_SpringPin,Xinyangze YZ08415060P-02,bottom,"Spring pin onto the pack pad board (4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail): Battery -"
 1,J11,Battery (JST XH),JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,JST B2B-XH-A(LF)(SN),top,Battery input in parallel with the spring pins (pin 1 +). A cell here has no NTC: fit R5 to turn the charger's temperature check off
+1,J12,Dock,JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal,JST SM04B-SRSS-TB(LF)(SN),bottom,"Dock: cable to the contact board in the case bottom (1 VBUS, 2 D+, 3 D-, 4 GND)"
 1,L1,0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,bottom,Pi match series element: 0R until tuned
 0,L2,DNP 0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,bottom,Not fitted. 2.4 GHz match series element
 1,M1,Vibration,Motor_Coin_8mm_LeadPads,"8 x 2.7 mm coin vibration motor, 3 V",top,Call alert

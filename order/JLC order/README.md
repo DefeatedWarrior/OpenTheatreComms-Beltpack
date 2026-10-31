@@ -16,6 +16,7 @@ This order covers **2 beltpacks + 1 base station**.
 | `Beltpack top` | 2 layers, 1.6 mm, **HASL lead-free**, qty 5 | **Top and bottom**, as two small stencils, or one sheet if JLC accepts both sides in 100 x 100 mm |
 | `Base station` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | **Top only**, standard frameless stencil (the board is too big for the small option) |
 | `Beltpack pack lid` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (its pads are spring contacts: gold stays clean) | none |
+| `Beltpack dock contacts` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (dock spring pins land on its pads) | none (one SMD socket, iron it) |
 
 - **Stack:** the 4-layer boards need the 7628 stack because the RF lines were sized for it.
 - **Finish:** HASL lead-free on the main, top and base boards. Reflow melts the HASL into each joint and pulls the parts flat.
@@ -38,7 +39,7 @@ Upload `LCSC_cart_upload.csv` to LCSC's BOM tool (two columns: LCSC part number,
 `LCSC_cart_hand_parts.csv` to see what each line is for. Place it from JLC's parts manager, or tick "ship with JLCPCB
 order", so it travels in the same box as the boards.
 
-- **Size and cost:** 73 lines, **about A$133**, including the base antennas. Everything ships from stock.
+- **Size and cost:** 76 lines, **about A$138**, including the base antennas. Everything ships from stock.
 - **Quantities and spares:** already rounded up to LCSC's minimum and multiple. Small parts include spares: +20% or at
   least 2 for passives, +1 for other parts under US$1. The accelerometer, fuel gauge and codec get one spare each,
   because they're the easiest to ruin.
@@ -74,6 +75,7 @@ Each board folder has a `*_hand_fit.csv` listing every part on that board, and w
 | 8 mm coin vibration motor, 3 V | 2 | Core Electronics (same order as the antennas), AliExpress |
 | 1.3 in 128x64 I2C OLED module (SH1106), base | 1 | AliExpress. Check its pin order is GND, VCC, SCL, SDA |
 | GME12864-110 OLED panel (beltpack top, 30-pin FPC) | 2 | AliExpress |
+| JST SH 4-pin cable, 1.0 mm pitch, pin 1 to pin 1 ("same side" ends), 60–80 mm, beltpack J12 to the dock contact board | 2 | AliExpress (packs of 10, about A$3) |
 | **REAN** XLR-4 panel connector (headset), beltpacks | 2 | Jaycar, element14 AU (about A$8) |
 | Beltpack cells | per the enclosure | |
 
@@ -100,10 +102,12 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
    - Paste and place the top side (resistors, LEDs, PTS815 buttons) and reflow on the hot plate.
    - Flip the board onto spare boards, paste the bottom with low-temp paste, place the parts (TCA9555, FPC connector,
      link connector, caps) and reflow with hot air.
-   - Hand-solder the encoders.
+   - Hand-solder the encoders. Clip off each EC11N's two dummy pins first (the unused switch positions, 7 mm past the
+     mounting tabs): the footprint has no holes for them.
 3. **Beltpack main, about 3–3.5 hours each.**
    - **Bottom side first, on the hot plate.** Paste and place the accelerometer, codec, fuel gauge, antenna switch,
-     TCA9555, the regulators and their passives, the U.FLs and the ESP32 module. Reflow flat on the hot plate. The
+     TCA9555, the regulators and their passives, the U.FLs, the dock socket J12 and its diode D12, and the ESP32 module.
+     Reflow flat on the hot plate. The
      fine-pitch parts come out best on a flat first-side reflow.
    - Check the LGA and QFN under magnification. The LIS3DH has no visible joints: if the board misbehaves later, it's the
      first suspect, and you have a spare.
@@ -112,6 +116,8 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
      buttons, LEDs, passives) and reflow with hot air, one area at a time.
    - Then the through-hole parts: the spring pins (from the back, flange flat on the pad), the JST XH battery socket J11 on
      the front, and the motor leads.
+4. **Dock contacts, 5 minutes each.** Iron the JST SH socket onto the back (no paste needed for one part). Check the
+   cable pin 1 to pin 1 before fitting: pad 1 on the contact board (VBUS) must reach J12 pin 1.
 
 **Tips:** Check every fine-pitch part under magnification. Fix bridges with flux and wick. Clean off the flux and check
 the 3.3 V rail for shorts before powering up.
@@ -128,14 +134,14 @@ the 3.3 V rail for shorts before powering up.
 
 | Where | What | Approx. A$ |
 |---|---|---|
-| JLCPCB | 4 board types (5 of each; ENIG only on the pack lid), 5 stencils, shipping | 135 |
-| LCSC | every part and the base antennas, shipped with the JLC boards | 138 |
+| JLCPCB | 5 board types (5 of each; ENIG on the pack lid and dock contacts), 5 stencils, shipping | 150 |
+| LCSC | every part and the base antennas, shipped with the JLC boards | 143 |
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |
 | Core Electronics | 4 flex antennas, 2 coin motors, shipping | 25 |
 | AliExpress | 1.3 in OLED module and 2 beltpack OLED panels | 25 |
 | REAN XLRs | 2 headset connectors for the packs | 16 |
-| **Total** | | **about A$425** |
+| **Total** | | **about A$445** |
 
 Not included: paste and tools, beltpack cells, enclosures and the optional PoE module (about A$15). The JLC line is an
 estimate until you see JLC's quote.

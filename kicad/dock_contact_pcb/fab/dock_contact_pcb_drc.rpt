@@ -1,0 +1,22 @@
+** Drc report for /home/claude/beltpack/final/kicad_proj/dock_contact_pcb/dock_contact_pcb.kicad_pcb **
+** Created on 2026-10-31 20:30:41 **
+
+** Found 4 DRC violations **
+[lib_footprint_mismatch]: Footprint 'TestPoint_Pad_D2.5mm' does not match copy in library 'TestPoint'.
+    Local override; Severity: warning
+    @(163.0000 mm, 97.4000 mm): Footprint J3
+[lib_footprint_mismatch]: Footprint 'TestPoint_Pad_D2.5mm' does not match copy in library 'TestPoint'.
+    Local override; Severity: warning
+    @(159.0000 mm, 97.4000 mm): Footprint J2
+[lib_footprint_mismatch]: Footprint 'TestPoint_Pad_D2.5mm' does not match copy in library 'TestPoint'.
+    Local override; Severity: warning
+    @(167.0000 mm, 97.4000 mm): Footprint J4
+[lib_footprint_mismatch]: Footprint 'TestPoint_Pad_D2.5mm' does not match copy in library 'TestPoint'.
+    Local override; Severity: warning
+    @(155.0000 mm, 97.4000 mm): Footprint J1
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

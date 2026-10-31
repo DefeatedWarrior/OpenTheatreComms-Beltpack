@@ -47,6 +47,9 @@ D3, reads the button through Q2 (expander P03), and lets go of PWR_HOLD to switc
 The pack connects through three spring pins: J8 battery +, J9 NTC, J10 battery −. J11, a JST XH 2-pin on the front above
 the spring pins (pin 1 +, marked), is a second battery input in parallel with J8/J10, for a wired cell or bench supply.
 A cell on J11 has no NTC: fit R5 to turn the charger's temperature check off.
+**Dock:** J12 (JST SH 4-pin, back face, bottom edge, mouth facing down) cables to the dock contact board in the case
+bottom: pin 1 dock VBUS, 2 D+, 3 D−, 4 GND. Dock VBUS feeds the pack's VBUS through D12 (B5819W), which also keeps the USB-C's
+5 V off the exposed contacts; D+/D− join the USB-C's data lines (full speed, about 55 mm of extra track on D+).
 
 **ESP32-S3** (WROOM-1-N8R8, antenna end over the no-copper strip on the left):
 

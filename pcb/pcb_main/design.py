@@ -74,6 +74,11 @@ for ref, net, x, d in (("J8", "BAT", 6.0, "Battery +"), ("J9", "CHG_TEMP", 12.0,
 comp("J11", "Connector_Generic:Conn_01x02", "Battery (JST XH)", "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical", {"1": "BAT", "2": "GND"}, B,
      pcb=("F", 18.5, -11.0, 0), mpn="JST B2B-XH-A(LF)(SN)",
      desc="Battery input in parallel with the spring pins (pin 1 +). A cell here has no NTC: fit R5 to turn the charger's temperature check off")
+comp("J12", "Connector_Generic_MountingPin:Conn_01x04_MountingPin", "Dock", "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+     {"1": "DOCK_VBUS", "2": "USB_DP", "3": "USB_DN", "4": "GND", "MP": "GND"}, B, pcb=("B", 26.5, -31.5, 180), mpn="JST SM04B-SRSS-TB(LF)(SN)",
+     desc="Dock: cable to the contact board in the case bottom (1 VBUS, 2 D+, 3 D-, 4 GND)")
+comp("D12", "Device:D_Schottky", "B5819W", "Diode_SMD:D_SOD-123", {"1": "VBUS", "2": "DOCK_VBUS"}, B, pcb=("B", 28.0, -25.0, 270),
+     mpn="B5819W (SOD-123)", desc="Dock power into VBUS; keeps USB-C's 5 V off the exposed dock contacts")
 R("R10", "33k", "VBUS", "VBUS_DET", B, near=("U2", "4", "B"))
 R("R11", "100k", "VBUS_DET", "GND", B, near=("U2", "4", "B"))
 for ref, net in (("TP1", "VBUS"), ("TP2", "SYS"), ("TP3", "BAT"), ("TP4", "+3V3"), ("TP5", "GND")):

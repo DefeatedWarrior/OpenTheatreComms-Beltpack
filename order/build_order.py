@@ -16,7 +16,7 @@ ROT_DB = "/tmp/claude-0/-home-claude/9660d662-dc3d-52a1-975c-6584461bcbcb/scratc
 LCSC = json.load(open(sys.argv[1])) if len(sys.argv) > 1 and os.path.exists(sys.argv[1]) else {}
 OUT = os.path.join(HERE, "JLC order")
 
-UNITS = {"main_pcb": 2, "top_pcb": 2, "base_pcb": 1, "pack_lid_pcb": 2}       # boards actually built
+UNITS = {"main_pcb": 2, "top_pcb": 2, "base_pcb": 1, "pack_lid_pcb": 2, "dock_contact_pcb": 2}       # boards actually built
 JLC_QTY = 2                                                                  # boards JLC assembles per design (its minimum)
 SIDE = {}                                                                    # no JLC assembly: every part is hand-fitted (paste stencils)
 # Cost cut: JLC keeps only the extended parts that are hard by hand; every other extended part is hand-soldered
@@ -24,8 +24,8 @@ KEEP_AT_JLC = {"C15134": "LIS3DH (LGA)", "C914209": "NAU88C22 (QFN)", "C22371519
                "C2682616": "MAX17048 (TDFN 2 x 2)",
                "C470892": "PE4259 (LCSC has none; JLC has 84)"}
 SKIP_BLOCKS = {"base_pcb": {"Audio"}}                                        # base station v1: radio only, audio section unfitted
-NAMES = {"main_pcb": "Beltpack main", "top_pcb": "Beltpack top", "base_pcb": "Base station", "pack_lid_pcb": "Beltpack pack lid"}
-DESIGN = {"main_pcb": "pcb_main", "top_pcb": "pcb_top", "base_pcb": "pcb_base", "pack_lid_pcb": "pcb_lid"}
+NAMES = {"main_pcb": "Beltpack main", "top_pcb": "Beltpack top", "base_pcb": "Base station", "pack_lid_pcb": "Beltpack pack lid", "dock_contact_pcb": "Beltpack dock contacts"}
+DESIGN = {"main_pcb": "pcb_main", "top_pcb": "pcb_top", "base_pcb": "pcb_base", "pack_lid_pcb": "pcb_lid", "dock_contact_pcb": "pcb_dock"}
 
 def load_design(d):
     p = os.path.join(ROOT, d, "design.py"); sys.path.insert(0, os.path.dirname(p))
@@ -54,6 +54,9 @@ MPN = {
     "Xinyangze YZ08415060P-02": ("C7471674", "Xinyangze spring pin: 4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail in the 1.0 mm hole"),
     "Alps EC11N1520402": ("C470704", "Alps EC11, no switch, 30 detents / 15 pulses; fits the PEC12R footprint"),
     "JST B2B-XH-A(LF)(SN)": ("C158012", "JST XH 2-pin battery input, pin 1 +"),
+    "JST SM04B-SRSS-TB(LF)(SN)": ("C160404", "Dock socket on the main board (J12)"),
+    "JST BM04B-SRSS-TB(LF)(SN)": ("C495539", "JST BM04B-SRSS-TBT: the same socket in other tape packaging (the -TB is out of stock)"),
+    "B5819W (SOD-123)": ("C8598", "Dock power diode"),
     "74AHCT1G125 (SOT-23-5)": ("C7484", "TI SN74AHCT1G125DBVR"), "Worldsemi WS2812B-Mini-V3J": ("C22371519", ""),
     "Molex 73251-2120 SMA edge-mount jack, 1.6 mm board": ("C22467594", "MyAntenna A-SMA-KE-13.5A edge SMA: same pads as the Molex footprint, a fifth of the price"), "CUI PJ-063AH (5.5 x 2.1 mm, centre +)": ("C22434582", ""),
     "12 x 12 mm tactile switch with round cap": ("C136701", "HRO K2-1103DP, 12 x 12 x 12 mm"),
@@ -147,7 +150,7 @@ def jlc_info(l):
 shutil.rmtree(OUT, ignore_errors=True); os.makedirs(OUT)
 if os.path.exists(os.path.join(HERE, "ORDER_README.md")): shutil.copy(os.path.join(HERE, "ORDER_README.md"), os.path.join(OUT, "README.md"))
 hand_all, other_all, summary, problems = {}, {}, [], []
-for board in ("main_pcb", "top_pcb", "base_pcb", "pack_lid_pcb"):
+for board in ("main_pcb", "top_pcb", "base_pcb", "pack_lid_pcb", "dock_contact_pcb"):
     C = {c["ref"]: c for c in load_design(DESIGN[board])}
     b = pcbnew.LoadBoard(os.path.join(ROOT, "kicad_proj", board, board + ".kicad_pcb"))
     odir = os.path.join(OUT, NAMES[board]); os.makedirs(odir)
