@@ -255,9 +255,38 @@ with open(os.path.join(OUT, "LCSC_cart_hand_parts.csv"), "w", newline="") as f:
 with open(os.path.join(OUT, "LCSC_cart_upload.csv"), "w", newline="") as f:          # the two columns LCSC's BOM tool needs
     w = csv.writer(f); w.writerow(["LCSC Part Number", "Quantity"])
     for x in cart: w.writerow([x["lcsc"], x["qty"]])
+# Everything not on the LCSC cart, by supplier. The design-derived lines are checked against other_all so a design change can't drift.
+auto = {"8 mm coin vibration motor": 2, "LR2021": 3, "CE09458": 4}
+for k, q in auto.items():
+    got = [v["qty"] for kk, v in other_all.items() if k in kk]
+    if got != [q]: problems.append(f"other-supplier quantity for {k}: design says {got}, buy list says {q}")
+if len(other_all) != len(auto): problems.append(f"new other-supplier part in the design: {sorted(other_all)}")
+OTHER_BUY = [  # supplier, part, qty, approx A$ each (None = varies), used on, note
+    ("Elecrow (elecrow.com)", "LR2021 LoRa module (LMM16121D)", 3, 6.90 * FX, "Beltpack main U6 (x2); Base station U4", "US$6.90 each"),
+    ("Waveshare (waveshare.com)", "ESP32-P4-NANO, SKU 29026", 1, 19 * FX, "Base station", "Core Electronics has it for about A$61 if you need it sooner"),
+    ("Waveshare (waveshare.com)", "PoE module for the ESP32-P4-NANO (optional)", 0, 15, "Base station", "Only if you want PoE power"),
+    ("Core Electronics", "CE09458 915 MHz U.FL flex antenna, 15 x 65 mm, 200 mm lead", 4, 2.30, "Beltpack main J5, J6 (two per pack)", "Check 65 mm fits the pack ends"),
+    ("Core Electronics or AliExpress", "8 mm coin vibration motor, 3 V, flying leads", 2, None, "Beltpack main M1", ""),
+    ("AliExpress", "1.3 in 128x64 I2C OLED module (SH1106)", 1, None, "Base station", "Check its pin order is GND, VCC, SCL, SDA"),
+    ("AliExpress", "GME12864-110 OLED panel, 30-pin FPC", 2, None, "Beltpack top", "Check pin 1 and the tail direction"),
+    ("AliExpress", "JST SH 4-pin cable, 1.0 mm pitch, 40-60 mm, same-side (pin 1 to pin 1), pack of 10 (2 needed)", 1, 3.0, "Beltpack main J12 to the dock contact board", "Packs of 10, about A$3. Check with a meter"),
+    ("Jaycar or element14 AU", "REAN 4-pin XLR panel connector (headset)", 2, 8.0, "Beltpack", ""),
+    ("Your choice", "Beltpack Li-ion cells with a JST XH 2-pin plug", 2, None, "Beltpack J11", "Check the plug polarity: pin 1 must be +"),
+]
 with open(os.path.join(OUT, "Other_suppliers.csv"), "w", newline="") as f:
-    w = csv.writer(f); w.writerow(["Part and where to buy", "Quantity (2 beltpacks + 1 base)", "Used on"])
-    for k, v in other_all.items(): w.writerow([k, v["qty"], "; ".join(v["refs"])])
+    w = csv.writer(f); w.writerow(["Supplier", "Part", "Quantity (2 beltpacks + 1 base)", "Approx. A$ each", "Approx. A$ line", "Used on", "Note"])
+    for s, p, q, each, used, note in OTHER_BUY:
+        w.writerow([s, p, q, round(each, 2) if each else "", round(each * q, 2) if each else "", used, note])
+JLC_BUY = [  # folder, gerber zip, layers, thickness, finish, stencil
+    ("Beltpack main", "main_pcb_gerbers.zip", 4, "1.6", "HASL lead-free (JLC04161H-7628 stack)", "Top and bottom (two small 100 x 100 mm stencils)"),
+    ("Beltpack top", "top_pcb_gerbers.zip", 2, "1.6", "HASL lead-free", "Top and bottom (two small stencils)"),
+    ("Base station", "base_pcb_gerbers.zip", 4, "1.6", "HASL lead-free (JLC04161H-7628 stack)", "Top only (standard frameless)"),
+    ("Beltpack pack lid", "pack_lid_pcb_gerbers.zip", 2, "0.8", "ENIG", "None"),
+    ("Beltpack dock contacts", "dock_contact_pcb_gerbers.zip", 2, "0.8", "ENIG", "None"),
+]
+with open(os.path.join(OUT, "JLC_boards.csv"), "w", newline="") as f:
+    w = csv.writer(f); w.writerow(["Folder", "Upload", "Layers", "Thickness (mm)", "Surface finish", "Quantity", "Stencil", "PCB Assembly"])
+    for fo, z, L, t, fin, st in JLC_BUY: w.writerow([fo, z, L, t, fin, 5, st, "Off"])
 json.dump(dict(summary=summary, cart=cart, other=other_all, problems=problems), open(os.path.join(HERE, "order_summary.json"), "w"), indent=1)
 for s in summary: print(s)
 print("cart lines", len(cart), "cart total A$", round(FX * sum(x["total"] or 0 for x in cart), 2), "missing LCSC info:", [x["lcsc"] for x in cart if x["unit"] is None])

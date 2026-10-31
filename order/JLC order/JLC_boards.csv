@@ -1,0 +1,6 @@
+Folder,Upload,Layers,Thickness (mm),Surface finish,Quantity,Stencil,PCB Assembly
+Beltpack main,main_pcb_gerbers.zip,4,1.6,HASL lead-free (JLC04161H-7628 stack),5,Top and bottom (two small 100 x 100 mm stencils),Off
+Beltpack top,top_pcb_gerbers.zip,2,1.6,HASL lead-free,5,Top and bottom (two small stencils),Off
+Base station,base_pcb_gerbers.zip,4,1.6,HASL lead-free (JLC04161H-7628 stack),5,Top only (standard frameless),Off
+Beltpack pack lid,pack_lid_pcb_gerbers.zip,2,0.8,ENIG,5,None,Off
+Beltpack dock contacts,dock_contact_pcb_gerbers.zip,2,0.8,ENIG,5,None,Off

@@ -1,6 +1,12 @@
 # OpenTheatreComms v1 order (hand assembly)
 
-This order covers **2 beltpacks + 1 base station**.
+This order covers **2 beltpacks + 1 base station**. The 4-slot charging dock comes later, as a separate order.
+
+**Buy lists in this folder:**
+
+- `JLC_boards.csv`: the five boards and the settings to pick for each.
+- `LCSC_cart_upload.csv`: upload to LCSC's BOM tool. `LCSC_cart_hand_parts.csv` is the same cart with what each line is for.
+- `Other_suppliers.csv`: everything else, grouped by shop, with rough prices.
 
 - **JLC:** makes the boards and the solder-paste stencils. It assembles nothing.
 - **You:** fit every part, from one LCSC cart plus a few other suppliers.
@@ -19,6 +25,8 @@ This order covers **2 beltpacks + 1 base station**.
 | `Beltpack dock contacts` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (dock spring pins land on its pads) | none (one SMD socket, iron it) |
 
 - **Stack:** the 4-layer boards need the 7628 stack because the RF lines were sized for it.
+- **Vias:** the beltpack main board has 27 vias with 0.2 mm holes, JLC's 4-layer minimum. If the quote shows a small-hole
+  fee, that's why.
 - **Finish:** HASL lead-free on the main, top and base boards. Reflow melts the HASL into each joint and pulls the parts flat.
   The main board's finest parts (the LGA accelerometer, the 0.4 mm QFN codec and the TDFN fuel gauge) get a slightly less even
   paste print on HASL than on ENIG. Use plenty of flux and inspect them closely. The pack lid stays ENIG because its pads are
@@ -74,6 +82,7 @@ Each board folder has a `*_hand_fit.csv` listing every part on that board, and w
 | 915 MHz U.FL flex antenna (FPC, 15 x 65 mm, 200 mm lead), beltpacks | 4 | Core Electronics CE09458, A$2.30 each. Check 65 mm fits the pack ends before buying |
 | 8 mm coin vibration motor, 3 V | 2 | Core Electronics (same order as the antennas), AliExpress |
 | 1.3 in 128x64 I2C OLED module (SH1106), base | 1 | AliExpress. Check its pin order is GND, VCC, SCL, SDA |
+| Beltpack Li-ion cells with a JST XH 2-pin plug | 2 | Your choice. Check the plug polarity: J11 pin 1 is + |
 | GME12864-110 OLED panel (beltpack top, 30-pin FPC) | 2 | AliExpress |
 | JST SH 4-pin cable, 1.0 mm pitch, 40–60 mm, beltpack J12 to the dock contact board, wired pin 1 to pin 1 (check with a meter: they come straight and reversed) | 2 | AliExpress (packs of 10, about A$3) |
 | **REAN** XLR-4 panel connector (headset), beltpacks | 2 | Jaycar, element14 AU (about A$8) |
@@ -125,11 +134,19 @@ the 3.3 V rail for shorts before powering up.
 
 ## 5. Before you press order
 
+I've checked every Gerber zip: the outlines, layer counts, drills and paste layers are right on all five boards, and DRC
+shows no errors. These checks are yours, because they depend on parts in your hands:
+
 1. **Base station NANO sockets.** Print `base_pcb_front.png` from the base station fab folder at 1:1. Push two loose
    sockets into a NANO and check they land on the hole marks.
 2. **Base station OLED pin order** on the module you buy (see section 3).
-3. **Gerbers.** Open each Gerber zip in JLC's viewer (or tracespace.io) and check the outline, the drills, the layer
-   count and the paste layers.
+3. **Beltpack top OLED panel:** pin 1 and the direction the FPC tail leaves the panel.
+4. **Battery plug polarity:** J11 pin 1 is +. Check your cells' plugs with a meter.
+5. **Schematic values:** a read-through of each schematic PDF, especially the charger's NTC and R5.
+6. **Gerbers in JLC's viewer** when you upload: one last look at each board.
+
+The case comes after the boards, so the fit is unchecked: the spring-pin height, the flex antenna length, the dock cable
+path and the encoder shafts.
 
 ## Rough total
 
