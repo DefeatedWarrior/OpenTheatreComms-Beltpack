@@ -141,7 +141,7 @@ the 3.3 V rail for shorts before powering up.
 I've checked every Gerber zip: the outlines, layer counts, drills and paste layers are right on all five boards, and DRC
 shows no errors. These checks are yours, because they depend on parts in your hands:
 
-1. **Base station NANO sockets.** Print `base_pcb_print_1to1.pdf` from the base station fab folder (`beltpack_boards_v7/kicad_proj/base_pcb/fab`) at 100 % scale on A4. Push two loose
+1. **Base station NANO sockets.** Print `base_pcb_print_1to1.pdf` from the base station fab folder (`Board files/kicad_proj/base_pcb/fab`) at 100 % scale on A4. Push two loose
    sockets into a NANO and check they land on the hole marks.
 2. **Base station OLED pin order** on the module you buy (see section 3).
 3. **Beltpack top OLED panel:** when it arrives, check its pin 1 is on the left with the panel face up and the tail toward you,
