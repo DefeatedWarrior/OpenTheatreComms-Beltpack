@@ -76,9 +76,9 @@ Wt = max(top.width, bot.width) + 2 * pad
 sheet = Image.new("RGB", (Wt, head + top.height + gap + bot.height + 70), (246, 246, 243))
 dr = ImageDraw.Draw(sheet)
 dr.text((pad, 30), "Base station carrier PCB, rev 0.1", font=ImageFont.truetype(FB, 40), fill=(29, 36, 48))
-dr.text((pad, 82), "150 x 90 mm, 4 layers, 1.6 mm. Top face (every part) and bottom face (mirrored). Rear edge at the top.", font=ImageFont.truetype(F, 24), fill=(100, 108, 120))
+dr.text((pad, 82), "150 x 90 mm, 2 layers, 1.6 mm. Top face (every part) and bottom face (mirrored). Rear edge at the top.", font=ImageFont.truetype(F, 24), fill=(100, 108, 120))
 sheet.paste(top, (pad, head))
-dr.text((pad, head + top.height + 12), "Top (F): NANO sockets, DC input, radio and SMAs, codec, OLED socket, keys, dial, RGB lights", font=ImageFont.truetype(F, 22), fill=(29, 36, 48))
+dr.text((pad, head + top.height + 12), "Top (F): NANO sockets, DC input, radios and SMAs, OLED socket, keys, dial, RGB lights", font=ImageFont.truetype(F, 22), fill=(29, 36, 48))
 y2 = head + top.height + gap
 sheet.paste(bot, (pad, y2))
 dr.text((pad, y2 + bot.height + 12), "Bottom (B), mirrored: routing and ground pour only", font=ImageFont.truetype(F, 22), fill=(29, 36, 48))

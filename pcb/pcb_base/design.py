@@ -37,16 +37,15 @@ def TP(ref, net, block, near=None, pcb=None):
 B = "NANO"
 NANO_L = {1: "NANO_3V3", 2: "+5V", 3: "I2C_SDA", 4: "+5V", 5: "I2C_SCL", 6: "GND", 7: "LR_MISO", 8: None, 9: "GND", 10: None,
           11: "LR_BUSY", 12: "LR_DIO6", 13: "LR_NSS", 14: "GND", 15: "LR_SCK", 16: "LR_MOSI", 17: "NANO_3V3", 18: "ENC_A", 19: "ENC_B",
-          20: "GND", 21: "EXP_INT_N", 22: "P4_IO27", 23: "LED_DIN", 24: None, 25: "GND", 26: None}
-NANO_R = {1: "+5V", 2: None, 3: "GND", 4: "GND", 5: "NANO_3V3", 6: None, 7: "GND", 8: None, 9: "LR_NRESET", 10: "GND", 11: "RF_CTRL",
-          12: None, 13: None, 14: None, 15: None, 16: None, 17: None, 18: "GND", 19: None, 20: None, 21: None,
+          20: "GND", 21: "EXP_INT_N", 22: "LR3_BUSY", 23: "LED_DIN", 24: "LR3_NSS", 25: "GND", 26: None}
+NANO_R = {1: "+5V", 2: None, 3: "GND", 4: "GND", 5: "NANO_3V3", 6: None, 7: "GND", 8: None, 9: "LR_NRESET", 10: "GND", 11: "LR3_DIO6",
+          12: None, 13: None, 14: None, 15: "LR2_BUSY", 16: "LR2_DIO6", 17: "LR2_NSS", 18: "GND", 19: None, 20: None, 21: None,
           22: None, 23: None, 24: None, 25: "GND", 26: "GND"}
 nano = {f"L{k}": v for k, v in NANO_L.items()} | {f"R{k}": v for k, v in NANO_R.items()}
 NX, NY = -41.5, YR - 1.64 - 25.0                     # NANO centre: its RJ45 (1.64 mm past its edge) flush with the rear edge
 comp("U1", "OpenTheatreComms:ESP32-P4-NANO", "ESP32-P4-NANO", "OpenTheatreComms:ESP32-P4-NANO_Sockets", nano, B, pcb=("F", NX, NY, 180),
      mpn="Waveshare ESP32-P4-NANO (SKU 29026) on 2x 2x13 2.54 mm female sockets, 8.5 mm",
      desc="ESP32-P4 board: Ethernet (PoE module option), USB-C, Wi-Fi 6 co-processor. Plugs in RJ45-first toward the rear")
-TP("TP1", "P4_IO27", B, near=("U1", "L22", "F"))
 TP("TP2", "NANO_3V3", B, near=("U1", "L17", "F"))
 R("R1", "4.7k", "+3V3", "I2C_SDA", B, near=("U1", "L3", "F"), desc="I2C pull-up: fit only if the NANO's own pull-ups are absent", dnp=True)
 R("R2", "4.7k", "+3V3", "I2C_SCL", B, near=("U1", "L5", "F"), desc="I2C pull-up: fit only if the NANO's own pull-ups are absent", dnp=True)
@@ -120,13 +119,40 @@ Cap("C18", "DNP", "RF_HF_M", "GND", B, mpn="0603 C0G, tune", desc="2.4 GHz match
 comp("J4", "Connector:Conn_Coaxial", "2.4 GHz", "Connector_Coaxial:U.FL_Hirose_U.FL-R-SMT-1_Vertical", {"1": "RF_HF_M", "2": "GND"}, B,
      mpn="Hirose U.FL-R-SMT-1(10)", desc="2.4 GHz fallback antenna: footprint only in v1", dnp=True)
 
+# Radios 2 and 3: footprints only in v1 (every part DNP). Each is the radio 1 circuit without the diversity switch: its own
+# rear SMA through a pi match and DC block. SPI is shared (SCK, MOSI, MISO); each has its own NSS, BUSY and DIO6 (IRQ) on
+# the NANO, and NRESET, DIO5 and TX/RX enable on the IO expander. NANO pins: GPIO46/47/48 (radio 2), GPIO33/27/2 (radio 3);
+# GPIO2 was the antenna switch control, which moved to the expander (P07).
+for k, ux, sma, (rb, cb, lb) in ((2, 9.0, "J6", (15, 38, 4)), (3, 27.0, "J7", (21, 47, 6))):
+    p_, u = f"LR{k}_", f"U{8 + k}"
+    lrk = {"1": p_ + "VDD", "2": p_ + "NSS_M", "3": p_ + "SCK_M", "4": p_ + "MOSI_M", "5": p_ + "MISO_M", "6": "GND", "7": p_ + "DIO6",
+           "8": p_ + "DIO5", "9": p_ + "BUSY", "10": p_ + "NRESET", "11": f"RF{k}_LF", "12": "GND", "13": "GND", "14": "GND",
+           "15": p_ + "TXRX_EN", "16": None, "17": None, "18": "GND", "19": "GND", "20": "GND"}
+    comp(u, "OpenTheatreComms:LR2021_Module_Elecrow", "LR2021", "OpenTheatreComms:LR2021_Elecrow_10x10mm", lrk, B, pcb=("F", ux, 19.0, 90),
+         mpn="Elecrow LR2021 module (LMM16121D)", desc=f"Radio {k}: footprint only in v1", dnp=True)
+    for i, (a, b_, pin) in enumerate(((p_ + "NSS", p_ + "NSS_M", "2"), ("LR_SCK", p_ + "SCK_M", "3"), ("LR_MOSI", p_ + "MOSI_M", "4"), ("LR_MISO", p_ + "MISO_M", "5"))):
+        R(f"R{rb + i}", "470", a, b_, B, near=(u, pin, "F"), desc=f"Radio {k} SPI series resistor", dnp=True)
+    R(f"R{rb + 4}", "100k", "+3V3", p_ + "NRESET", B, near=(u, "10", "F"), desc=f"Radio {k} reset pull-up", dnp=True)
+    comp(f"FB{k}", "Device:FerriteBead_Small", "0R", "Inductor_SMD:L_0603_1608Metric_Pad1.05x0.95mm_HandSolder", {"1": "+3V3", "2": p_ + "VDD"}, B,
+         near=(u, "1", "F"), mpn="0603 0R (or Murata BLM18PG121SN1D)", desc=f"Radio {k} supply link", dnp=True)
+    Cap(f"C{cb}", "47u", p_ + "VDD", "GND", B, near=(u, "1", "F"), fp=C1206, mpn="1206 X5R 6.3 V", desc=f"Radio {k} bulk", dnp=True)
+    Cap(f"C{cb + 1}", "10u", p_ + "VDD", "GND", B, near=(u, "1", "F"), dnp=True)
+    Cap(f"C{cb + 2}", "100n", p_ + "VDD", "GND", B, near=(u, "1", "F"), dnp=True)
+    Cap(f"C{cb + 3}", "DNP", f"RF{k}_LF", "GND", B, mpn="0603 C0G, tune", desc=f"Radio {k} pi match shunt (module side)", dnp=True)
+    R(f"L{lb}", "0", f"RF{k}_LF", f"RF{k}_LF_M", B, mpn="0603 0R or RF inductor", desc=f"Radio {k} pi match series element", dnp=True)
+    Cap(f"C{cb + 4}", "DNP", f"RF{k}_LF_M", "GND", B, mpn="0603 C0G, tune", desc=f"Radio {k} pi match shunt (SMA side)", dnp=True)
+    Cap(f"C{cb + 5}", "100p", f"RF{k}_LF_M", f"RF{k}_ANT", B, mpn="0603 C0G 50 V", desc=f"Radio {k} DC block", dnp=True)
+    comp(sma, "Connector:Conn_Coaxial", f"Radio {k} antenna", "Connector_Coaxial:SMA_Molex_73251-2120_EdgeMount_Horizontal", {"1": f"RF{k}_ANT", "2": "GND"}, B,
+         pcb=("F", 0.0, "rear", 180), mpn="Molex 73251-2120 SMA edge-mount jack, 1.6 mm board", desc=f"Radio {k} antenna (915 MHz whip)", dnp=True)
+
 # =============================================================== UI: OLED header, encoder, talk keys, RGB status lights, IO expander
 B = "UI"
 tca = {"~{INT}": "EXP_INT_N", "A0": "+3V3", "A1": "GND", "A2": "GND", "SCL": "I2C_SCL", "SDA": "I2C_SDA", "VCC": "+3V3", "GND": "GND",
-       "P00": "KEY1", "P01": "KEY2", "P02": "KEY3", "P03": "KEY4", "P04": "KEY_MENU", "P05": "KEY_BACK", "P06": "ENC_SW", "P07": None,
-       "P10": "LR_DIO5", "P11": "LR_TXRX_EN", "P12": None, "P13": None, "P14": None, "P15": None, "P16": None, "P17": None}
+       "P00": "KEY1", "P01": "KEY2", "P02": "KEY3", "P03": "KEY4", "P04": "KEY_MENU", "P05": "KEY_BACK", "P06": "ENC_SW", "P07": "RF_CTRL",
+       "P10": "LR_DIO5", "P11": "LR_TXRX_EN", "P12": "LR2_NRESET", "P13": "LR2_DIO5", "P14": "LR2_TXRX_EN",
+       "P15": "LR3_NRESET", "P16": "LR3_DIO5", "P17": "LR3_TXRX_EN"}
 comp("U6", "Interface_Expansion:TCA9555PWR", "TCA9555PWR", "Package_SO:TSSOP-24_4.4x7.8mm_P0.65mm", tca, B, pcb=("F", 30.0, -3.0, 0),
-     mpn="TI TCA9555PWR", desc="IO expander at 0x21 (A0 high): keys, encoder push, headset sense, radio DIO5 and TX/RX enable")
+     mpn="TI TCA9555PWR", desc="IO expander at 0x21 (A0 high): keys, encoder push, antenna switch, radios' DIO5, TX/RX enable and radios 2-3 reset")
 Cap("C19", "100n", "+3V3", "GND", B, near=("U6", "24", "F"))
 R("R11", "10k", "+3V3", "EXP_INT_N", B, near=("U6", "1", "F"))
 comp("J5", "Connector_Generic:Conn_01x04", "OLED", "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical",
@@ -167,6 +193,6 @@ for h, (hx, hy) in (("H1", (-XR + 3.5, -YR + 3.5)), ("H2", (XR - 3.5, -YR + 3.5)
 
 BLOCKS = [("NANO", "Waveshare ESP32-P4-NANO on two 2x13 sockets: Ethernet with a PoE module option, USB-C, Wi-Fi 6. Pins it uses itself are left open"),
           ("Power", "DC input (7-24 V) through a 5 V buck into the NANO's 5 V rail (USB-C or PoE also work), 3.3 V LDO for the carrier, mounting holes"),
-          ("Radio", "LR2021 module, 915 MHz pi match, PE4259 antenna diversity switch, two rear SMA jacks; 2.4 GHz port as a footprint only"),
+          ("Radio", "LR2021 module, 915 MHz pi match, PE4259 antenna diversity switch, two rear SMA jacks; 2.4 GHz port as a footprint only. Radios 2 and 3: footprints only, one rear SMA each"),
           ("UI", "IO expander (0x21), OLED socket, menu dial, four talk keys, Menu and Back keys, 12 RGB status lights on one data line")]
 NETS = sorted({n for c in C for n in c["pins"].values() if n})

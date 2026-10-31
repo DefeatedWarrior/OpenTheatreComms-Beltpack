@@ -9,10 +9,10 @@ module; the carrier brings everything else.
 
 | | |
 |---|---|
-| Size | 150 x 90 mm, 1.6 mm FR4, 4 layers, four M3 corner holes |
-| Stack | F parts + signals + GND pour, In1 solid GND (under the RF lines), In2 signals + 3.3 V pour, B signals + GND pour |
-| Parts | All on the top side (JLC Economic assembly, top). Hand-fit: NANO sockets, DC jack, SMAs, LR2021, keys, dial, OLED socket, wire pads |
-| DRC | 0 errors, 0 unconnected. 32 warnings, all cosmetic: silkscreen clipped by pad openings, a few overlapping labels, and three library-mismatch notes for the edited footprints |
+| Size | 150 x 90 mm, 1.6 mm FR4, **2 layers** (JLC's standard 2-layer board: a 4-layer board this size costs an extra ~A$50 setup fee), four M3 corner holes |
+| Stack | F parts + signals + GND pour, B signals + GND pour, stitched with GND vias |
+| Parts | All on the top side, hand-fitted (one top stencil). Radios 2 and 3 and their parts are unfitted footprints in v1 |
+| DRC | 0 errors, 0 unconnected. 34 warnings, all cosmetic: silkscreen clipped by pad openings, a few overlapping labels, and library-mismatch notes for the edited footprints |
 
 ## What plugs in where
 
@@ -21,7 +21,7 @@ module; the carrier brings everything else.
 | NANO: RJ45 (PoE with Waveshare's module) and USB-A | OLED module (1.3 in, 128x64, I2C SH1106) on a 4-pin socket |
 | DC jack, 7-24 V, 5.5 x 2.1 mm, centre + | Menu and Back keys, menu dial (EC11 with push) |
 | | Four talk keys (12 mm), each with an RGB channel light |
-| SMA antenna B, SMA antenna A (915 MHz), Molex 73251-2120 edge jacks | Row of eight RGB beltpack lights |
+| SMA radio 2, SMA radio 3 (unfitted), SMA antenna B, SMA antenna A (915 MHz), edge jacks | Row of eight RGB beltpack lights |
 
 The NANO's USB-C points toward the front, under the case lid. It's both the flashing port and where the operator's
 beltpack plugs in, so the case needs an opening there (or a short USB-C extension to the front panel).
@@ -45,30 +45,41 @@ expander, OLED). The NANO's own 3.3 V is left to the NANO.
 |---|---|---|---|---|---|
 | 7 / 8 | L3 / L5 | I2C SDA / SCL (shared with the NANO's ES8311 at 0x18) | 20 / 21 / 22 / 23 | L13 / L15 / L16 / L7 | LR2021 NSS / SCK / MOSI / MISO |
 | 5 | L11 | LR2021 BUSY | 4 | L12 | LR2021 DIO6 (IRQ) |
-| 3 | R9 | LR2021 NRESET | 2 | R11 | Antenna switch (high = A) |
-| 33 / 46 / 47 / 48 / 6 | L24 / R17 / R15 / R16 / R12 | Free (were the codec's I2S) | 24 / 25 | L18 / L19 | Dial A / B |
+| 3 | R9 | LR2021 NRESET | 24 / 25 | L18 / L19 | Dial A / B |
+| 46 / 47 / 48 | R17 / R15 / R16 | Radio 2 NSS / BUSY / DIO6 (IRQ) | 33 / 27 / 2 | L24 / L22 / R11 | Radio 3 NSS / BUSY / DIO6 (IRQ) |
 | 26 | L21 | Expander interrupt | 32 | L23 | RGB light data (via a 5 V level shifter) |
-| 27 | L22 | Spare (test pad TP1) | | | |
+
+Radios 2 and 3 share SCK, MOSI and MISO with radio 1. The antenna switch control moved from GPIO2 to the expander (P07) to
+free a pin for radio 3; it only changes between packets, so the I2C delay doesn't matter.
 
 Left unconnected because the NANO uses them: GPIO 0/1 (32 kHz crystal option), 37/38 (UART0, the USB-C serial port),
-36 (strapping), 45 (SD power), 53 (its speaker amplifier), 54 and the C6 lines (its Wi-Fi chip).
+36 (strapping), 45 (SD power), 53 (its speaker amplifier), 6, 54 and the C6 lines (its Wi-Fi chip).
 
 I2C addresses: NANO's ES8311 0x18, TCA9555 expander 0x21, OLED 0x3C.
-Expander: P00-P03 talk keys 1-4, P04 Menu, P05 Back, P06 dial push, P07 free, P10 LR2021 DIO5, P11 LR2021 TX/RX enable.
+Expander: P00-P03 talk keys 1-4, P04 Menu, P05 Back, P06 dial push, P07 antenna switch (high = A), P10 / P11 radio 1 DIO5 /
+TX/RX enable, P12 / P13 / P14 radio 2 NRESET / DIO5 / TX/RX enable, P15 / P16 / P17 radio 3 NRESET / DIO5 / TX/RX enable.
 
 ## Radio
 
 Same circuit as the beltpack: LR2021 module, pi match (C12, L2, C13: 0 ohm and two unfitted shunts until tuned), DC block,
-PE4259 switch (GPIO2 high = antenna A), DC blocks, two edge SMA jacks. The RF lines are 0.35 mm on the top layer over the
-In1 ground (about 50 ohm on JLC's 7628 stack). The 2.4 GHz port has a footprint-only match and U.FL (J4).
+PE4259 switch (expander P07 high = antenna A), DC blocks, two edge SMA jacks. The RF lines are grounded coplanar waveguide
+on the top layer: 1.3 mm wide, 0.25 mm gap to the top pour, the bottom pour underneath and GND via fences either side, about
+50 ohm on a 1.6 mm 2-layer board. At the switch's 0.65 mm pins they neck down to 0.3 mm for the last millimetre. The 2.4 GHz
+port has a footprint-only match and U.FL (J4).
+
+**Radios 2 and 3 (U10, U11), footprints only.** The same module and supply parts, then a pi match (shunt, 0 ohm series,
+shunt), a 100 pF DC block and their own rear SMA (J6, J7). No diversity switch. To fit one: the module, its 470 ohm SPI
+resistors, 100k reset pull-up, 0 ohm supply link, 47u + 10u + 100n, the 0 ohm series link and the 100 pF DC block (the two
+shunts stay empty until tuned), and the SMA.
 
 Radio capacity, for the firmware: eight beltpack uplinks plus four channel mixes downlink at Opus 24 kbps is about
 300 kbps of audio, well inside the LR2021's 915 MHz FLRC rates, so one radio covers 8 packs on 4 channels with TDMA.
+Radios 2 and 3 add more channels or packs on other frequencies; keep their antennas apart from radio 1's.
 
 ## Check before ordering
 
 1. **NANO sockets.** Positions are from Waveshare's own drawing (DXF, 2026-03-31). Plug a NANO into two loose sockets on
-   a printout of `fab/base_pcb_front.png` at 1:1, or check a header against the drawing, before ordering.
+   a printout of `fab/base_pcb_print_1to1.pdf` at 100 % on A4, or check a header against the drawing, before ordering.
 2. **OLED pin order.** The socket is GND, VCC, SCL, SDA, the most common order for 1.3 in I2C modules, but some modules
    swap GND and VCC. Check yours.
 3. **PoE module height.** It sits on top of the NANO, whose board is about 12.6 mm above the carrier (8.5 mm socket,

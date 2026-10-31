@@ -10,7 +10,8 @@ This order covers **2 beltpacks + 1 base station**. The 4-slot charging dock com
 
 - **JLC:** makes the boards and the solder-paste stencils. It assembles nothing.
 - **You:** fit every part, from one LCSC cart plus a few other suppliers.
-- **Base station:** no audio section. The operator's headset is a beltpack plugged into the base by USB-C.
+- **Base station:** no audio section. The operator's headset is a beltpack plugged into the base by USB-C. It has
+  unfitted footprints for two more radios (each with its own rear SMA) for later.
 - **Prices:** Australian dollars, from JLC's and LCSC's own listings on 31 Oct 2026, converted at 1 USD = 1.43 AUD. JLC,
   LCSC and Elecrow charge in USD, so your card's exchange fee comes on top.
 
@@ -20,11 +21,12 @@ This order covers **2 beltpacks + 1 base station**. The 4-slot charging dock com
 |---|---|---|
 | `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, **0.10 mm** (the 0.4 mm QFN and the LGA need the thinner foil) |
 | `Beltpack top` | 2 layers, 1.6 mm, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, 0.12 mm |
-| `Base station` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top only**, 0.12 mm |
+| `Base station` | **2 layers**, 1.6 mm, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top only**, 0.12 mm |
 | `Beltpack pack lid` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (its pads are spring contacts: gold stays clean) | none |
 | `Beltpack dock contacts` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (dock spring pins land on its pads) | none (one SMD socket, iron it) |
 
-- **Stack:** the 4-layer boards need the 7628 stack because the RF lines were sized for it.
+- **Stack:** the beltpack main board needs the 7628 stack because its RF lines were sized for it. The base station is a
+  standard 2-layer board: at 150 x 90 mm a 4-layer one misses JLC's cheap 4-layer price and adds a setup fee.
 - **Vias:** the beltpack main board has 27 vias with 0.2 mm holes, JLC's 4-layer minimum. If the quote shows a small-hole
   fee, that's why.
 - **Finish:** HASL lead-free on the main, top and base boards. Reflow melts the HASL into each joint and pulls the parts flat.
@@ -158,14 +160,14 @@ path and the encoder shafts.
 
 | Where | What | Approx. A$ |
 |---|---|---|
-| JLCPCB | 5 board types (5 of each; ENIG on the pack lid and dock contacts), 3 stencils, shipping | 150 |
+| JLCPCB | 5 board types (5 of each; ENIG on the pack lid and dock contacts), 3 stencils, shipping | 105 |
 | LCSC | every part and the base antennas, shipped with the JLC boards | 140 |
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |
 | Core Electronics | 4 flex antennas, 2 coin motors, shipping | 25 |
 | AliExpress | 1.3 in OLED module and 2 beltpack OLED panels | 25 |
 | REAN XLRs | 2 headset connectors for the packs | 16 |
-| **Total** | | **about A$440** |
+| **Total** | | **about A$395** |
 
 Not included: paste and tools, beltpack cells, enclosures and the optional PoE module (about A$15). The JLC line is an
 estimate until you see JLC's quote.

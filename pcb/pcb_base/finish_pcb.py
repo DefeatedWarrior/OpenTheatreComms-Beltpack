@@ -1,5 +1,5 @@
-"""Finish the routed base station carrier PCB: GND on F.Cu, In1 and B.Cu, +3V3 on In2, stitching vias, a repair pass that joins stray
-GND pour fragments, then save into the KiCad project with its library and run the DRC. Reads out/routed.kicad_pcb."""
+"""Finish the routed base station carrier PCB (2 layers): GND pours on F.Cu and B.Cu, stitching vias, a repair pass that joins
+stray GND pour fragments, then save into the KiCad project with its library and run the DRC. Reads out/routed.kicad_pcb."""
 import os, sys, math, shutil
 os.environ.setdefault("KICAD7_FOOTPRINT_DIR", "/usr/share/kicad/footprints")
 os.environ.setdefault("KICAD7_SYMBOL_DIR", "/usr/share/kicad/symbols")
@@ -67,36 +67,16 @@ def add_zone(layer, net, prio=0):
     z.SetLocalClearance(MM(0.25)); z.SetMinThickness(MM(0.2)); z.SetThermalReliefGap(MM(0.3)); z.SetThermalReliefSpokeWidth(MM(0.35))
     z.SetPadConnection(pcbnew.ZONE_CONNECTION_THERMAL); z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS)
     b.Add(z); return z
-# +3V3 pieces the router left apart: a via from one pad of each loose piece down to the In2 +3V3 pour
-from pcbgeom import net_islands
-cu0 = Copper(b)
-for piece in sorted(net_islands(b, skip=("", "GND")).get("+3V3", []), key=len, reverse=True)[1:]:
-    ok = False
-    for ref, num in sorted(piece):
-        fp = b.FindFootprintByReference(ref); pad = [p for p in fp.Pads() if p.GetNumber() == num][0]
-        if pad.GetAttribute() != pcbnew.PAD_ATTRIB_SMD: continue
-        x, y = Bf(pad.GetPosition())
-        for r_ in [0.2 * k for k in range(3, 20)]:
-            for k in range(16):
-                vx, vy = x + r_ * math.cos(k * math.pi / 8), y + r_ * math.sin(k * math.pi / 8)
-                if cu0.via_ok(vx, vy, "+3V3") and cu0.clear(LineString([(x, y), (vx, vy)]).buffer(0.15), "+3V3", [pcbnew.F_Cu], 0.2, pads_any_net=False):
-                    v = add_via(vx, vy, V33); t_ = add_track((x, y), (vx, vy), pcbnew.F_Cu, V33, w=0.3); cu0.add_track(v); cu0.add_track(t_); ok = True; break
-            if ok: break
-        if ok: break
-    print("+3V3 loose piece", sorted(piece)[:3], "joined to the In2 pour" if ok else "NOT JOINED")
-GL = (pcbnew.F_Cu, pcbnew.In1_Cu, pcbnew.B_Cu)
-zones = {pcbnew.F_Cu: add_zone(pcbnew.F_Cu, GND), pcbnew.In1_Cu: add_zone(pcbnew.In1_Cu, GND), pcbnew.In2_Cu: add_zone(pcbnew.In2_Cu, V33),
-         pcbnew.B_Cu: add_zone(pcbnew.B_Cu, GND)}
+GL = (pcbnew.F_Cu, pcbnew.B_Cu)
+zones = {pcbnew.F_Cu: add_zone(pcbnew.F_Cu, GND), pcbnew.B_Cu: add_zone(pcbnew.B_Cu, GND)}
 def fill():
     b.BuildConnectivity(); pcbnew.ZONE_FILLER(b).Fill(b.Zones()); b.BuildConnectivity()
 def filled(L): z = zones[L]; return polyset_to_shapely(z.GetFilledPolysList(L))
 fill()
 
-# +3V3 is routed like any other net (In2 is a signal layer as well as the +3V3 pour), so the pour needn't be one piece
-g1 = filled(pcbnew.In2_Cu); print("+3V3 pour pieces on In2:", len(getattr(g1, "geoms", [g1])))
 
-# stitching: GND vias where F, In1 and B all have GND copper
-both = filled(pcbnew.F_Cu).intersection(filled(pcbnew.B_Cu)).intersection(filled(pcbnew.In1_Cu)).buffer(-0.45)
+# stitching: GND vias where F and B both have GND copper
+both = filled(pcbnew.F_Cu).intersection(filled(pcbnew.B_Cu)).buffer(-0.45)
 cu = Copper(b)
 holes_xy = [Bf(f.GetPosition()) for f in b.GetFootprints() if f.GetReference().startswith("H")]
 gvias = [Bf(t.GetPosition()) for t in b.GetTracks() if t.GetClass() == "PCB_VIA" and t.GetNetname() == "GND"]
@@ -111,7 +91,7 @@ for gy in [y_ * 0.5 for y_ in range(-90, 91)]:
 print("stitching vias", added)
 fill()
 
-# repair: every GND pour fragment on F/In2/B should join the main GND through vias or through-hole GND pads
+# repair: every GND pour fragment on F/B should join the main GND through vias or through-hole GND pads
 def gnd_graph():
     frags = []
     for L in GL:
@@ -129,7 +109,7 @@ def gnd_graph():
     for lk in links:
         hit = [i for i, (_, poly) in enumerate(frags) if poly.intersects(lk)]
         for i in hit[1:]: parent[f_(i)] = f_(hit[0])
-    main = f_(max(range(len(frags)), key=lambda i: frags[i][1].area if frags[i][0] == pcbnew.In1_Cu else 0))
+    main = f_(max(range(len(frags)), key=lambda i: frags[i][1].area if frags[i][0] == pcbnew.B_Cu else 0))
     return frags, [f_(i) == main for i in range(len(frags))]
 def try_via_in(region, others):
     tgt = region.buffer(-0.05).intersection(others.buffer(-0.15))
@@ -152,11 +132,6 @@ for it in range(4):
     print("repair pass", it, "fixes", fixes, "stray fragments", ok.count(False))
     if not fixes: break
     fill()
-# +3V3: vias in the In2 pour (informational: +3V3 is also routed)
-p1 = filled(pcbnew.In2_Cu)
-off = [Bf(t.GetPosition()) for t in b.GetTracks() if t.GetClass() == "PCB_VIA" and t.GetNetname() == "+3V3" and not p1.buffer(0.05).contains(Point(*Bf(t.GetPosition())))]
-print("+3V3 vias outside the In2 pour:", [tuple(round(v, 2) for v in o) for o in off] or "none")
-
 for fp in b.GetFootprints():
     if fp.GetReference().startswith("H"): fp.Reference().SetVisible(False)
 

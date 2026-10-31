@@ -1,19 +1,19 @@
-** Drc report for ../kicad_proj/base_pcb/base_pcb.kicad_pcb **
-** Created on 2026-10-31 21:28:41 **
+** Drc report for /home/claude/beltpack/final/kicad_proj/base_pcb/base_pcb.kicad_pcb **
+** Created on 2026-11-01 06:35:02 **
 
-** Found 32 DRC violations **
+** Found 34 DRC violations **
 [silk_overlap]: Silkscreen overlap
     Rule: board setup constraints silk; Severity: warning
-    @(88.7890 mm, 106.3400 mm): Rect on F.Silkscreen
-    @(87.5190 mm, 106.8400 mm): Footprint Text 'R1' of U1
+    @(212.0000 mm, 68.5000 mm): PCB Text 'ANT A' on F.Silkscreen
+    @(212.0004 mm, 67.2664 mm): Reference 'J2'
 [silk_overlap]: Silkscreen overlap
     Rule: board setup constraints silk; Severity: warning
     @(194.0004 mm, 67.2664 mm): Reference 'J3'
     @(194.0000 mm, 68.5000 mm): PCB Text 'ANT B' on F.Silkscreen
 [silk_overlap]: Silkscreen overlap
     Rule: board setup constraints silk; Severity: warning
-    @(212.0000 mm, 68.5000 mm): PCB Text 'ANT A' on F.Silkscreen
-    @(212.0004 mm, 67.2664 mm): Reference 'J2'
+    @(87.5190 mm, 106.8400 mm): Footprint Text 'R1' of U1
+    @(88.7890 mm, 106.3400 mm): Rect on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
     @(212.0000 mm, 68.5000 mm): PCB Text 'ANT A' on F.Silkscreen
@@ -40,22 +40,22 @@
     @(182.6500 mm, 143.4300 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(203.3500 mm, 136.5700 mm): Line on F.Silkscreen
+    @(153.8500 mm, 136.5700 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(203.3500 mm, 141.5700 mm): Line on F.Silkscreen
+    @(153.8500 mm, 141.5700 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(203.3500 mm, 146.1500 mm): Line on F.Silkscreen
+    @(153.8500 mm, 146.1500 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(215.6500 mm, 133.8500 mm): Line on F.Silkscreen
+    @(166.1500 mm, 133.8500 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(215.6500 mm, 138.4300 mm): Line on F.Silkscreen
+    @(166.1500 mm, 138.4300 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(215.6500 mm, 143.4300 mm): Line on F.Silkscreen
+    @(166.1500 mm, 143.4300 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
     @(186.8500 mm, 136.5700 mm): Line on F.Silkscreen
@@ -76,31 +76,37 @@
     @(199.1500 mm, 143.4300 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(153.8500 mm, 136.5700 mm): Line on F.Silkscreen
+    @(203.3500 mm, 136.5700 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(153.8500 mm, 141.5700 mm): Line on F.Silkscreen
+    @(203.3500 mm, 141.5700 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(153.8500 mm, 146.1500 mm): Line on F.Silkscreen
+    @(203.3500 mm, 146.1500 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(166.1500 mm, 133.8500 mm): Line on F.Silkscreen
+    @(215.6500 mm, 133.8500 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(166.1500 mm, 138.4300 mm): Line on F.Silkscreen
+    @(215.6500 mm, 138.4300 mm): Line on F.Silkscreen
 [silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(166.1500 mm, 143.4300 mm): Line on F.Silkscreen
+    @(215.6500 mm, 143.4300 mm): Line on F.Silkscreen
 [lib_footprint_mismatch]: Footprint 'SMA_Molex_73251-2120_EdgeMount_Horizontal' does not match copy in library 'Connector_Coaxial'.
     Local override; Severity: warning
-    @(212.0000 mm, 62.1550 mm): Footprint J2
+    @(179.5400 mm, 62.1550 mm): Footprint J7
 [lib_footprint_mismatch]: Footprint 'SMA_Molex_73251-2120_EdgeMount_Horizontal' does not match copy in library 'Connector_Coaxial'.
     Local override; Severity: warning
     @(194.0000 mm, 62.1550 mm): Footprint J3
+[lib_footprint_mismatch]: Footprint 'SMA_Molex_73251-2120_EdgeMount_Horizontal' does not match copy in library 'Connector_Coaxial'.
+    Local override; Severity: warning
+    @(161.5400 mm, 62.1550 mm): Footprint J6
 [lib_footprint_mismatch]: Footprint 'BarrelJack_CUI_PJ-063AH_Horizontal' does not match copy in library 'Connector_BarrelJack'.
     Local override; Severity: warning
     @(142.0000 mm, 72.0000 mm): Footprint J1
+[lib_footprint_mismatch]: Footprint 'SMA_Molex_73251-2120_EdgeMount_Horizontal' does not match copy in library 'Connector_Coaxial'.
+    Local override; Severity: warning
+    @(212.0000 mm, 62.1550 mm): Footprint J2
 
 ** Found 0 unconnected pads **
 

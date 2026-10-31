@@ -1,9 +1,9 @@
 Ref,Val,Package,PosX,PosY,Rot,Side
 "C1","10u","C_1206_3216Metric_Pad1.33x1.80mm_HandSolder",-11.640000,24.050000,90.000000,top
 "C2","100n","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",-7.920000,22.090000,0.000000,top
-"C3","22u","C_1206_3216Metric_Pad1.33x1.80mm_HandSolder",1.340000,20.260000,90.000000,top
+"C3","22u","C_1206_3216Metric_Pad1.33x1.80mm_HandSolder",1.090000,21.440000,90.000000,top
 "C4","22u","C_1206_3216Metric_Pad1.33x1.80mm_HandSolder",-2.720000,16.400000,0.000000,top
-"C5","22u","C_1206_3216Metric_Pad1.33x1.80mm_HandSolder",1.920000,28.510000,0.000000,top
+"C5","22u","C_1206_3216Metric_Pad1.33x1.80mm_HandSolder",-11.350000,15.680000,90.000000,top
 "C6","1u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",34.480000,10.850000,0.000000,top
 "C7","10u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",38.640000,8.950000,90.000000,top
 "C8","22u","C_1206_3216Metric_Pad1.33x1.80mm_HandSolder",39.270000,12.180000,0.000000,top
@@ -32,7 +32,7 @@ Ref,Val,Package,PosX,PosY,Rot,Side
 "C36","100n","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",59.710000,-17.340000,0.000000,top
 "C37","100n","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",71.100000,-15.000000,90.000000,top
 "D1","SS34","D_SMA",-9.640000,29.350000,0.000000,top
-"D2","SS34","D_SMA",2.010000,25.000000,0.000000,top
+"D2","SS34","D_SMA",-7.900000,17.070000,90.000000,top
 "D3","SMAJ26A","D_SMA",-3.660000,26.410000,90.000000,top
 "D4","green","LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder",35.079999,5.090000,0.000000,top
 "ENC1","EC11","RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm",-17.499999,-30.500000,0.000000,top

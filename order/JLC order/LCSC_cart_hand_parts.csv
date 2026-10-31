@@ -1,24 +1,24 @@
 LCSC Part Number,Quantity,Manufacturer Part,Description,Needed (2 beltpacks + 1 base),LCSC stock,LCSC min,LCSC multiple,Unit price (A$),Line total (A$),Used on,Note
-C21189,100,0603WAF0000T5E,0 0603 1%,10,11841600,100,100,0.0031,0.31,Beltpack main R28; Beltpack main R20; Beltpack main L1; Beltpack main FB2; Base station L2; Base station FB1,
+C21189,100,0603WAF0000T5E,0 0603 1%,10,11841600,100,100,0.0031,0.31,Beltpack main R28; Beltpack main R20; Beltpack main L1; Beltpack main FB2; Base station FB1; Base station L2,
 C17888,100,1206W4F0000T5E,0 1206 0R,2,632000,100,100,0.0123,1.23,Beltpack main R27,
 C21120,50,CL10B224KA8NNNC,0.22u 0603 X7R 25 V,4,394550,50,50,0.0134,0.67,Beltpack top C2; Beltpack top C3,
 C22843,100,0603WAF1501T5E,1.5k 0603 1%,2,2131200,100,100,0.0029,0.29,Beltpack main R3,
 C22775,100,0603WAF1000T5E,100 0603 1%,4,1210700,100,100,0.0034,0.34,Beltpack main R37; Beltpack main R35,
 C25803,100,0603WAF1003T5E,100k 0603 1%,17,9070700,100,100,0.0043,0.43,Beltpack main R38; Beltpack main R36; Beltpack main R8; Beltpack main R33; Beltpack main R6; Beltpack main R7; Beltpack main R11; Beltpack main R17; Base station R8,
-C1591,100,CL10B104KB8NNNC,100n 0603 X7R,37,3541100,100,100,0.0107,1.07,Beltpack main C22; Beltpack main C26; Beltpack main C24; Beltpack main C9; Beltpack main C13; Beltpack main C7; Beltpack main C40; Beltpack main C17; Beltpack main C41; Beltpack top C1; Base station C34; Base station C27; Base station C15; Base station C35; Base station C26; Base station C28; Base station C25; Base station C19; Base station C37; Base station C36; Base station C33; Base station C11; Base station C31; Base station C29; Base station C30; Base station C2; Base station C32,replaces JLC's C14663 (not stocked at LCSC)
+C1591,100,CL10B104KB8NNNC,100n 0603 X7R,37,3541100,100,100,0.0107,1.07,Beltpack main C22; Beltpack main C26; Beltpack main C24; Beltpack main C9; Beltpack main C13; Beltpack main C7; Beltpack main C40; Beltpack main C17; Beltpack main C41; Beltpack top C1; Base station C19; Base station C28; Base station C35; Base station C15; Base station C32; Base station C2; Base station C37; Base station C36; Base station C25; Base station C26; Base station C30; Base station C33; Base station C29; Base station C27; Base station C11; Base station C34; Base station C31,replaces JLC's C14663 (not stocked at LCSC)
 C14858,50,CL10C101JB8NNNC,100p 0603 C0G 50 V,9,1373150,50,50,0.0119,0.59,Beltpack main C18; Beltpack main C16; Beltpack main C19; Base station C17; Base station C14; Base station C16,
 C15008,10,CL31A107MQHNNNE,100u 1206 X5R 6.3 V,4,1120280,10,10,0.1573,1.57,Beltpack main C36; Beltpack main C35,
 C25804,100,0603WAF1002T5E,10k 0603 1%,29,1541900,100,100,0.0031,0.31,Beltpack main R31; Beltpack main R12; Beltpack main R30; Beltpack main R9; Beltpack top R19; Beltpack top R14; Beltpack top R13; Beltpack top R17; Beltpack top R16; Beltpack top R15; Beltpack top R18; Beltpack top R20; Beltpack top R9; Base station R12; Base station R11; Base station R13,
-C1589,50,CL10B103KB8NNNC,10n 0603 X7R,12,1781850,50,50,0.0107,0.54,Beltpack main C39; Beltpack top C10; Beltpack top C11; Beltpack top C9; Beltpack top C8; Base station C22; Base station C21,replaces JLC's C57112 (not stocked at LCSC)
-C19702,40,CL10A106KP8NNNC,10u 0603 X5R 10 V,23,3005980,20,20,0.0306,1.23,Beltpack main C25; Beltpack main C43; Beltpack main C8; Beltpack main C21; Beltpack main C42; Beltpack main C12; Beltpack main C2; Beltpack main C5; Beltpack main C1; Beltpack top C12; Base station C20; Base station C7; Base station C10,
+C1589,50,CL10B103KB8NNNC,10n 0603 X7R,12,1781850,50,50,0.0107,0.54,Beltpack main C39; Beltpack top C10; Beltpack top C11; Beltpack top C9; Beltpack top C8; Base station C21; Base station C22,replaces JLC's C57112 (not stocked at LCSC)
+C19702,40,CL10A106KP8NNNC,10u 0603 X5R 10 V,23,3005980,20,20,0.0306,1.23,Beltpack main C25; Beltpack main C43; Beltpack main C8; Beltpack main C21; Beltpack main C42; Beltpack main C12; Beltpack main C2; Beltpack main C5; Beltpack main C1; Beltpack top C12; Base station C20; Base station C10; Base station C7,
 C33546013,5,HGC1206R7106K500NSPJ,10u 1206 X7R 50 V,1,127070,5,5,0.1732,0.87,Base station C1,
-C136701,10,K2-1103DP-Q4SW-04,12 x 12 mm tactile switch with round cap,4,12060,5,5,0.1163,1.16,Base station SW2; Base station SW4; Base station SW3; Base station SW1,"HRO K2-1103DP, 12 x 12 x 12 mm"
+C136701,10,K2-1103DP-Q4SW-04,12 x 12 mm tactile switch with round cap,4,12060,5,5,0.1163,1.16,Base station SW2; Base station SW1; Base station SW3; Base station SW4,"HRO K2-1103DP, 12 x 12 x 12 mm"
 C21190,100,0603WAF1001T5E,1k 0603 1%,7,5604700,100,100,0.0024,0.24,Beltpack main R18; Beltpack main R19; Base station R9; Base station R3; Base station R10,
 C15849,50,CL10A105KB8NNNC,1u 0603 X5R 10 V,15,104800,50,50,0.02,1.0,Beltpack main C38; Beltpack main C30; Beltpack main C29; Beltpack main C37; Beltpack main C10; Beltpack main C4; Beltpack top C7; Base station C6,
 C2718488,10,2.54-1*4P,"1x4 female socket for a 1.3 in 128x64 I2C OLED module (SH1106, address 0x3C)",1,110420,10,10,0.1193,1.19,Base station J5,1x4 female socket (the OLED module: elsewhere)
 C4190,100,0603WAF2201T5E,2.2k 0603 1%,2,2960500,100,100,0.0026,0.26,Beltpack main R32,
 C22962,100,0603WAF2200T5E,220 0603 1%,16,1496100,100,100,0.0027,0.27,Beltpack top R6; Beltpack top R5; Beltpack top R1; Beltpack top R3; Beltpack top R8; Beltpack top R2; Beltpack top R7; Beltpack top R4,
-C12891,20,CL31A226KAHNNNE,22u 1206 X5R 10 V,8,101120,20,20,0.1702,3.4,Beltpack main C3; Beltpack main C6; Base station C5; Base station C4; Base station C8; Base station C3,
+C12891,20,CL31A226KAHNNNE,22u 1206 X5R 10 V,8,101120,20,20,0.1702,3.4,Beltpack main C3; Beltpack main C6; Base station C3; Base station C5; Base station C4; Base station C8,
 C282138,5,204-15UTC/S400-X9-L,"3 mm white LED, 20 mA",2,19725,5,5,0.184,0.92,Beltpack main D10,"Everlight 204-15UTC, white, 3 mm"
 C23140,100,0603WAF330JT5E,33 0603 1%,1,2019000,100,100,0.0034,0.34,Base station R14,
 C4216,100,0603WAF3302T5E,33k 0603 1%,2,2417200,100,100,0.003,0.3,Beltpack main R10,
@@ -26,12 +26,12 @@ C1330726,5,SRN4018TA-4R7M,"4.7 uH, 2.5 A, 4x4 mm (Bourns SRN4018-4R7M or equal)"
 C23162,100,0603WAF4701T5E,4.7k 0603 1%,4,3267000,100,100,0.004,0.4,Beltpack top R10; Beltpack top R11,
 C19666,10,CL10A475KO8NNNC,4.7u 0603 X5R 10 V,8,1511720,10,10,0.0245,0.24,Beltpack main C23; Beltpack main C28; Beltpack main C27; Beltpack top C6,
 C69335,10,CL10A475KA8NQNC,4.7u 0603 X5R 25 V,4,739130,10,10,0.0618,0.61,Beltpack top C4; Beltpack top C5,
-C23179,100,0603WAF4700T5E,470 0603 1%,12,1983300,100,100,0.0033,0.33,Beltpack main R16; Beltpack main R13; Beltpack main R14; Beltpack main R15; Base station R5; Base station R7; Base station R4; Base station R6,
+C23179,100,0603WAF4700T5E,470 0603 1%,12,1983300,100,100,0.0033,0.33,Beltpack main R16; Beltpack main R13; Beltpack main R14; Beltpack main R15; Base station R5; Base station R4; Base station R6; Base station R7,
 C96123,5,CL31A476MPHNNNE,47u 1206 X5R 6.3 V,3,156160,5,5,0.2492,1.24,Beltpack main C11; Base station C9,
 C23186,100,0603WAF5101T5E,5.1k 0603 1%,4,16414600,100,100,0.0023,0.23,Beltpack main R1; Beltpack main R2,
 C23192,100,0603WAF5103T5E,510k 0603 1%,2,450700,100,100,0.003,0.3,Beltpack top R12,
 C25196,100,0603WAF560JT5E,56 0603 1%,2,413900,100,100,0.0039,0.39,Beltpack main R34,
-C2837523,20,KH-6X6X13H-TJ,"6 x 6 mm tactile switch, 13 mm tall",2,10300,20,20,0.0309,0.61,Base station SW6; Base station SW5,Kinghelm KH-6X6X13H-TJ
+C2837523,20,KH-6X6X13H-TJ,"6 x 6 mm tactile switch, 13 mm tall",2,10300,20,20,0.0309,0.61,Base station SW5; Base station SW6,Kinghelm KH-6X6X13H-TJ
 C4260,100,0603WAF6201T5E,6.2k 0603 1%,2,435400,100,100,0.0033,0.33,Beltpack main R4,
 C7484,5,SN74AHCT1G125DBVR,74AHCT1G125 (SOT-23-5),1,17090,5,5,0.1446,0.73,Base station U7,TI SN74AHCT1G125DBVR
 C20917,5,AO3400A,AOS AO3400A,4,600305,5,5,0.1283,0.64,Beltpack main Q3; Beltpack main Q4,
@@ -60,7 +60,7 @@ C19330,50,BLM18AG601SN1D,Murata BLM18PG601SN1D,2,561800,50,50,0.0174,0.87,Beltpa
 C19224,15,"PESD5V0S1BA,115",Nexperia PESD5V0S1BA,12,15070,5,5,0.1062,1.59,Beltpack main D7; Beltpack main D8; Beltpack main D9; Beltpack main D6; Beltpack main D5; Beltpack main D4,
 C914209,3,NAU88C22YG,Nuvoton NAU88C22YG,2,10160,1,1,1.7046,5.12,Beltpack main U8,
 C431535,10,PJ-320D,PJ-320D,2,71730,10,10,0.0768,0.77,Beltpack main J2,SHOU HAN PJ-320D: pads match the footprint
-C22467594,3,A-SMA-KE-13.5A,"SMA jack, edge mount, 1.6 mm board (fits the Molex 73251-2120 footprint)",2,1804,1,1,1.2144,3.65,Base station J2; Base station J3,"MyAntenna A-SMA-KE-13.5A edge SMA: same pads as the Molex footprint, a fifth of the price"
+C22467594,3,A-SMA-KE-13.5A,"SMA jack, edge mount, 1.6 mm board (fits the Molex 73251-2120 footprint)",2,1804,1,1,1.2144,3.65,Base station J3; Base station J2,"MyAntenna A-SMA-KE-13.5A edge SMA: same pads as the Molex footprint, a fifth of the price"
 C19077543,20,SMAJ26A,SMAJ26A,1,314480,20,20,0.0526,1.06,Base station D3,
 C2480,50,SS14,SS14 (SMA),2,1364100,50,50,0.0276,1.39,Beltpack main D1,
 C8678,20,SS34,SS34 (SMA),2,2566100,20,20,0.0506,1.02,Base station D1; Base station D2,
@@ -70,7 +70,7 @@ C465732,6,TCA9555PWR,TI TCA9555PWR,5,29994,1,1,1.0119,6.08,Beltpack main U10; Be
 C485517,5,TLV75733PDBVR,TI TLV75733PDBVR,3,26765,5,5,0.3122,1.56,Beltpack main U3; Base station U3,
 C16581,5,TP4056-42-ESOP8,TOPPOWER TP4056 (ESOP-8),2,59640,5,5,0.268,1.34,Beltpack main U2,
 C64320,5,2.54-2*13P,"Waveshare ESP32-P4-NANO (SKU 29026) on 2x 2x13 2.54 mm female sockets, 8.5 mm",2,4460,5,5,0.3179,1.59,Base station U1,2x 2x13 female sockets per board (the NANO itself: Waveshare)
-C22371519,15,WS2812B-MINI-V3J,Worldsemi WS2812B-Mini-V3J,12,43075,5,5,0.1676,2.52,Base station LED3; Base station LED2; Base station LED6; Base station LED12; Base station LED11; Base station LED8; Base station LED5; Base station LED7; Base station LED4; Base station LED1; Base station LED10; Base station LED9,
+C22371519,15,WS2812B-MINI-V3J,Worldsemi WS2812B-Mini-V3J,12,43075,5,5,0.1676,2.52,Base station LED7; Base station LED1; Base station LED4; Base station LED8; Base station LED5; Base station LED6; Base station LED3; Base station LED9; Base station LED2; Base station LED12; Base station LED10; Base station LED11,
 C7471674,7,YZ08415060P-02,Xinyangze YZ08415060P-02,6,380,1,1,0.6609,4.63,Beltpack main J9; Beltpack main J10; Beltpack main J8,"Xinyangze spring pin: 4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail in the 1.0 mm hole"
 C7420339,20,BSS138,onsemi BSS138,2,5100,20,20,0.0383,0.77,Beltpack main Q2,any BSS138 (same SOT-23 pinout)
 C48031087,5,HX4259-63-ST,pSemi PE4259-63,3,2325,5,5,0.251,1.26,Beltpack main U7; Base station U5,ZHHXDZ HX4259-63-ST: same pinout and control logic as PE4259 (CTRL high = RF1)

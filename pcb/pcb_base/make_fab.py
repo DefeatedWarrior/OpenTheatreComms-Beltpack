@@ -11,7 +11,7 @@ shutil.rmtree(FAB, ignore_errors=True); os.makedirs(GER)
 def cli(*a): subprocess.run(["kicad-cli", *a], check=True, capture_output=True)
 
 cli("pcb", "export", "gerbers", "-o", GER + "/", "--layers",
-    "F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts", "--subtract-soldermask", "--use-drill-file-origin", PCB)
+    "F.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts", "--subtract-soldermask", "--use-drill-file-origin", PCB)
 cli("pcb", "export", "drill", "-o", GER + "/", "--format", "excellon", "--drill-origin", "plot", "--excellon-units", "mm",
     "--excellon-separate-th", "--generate-map", "--map-format", "gerberx2", PCB)
 with zipfile.ZipFile(os.path.join(FAB, "base_pcb_gerbers.zip"), "w", zipfile.ZIP_DEFLATED) as z:
