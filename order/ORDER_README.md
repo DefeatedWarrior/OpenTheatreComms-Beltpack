@@ -19,30 +19,27 @@ This order covers **2 beltpacks + 1 base station**. The 4-slot charging dock com
 
 | Folder | Board settings | Stencil (in the same PCB order) |
 |---|---|---|
-| `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, **0.10 mm** (the 0.4 mm QFN and the LGA need the thinner foil) |
-| `Beltpack top` | 2 layers, 1.6 mm, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, 0.12 mm |
-| `Base station` | **2 layers**, 1.6 mm, **HASL lead-free**, qty 5 | Frameless 380 x 280 mm, **Top only**, 0.12 mm |
-| `Beltpack pack lid` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (its pads are spring contacts: gold stays clean) | none |
-| `Beltpack dock contacts` | 2 layers, **0.8 mm**, **ENIG**, qty 5 (dock spring pins land on its pads) | none (one SMD socket, iron it) |
+| `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL (with lead)**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, **0.10 mm** (the 0.4 mm QFN and the LGA need the thinner foil) |
+| `Beltpack top` | 2 layers, 1.6 mm, **HASL (with lead)**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, 0.12 mm |
+| `Base station` | **2 layers**, 1.6 mm, **HASL (with lead)**, qty 5 | Frameless 380 x 280 mm, **Top only**, 0.12 mm |
+| `Beltpack pack lid` | 2 layers, **0.8 mm**, HASL (with lead), qty 5 (its pads are spring contacts: wipe them with IPA if contact gets flaky) | none |
+| `Beltpack dock contacts` | 2 layers, **0.8 mm**, HASL (with lead), qty 5 (dock spring pins land on its pads) | none (one SMD socket, iron it) |
 
 - **Stack:** the beltpack main board needs the 7628 stack because its RF lines were sized for it. The base station is a
   standard 2-layer board: at 150 x 90 mm a 4-layer one misses JLC's cheap 4-layer price and adds a setup fee.
 - **Vias:** the beltpack main board has 27 vias with 0.2 mm holes, JLC's 4-layer minimum. If the quote shows a small-hole
   fee, that's why.
-- **Finish:** HASL lead-free on the main, top and base boards. Reflow melts the HASL into each joint and pulls the parts flat.
-  The main board's finest parts (the LGA accelerometer, the 0.4 mm QFN codec and the TDFN fuel gauge) get a slightly less even
-  paste print on HASL than on ENIG. Use plenty of flux and inspect them closely. The pack lid stays ENIG because its pads are
-  bare spring contacts.
+- **Finish:** HASL with lead on every board (as ordered). Reflow melts it into each joint. The main board's finest parts
+  (the LGA accelerometer, the 0.4 mm QFN codec and the TDFN fuel gauge) get a slightly less even paste print on HASL than
+  on a flat finish: use plenty of flux and inspect them closely. The pack lid and dock contact pads are bare HASL spring
+  contacts, which work but wear; ENIG is the upgrade if they ever get unreliable.
 
 Upload each `*_gerbers.zip` and set the options above. Each zip carries both sides' paste layers, with paste on every SMD
 pad, unfitted ones included. Don't turn on PCB Assembly.
 
-**Stencils:** three frameless 380 x 280 mm sheets, about US$7 each (about A$30 in all). "Top + Bottom on a single stencil" cuts
-both sides of a board side by side on one sheet: print one side, flip the board, print the other. The pack lid and dock
-contact boards need no stencil.
-
-**Not needed any more:** the MAX17048 pre-order, the JLC rotation preview and the extended-part fees. All of those went
-with JLC's assembly.
+**Stencils:** three frameless 380 x 280 mm sheets, about A$10 each. "Top + Bottom on a single stencil" cuts both sides of a
+board side by side on one sheet: print one side, flip the board, print the other. The pack lid and dock contact boards
+need no stencil.
 
 ## 2. LCSC: every part
 
@@ -95,7 +92,8 @@ Each board folder has a `*_hand_fit.csv` listing every part on that board, and w
 
 **Supplies:**
 
-- Solder paste: Sn63/Pb37 or SAC for first sides, and low-temperature SnBi (138 °C) for second sides.
+- Solder paste: Sn63/Pb37 for both sides. Not SnBi: bismuth mixed with the leaded HASL makes brittle joints that soften at
+  about 96 °C. Do second sides with hot air one area at a time, on spare boards as standoffs, so the first side doesn't reflow.
 - A plastic card and Kapton tape.
 - A hot plate.
 - Hot air.
@@ -112,7 +110,7 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
    - Then fit the LR2021 module, SMAs, sockets, switches, encoder and DC jack.
 2. **Beltpack top, about 1–1.25 hours each.**
    - Paste and place the top side (resistors, LEDs, PTS815 buttons) and reflow on the hot plate.
-   - Flip the board onto spare boards, paste the bottom with low-temp paste, place the parts (TCA9555,
+   - Flip the board onto spare boards, paste the bottom with Sn63/Pb37 paste, place the parts (TCA9555,
      link connector, caps) and reflow with hot air.
    - Hand-solder the encoders. Clip off each EC11N's two dummy pins first (the unused switch positions, 7 mm past the
      mounting tabs): the footprint has no holes for them.
@@ -129,7 +127,7 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
    - Check the LGA and QFN under magnification. The LIS3DH has no visible joints: if the board misbehaves later, it's the
      first suspect, and you have a spare.
    - Fit the LR2021 module with an iron or hot air. It's castellated.
-   - **Top side second.** Rest the board on spare boards, paste with low-temp paste, place the 55 parts (USB-C, jack,
+   - **Top side second.** Rest the board on spare boards, paste with Sn63/Pb37 paste, place the 55 parts (USB-C, jack,
      buttons, LEDs, passives) and reflow with hot air, one area at a time.
    - Then the through-hole parts: the spring pins (from the back, flange flat on the pad), the JST XH battery socket J11 on
      the front, and the motor leads.
@@ -160,7 +158,7 @@ path and the encoder shafts.
 
 | Where | What | Approx. A$ |
 |---|---|---|
-| JLCPCB | 5 board types (5 of each; ENIG on the pack lid and dock contacts), 3 stencils, shipping | 105 |
+| JLCPCB | 5 board types (5 of each), 3 stencils, shipping | 75 + shipping |
 | LCSC | every part and the base antennas, shipped with the JLC boards | 140 |
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |

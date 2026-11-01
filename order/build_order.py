@@ -278,11 +278,11 @@ with open(os.path.join(OUT, "Other_suppliers.csv"), "w", newline="") as f:
     for s, p, q, each, used, note in OTHER_BUY:
         w.writerow([s, p, q, round(each, 2) if each else "", round(each * q, 2) if each else "", used, note])
 JLC_BUY = [  # folder, gerber zip, layers, thickness, finish, stencil
-    ("Beltpack main", "main_pcb_gerbers.zip", 4, "1.6", "HASL lead-free (JLC04161H-7628 stack)", "Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.10 mm"),
-    ("Beltpack top", "top_pcb_gerbers.zip", 2, "1.6", "HASL lead-free", "Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.12 mm"),
-    ("Base station", "base_pcb_gerbers.zip", 2, "1.6", "HASL lead-free", "Frameless 380 x 280 mm, Top only, 0.12 mm"),
-    ("Beltpack pack lid", "pack_lid_pcb_gerbers.zip", 2, "0.8", "ENIG", "None"),
-    ("Beltpack dock contacts", "dock_contact_pcb_gerbers.zip", 2, "0.8", "ENIG", "None"),
+    ("Beltpack main", "main_pcb_gerbers.zip", 4, "1.6", "HASL (with lead) (JLC04161H-7628 stack)", "Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.10 mm"),
+    ("Beltpack top", "top_pcb_gerbers.zip", 2, "1.6", "HASL (with lead)", "Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.12 mm"),
+    ("Base station", "base_pcb_gerbers.zip", 2, "1.6", "HASL (with lead)", "Frameless 380 x 280 mm, Top only, 0.12 mm"),
+    ("Beltpack pack lid", "pack_lid_pcb_gerbers.zip", 2, "0.8", "HASL (with lead)", "None"),
+    ("Beltpack dock contacts", "dock_contact_pcb_gerbers.zip", 2, "0.8", "HASL (with lead)", "None"),
 ]
 with open(os.path.join(OUT, "JLC_boards.csv"), "w", newline="") as f:
     w = csv.writer(f); w.writerow(["Folder", "Upload", "Layers", "Thickness (mm)", "Surface finish", "Quantity", "Stencil", "PCB Assembly"])
