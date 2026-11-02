@@ -1,0 +1,11 @@
+Supplier,Part,Quantity (2 beltpacks + 1 base),Approx. A$ each,Approx. A$ line,Used on,Note
+Elecrow (elecrow.com),LR2021 LoRa module (LMM16121D),3,9.87,29.6,Beltpack main U6 (x2); Base station U4,US$6.90 each
+Waveshare (waveshare.com),"ESP32-P4-NANO, SKU 29026",1,27.17,27.17,Base station,Core Electronics has it for about A$61 if you need it sooner
+Waveshare (waveshare.com),PoE module for the ESP32-P4-NANO (optional),0,15,0,Base station,Only if you want PoE power
+Core Electronics,"CE09458 915 MHz U.FL flex antenna, 15 x 65 mm, 200 mm lead",4,2.3,9.2,"Beltpack main J5, J6 (two per pack)",Check 65 mm fits the pack ends
+Core Electronics or AliExpress,"8 mm coin vibration motor, 3 V, flying leads",2,,,Beltpack main M1,
+AliExpress,1.3 in 128x64 I2C OLED module (SH1106),1,,,Base station,"Check its pin order is GND, VCC, SCL, SDA"
+"AliExpress (item 1005006789720033, colour ""sh1106 white"")","1.3 in 128x64 OLED panel, SH1106, 30-pin 0.7 mm solder tail",3,1.79,5.37,Beltpack top J2,One spare. The tail solders straight to the board
+AliExpress,"JST SH 4-pin cable, 1.0 mm pitch, 40-60 mm, same-side (pin 1 to pin 1), pack of 10 (2 needed)",1,3.0,3.0,Beltpack main J12 to the dock contact board,"Packs of 10, about A$3. Check with a meter"
+Jaycar or element14 AU,REAN 4-pin XLR panel connector (headset),2,8.0,16.0,Beltpack,
+Your choice,Beltpack Li-ion cells with a JST XH 2-pin plug,2,,,Beltpack J11,Check the plug polarity: pin 1 must be +

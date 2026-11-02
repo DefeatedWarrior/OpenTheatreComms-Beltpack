@@ -1,0 +1,74 @@
+Qty,References,Value,Footprint,Part,Side,Notes
+9,C1 C2 C5 C8 C12 C21 C25 C42 C43,10u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,bottom/top,
+2,C3 C6,22u,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,1206 X5R 10 V,bottom,
+6,C4 C10 C29 C30 C37 C38,1u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,bottom/top,
+9,C7 C9 C13 C17 C22 C24 C26 C40 C41,100n,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X7R,bottom/top,
+1,C11,47u,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,1206 X5R 6.3 V,bottom,Module bulk (guide: 47u + 10u + 100n)
+0,C14 C15 C20,DNP DNP,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,"0603 C0G, tune",bottom,Not fitted. 
+3,C16 C18 C19,100p,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 C0G 50 V,bottom,
+3,C23 C27 C28,4.7u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,top,
+0,C31,DNP 1u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,bottom,Not fitted. 
+0,C32,DNP 10u,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X5R 10 V,bottom,Not fitted. 
+0,C33,DNP 22u,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,1206 X5R 6.3 V,bottom,Not fitted. 
+0,C34,DNP 100n,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X7R,bottom,Not fitted. 
+2,C35 C36,100u,C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,1206 X5R 6.3 V,top,
+1,C39,10n,C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,0603 X7R,top,
+1,D1,SS14,D_SMA,SS14 (SMA),bottom,Power path: USB feeds the system while the charger fills the cell
+3,D2 D3 D11,BAT54WS,D_SOD-323_HandSoldering,Diodes BAT54WS,bottom/top,
+6,D4 D5 D6 D7 D8 D9,PESD5V0S1BA,D_SOD-323_HandSoldering,Nexperia PESD5V0S1BA,bottom/top,
+1,D10,White 3 mm,LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm,"3 mm white LED, 20 mA",top,"Flashlight: legs bent 90 degrees, 2 mm above the board, through the bottom face"
+1,D12,B5819W,D_SOD-123,B5819W (SOD-123),bottom,Dock power into VBUS; keeps USB-C's 5 V off the exposed dock contacts
+1,FB1,600R,L_0603_1608Metric_Pad1.05x0.95mm_HandSolder,Murata BLM18PG601SN1D,top,
+1,FB2,0R,L_0603_1608Metric_Pad1.05x0.95mm_HandSolder,0603 0R (or Murata BLM18PG121SN1D),bottom,Radio supply link: the module has its own ferrite; fit a 120R bead here only if 3V3 noise needs it
+1,J1,USB-C,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,GCT USB4105-GF-A,top,"USB 2.0 Type-C receptacle: charging, firmware and USB serial"
+1,J2,3.5 mm TRRS,Jack_3.5mm_PJ320D_Horizontal,PJ-320D,top,"3.5 mm headset jack, stereo out, electret mic in (CTIA)"
+1,J3,XLR-4 wires,PinHeader_1x05_P2.54mm_Vertical,Neutrik NC4MD-L-1 (wired),bottom,"Wire pads for the panel XLR-4 male: 1 mic common, 2 mic +, 3 ear -, 4 ear +, 5 shell"
+1,J4,Top PCB link,JST_SH_SM10B-SRSS-TB_1x10-1MP_P1.00mm_Horizontal,JST SM10B-SRSS-TB,bottom,"Side-entry JST SH 10, mouth up; same pinout as the top PCB's J1"
+1,J5,Antenna A,U.FL_Hirose_U.FL-R-SMT-1_Vertical,Hirose U.FL-R-SMT-1(10),bottom,Antenna A (right-end flex antenna)
+1,J6,Antenna B,U.FL_Hirose_U.FL-R-SMT-1_Vertical,Hirose U.FL-R-SMT-1(10),bottom,Antenna B (left-end flex antenna)
+0,J7,DNP 2.4 GHz,U.FL_Hirose_U.FL-R-SMT-1_Vertical,Hirose U.FL-R-SMT-1(10),bottom,Not fitted. 2.4 GHz fallback antenna: footprint only in v1
+1,J8,Battery +,MillMax_0906_SpringPin,Xinyangze YZ08415060P-02,bottom,"Spring pin onto the pack pad board (4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail): Battery +"
+1,J9,Pack NTC,MillMax_0906_SpringPin,Xinyangze YZ08415060P-02,bottom,"Spring pin onto the pack pad board (4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail): Pack NTC"
+1,J10,Battery -,MillMax_0906_SpringPin,Xinyangze YZ08415060P-02,bottom,"Spring pin onto the pack pad board (4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail): Battery -"
+1,J11,Battery (JST XH),JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,JST B2B-XH-A(LF)(SN),top,Battery input in parallel with the spring pins (pin 1 +). A cell here has no NTC: fit R5 to turn the charger's temperature check off
+1,J12,Dock,JST_SH_BM04B-SRSS-TB_1x04-1MP_P1.00mm_Vertical,JST BM04B-SRSS-TB(LF)(SN),bottom,"Dock: vertical socket on the back face at the bottom edge, below the battery pack; its plug points back into the strip under the pack, where a flat cable runs to the dock contact board (1 VBUS, 2 D-, 3 D+, 4 GND)"
+1,L1,0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,bottom,Pi match series element: 0R until tuned
+0,L2,DNP 0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 0R or RF inductor,bottom,Not fitted. 2.4 GHz match series element
+1,M1,Vibration,Motor_Coin_8mm_LeadPads,"8 x 2.7 mm coin vibration motor, 3 V",top,Call alert
+1,Q1,AO3401A,SOT-23,AOS AO3401A,bottom,Power path: battery to system when USB is absent (gate held at VBUS when present)
+1,Q2,BSS138,SOT-23,onsemi BSS138,top,Reads the power button (low when pressed)
+2,Q3 Q4,AO3400A,SOT-23,AOS AO3400A,top,
+2,R1 R2,5.1k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+1,R3,1.5k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,Charge current: about 1200/R3 A (1.5k = 800 mA; 2.4k = 500 mA)
+1,R4,6.2k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,NTC divider top: charging allowed from about 2 to 44 C with a 10k B3435 pack NTC
+0,R5 R26 R29,DNP 0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,Not fitted. 
+8,R6 R7 R8 R11 R17 R33 R36 R38,100k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom/top,
+4,R9 R12 R30 R31,10k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom/top,
+1,R10,33k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,
+4,R13 R14 R15 R16,470,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+2,R18 R19,1k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,
+2,R20 R28,0,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom/top,
+0,R21,DNP 100k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,Not fitted. 
+0,R22 R23 R41,DNP 10k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,Not fitted. 
+0,R24,DNP 47k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,Not fitted. 
+0,R25,DNP 2.2k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,Not fitted. 
+1,R27,0,R_1206_3216Metric_Pad1.30x1.75mm_HandSolder,1206 0R,top,BTL link (or a 100u 1206 cap for single-ended)
+1,R32,2.2k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,Electret bias
+1,R34,56,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,About 20 mA at 4.2 V; dim with PWM
+2,R35 R37,100,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,top,
+0,R39 R40,DNP 4.7k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,0603 1%,bottom,Not fitted. 
+1,SW1,Power,SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010,Alps SKRTLAE010,top,"Side-push power button on the bottom edge: hold to switch on or off, tap for the flashlight"
+1,SW2,Back,SW_SPST_PTS810,C&K PTS815 SJM 250 SMTR LFS,top,Front button: Back
+1,SW3,Function,SW_SPST_PTS810,C&K PTS815 SJM 250 SMTR LFS,top,Front button: Function
+1,SW4,Menu,SW_SPST_PTS810,C&K PTS815 SJM 250 SMTR LFS,top,Front button: Menu
+1,U1,USBLC6-2SC6,SOT-23-6,ST USBLC6-2SC6,top,USB data and VBUS ESD
+1,U2,TP4056,SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm_ThermalVias,TOPPOWER TP4056 (ESOP-8),bottom,"Li-ion charger, about 800 mA with R3 = 1.5k"
+1,U3,TLV75733,SOT-23-5,TI TLV75733PDBVR,bottom,"3.3 V, 1 A LDO; EN is the soft power switch"
+1,U4,MAX17048,TDFN-8-1EP_2x2mm_P0.5mm_EP0.8x1.2mm,Analog MAX17048G+T10,bottom,"Battery fuel gauge on the cell directly, I2C 0x36"
+1,U5,ESP32-S3-WROOM-1-N8R8,ESP32-S3-WROOM-1,Espressif ESP32-S3-WROOM-1-N8R8,bottom,"MCU: Opus, radio timing, UI. Antenna end over the no-copper strip"
+1,U6,LR2021,LR2021_Elecrow_10x10mm,Elecrow LR2021 module (LMM16121D),bottom,915-928 MHz FLRC radio; 2.4 GHz port for fallback
+1,U7,PE4259,SOT-363_SC-70-6,pSemi PE4259-63,bottom,"Antenna diversity switch, RF1 = antenna A when CTRL is high"
+1,U8,NAU88C22,QFN-32-1EP_5x5mm_P0.5mm_EP3.45x3.45mm_ThermalVias,Nuvoton NAU88C22YG,bottom,"Codec, I2C 0x1A, MODE low = 2-wire. Mics up to about 55 dB gain, BTL output for XLR earpieces"
+0,U9,DNP OPA365,SOT-23-5,TI OPA365AIDBVR,bottom,"Not fitted. Optional dynamic-mic preamp (slot, unfitted)"
+1,U10,TCA9555PWR,TSSOP-24_4.4x7.8mm_P0.65mm,TI TCA9555PWR,bottom,"IO expander at 0x21 (A0 high): buttons, charger, power button, sensors"
+1,U11,LIS3DH,LGA-16_3x3mm_P0.5mm,ST LIS3DHTR,bottom,"Accelerometer at 0x18: OLED auto-flip for left or right hip, wake on pick-up, drop detection"

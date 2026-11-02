@@ -18,6 +18,6 @@ for p in info["parts"]:
     s = Shape.importBrep(os.path.join(OUT, "brep", nm + ".brep"))
     c = rgb.get(nm) or ((0.12, 0.12, 0.13) if nm.startswith("knob") else (0.33, 0.36, 0.40) if nm.startswith(("keycap", "front_", "power")) else (0.5, 0.52, 0.55))
     assy.add(s, name=nm, color=Color(*c, 1.0)); n += 1
-fn = os.path.join(here, "..", "kicad", "3d", "enclosure_ref.step")
+fn = os.path.join(here, "kicad_proj", "3d", "enclosure_ref.step")
 assy.export(fn)
 print(n, "parts ->", fn, os.path.getsize(fn) // 1024, "kB")
