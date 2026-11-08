@@ -1,0 +1,65 @@
+** Drc report for ../kicad_proj/main_pcb/main_pcb.kicad_pcb **
+** Created on 2026-10-31 20:47:14 **
+
+** Found 18 DRC violations **
+[silk_overlap]: Silkscreen overlap
+    Rule: board setup constraints silk; Severity: warning
+    @(168.5000 mm, 112.5000 mm): PCB Text '+' on F.Silkscreen
+    @(169.7500 mm, 112.4500 mm): Reference 'J11'
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(165.9400 mm, 119.5100 mm): Line on F.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(-2.7000 mm, 2.4650 mm): Polygon on B.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(182.0000 mm, 136.5750 mm): Reference 'D12'
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(172.3900 mm, 139.3600 mm): Line on B.Silkscreen
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; Severity: warning
+    @(172.3900 mm, 138.2100 mm): Line on B.Silkscreen
+[lib_footprint_issues]: Footprint 'REF_Enclosure' not found in library 'OpenTheatreComms'.
+    Local override; Severity: warning
+    @(150.0000 mm, 105.0000 mm): Footprint REF**
+[lib_footprint_mismatch]: Footprint 'Jack_3.5mm_PJ320D_Horizontal' does not match copy in library 'Connector_Audio'.
+    Local override; Severity: warning
+    @(172.0000 mm, 134.8800 mm): Footprint J2
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(188.0000 mm, 93.0000 mm): Footprint H2
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(120.0000 mm, 114.0000 mm): Footprint H1
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(140.0000 mm, 137.5000 mm): Footprint H5
+[lib_footprint_mismatch]: Footprint 'LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm' does not match copy in library 'LED_THT'.
+    Local override; Severity: warning
+    @(180.7300 mm, 136.2300 mm): Footprint D10
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(144.0000 mm, 79.5000 mm): Footprint H3
+[lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
+    Local override; Severity: warning
+    @(188.0000 mm, 137.5000 mm): Footprint H4
+[lib_footprint_mismatch]: Footprint 'ESP32-S3-WROOM-1' does not match copy in library 'RF_Module'.
+    Local override; Severity: warning
+    @(116.7500 mm, 100.0000 mm): Footprint U5
+[lib_footprint_mismatch]: Footprint 'MillMax_0906_SpringPin' does not match copy in library 'OpenTheatreComms'.
+    Local override; Severity: warning
+    @(162.0000 mm, 120.0000 mm): Footprint J9
+[lib_footprint_mismatch]: Footprint 'MillMax_0906_SpringPin' does not match copy in library 'OpenTheatreComms'.
+    Local override; Severity: warning
+    @(168.0000 mm, 120.0000 mm): Footprint J10
+[lib_footprint_mismatch]: Footprint 'MillMax_0906_SpringPin' does not match copy in library 'OpenTheatreComms'.
+    Local override; Severity: warning
+    @(156.0000 mm, 120.0000 mm): Footprint J8
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

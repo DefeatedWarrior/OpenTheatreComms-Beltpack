@@ -1,0 +1,82 @@
+Designator,Value,Part,LCSC Part #,Side,Other supplier,Note
+C1,10u,1206 X7R 50 V,C33546013,top,,
+C2,100n,0603 X7R,C1591,top,,
+C3,22u,1206 X5R 10 V,C12891,top,,
+C4,22u,1206 X5R 10 V,C12891,top,,
+C5,22u,1206 X5R 10 V,C12891,top,,
+C6,1u,0603 X5R 10 V,C15849,top,,
+C7,10u,0603 X5R 10 V,C19702,top,,
+C8,22u,1206 X5R 10 V,C12891,top,,
+C9,47u,1206 X5R 6.3 V,C96123,top,,
+C10,10u,0603 X5R 10 V,C19702,top,,
+C11,100n,0603 X7R,C1591,top,,
+C14,100p,0603 C0G 50 V,C14858,top,,
+C15,100n,0603 X7R,C1591,top,,
+C16,100p,0603 C0G 50 V,C14858,top,,
+C17,100p,0603 C0G 50 V,C14858,top,,
+C19,100n,0603 X7R,C1591,top,,
+C20,10u,0603 X5R 10 V,C19702,top,,
+C21,10n,0603 X7R,C1589,top,,
+C22,10n,0603 X7R,C1589,top,,
+C25,100n,0603 X7R,C1591,top,,
+C26,100n,0603 X7R,C1591,top,,
+C27,100n,0603 X7R,C1591,top,,
+C28,100n,0603 X7R,C1591,top,,
+C29,100n,0603 X7R,C1591,top,,
+C30,100n,0603 X7R,C1591,top,,
+C31,100n,0603 X7R,C1591,top,,
+C32,100n,0603 X7R,C1591,top,,
+C33,100n,0603 X7R,C1591,top,,
+C34,100n,0603 X7R,C1591,top,,
+C35,100n,0603 X7R,C1591,top,,
+C36,100n,0603 X7R,C1591,top,,
+C37,100n,0603 X7R,C1591,top,,
+D1,SS34,SS34 (SMA),C8678,top,,
+D2,SS34,SS34 (SMA),C8678,top,,
+D3,SMAJ26A,SMAJ26A,C19077543,top,,
+D4,green,Lite-On LTST-C191KGKT,C125098,top,,
+ENC1,EC11,"EC11 encoder with push switch, 20 mm shaft",C470742,top,,Alps EC11E09244BS (push switch)
+FB1,0R,0603 0R (or Murata BLM18PG121SN1D),C21189,top,,0R link
+J1,DC 7-24 V,"CUI PJ-063AH (5.5 x 2.1 mm, centre +)",C22434582,top,,
+J2,Antenna A,"Molex 73251-2120 SMA edge-mount jack, 1.6 mm board",C22467594,top,,"MyAntenna A-SMA-KE-13.5A edge SMA: same pads as the Molex footprint, a fifth of the price"
+J3,Antenna B,"Molex 73251-2120 SMA edge-mount jack, 1.6 mm board",C22467594,top,,"MyAntenna A-SMA-KE-13.5A edge SMA: same pads as the Molex footprint, a fifth of the price"
+J5,OLED,"1x4 female socket for a 1.3 in 128x64 I2C OLED module (SH1106, address 0x3C)",C2718488,top,,1x4 female socket (the OLED module: elsewhere)
+L1,4.7u,"4.7 uH, 2.5 A, 4x4 mm (Bourns SRN4018-4R7M or equal)",C1330726,top,,Bourns SRN4018TA-4R7M
+L2,0,0603 0R or RF inductor,C21189,top,,0R until tuned
+LED1,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED2,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED3,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED4,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED5,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED6,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED7,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED8,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED9,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED10,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED11,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+LED12,WS2812B-Mini,Worldsemi WS2812B-Mini-V3J,C22371519,top,,
+R3,1k,0603 1%,C21190,top,,
+R4,470,0603 1%,C23179,top,,
+R5,470,0603 1%,C23179,top,,
+R6,470,0603 1%,C23179,top,,
+R7,470,0603 1%,C23179,top,,
+R8,100k,0603 1%,C25803,top,,
+R9,1k,0603 1%,C21190,top,,
+R10,1k,0603 1%,C21190,top,,
+R11,10k,0603 1%,C25804,top,,
+R12,10k,0603 1%,C25804,top,,
+R13,10k,0603 1%,C25804,top,,
+R14,33,0603 1%,C23140,top,,
+SW1,Talk 1,12 x 12 mm tactile switch with round cap,C136701,top,,"HRO K2-1103DP, 12 x 12 x 12 mm"
+SW2,Talk 2,12 x 12 mm tactile switch with round cap,C136701,top,,"HRO K2-1103DP, 12 x 12 x 12 mm"
+SW3,Talk 3,12 x 12 mm tactile switch with round cap,C136701,top,,"HRO K2-1103DP, 12 x 12 x 12 mm"
+SW4,Talk 4,12 x 12 mm tactile switch with round cap,C136701,top,,"HRO K2-1103DP, 12 x 12 x 12 mm"
+SW5,Menu,"6 x 6 mm tactile switch, 13 mm tall",C2837523,top,,Kinghelm KH-6X6X13H-TJ
+SW6,Back,"6 x 6 mm tactile switch, 13 mm tall",C2837523,top,,Kinghelm KH-6X6X13H-TJ
+U1,ESP32-P4-NANO,"Waveshare ESP32-P4-NANO (SKU 29026) on 2x 2x13 2.54 mm female sockets, 8.5 mm",C64320,top,,2x 2x13 female sockets per board (the NANO itself: Waveshare)
+U2,AP63205WU,Diodes AP63205WU-7,C2071056,top,,
+U3,TLV75733,TI TLV75733PDBVR,C485517,top,,
+U4,LR2021,Elecrow LR2021 module (LMM16121D),,top,"Elecrow (elecrow.com), LR2021 LoRa module",
+U5,PE4259,pSemi PE4259-63,C48031087,top,,
+U6,TCA9555PWR,TI TCA9555PWR,C465732,top,,
+U7,74AHCT1G125,74AHCT1G125 (SOT-23-5),C7484,top,,TI SN74AHCT1G125DBVR

@@ -1,0 +1,22 @@
+** Drc report for /home/claude/beltpack/final/kicad_proj/pack_lid_pcb/pack_lid_pcb.kicad_pcb **
+** Created on 2026-10-27 05:50:13 **
+
+** Found 4 DRC violations **
+[lib_footprint_issues]: The current configuration does not include the library 'OpenTheatreComms'.
+    Local override; Severity: warning
+    @(150.0000 mm, 105.0000 mm): Footprint REF**
+[lib_footprint_mismatch]: Footprint 'TestPoint_Pad_D3.0mm' does not match copy in library 'TestPoint'.
+    Local override; Severity: warning
+    @(168.0000 mm, 120.0000 mm): Footprint J3
+[lib_footprint_mismatch]: Footprint 'TestPoint_Pad_D3.0mm' does not match copy in library 'TestPoint'.
+    Local override; Severity: warning
+    @(162.0000 mm, 120.0000 mm): Footprint J2
+[lib_footprint_mismatch]: Footprint 'TestPoint_Pad_D3.0mm' does not match copy in library 'TestPoint'.
+    Local override; Severity: warning
+    @(156.0000 mm, 120.0000 mm): Footprint J1
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

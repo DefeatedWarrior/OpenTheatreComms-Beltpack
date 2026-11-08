@@ -1,7 +1,538 @@
-(kicad_sch (version 20230121) (generator eeschema)
-  (uuid 7e5e2da1-b940-4537-adfc-d2623c8f2be9)
+(kicad_sch
+  (version 20230121)
+  (generator eeschema)
+  (uuid "98949199-aff7-56e5-b637-84f27b0989d2")
   (paper "A4")
-  (title_block (title "Beltpack battery pad board") (date "2026-10-26") (rev "0.1") (company "OpenTheatreComms"))
-  (lib_symbols)
-  (sheet_instances (path "/" (page "1")))
-)
+  (title_block
+    (title "Beltpack pack lid PCB")
+    (date "2026-10-27")
+    (rev "0.1")
+    (company "OpenTheatreComms")
+    (comment 1 "Battery pack contact board: three pogo pads and three wire pads. Generated from pcb_lid/design.py"))
+  (lib_symbols
+    (symbol "Connector:TestPoint"
+      (pin_numbers hide)
+      (pin_names
+        (offset 0.762) hide)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "TP"
+        (at 0 6.858 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "TestPoint"
+        (at 0 5.08 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 5.08 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" "~"
+        (at 5.08 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "test point tp"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "test point"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_fp_filters" "Pin* Test*"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "TestPoint_0_1"
+        (circle
+          (center 0 3.302)
+          (radius 0.762)
+          (stroke
+            (width 0)
+            (type default))
+          (fill
+            (type none))))
+      (symbol "TestPoint_1_1"
+        (pin passive line
+          (at 0 0 90)
+          (length 2.54)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)))))))
+    (symbol "Connector_Generic:Conn_01x01"
+      (pin_names
+        (offset 1.016) hide)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "J"
+        (at 0 2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Value" "Conn_01x01"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27))))
+      (property "Footprint" ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "Datasheet" "~"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_keywords" "connector"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (property "ki_fp_filters" "Connector*:*_1x??_*"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)) hide))
+      (symbol "Conn_01x01_1_1"
+        (rectangle
+          (start -1.27 0.127)
+          (end 0 -0.127)
+          (stroke
+            (width 0.1524)
+            (type default))
+          (fill
+            (type none)))
+        (rectangle
+          (start -1.27 1.27)
+          (end 1.27 -1.27)
+          (stroke
+            (width 0.254)
+            (type default))
+          (fill
+            (type background)))
+        (pin passive line
+          (at -5.08 0 0)
+          (length 3.81)
+          (name "Pin_1"
+            (effects
+              (font
+                (size 1.27 1.27))))
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27))))))))
+  (text "Pack lid: contact pads for the beltpack spring pins, wire holes for the cell's leads and its NTC"
+    (at 18 24 0)
+    (effects
+      (font
+        (size 2.2 2.2))
+      (justify left top))
+    (uuid "26126bb6-2470-52bb-b4ba-127ad53484b7"))
+  (polyline
+    (pts
+      (xy 14 18)
+      (xy 218 18)
+      (xy 218 58.94)
+      (xy 14 58.94)
+      (xy 14 18))
+    (stroke
+      (width 0.15)
+      (type dash))
+    (fill
+      (type none))
+    (uuid "c4fca17e-f339-5e41-910d-72eb88acd1e8"))
+  (symbol
+    (lib_id "Connector:TestPoint")
+    (at 22.86 38.1 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "de011c52-3be2-57b8-9a56-e9ab2efc1c99")
+    (property "Reference" "J1"
+      (at 22.86 31.24 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "BAT+"
+      (at 22.86 33.02 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
+      (at 22.86 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" "~"
+      (at 22.86 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "MPN" "PCB pad (ENIG)"
+      (at 22.86 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Description" "Contact pad under the main PCB's spring pin: BAT+"
+      (at 22.86 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "cf6f117c-9537-5f45-85b4-e77a3d4d4c54"))
+    (instances
+      (project "pack_lid_pcb"
+        (path "/98949199-aff7-56e5-b637-84f27b0989d2"
+          (reference "J1")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 22.86 38.1)
+      (xy 22.86 40.64))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "f228c398-37c8-53d3-b9db-62e0e0c0698b"))
+  (label "BAT+"
+    (at 22.86 40.64 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "a8cac2d8-40c3-5bde-8b11-48936769f945"))
+  (symbol
+    (lib_id "Connector:TestPoint")
+    (at 38.1 38.1 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "98267a46-9ee9-5688-a9cf-95f045c7fee1")
+    (property "Reference" "J2"
+      (at 38.1 31.24 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "NTC"
+      (at 38.1 33.02 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
+      (at 38.1 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" "~"
+      (at 38.1 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "MPN" "PCB pad (ENIG)"
+      (at 38.1 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Description" "Contact pad under the main PCB's spring pin: NTC"
+      (at 38.1 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "ca58d347-c3d0-5a33-bdfe-37043bac7d2a"))
+    (instances
+      (project "pack_lid_pcb"
+        (path "/98949199-aff7-56e5-b637-84f27b0989d2"
+          (reference "J2")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 38.1 38.1)
+      (xy 38.1 40.64))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "7d3a2182-a213-5fa7-9bfe-e9f36d968ffa"))
+  (label "NTC"
+    (at 38.1 40.64 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "41a9bcdf-00e0-5c3d-96e3-16f1759868e8"))
+  (symbol
+    (lib_id "Connector:TestPoint")
+    (at 53.34 38.1 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "138644cd-d95a-5ff9-8025-65fc7c53c77d")
+    (property "Reference" "J3"
+      (at 53.34 31.24 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "BAT-"
+      (at 53.34 33.02 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "TestPoint:TestPoint_Pad_D3.0mm"
+      (at 53.34 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" "~"
+      (at 53.34 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "MPN" "PCB pad (ENIG)"
+      (at 53.34 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Description" "Contact pad under the main PCB's spring pin: BAT-"
+      (at 53.34 38.1 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "17301a34-280f-53c7-ae73-5d160e35a224"))
+    (instances
+      (project "pack_lid_pcb"
+        (path "/98949199-aff7-56e5-b637-84f27b0989d2"
+          (reference "J3")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 53.34 38.1)
+      (xy 53.34 40.64))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "f571cb73-4bab-5f79-aed0-4cb12358610f"))
+  (label "BAT-"
+    (at 53.34 40.64 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "21fcec66-bdb7-56d1-be0a-2a2c4364ffbb"))
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x01")
+    (at 78.74 39.37 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "87fe5991-6a40-54fc-8eb1-35795eb16542")
+    (property "Reference" "J4"
+      (at 78.74 36.83 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "Cell + (red)"
+      (at 78.74 41.91 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x01_D0.65mm_OD1.7mm"
+      (at 78.74 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" "~"
+      (at 78.74 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "MPN" "Wire, 0.25 mm2 (24 AWG)"
+      (at 78.74 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Description" "Wire hole: Cell + (red)"
+      (at 78.74 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "f6398f58-5fd3-57d5-bdce-f15c9a2357f3"))
+    (instances
+      (project "pack_lid_pcb"
+        (path "/98949199-aff7-56e5-b637-84f27b0989d2"
+          (reference "J4")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 73.66 39.37)
+      (xy 71.12 39.37))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "fdf44e1d-3e22-52b7-87cd-30b2c0c28008"))
+  (label "BAT+"
+    (at 71.12 39.37 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "4e8fde33-2ad6-565e-9bcd-2407ba45d103"))
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x01")
+    (at 101.6 39.37 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "b3aa1f4c-7769-592b-8b2e-982a4b998fe1")
+    (property "Reference" "J5"
+      (at 101.6 36.83 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "Pack NTC (10k, B 3435)"
+      (at 101.6 41.91 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x01_D0.65mm_OD1.7mm"
+      (at 101.6 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" "~"
+      (at 101.6 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "MPN" "Wire, 0.25 mm2 (24 AWG)"
+      (at 101.6 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Description" "Wire hole: Pack NTC (10k, B 3435)"
+      (at 101.6 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "52fad945-141c-5787-bdb1-5da2524ce7e5"))
+    (instances
+      (project "pack_lid_pcb"
+        (path "/98949199-aff7-56e5-b637-84f27b0989d2"
+          (reference "J5")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 96.52 39.37)
+      (xy 93.98 39.37))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "071a2f22-7e08-58ff-ab30-4b42dba94798"))
+  (label "NTC"
+    (at 93.98 39.37 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "55ef1004-a83f-5d77-b9f5-cc5db83607e5"))
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x01")
+    (at 125.73 39.37 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "4bba0ca4-96cc-5322-9359-1bff22c8dd05")
+    (property "Reference" "J6"
+      (at 125.73 36.83 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Value" "Cell - (black)"
+      (at 125.73 41.91 0)
+      (effects
+        (font
+          (size 1.27 1.27))))
+    (property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x01_D0.65mm_OD1.7mm"
+      (at 125.73 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Datasheet" "~"
+      (at 125.73 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "MPN" "Wire, 0.25 mm2 (24 AWG)"
+      (at 125.73 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (property "Description" "Wire hole: Cell - (black)"
+      (at 125.73 39.37 0)
+      (effects
+        (font
+          (size 1.27 1.27)) hide))
+    (pin "1"
+      (uuid "cfa4f5b4-aa88-5c65-bd28-879b53d2bb58"))
+    (instances
+      (project "pack_lid_pcb"
+        (path "/98949199-aff7-56e5-b637-84f27b0989d2"
+          (reference "J6")
+          (unit 1)))))
+  (wire
+    (pts
+      (xy 120.65 39.37)
+      (xy 118.11 39.37))
+    (stroke
+      (width 0)
+      (type default))
+    (uuid "f003a15d-86ca-5a61-89ed-061737aacb02"))
+  (label "BAT-"
+    (at 118.11 39.37 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27))
+      (justify right bottom))
+    (uuid "3ca0cfb7-2426-5b70-9848-8b5334bce79c"))
+  (text "OpenTheatreComms beltpack - pack lid PCB"
+    (at 18 12 0)
+    (effects
+      (font
+        (size 4 4))
+      (justify left bottom))
+    (uuid "ecb961cd-e251-5007-8265-82df8db3e747"))
+  (sheet_instances
+    (path "/"
+      (page "1"))))

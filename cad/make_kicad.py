@@ -9,7 +9,7 @@ import os, json, math, uuid, datetime
 import ezdxf, pcbnew
 
 here = os.path.dirname(os.path.abspath(__file__))
-KD = os.path.join(here, "out", "kicad"); PRJ = os.path.join(here, "..", "kicad")
+KD = os.path.join(here, "out", "kicad"); PRJ = os.path.join(here, "kicad_proj")
 info = json.load(open(os.path.join(KD, "boards.json")))
 OX, OY = 150.0, 105.0                      # board datum on the A4 sheet (mm)
 MM = pcbnew.FromMM

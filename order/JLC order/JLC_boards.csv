@@ -1,0 +1,6 @@
+Folder,Upload,Layers,Thickness (mm),Surface finish,Quantity,Stencil,PCB Assembly
+Beltpack main,main_pcb_gerbers.zip,4,1.6,HASL (with lead) (JLC04161H-7628 stack),5,"Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.10 mm",Off
+Beltpack top,top_pcb_gerbers.zip,2,1.6,HASL (with lead),5,"Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.12 mm",Off
+Base station,base_pcb_gerbers.zip,2,1.6,HASL (with lead),5,"Frameless 380 x 280 mm, Top only, 0.12 mm",Off
+Beltpack pack lid,pack_lid_pcb_gerbers.zip,2,0.8,HASL (with lead),5,None,Off
+Beltpack dock contacts,dock_contact_pcb_gerbers.zip,2,0.8,HASL (with lead),5,None,Off
