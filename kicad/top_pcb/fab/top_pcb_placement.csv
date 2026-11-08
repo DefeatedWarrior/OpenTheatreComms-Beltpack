@@ -1,7 +1,7 @@
 Ref,Val,Package,PosX,PosY,Rot,Side
 "C1","100n","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",5.600000,-3.400000,90.000000,bottom
-"C2","0.22u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",8.500000,1.200000,180.000000,bottom
-"C3","0.22u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",11.900000,1.200000,180.000000,bottom
+"C2","1u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",8.500000,1.200000,180.000000,bottom
+"C3","1u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",11.900000,1.200000,180.000000,bottom
 "C4","4.7u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",-13.500000,1.700000,0.000000,bottom
 "C5","4.7u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",-10.100000,1.700000,0.000000,bottom
 "C6","4.7u","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",7.800000,-0.600000,0.000000,bottom
@@ -14,7 +14,7 @@ Ref,Val,Package,PosX,PosY,Rot,Side
 "R9","10k","R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",-12.200000,-8.200000,0.000000,bottom
 "R10","4.7k","R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",-8.600000,-6.400000,0.000000,bottom
 "R11","4.7k","R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",-8.600000,-8.200000,0.000000,bottom
-"R12","510k","R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",-6.700000,1.700000,0.000000,bottom
+"R12","560k","R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",-6.700000,1.700000,0.000000,bottom
 "U1","TCA9555PWR","TSSOP-24_4.4x7.8mm_P0.65mm",0.000000,-4.600000,90.000000,bottom
 "C8","10n","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",-26.400000,-7.600000,0.000000,top
 "C9","10n","C_0603_1608Metric_Pad1.08x0.95mm_HandSolder",-26.400000,-9.400000,0.000000,top

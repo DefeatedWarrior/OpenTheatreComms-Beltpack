@@ -56,13 +56,13 @@ def oled_pad(k): return 31 - k if OLED_PIN1_AT_PLUS_X else k
 comp("J2", "Connector_Generic:Conn_01x30", "OLED tail", "OpenTheatreComms:OLED_Tail_30P_0.7mm_Solder",
      {str(oled_pad(k)): v for k, v in oled.items()}, (192, 165), ("B", 0.0, 5.5, 0), "OLED panel tail soldered to pads (no part)",
      "Solder pads for the panel's 30-lead tail (0.7 mm pitch). Standard 1.3 in SH1106 30-pin pin map; I2C (BS2..0 = 010), address 0x3C")
-comp("C2", "Device:C", "0.22u", C0603, {"1": "C1P", "2": "C1N"}, (222, 138), ("B", 8.5, 1.2, 180), "0603 X7R 25 V", "SH1106 charge-pump flying cap")
-comp("C3", "Device:C", "0.22u", C0603, {"1": "C2P", "2": "C2N"}, (234, 138), ("B", 11.9, 1.2, 180), "0603 X7R 25 V", "SH1106 charge-pump flying cap")
+comp("C2", "Device:C", "1u", C0603, {"1": "C1P", "2": "C1N"}, (222, 138), ("B", 8.5, 1.2, 180), "0603 X5R", "SH1106 charge-pump flying cap (1 uF per the panel reference circuit)")
+comp("C3", "Device:C", "1u", C0603, {"1": "C2P", "2": "C2N"}, (234, 138), ("B", 11.9, 1.2, 180), "0603 X5R", "SH1106 charge-pump flying cap (1 uF per the panel reference circuit)")
 comp("C4", "Device:C", "4.7u", C0603, {"1": "VCC_OLED", "2": "GND"}, (222, 168), ("B", -13.5, 1.7, 0), "0603 X5R 25 V", "VPP (OLED drive) reservoir")
 comp("C5", "Device:C", "4.7u", C0603, {"1": "VCOMH", "2": "GND"}, (234, 168), ("B", -10.1, 1.7, 0), "0603 X5R 25 V", "VCOMH")
 comp("C6", "Device:C", "4.7u", C0603, {"1": "+3V3", "2": "GND"}, (246, 168), ("B", 7.8, -0.6, 0), "0603 X5R 10 V", "Charge-pump supply (VBAT pin)")
 comp("C7", "Device:C", "1u", C0603, {"1": "+3V3", "2": "GND"}, (258, 168), ("B", 3.0, 1.7, 0), "0603 X5R 10 V", "Logic supply (VDD pin)")
-comp("R12", "Device:R", "510k", R0603, {"1": "IREF", "2": "GND"}, (246, 138), ("B", -6.7, 1.7, 0), "0603 1%", "Segment current reference, about 12.5 uA")
+comp("R12", "Device:R", "560k", R0603, {"1": "IREF", "2": "GND"}, (246, 138), ("B", -6.7, 1.7, 0), "0603 1%", "Segment current reference: 560k per the panel reference circuit (12.5 uA max)")
 # ---------------------------------------------------------------- dials: Alps EC11N (PEC12R footprint) with the datasheet RC filter on A and B
 for e, (x, y) in enumerate(ENC):
     side = "L" if x < 0 else "R"; n = e + 1; sy = 118 + e * 50

@@ -1,7 +1,6 @@
 LCSC Part Number,Quantity,Manufacturer Part,Description,Needed (2 beltpacks + 1 base),LCSC stock,LCSC min,LCSC multiple,Unit price (A$),Line total (A$),Used on,Note
 C21189,100,0603WAF0000T5E,0 0603 1%,10,11841600,100,100,0.0031,0.31,Beltpack main R28; Beltpack main R20; Beltpack main L1; Beltpack main FB2; Base station FB1; Base station L2,
 C17888,100,1206W4F0000T5E,0 1206 0R,2,632000,100,100,0.0123,1.23,Beltpack main R27,
-C21120,50,CL10B224KA8NNNC,0.22u 0603 X7R 25 V,4,394550,50,50,0.0134,0.67,Beltpack top C2; Beltpack top C3,
 C22843,100,0603WAF1501T5E,1.5k 0603 1%,2,2131200,100,100,0.0029,0.29,Beltpack main R3,
 C22775,100,0603WAF1000T5E,100 0603 1%,4,1210700,100,100,0.0034,0.34,Beltpack main R37; Beltpack main R35,
 C25803,100,0603WAF1003T5E,100k 0603 1%,17,9070700,100,100,0.0043,0.43,Beltpack main R38; Beltpack main R36; Beltpack main R8; Beltpack main R33; Beltpack main R6; Beltpack main R7; Beltpack main R11; Beltpack main R17; Base station R8,
@@ -14,7 +13,7 @@ C19702,40,CL10A106KP8NNNC,10u 0603 X5R 10 V,23,3005980,20,20,0.0306,1.23,Beltpac
 C33546013,5,HGC1206R7106K500NSPJ,10u 1206 X7R 50 V,1,127070,5,5,0.1732,0.87,Base station C1,
 C136701,10,K2-1103DP-Q4SW-04,12 x 12 mm tactile switch with round cap,4,12060,5,5,0.1163,1.16,Base station SW2; Base station SW1; Base station SW3; Base station SW4,"HRO K2-1103DP, 12 x 12 x 12 mm"
 C21190,100,0603WAF1001T5E,1k 0603 1%,7,5604700,100,100,0.0024,0.24,Beltpack main R18; Beltpack main R19; Base station R9; Base station R3; Base station R10,
-C15849,50,CL10A105KB8NNNC,1u 0603 X5R 10 V,15,104800,50,50,0.02,1.0,Beltpack main C38; Beltpack main C30; Beltpack main C29; Beltpack main C37; Beltpack main C10; Beltpack main C4; Beltpack top C7; Base station C6,
+C15849,50,CL10A105KB8NNNC,1u 0603 X5R 10 V,19,104800,50,50,0.02,1.0,Beltpack main C38; Beltpack main C30; Beltpack main C29; Beltpack main C37; Beltpack main C10; Beltpack main C4; Beltpack top C2; Beltpack top C3; Beltpack top C7; Base station C6,
 C2718488,10,2.54-1*4P,"1x4 female socket for a 1.3 in 128x64 I2C OLED module (SH1106, address 0x3C)",1,110420,10,10,0.1193,1.19,Base station J5,1x4 female socket (the OLED module: elsewhere)
 C4190,100,0603WAF2201T5E,2.2k 0603 1%,2,2960500,100,100,0.0026,0.26,Beltpack main R32,
 C22962,100,0603WAF2200T5E,220 0603 1%,16,1496100,100,100,0.0027,0.27,Beltpack top R6; Beltpack top R5; Beltpack top R1; Beltpack top R3; Beltpack top R8; Beltpack top R2; Beltpack top R7; Beltpack top R4,
@@ -29,8 +28,8 @@ C69335,10,CL10A475KA8NQNC,4.7u 0603 X5R 25 V,4,739130,10,10,0.0618,0.61,Beltpack
 C23179,100,0603WAF4700T5E,470 0603 1%,12,1983300,100,100,0.0033,0.33,Beltpack main R16; Beltpack main R13; Beltpack main R14; Beltpack main R15; Base station R5; Base station R4; Base station R6; Base station R7,
 C96123,5,CL31A476MPHNNNE,47u 1206 X5R 6.3 V,3,156160,5,5,0.2492,1.24,Beltpack main C11; Base station C9,
 C23186,100,0603WAF5101T5E,5.1k 0603 1%,4,16414600,100,100,0.0023,0.23,Beltpack main R1; Beltpack main R2,
-C23192,100,0603WAF5103T5E,510k 0603 1%,2,450700,100,100,0.003,0.3,Beltpack top R12,
 C25196,100,0603WAF560JT5E,56 0603 1%,2,413900,100,100,0.0039,0.39,Beltpack main R34,
+C23203,100,0603WAF5603T5E,560k 0603 1%,2,120900,100,100,0.0021,0.21,Beltpack top R12,
 C2837523,20,KH-6X6X13H-TJ,"6 x 6 mm tactile switch, 13 mm tall",2,10300,20,20,0.0309,0.61,Base station SW5; Base station SW6,Kinghelm KH-6X6X13H-TJ
 C4260,100,0603WAF6201T5E,6.2k 0603 1%,2,435400,100,100,0.0033,0.33,Beltpack main R4,
 C7484,5,SN74AHCT1G125DBVR,74AHCT1G125 (SOT-23-5),1,17090,5,5,0.1446,0.73,Base station U7,TI SN74AHCT1G125DBVR

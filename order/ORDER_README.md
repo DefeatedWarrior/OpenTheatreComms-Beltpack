@@ -47,7 +47,7 @@ Upload `LCSC_cart_upload.csv` to LCSC's BOM tool (two columns: LCSC part number,
 `LCSC_cart_hand_parts.csv` to see what each line is for. Place it from JLC's parts manager, or tick "ship with JLCPCB
 order", so it travels in the same box as the boards.
 
-- **Size and cost:** 75 lines, **about A$138**, including the base antennas. Everything ships from stock.
+- **Size and cost:** 74 lines, **about A$137**, including the base antennas. Everything ships from stock.
 - **Quantities and spares:** already rounded up to LCSC's minimum and multiple. Small parts include spares: +20% or at
   least 2 for passives, +1 for other parts under US$1. The accelerometer, fuel gauge and codec get one spare each,
   because they're the easiest to ruin.
@@ -129,6 +129,10 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
    - Fit the LR2021 module with an iron or hot air. It's castellated.
    - **Top side second.** Rest the board on spare boards, paste with Sn63/Pb37 paste, place the 55 parts (USB-C, jack,
      buttons, LEDs, passives) and reflow with hot air, one area at a time.
+   - **R5 (0 ohm, next to the charger): fit it if your cells have no temperature sensor** (plain 2-wire JST XH cells).
+     Without it the charger sees no NTC and won't charge. Leave it off for a pack with an NTC wired to the pack lid.
+   - **Empty option pads:** the stencil leaves paste on unfitted pads. After reflow, check R26 and R29 (beside the codec
+     and the XLR wires) for solder bridges: a bridge on R29 shorts the earpiece output to ground.
    - Then the through-hole parts: the spring pins (from the back, flange flat on the pad), the JST XH battery socket J11 on
      the front, and the motor leads.
 4. **Dock contacts, 5 minutes each.** Iron the side-entry JST SH socket onto the inside face (no paste needed for one
