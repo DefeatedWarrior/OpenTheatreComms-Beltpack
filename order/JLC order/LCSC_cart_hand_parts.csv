@@ -49,12 +49,12 @@ C470742,1,EC11E09244BS,"EC11 encoder with push switch, 20 mm shaft",1,3587,1,1,3
 C2913201,2,ESP32-S3-WROOM-1-N8R8,Espressif ESP32-S3-WROOM-1-N8R8,2,3870,1,1,7.2771,14.56,Beltpack main U5,
 C165948,5,TYPE-C-31-M-12,GCT USB4105-GF-A,2,273725,5,5,0.2703,1.36,Beltpack main J1,HRO TYPE-C-31-M-12: same land pattern; the GCT part is out of stock
 C88374,5,U.FL-R-SMT-1(80),Hirose U.FL-R-SMT-1(10),4,71905,5,5,0.1723,0.86,Beltpack main J5; Beltpack main J6,"U.FL-R-SMT-1(80), same part, bigger reel"
-C158012,10,B2B-XH-A(LF)(SN),JST B2B-XH-A(LF)(SN),2,241293,10,10,0.0585,0.59,Beltpack main J11,"JST XH 2-pin battery input, pin 1 +"
+C158012,20,B2B-XH-A(LF)(SN),JST B2B-XH-A(LF)(SN),2,241293,20,10,0.0585,1.17,Beltpack main J11,"JST XH 2-pin battery input, pin 1 +"
 C495539,5,BM04B-SRSS-TBT(LF)(SN),JST BM04B-SRSS-TB(LF)(SN),2,7360,5,5,0.5109,2.56,Beltpack main J12,JST BM04B-SRSS-TBT: the same socket in other tape packaging (the -TB is out of stock)
 C160396,3,BM10B-SRSS-TB(LF)(SN),JST BM10B-SRSS-TB,2,43685,1,1,0.6311,1.89,Beltpack top J1,
 C160404,5,SM04B-SRSS-TB(LF)(SN),JST SM04B-SRSS-TB(LF)(SN),2,57650,5,5,0.31,1.54,Beltpack dock contacts J5,Dock socket on the main board (J12)
 C160409,3,SM10B-SRSS-TB(LF)(SN),JST SM10B-SRSS-TB,2,78802,1,1,0.6225,1.87,Beltpack main J4,
-C125098,20,LTST-C191KGKT,Lite-On LTST-C191KGKT,5,104460,20,20,0.0332,0.66,Beltpack top D6; Beltpack top D8; Base station D4,
+C125098,60,LTST-C191KGKT,Lite-On LTST-C191KGKT,5,104460,50,20,0.0332,1.99,Beltpack top D6; Beltpack top D8; Base station D4,
 C125099,20,LTST-C191KRKT,Lite-On LTST-C191KRKT,12,294860,20,20,0.0276,0.56,Beltpack top D2; Beltpack top D5; Beltpack top D1; Beltpack top D4; Beltpack top D3; Beltpack top D7,
 C19330,50,BLM18AG601SN1D,Murata BLM18PG601SN1D,2,561800,50,50,0.0174,0.87,Beltpack main FB1,600R 0603 bead (any 600R at 100 MHz)
 C19224,15,"PESD5V0S1BA,115",Nexperia PESD5V0S1BA,12,15070,5,5,0.1062,1.59,Beltpack main D7; Beltpack main D8; Beltpack main D9; Beltpack main D6; Beltpack main D5; Beltpack main D4,
@@ -72,5 +72,5 @@ C16581,5,TP4056-42-ESOP8,TOPPOWER TP4056 (ESOP-8),2,59640,5,5,0.268,1.34,Beltpac
 C64320,5,2.54-2*13P,"Waveshare ESP32-P4-NANO (SKU 29026) on 2x 2x13 2.54 mm female sockets, 8.5 mm",2,4460,5,5,0.3179,1.59,Base station U1,2x 2x13 female sockets per board (the NANO itself: Waveshare)
 C22371519,15,WS2812B-MINI-V3J,Worldsemi WS2812B-Mini-V3J,12,43075,5,5,0.1676,2.52,Base station LED7; Base station LED1; Base station LED4; Base station LED8; Base station LED5; Base station LED6; Base station LED3; Base station LED9; Base station LED2; Base station LED12; Base station LED10; Base station LED11,
 C7471674,7,YZ08415060P-02,Xinyangze YZ08415060P-02,6,380,1,1,0.6609,4.63,Beltpack main J9; Beltpack main J10; Beltpack main J8,"Xinyangze spring pin: 4.5 mm free, 4.0 working, 3.7 fully in; 0.8 mm tail in the 1.0 mm hole"
-C7420339,20,BSS138,onsemi BSS138,2,5100,20,20,0.0383,0.77,Beltpack main Q2,any BSS138 (same SOT-23 pinout)
+C7420339,60,BSS138,onsemi BSS138,2,5100,50,20,0.0383,2.3,Beltpack main Q2,any BSS138 (same SOT-23 pinout)
 C48031087,5,HX4259-63-ST,pSemi PE4259-63,3,2325,5,5,0.251,1.26,Beltpack main U7; Base station U5,ZHHXDZ HX4259-63-ST: same pinout and control logic as PE4259 (CTRL high = RF1)

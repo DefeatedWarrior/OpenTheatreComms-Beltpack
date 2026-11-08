@@ -47,7 +47,7 @@ Upload `LCSC_cart_upload.csv` to LCSC's BOM tool (two columns: LCSC part number,
 `LCSC_cart_hand_parts.csv` to see what each line is for. Place it from JLC's parts manager, or tick "ship with JLCPCB
 order", so it travels in the same box as the boards.
 
-- **Size and cost:** 75 lines, **about A$135**, including the base antennas. Everything ships from stock.
+- **Size and cost:** 75 lines, **about A$138**, including the base antennas. Everything ships from stock.
 - **Quantities and spares:** already rounded up to LCSC's minimum and multiple. Small parts include spares: +20% or at
   least 2 for passives, +1 for other parts under US$1. The accelerometer, fuel gauge and codec get one spare each,
   because they're the easiest to ruin.
