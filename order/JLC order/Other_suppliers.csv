@@ -7,5 +7,6 @@ Core Electronics or AliExpress,"8 mm coin vibration motor, 3 V, flying leads",2,
 AliExpress,1.3 in 128x64 I2C OLED module (SH1106),1,,,Base station,"Check its pin order is GND, VCC, SCL, SDA"
 "AliExpress (item 1005006789720033, colour ""sh1106 white"")","1.3 in 128x64 OLED panel, SH1106, 30-pin 0.7 mm solder tail",3,1.79,5.37,Beltpack top J2,One spare. The tail solders straight to the board
 AliExpress,"JST SH 4-pin cable, 1.0 mm pitch, 40-60 mm, same-side (pin 1 to pin 1), pack of 10 (2 needed)",1,3.0,3.0,Beltpack main J12 to the dock contact board,"Packs of 10, about A$3. Check with a meter"
+AliExpress,"JST SH 10-pin cable, 1.0 mm pitch, 50 mm, same-side (pin 1 to pin 1), pack of 5 or 10 (2 needed)",1,4.0,4.0,Beltpack main J4 to top J1,"Check with a meter: J4 pin 1 (GND) must reach J1 pin 1, pin 2 (3V3) pin 2"
 Jaycar or element14 AU,REAN 4-pin XLR panel connector (headset),2,8.0,16.0,Beltpack,
 Your choice,Beltpack Li-ion cells with a JST XH 2-pin plug,2,,,Beltpack J11,Check the plug polarity: pin 1 must be +

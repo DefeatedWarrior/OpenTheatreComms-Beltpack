@@ -84,6 +84,7 @@ Each board folder has a `*_hand_fit.csv` listing every part on that board, and w
 | 1.3 in 128x64 I2C OLED module (SH1106), base | 1 | AliExpress. Check its pin order is GND, VCC, SCL, SDA |
 | Beltpack Li-ion cells with a JST XH 2-pin plug | 2 | Your choice. Check the plug polarity: J11 pin 1 is + |
 | 1.3 in 128x64 OLED panel, SH1106, 30-pin 0.7 mm solder tail (beltpack top) | 3 (one spare) | AliExpress item 1005006789720033, colour "sh1106 white", A$1.79 each |
+| JST SH 10-pin cable, 1.0 mm pitch, 50 mm, beltpack main J4 to top J1, wired pin 1 to pin 1 (check with a meter: J4 pin 1 GND to J1 pin 1, pin 2 3V3 to pin 2; a reversed cable puts 3V3 on the encoder line) | 2 | AliExpress (packs of 5 or 10, about A$4) |
 | JST SH 4-pin cable, 1.0 mm pitch, 40–60 mm, beltpack J12 to the dock contact board, wired pin 1 to pin 1 (check with a meter: they come straight and reversed) | 2 | AliExpress (packs of 10, about A$3) |
 | **REAN** XLR-4 panel connector (headset), beltpacks | 2 | Jaycar, element14 AU (about A$8) |
 | Beltpack cells | per the enclosure | |
@@ -168,9 +169,9 @@ path and the encoder shafts.
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |
 | Core Electronics | 4 flex antennas, 2 coin motors, shipping | 25 |
-| AliExpress | 1.3 in OLED module and 2 beltpack OLED panels | 25 |
+| AliExpress | 1.3 in OLED module, 3 beltpack OLED panels, the 10-pin and 4-pin JST cables | 32 |
 | REAN XLRs | 2 headset connectors for the packs | 16 |
-| **Total** | | **about A$405** |
+| **Total** | | **about A$410** |
 
 Not included: paste and tools, beltpack cells, enclosures and the optional PoE module (about A$15). The JLC line is an
 estimate until you see JLC's quote.
