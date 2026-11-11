@@ -7,8 +7,8 @@ carry USB, for charging and data (pairing, settings and firmware updates through
 
 | | |
 |---|---|
-| Size | 22 x 11 mm, 0.8 mm FR4, 2 layers, ENIG, two M2 holes (2.2 mm) at x 1.8 and 20.2 |
-| Outside face (F) | Four 2.5 mm ENIG pads at 4.0 mm pitch, 8.6 mm from the edge that faces the main board. Seen from outside, left to right: **GND, D+, D−, VBUS** |
+| Size | 22 x 11 mm, 0.8 mm FR4, 2 layers, HASL (with lead) as ordered, two M2 holes (2.2 mm) at x 1.8 and 20.2 |
+| Outside face (F) | Four 2.5 mm bare pads at 4.0 mm pitch, 8.6 mm from the edge that faces the main board. Seen from outside, left to right: **GND, D+, D−, VBUS** |
 | Inside face (B) | JST SH 4-pin side-entry socket (SM04B-SRSS-TB, 2.9 mm tall), mouth at the edge facing the main board: pin 1 VBUS, 2 D−, 3 D+, 4 GND |
 | DRC | 0 errors, 0 unconnected. Four warnings: the test-point pads' library graphics were moved off the silkscreen |
 

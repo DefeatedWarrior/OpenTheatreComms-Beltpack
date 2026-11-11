@@ -10,7 +10,7 @@ spring pins, and carries the cell's three leads to them: BAT+, the pack NTC, and
 | | |
 |---|---|
 | Size | 24 x 8 mm, 0.8 mm FR4, 2 layers |
-| Finish | ENIG (the three 3 mm contact pads are bare; hard gold is optional and only worth it for thousands of insertions) |
+| Finish | HASL (with lead) as ordered; the three 3 mm contact pads are bare. ENIG is the upgrade if contact ever gets flaky |
 | Parts | None. Three contact pads, three plated wire holes for 0.25 mm2 (24 AWG) wire, and short front-side tracks |
 | DRC | 0 errors, 0 unconnected. 4 warnings, both expected: the contact and wire pads have their library silk and courtyards moved off (they are copper, not parts), and the enclosure reference footprint has no library |
 
@@ -22,7 +22,7 @@ spring pins, and carries the cell's three leads to them: BAT+, the pack NTC, and
 | `fab/pack_lid_pcb_gerbers.zip` | Gerbers + Excellon drill, ready to upload |
 | `fab/pack_lid_pcb_schematic.pdf`, `fab/pack_lid_pcb_drc.rpt` | Schematic print and the DRC report |
 
-Order as: 2 layers, 0.8 mm, ENIG, any mask colour. There's nothing to assemble: solder the cell's leads into the holes.
+Order as: 2 layers, 0.8 mm, HASL (with lead) or ENIG, any mask colour. There's nothing to assemble: solder the cell's leads into the holes.
 
 ## Pads and wiring
 
@@ -41,8 +41,8 @@ cell and no NTC, fit R5 on the main PCB instead: it ties TEMP to ground and turn
    tray in the case model holds the cell with only 0.2 mm to spare. The tray needs a wire channel from the cell's
    protection board to the lid, ending at the lid's edge so the leads come in from the front. The solder joints then
    sit on the front face, where the main PCB leaves 2.8 mm or more above them.
-2. **Pad wear.** The spring pins compress 0.8 mm onto the pads every time the pack goes in. ENIG is fine for a
-   prototype and normal use.
+2. **Pad wear.** The spring pins compress 0.8 mm onto the pads every time the pack goes in. HASL is fine for a
+   prototype (wipe the pads with IPA if contact gets flaky); ENIG lasts longer.
 
 ## Rebuilding
 

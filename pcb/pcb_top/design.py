@@ -62,6 +62,7 @@ oled = {1: "GND", 2: "C2P", 3: "C2N", 4: "C1P", 5: "C1N", 6: "+3V3", 7: None, 8:
 # The panel tail leaves the glass toward the back edge and folds round the notch, which keeps every contact at the same X,
 # and is soldered flat onto 30 pads on B (0.7 mm pitch, lib/OpenTheatreComms.pretty, written by make_lib.py). Pad 1 is at -X. With the panel's pin 1 at +X (on the left when the
 # panel is viewed face up with the tail toward you), panel pin k lands on pad 31 - k. Set False if your panel is the other way.
+# Confirmed on the AliExpress panel (item 1005006789720033): screen facing you, tail down, pin 1 is on the left.
 OLED_PIN1_AT_PLUS_X = True
 def oled_pad(k): return 31 - k if OLED_PIN1_AT_PLUS_X else k
 comp("J2", "Connector_Generic:Conn_01x30", "OLED tail", "OpenTheatreComms:OLED_Tail_30P_0.7mm_Solder",
