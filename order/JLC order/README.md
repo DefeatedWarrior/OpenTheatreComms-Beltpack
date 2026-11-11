@@ -20,7 +20,7 @@ This order covers **2 beltpacks + 1 base station**. The 4-slot charging dock com
 | Folder | Board settings | Stencil (in the same PCB order) |
 |---|---|---|
 | `Beltpack main` | 4 layers, 1.6 mm, JLC04161H-7628 stack, **HASL (with lead)**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, **0.10 mm** (the 0.4 mm QFN and the LGA need the thinner foil) |
-| `Beltpack top` | 2 layers, 1.6 mm, **HASL (with lead)**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, 0.12 mm |
+| `Beltpack top` | 2 layers, 1.6 mm, **HASL (with lead)**, qty 5 | Frameless 380 x 280 mm, **Top + Bottom on a single stencil**, **0.10 mm** (the LP5024 LED driver is a 0.4 mm QFN) |
 | `Base station` | **2 layers**, 1.6 mm, **HASL (with lead)**, qty 5 | Frameless 380 x 280 mm, **Top only**, 0.12 mm |
 | `Beltpack pack lid` | 2 layers, **0.8 mm**, HASL (with lead), qty 5 (its pads are spring contacts: wipe them with IPA if contact gets flaky) | none |
 | `Beltpack dock contacts` | 2 layers, **0.8 mm**, HASL (with lead), qty 5 (dock spring pins land on its pads) | none (one SMD socket, iron it) |
@@ -47,9 +47,9 @@ Upload `LCSC_cart_upload.csv` to LCSC's BOM tool (two columns: LCSC part number,
 `LCSC_cart_hand_parts.csv` to see what each line is for. Place it from JLC's parts manager, or tick "ship with JLCPCB
 order", so it travels in the same box as the boards.
 
-- **Size and cost:** 74 lines, **about A$137**, including the base antennas. Everything ships from stock.
+- **Size and cost:** 75 lines, **about A$145**, including the base antennas. Everything ships from stock.
 - **Quantities and spares:** already rounded up to LCSC's minimum and multiple. Small parts include spares: +20% or at
-  least 2 for passives, +1 for other parts under US$1. The accelerometer, fuel gauge and codec get one spare each,
+  least 2 for passives, +1 for other parts under US$1. The accelerometer, fuel gauge, codec and LED driver get one spare each,
   because they're the easiest to ruin.
 - **Cheaper beltpack parts:** Xinyangze YZ08415060P-02 spring pins (C7471674, about A$0.66 each, instead of Mill-Max at
   about A$4) in the main board's now 1.0 mm holes; Alps EC11N1520402 encoders (C470704, about A$1.90, instead of Bourns
@@ -109,8 +109,9 @@ stencil lies flat. Use them as standoffs when the other side already has parts o
    - Reflow on the hot plate. Keep it short: the lights are heat-sensitive.
    - Then fit the LR2021 module, SMAs, sockets, switches, encoder and DC jack.
 2. **Beltpack top, about 1–1.25 hours each.**
-   - Paste and place the top side (resistors, LEDs, PTS815 buttons) and reflow on the hot plate.
-   - Flip the board onto spare boards, paste the bottom with Sn63/Pb37 paste, place the parts (TCA9555,
+   - Paste and place the top side (the six RGB LEDs, PTS815 buttons, resistors) and reflow on the hot plate. Each RGB LED's
+     pin 1 (red) corner faces the same way as its silkscreen mark.
+   - Flip the board onto spare boards, paste the bottom with Sn63/Pb37 paste, place the parts (TCA9555, the LP5024 LED driver,
      link connector, caps) and reflow with hot air.
    - Hand-solder the encoders. Clip off each EC11N's two dummy pins first (the unused switch positions, 7 mm past the
      mounting tabs): the footprint has no holes for them.
@@ -163,13 +164,13 @@ path and the encoder shafts.
 | Where | What | Approx. A$ |
 |---|---|---|
 | JLCPCB | 5 board types (5 of each), 3 stencils, shipping | 75 + shipping |
-| LCSC | every part and the base antennas, shipped with the JLC boards | 140 |
+| LCSC | every part and the base antennas, shipped with the JLC boards | 148 |
 | Elecrow | 3 LR2021 modules, shipping | 47 |
 | Waveshare | ESP32-P4-NANO, shipping | 40 |
 | Core Electronics | 4 flex antennas, 2 coin motors, shipping | 25 |
 | AliExpress | 1.3 in OLED module and 2 beltpack OLED panels | 25 |
 | REAN XLRs | 2 headset connectors for the packs | 16 |
-| **Total** | | **about A$395** |
+| **Total** | | **about A$405** |
 
 Not included: paste and tools, beltpack cells, enclosures and the optional PoE module (about A$15). The JLC line is an
 estimate until you see JLC's quote.

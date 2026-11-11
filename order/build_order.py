@@ -46,7 +46,7 @@ MPN = {
     "GCT USB4105-GF-A": ("C165948", "HRO TYPE-C-31-M-12: same land pattern; the GCT part is out of stock"),
     "PJ-320D": ("C431535", "SHOU HAN PJ-320D: pads match the footprint"), "JST SM10B-SRSS-TB": ("C160409", ""),
     "Hirose U.FL-R-SMT-1(10)": ("C88374", "U.FL-R-SMT-1(80), same part, bigger reel"), "Alps SKRTLAE010": ("C110293", ""),
-    "C&K PTS815 SJM 250 SMTR LFS": ("C2689510", ""), "Lite-On LTST-C191KRKT": ("C125099", ""), "Lite-On LTST-C191KGKT": ("C125098", ""),
+    "C&K PTS815 SJM 250 SMTR LFS": ("C2689510", ""), "Lite-On LTST-C191KRKT": ("C125099", ""), "Lite-On LTST-C191KGKT": ("C125098", ""), "Lite-On LTST-C19HE1WT": ("C458749", ""), "TI LP5024RSMR": ("C427525", ""),
     "Hirose FH12-30S-0.5SH(55)": ("C506793", ""), "JST BM10B-SRSS-TB": ("C160396", ""),
     "3 mm white LED, 20 mA": ("C282138", "Everlight 204-15UTC, white, 3 mm"),
     "Diodes AP63205WU-7": ("C2071056", ""), "SS34 (SMA)": ("C8678", ""), "SMAJ26A": ("C19077543", ""),
@@ -241,7 +241,7 @@ for l, h in sorted(merged.items(), key=lambda kv: kv[1]["desc"]):
     passive = re.match(r"[\d.]+[pnuRkM]?\s+0603|[\d.]+[pnu]?\s+1206|^\d", h["desc"]) is not None
     need = h["qty"] + (max(2, math.ceil(h["qty"] * 0.2)) if passive else (1 if h["qty"] >= 2 else 0))   # spares: small parts get lost
     if (info.get("tiers") or [[0, 0]])[0][1] >= 1.0: need = h["qty"]                                  # no spares on parts over US$1
-    if l in ("C15134", "C2682616", "C914209"): need = h["qty"] + 1                                       # LGA / TDFN / QFN: one spare each
+    if l in ("C15134", "C2682616", "C914209", "C427525"): need = h["qty"] + 1                            # LGA / TDFN / QFNs: one spare each
     mn, mult = info.get("min") or 1, info.get("mult") or 1
     q = max(need, mn); q = math.ceil(q / mult) * mult
     unit = None
@@ -279,7 +279,7 @@ with open(os.path.join(OUT, "Other_suppliers.csv"), "w", newline="") as f:
         w.writerow([s, p, q, round(each, 2) if each else "", round(each * q, 2) if each else "", used, note])
 JLC_BUY = [  # folder, gerber zip, layers, thickness, finish, stencil
     ("Beltpack main", "main_pcb_gerbers.zip", 4, "1.6", "HASL (with lead) (JLC04161H-7628 stack)", "Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.10 mm"),
-    ("Beltpack top", "top_pcb_gerbers.zip", 2, "1.6", "HASL (with lead)", "Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.12 mm"),
+    ("Beltpack top", "top_pcb_gerbers.zip", 2, "1.6", "HASL (with lead)", "Frameless 380 x 280 mm, Top + Bottom on a single stencil, 0.10 mm"),
     ("Base station", "base_pcb_gerbers.zip", 2, "1.6", "HASL (with lead)", "Frameless 380 x 280 mm, Top only, 0.12 mm"),
     ("Beltpack pack lid", "pack_lid_pcb_gerbers.zip", 2, "0.8", "HASL (with lead)", "None"),
     ("Beltpack dock contacts", "dock_contact_pcb_gerbers.zip", 2, "0.8", "HASL (with lead)", "None"),

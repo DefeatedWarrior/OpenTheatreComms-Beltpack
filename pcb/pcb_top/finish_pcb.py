@@ -23,7 +23,7 @@ def add_zone(layer):
     z = pcbnew.ZONE(b); z.SetLayer(layer); z.SetNet(GND); z.SetZoneName("GND")
     ol = z.Outline(); ol.NewOutline()
     for x, y in ((-52, -16), (52, -16), (52, 17), (-52, 17)): ol.Append(MM(float(150 + x)), MM(float(105 - y)))
-    z.SetLocalClearance(MM(0.25)); z.SetMinThickness(MM(0.2))
+    z.SetLocalClearance(MM(0.2)); z.SetMinThickness(MM(0.2))
     z.SetThermalReliefGap(MM(0.3)); z.SetThermalReliefSpokeWidth(MM(0.35))
     z.SetPadConnection(pcbnew.ZONE_CONNECTION_THERMAL); z.SetIslandRemovalMode(pcbnew.ISLAND_REMOVAL_MODE_ALWAYS)
     b.Add(z); return z
@@ -103,15 +103,15 @@ for it in range(4):
             shp = polyset_to_shapely(pad.GetEffectivePolygon())
             if main[L].intersects(shp.buffer(0.05)): continue
             x, y = Bf(pad.GetPosition()); done = False
-            cands = sorted(((x + dx * 0.25, y + dy * 0.25) for dx in range(-16, 17) for dy in range(-16, 17)),
+            cands = sorted(((x + dx * 0.25, y + dy * 0.25) for dx in range(-28, 29) for dy in range(-28, 29)),
                            key=lambda p: math.hypot(p[0] - x, p[1] - y))
             for vx, vy in cands:
                 d = math.hypot(vx - x, vy - y)
-                if d < 0.6 or d > 5.0: continue
+                if d < 0.6 or d > 7.0: continue
                 if main[L].buffer(-0.2).contains(Point(vx, vy)):             # a short track into the main pour is enough
-                    seg = LineString([(x, y), (vx, vy)]).buffer(0.15)
-                    if cu.clear(seg, "GND", [L], 0.2, pads_any_net=False):
-                        t_ = add_track((x, y), (vx, vy), L, GND); cu.add_track(t_); fixes += 1; done = True; break
+                    seg = LineString([(x, y), (vx, vy)]).buffer(0.1)
+                    if cu.clear(seg, "GND", [L], 0.15, pads_any_net=False):
+                        t_ = add_track((x, y), (vx, vy), L, GND, w=0.2); cu.add_track(t_); fixes += 1; done = True; break
                 lands = other[L].buffer(-0.35).contains(Point(vx, vy)) or main[L].buffer(-0.35).contains(Point(vx, vy))
                 if not lands or not cu.via_ok(vx, vy, "GND"): continue
                 seg = LineString([(x, y), (vx, vy)]).buffer(0.15)

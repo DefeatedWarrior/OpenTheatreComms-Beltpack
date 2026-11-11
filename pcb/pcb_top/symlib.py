@@ -3,9 +3,11 @@ import copy, os
 from sexp import parse, find, first, Q
 LIBDIR = "/usr/share/kicad/symbols"
 _cache = {}
+LOCAL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lib")
 def _lib(lib):
     if lib not in _cache:
-        _cache[lib] = {e[1]: e for e in parse(open(os.path.join(LIBDIR, lib + ".kicad_sym")).read())[0] if isinstance(e, list) and e[0] == "symbol"}
+        path = os.path.join(LOCAL, lib + ".kicad_sym") if os.path.exists(os.path.join(LOCAL, lib + ".kicad_sym")) else os.path.join(LIBDIR, lib + ".kicad_sym")
+        _cache[lib] = {e[1]: e for e in parse(open(path).read())[0] if isinstance(e, list) and e[0] == "symbol"}
     return _cache[lib]
 def get(lib_id):
     lib, name = lib_id.split(":")

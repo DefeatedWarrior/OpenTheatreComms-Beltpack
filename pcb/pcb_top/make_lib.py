@@ -35,3 +35,41 @@ o.append(')')
 d = os.path.join(HERE, "lib", "OpenTheatreComms.pretty"); os.makedirs(d, exist_ok=True)
 open(os.path.join(d, "OLED_Tail_30P_0.7mm_Solder.kicad_mod"), "w").write("\n".join(o) + "\n")
 print("written")
+
+# ------------------------------------------------------------------ symbols: TI LP5024 (RSM, VQFN-32 4x4), pins per TI SLVSEB8B
+from sexp import Q, dump
+def eff(size=1.27, hide=False, justify=None):
+    e = ["effects", ["font", ["size", size, size]]]
+    if justify: e.append(["justify", justify])
+    if hide: e.append("hide")
+    return e
+def box_symbol(name, ref, footprint, datasheet, desc, left, right, top=(), bottom=(), min_w=10.16):
+    n = max(len(left), len(right)); ln = max([len(p[1]) for p in left + right if p] + [4])
+    w = max(min_w, round((ln * 1.27 * 2 + 5.08) / 2.54) * 2.54); h = max(n, 2) * 2.54 + 2.54
+    w = max(w, max(len(top), len(bottom)) * 2.54 + 5.08); x0, y0 = -w / 2, h / 2; pins = []
+    def pin(num, nm, typ, x, y, ang):
+        pins.append(["pin", typ, "line", ["at", round(x, 2), round(y, 2), ang], ["length", 2.54], ["name", Q(nm), eff()], ["number", Q(num), eff()]])
+    for i, p in enumerate(left):
+        if p: pin(p[0], p[1], p[2], x0 - 2.54, y0 - 2.54 - i * 2.54, 0)
+    for i, p in enumerate(right):
+        if p: pin(p[0], p[1], p[2], -x0 + 2.54, y0 - 2.54 - i * 2.54, 180)
+    for i, p in enumerate(bottom):
+        if p: pin(p[0], p[1], p[2], -(len(bottom) - 1) * 1.27 + i * 2.54, -y0 - 2.54, 90)
+    return ["symbol", Q(name), ["in_bom", "yes"], ["on_board", "yes"],
+            ["property", Q("Reference"), Q(ref), ["at", round(x0, 2), round(y0 + 1.27, 2), 0], eff(justify="left")],
+            ["property", Q("Value"), Q(name), ["at", round(x0, 2), round(-y0 - 1.27, 2), 0], eff(justify="left")],
+            ["property", Q("Footprint"), Q(footprint), ["at", 0, 0, 0], eff(hide=True)],
+            ["property", Q("Datasheet"), Q(datasheet), ["at", 0, 0, 0], eff(hide=True)],
+            ["property", Q("Description"), Q(desc), ["at", 0, 0, 0], eff(hide=True)],
+            ["symbol", Q(name + "_0_1"), ["rectangle", ["start", round(x0, 2), round(y0, 2)], ["end", round(-x0, 2), round(-y0, 2)],
+                                          ["stroke", ["width", 0.254], ["type", "default"]], ["fill", ["type", "background"]]]],
+            ["symbol", Q(name + "_1_1")] + pins]
+PI, PO, PB, PW = "input", "output", "bidirectional", "power_in"
+lp = box_symbol("LP5024", "U", "Package_DFN_QFN:VQFN-32-1EP_4x4mm_P0.4mm_EP2.8x2.8mm", "https://www.ti.com/lit/ds/symlink/lp5024.pdf",
+                "24-channel 12-bit PWM I2C constant-current RGB LED driver",
+                left=[("27", "VCC", PW), ("30", "EN", PI), ("29", "SCL", PI), ("28", "SDA", PB), ("25", "ADDR0", PI), ("26", "ADDR1", PI),
+                      ("31", "IREF", "passive"), ("32", "VCAP", "passive"), None, ("33", "GND", PW)],
+                right=[(str(k + 1), f"OUT{k}", "open_collector") for k in range(24)])
+lib = ["kicad_symbol_lib", ["version", 20220914], ["generator", "kicad_symbol_editor"], lp]
+open(os.path.join(HERE, "lib", "OpenTheatreComms.kicad_sym"), "w").write(dump(lib) + "\n")
+print("symbol written")

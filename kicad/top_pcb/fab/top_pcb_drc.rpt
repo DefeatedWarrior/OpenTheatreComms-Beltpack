@@ -1,19 +1,16 @@
 ** Drc report for /home/claude/beltpack/final/kicad_proj/top_pcb/top_pcb.kicad_pcb **
-** Created on 2026-10-31 22:21:42 **
+** Created on 2026-11-11 15:37:39 **
 
-** Found 7 DRC violations **
-[lib_footprint_mismatch]: Footprint 'LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder' does not match copy in library 'LED_SMD'.
+** Found 164 DRC violations **
+[silk_over_copper]: Silkscreen clipped by solder mask
     Local override; Severity: warning
-    @(103.5000 mm, 104.0600 mm): Footprint D6
+    @(175.5000 mm, 109.3300 mm): Reference 'U2'
 [lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
     Local override; Severity: warning
     @(170.0000 mm, 114.0000 mm): Footprint H3
 [lib_footprint_issues]: Footprint 'REF_Enclosure' not found in library 'OpenTheatreComms'.
     Local override; Severity: warning
     @(150.0000 mm, 105.0000 mm): Footprint REF**
-[lib_footprint_mismatch]: Footprint 'LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder' does not match copy in library 'LED_SMD'.
-    Local override; Severity: warning
-    @(196.5000 mm, 104.0600 mm): Footprint D8
 [lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
     Local override; Severity: warning
     @(170.0000 mm, 94.5000 mm): Footprint H4
@@ -23,6 +20,638 @@
 [lib_footprint_mismatch]: Footprint 'MountingHole_2.2mm_M2' does not match copy in library 'MountingHole'.
     Local override; Severity: warning
     @(130.0000 mm, 94.5000 mm): Footprint H2
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1580 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(112.0750 mm, 106.5750 mm): Track [/L0_B] on F.Cu, length 0.6519 mm
+    @(111.4609 mm, 106.1016 mm): Track [/L0_R] on F.Cu, length 1.5063 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1587 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(134.5397 mm, 103.5782 mm): Track [/L0_B] on F.Cu, length 16.5175 mm
+    @(149.2774 mm, 103.0445 mm): Via [/SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(151.0572 mm, 103.5782 mm): Track [/L0_B] on F.Cu, length 5.5480 mm
+    @(152.6053 mm, 104.3812 mm): Via [/SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1580 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(112.0750 mm, 105.9231 mm): Track [/L0_B] on F.Cu, length 0.2291 mm
+    @(111.4609 mm, 106.1016 mm): Track [/L0_R] on F.Cu, length 1.5063 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1580 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(112.2370 mm, 105.7611 mm): Track [/L0_B] on F.Cu, length 10.5903 mm
+    @(111.4609 mm, 106.1016 mm): Track [/L0_R] on F.Cu, length 1.5063 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1591 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(171.4616 mm, 107.5012 mm): Via [/L0_B] on F.Cu - B.Cu
+    @(173.0750 mm, 108.3592 mm): Track [/L3_G] on F.Cu, length 2.0489 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1603 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(117.1371 mm, 100.9729 mm): Track [/L0_G] on F.Cu, length 6.6378 mm
+    @(124.0419 mm, 100.6626 mm): Track [/L2_G] on F.Cu, length 18.1564 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1603 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(115.1462 mm, 102.9638 mm): Track [/L0_G] on F.Cu, length 2.8156 mm
+    @(124.0419 mm, 100.6626 mm): Track [/L2_G] on F.Cu, length 18.1564 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1603 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(123.7749 mm, 100.9729 mm): Track [/L0_G] on F.Cu, length 1.0564 mm
+    @(124.0419 mm, 100.6626 mm): Track [/L2_G] on F.Cu, length 18.1564 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(173.0518 mm, 107.0000 mm): Track [/L0_G] on B.Cu, length 1.6672 mm
+    @(172.4317 mm, 108.4808 mm): Track [/L0_R] on B.Cu, length 1.2629 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(167.4132 mm, 111.8094 mm): Track [/L0_G] on B.Cu, length 1.3273 mm
+    @(171.1688 mm, 108.4808 mm): Track [/L0_R] on B.Cu, length 5.1343 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(167.4132 mm, 111.8094 mm): Track [/L0_G] on B.Cu, length 1.3273 mm
+    @(167.5383 mm, 112.1113 mm): Track [/L0_R] on B.Cu, length 1.6660 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(167.4132 mm, 111.8094 mm): Track [/L0_G] on B.Cu, length 1.3273 mm
+    @(166.3647 mm, 111.2824 mm): Via [/L1_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(166.0859 mm, 111.8094 mm): Track [/L0_G] on B.Cu, length 0.8173 mm
+    @(167.5383 mm, 112.1113 mm): Track [/L0_R] on B.Cu, length 1.6660 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1948 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(166.0859 mm, 111.8094 mm): Track [/L0_G] on B.Cu, length 0.8173 mm
+    @(166.3647 mm, 111.2824 mm): Via [/L1_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(171.0437 mm, 108.1789 mm): Track [/L0_G] on B.Cu, length 5.1343 mm
+    @(171.1688 mm, 108.4808 mm): Track [/L0_R] on B.Cu, length 5.1343 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(171.0437 mm, 108.1789 mm): Track [/L0_G] on B.Cu, length 5.1343 mm
+    @(167.5383 mm, 112.1113 mm): Track [/L0_R] on B.Cu, length 1.6660 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(171.0437 mm, 108.1789 mm): Track [/L0_G] on B.Cu, length 5.1343 mm
+    @(172.4317 mm, 108.4808 mm): Track [/L0_R] on B.Cu, length 1.2629 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(171.8729 mm, 108.1789 mm): Track [/L0_G] on B.Cu, length 0.8292 mm
+    @(171.1688 mm, 108.4808 mm): Track [/L0_R] on B.Cu, length 5.1343 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(171.8729 mm, 108.1789 mm): Track [/L0_G] on B.Cu, length 0.8292 mm
+    @(172.4317 mm, 108.4808 mm): Track [/L0_R] on B.Cu, length 1.2629 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1636 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(111.4609 mm, 106.1016 mm): Track [/L0_R] on F.Cu, length 1.5063 mm
+    @(112.0750 mm, 106.5750 mm): Pad 3 [/L0_B] of D1 on F.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(111.8023 mm, 107.3731 mm): Track [/L0_R] on F.Cu, length 0.4828 mm
+    @(112.0750 mm, 108.0250 mm): Pad 2 [/L0_G] of D1 on F.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1518 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(111.8023 mm, 107.3731 mm): Track [/L0_R] on F.Cu, length 0.4828 mm
+    @(112.0750 mm, 106.5750 mm): Pad 3 [/L0_B] of D1 on F.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(112.9250 mm, 107.3731 mm): Track [/L0_R] on F.Cu, length 1.1227 mm
+    @(112.0750 mm, 108.0250 mm): Pad 2 [/L0_G] of D1 on F.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1841 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(125.0396 mm, 108.9885 mm): Track [/L0_R] on B.Cu, length 1.0148 mm
+    @(125.2968 mm, 108.4550 mm): Via [/L1_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(164.6024 mm, 99.9639 mm): Track [/L0_R] on B.Cu, length 5.4367 mm
+    @(170.8655 mm, 105.8000 mm): Track [/L1_G] on B.Cu, length 14.1897 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(160.7581 mm, 96.1196 mm): Track [/L0_R] on B.Cu, length 22.9544 mm
+    @(137.7299 mm, 95.7664 mm): Track [/L1_G] on B.Cu, length 17.5831 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(160.7581 mm, 96.1196 mm): Track [/L0_R] on B.Cu, length 22.9544 mm
+    @(170.8655 mm, 105.8000 mm): Track [/L1_G] on B.Cu, length 14.1897 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(164.6024 mm, 110.8414 mm): Track [/L0_R] on B.Cu, length 10.8775 mm
+    @(170.8655 mm, 105.8000 mm): Track [/L1_G] on B.Cu, length 14.1897 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(126.9122 mm, 107.0111 mm): Track [/L0_R] on B.Cu, length 0.6530 mm
+    @(137.7299 mm, 95.7664 mm): Track [/L1_G] on B.Cu, length 17.5831 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(137.8037 mm, 96.1196 mm): Track [/L0_R] on B.Cu, length 15.4029 mm
+    @(137.7299 mm, 95.7664 mm): Track [/L1_G] on B.Cu, length 17.5831 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1585 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(125.5878 mm, 108.9885 mm): Track [/L0_R] on B.Cu, length 0.5482 mm
+    @(125.2968 mm, 108.4550 mm): Via [/L1_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1656 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(162.2777 mm, 95.4508 mm): Track [/L1_B] on B.Cu, length 26.6266 mm
+    @(137.7299 mm, 95.7664 mm): Track [/L1_G] on B.Cu, length 17.5831 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1656 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(162.2777 mm, 95.4508 mm): Track [/L1_B] on B.Cu, length 26.6266 mm
+    @(170.8655 mm, 105.8000 mm): Track [/L1_G] on B.Cu, length 14.1897 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1656 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(162.2777 mm, 95.4508 mm): Track [/L1_B] on B.Cu, length 26.6266 mm
+    @(160.8319 mm, 95.7664 mm): Track [/L1_G] on B.Cu, length 23.1020 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(145.7283 mm, 110.9496 mm): Track [/L1_R] on F.Cu, length 9.2412 mm
+    @(144.6227 mm, 111.7784 mm): Track [/SCL] on F.Cu, length 0.7451 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(145.7283 mm, 110.9496 mm): Track [/L1_R] on F.Cu, length 9.2412 mm
+    @(136.7625 mm, 111.2515 mm): Track [/SCL] on F.Cu, length 1.9068 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(145.7283 mm, 110.9496 mm): Track [/L1_R] on F.Cu, length 9.2412 mm
+    @(144.0958 mm, 111.2515 mm): Track [/SCL] on F.Cu, length 7.3333 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1918 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(103.1832 mm, 103.1519 mm): Track [/L2_B] on F.Cu, length 1.1089 mm
+    @(103.7750 mm, 102.5750 mm): Pad 1 [/L2_R] of D5 on F.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1837 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(103.1832 mm, 102.0430 mm): Track [/L2_B] on F.Cu, length 5.5818 mm
+    @(105.4184 mm, 100.2797 mm): Track [/L2_R] on F.Cu, length 63.0670 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1837 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(103.1832 mm, 102.0430 mm): Track [/L2_B] on F.Cu, length 5.5818 mm
+    @(103.7750 mm, 102.5750 mm): Track [/L2_R] on F.Cu, length 0.6519 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1837 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(103.1832 mm, 102.0430 mm): Track [/L2_B] on F.Cu, length 5.5818 mm
+    @(103.7750 mm, 101.9231 mm): Track [/L2_R] on F.Cu, length 2.3241 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1893 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(103.1832 mm, 102.0430 mm): Track [/L2_B] on F.Cu, length 5.5818 mm
+    @(103.7750 mm, 102.5750 mm): Pad 1 [/L2_R] of D5 on F.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1623 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(167.7709 mm, 98.0961 mm): Track [/L2_B] on B.Cu, length 4.6622 mm
+    @(169.7377 mm, 100.8228 mm): Via [/L2_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1681 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(169.7377 mm, 100.8228 mm): Track [/L2_G] on F.Cu, length 45.5356 mm
+    @(168.4854 mm, 100.2797 mm): Via [/L2_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(169.7377 mm, 101.2522 mm): Track [/L2_G] on B.Cu, length 4.7345 mm
+    @(168.4854 mm, 100.4269 mm): Track [/L2_R] on B.Cu, length 6.4673 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(173.0855 mm, 104.6000 mm): Track [/L2_G] on B.Cu, length 0.4270 mm
+    @(168.4854 mm, 100.4269 mm): Track [/L2_R] on B.Cu, length 6.4673 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(169.7377 mm, 100.8228 mm): Track [/L2_G] on B.Cu, length 0.4294 mm
+    @(168.4854 mm, 100.4269 mm): Track [/L2_R] on B.Cu, length 6.4673 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1630 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.7094 mm, 107.6346 mm): Via [/L3_B] on F.Cu - B.Cu
+    @(182.7178 mm, 108.3976 mm): Via [/L3_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1630 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.7094 mm, 107.6346 mm): Via [/L3_B] on F.Cu - B.Cu
+    @(182.7178 mm, 108.3976 mm): Via [/L3_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.5892 mm): Track [/L3_B] on B.Cu, length 0.5217 mm
+    @(185.5401 mm, 103.8563 mm): Track [/L4_R] on B.Cu, length 3.1484 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.5892 mm): Track [/L3_B] on B.Cu, length 0.5217 mm
+    @(185.3982 mm, 103.2394 mm): Track [/L4_R] on B.Cu, length 0.4750 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.5892 mm): Track [/L3_B] on B.Cu, length 0.5217 mm
+    @(185.3982 mm, 103.7144 mm): Track [/L4_R] on B.Cu, length 0.2007 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1518 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.5892 mm): Track [/L3_B] on B.Cu, length 0.5217 mm
+    @(186.2270 mm, 103.3711 mm): Via [/L3_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1619 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.2806 mm, 108.0624 mm): Track [/L3_B] on B.Cu, length 2.1434 mm
+    @(182.7178 mm, 108.3976 mm): Via [/L3_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1815 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.2806 mm, 108.0624 mm): Track [/L3_B] on B.Cu, length 2.1434 mm
+    @(185.4142 mm, 108.3976 mm): Track [/L3_R] on B.Cu, length 1.8946 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1852 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.2806 mm, 108.0624 mm): Track [/L3_B] on B.Cu, length 2.1434 mm
+    @(182.7178 mm, 108.3976 mm): Track [/L3_R] on B.Cu, length 2.6964 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.2806 mm, 108.0624 mm): Track [/L3_B] on B.Cu, length 2.1434 mm
+    @(185.0076 mm, 107.5355 mm): Via [/L4_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1586 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(183.1372 mm, 108.0624 mm): Track [/L3_B] on B.Cu, length 0.6050 mm
+    @(182.7178 mm, 108.3976 mm): Via [/L3_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1852 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(183.1372 mm, 108.0624 mm): Track [/L3_B] on B.Cu, length 0.6050 mm
+    @(182.7178 mm, 108.3976 mm): Track [/L3_R] on B.Cu, length 2.6964 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1771 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 103.9396 mm): Track [/L3_B] on B.Cu, length 1.9499 mm
+    @(174.9000 mm, 101.8694 mm): Track [/L3_G] on B.Cu, length 2.1431 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1664 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 103.9396 mm): Track [/L3_B] on B.Cu, length 1.9499 mm
+    @(176.7711 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 2.6461 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1979 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 103.9396 mm): Track [/L3_B] on B.Cu, length 1.9499 mm
+    @(175.5750 mm, 102.1058 mm): Track [/L4_R] on B.Cu, length 2.0988 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1979 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 103.9396 mm): Track [/L3_B] on B.Cu, length 1.9499 mm
+    @(175.5750 mm, 102.9971 mm): Track [/L4_R] on B.Cu, length 0.8913 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1979 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 103.9396 mm): Track [/L3_B] on B.Cu, length 1.9499 mm
+    @(175.7000 mm, 103.1221 mm): Track [/L4_R] on B.Cu, length 0.1768 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1521 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 103.9396 mm): Track [/L3_B] on B.Cu, length 1.9499 mm
+    @(174.9000 mm, 104.0125 mm): Pad 11 [/L3_G] of U2 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1771 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.3000 mm, 104.0125 mm): Track [/L3_B] on B.Cu, length 0.1031 mm
+    @(174.9000 mm, 101.8694 mm): Track [/L3_G] on B.Cu, length 2.1431 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1521 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.3000 mm, 104.0125 mm): Track [/L3_B] on B.Cu, length 0.1031 mm
+    @(174.9000 mm, 104.0125 mm): Pad 11 [/L3_G] of U2 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1815 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.0690 mm, 103.9581 mm): Track [/L3_B] on B.Cu, length 3.3159 mm
+    @(185.4142 mm, 108.3976 mm): Track [/L3_R] on B.Cu, length 1.8946 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1539 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.0690 mm, 103.9581 mm): Track [/L3_B] on B.Cu, length 3.3159 mm
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1815 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.0690 mm, 107.2740 mm): Track [/L3_B] on B.Cu, length 1.1150 mm
+    @(185.4142 mm, 108.3976 mm): Track [/L3_R] on B.Cu, length 1.8946 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1852 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.0690 mm, 107.2740 mm): Track [/L3_B] on B.Cu, length 1.1150 mm
+    @(182.7178 mm, 108.3976 mm): Track [/L3_R] on B.Cu, length 2.6964 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1906 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.0690 mm, 107.2740 mm): Track [/L3_B] on B.Cu, length 1.1150 mm
+    @(185.0076 mm, 107.5355 mm): Via [/L4_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1894 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.0690 mm, 107.2740 mm): Track [/L3_B] on B.Cu, length 1.1150 mm
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1532 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.8983 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 6.0540 mm
+    @(182.7805 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 3.7020 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1861 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.8983 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 6.0540 mm
+    @(186.2270 mm, 103.1179 mm): Track [/L3_G] on B.Cu, length 4.4118 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1702 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.8983 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 6.0540 mm
+    @(183.1074 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 6.3363 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1532 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.8983 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 6.0540 mm
+    @(177.0591 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 5.7214 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1664 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.8983 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 6.0540 mm
+    @(176.7711 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 2.6461 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1532 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.8983 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 6.0540 mm
+    @(175.5750 mm, 102.1058 mm): Track [/L4_R] on B.Cu, length 2.0988 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1859 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.9523 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 3.8860 mm
+    @(182.7805 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 3.7020 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1861 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.9523 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 3.8860 mm
+    @(186.2270 mm, 103.1179 mm): Track [/L3_G] on B.Cu, length 4.4118 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1859 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.9523 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 3.8860 mm
+    @(185.3982 mm, 103.2394 mm): Track [/L4_R] on B.Cu, length 0.4750 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1702 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.9523 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 3.8860 mm
+    @(183.1074 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 6.3363 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1859 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.9523 mm, 100.3185 mm): Track [/L3_B] on B.Cu, length 3.8860 mm
+    @(177.0591 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 5.7214 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1614 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.0663 mm): Track [/L3_B] on B.Cu, length 0.5229 mm
+    @(185.5401 mm, 103.8563 mm): Track [/L4_R] on B.Cu, length 3.1484 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.0663 mm): Track [/L3_B] on B.Cu, length 0.5229 mm
+    @(182.7805 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 3.7020 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1861 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.0663 mm): Track [/L3_B] on B.Cu, length 0.5229 mm
+    @(186.2270 mm, 103.1179 mm): Track [/L3_G] on B.Cu, length 4.4118 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.0663 mm): Track [/L3_B] on B.Cu, length 0.5229 mm
+    @(185.3982 mm, 103.2394 mm): Track [/L4_R] on B.Cu, length 0.4750 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.0663 mm): Track [/L3_B] on B.Cu, length 0.5229 mm
+    @(185.3982 mm, 103.7144 mm): Track [/L4_R] on B.Cu, length 0.2007 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.7001 mm, 103.0663 mm): Track [/L3_B] on B.Cu, length 0.5229 mm
+    @(186.2270 mm, 103.3711 mm): Via [/L3_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1771 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 101.9897 mm): Track [/L3_B] on B.Cu, length 2.3634 mm
+    @(174.9000 mm, 101.8694 mm): Track [/L3_G] on B.Cu, length 2.1431 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1702 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 101.9897 mm): Track [/L3_B] on B.Cu, length 2.3634 mm
+    @(183.1074 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 6.3363 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1781 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 101.9897 mm): Track [/L3_B] on B.Cu, length 2.3634 mm
+    @(177.0591 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 5.7214 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1664 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 101.9897 mm): Track [/L3_B] on B.Cu, length 2.3634 mm
+    @(176.7711 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 2.6461 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1781 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 101.9897 mm): Track [/L3_B] on B.Cu, length 2.3634 mm
+    @(175.5750 mm, 102.1058 mm): Track [/L4_R] on B.Cu, length 2.0988 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1781 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.2271 mm, 101.9897 mm): Track [/L3_B] on B.Cu, length 2.3634 mm
+    @(175.5750 mm, 102.9971 mm): Track [/L4_R] on B.Cu, length 0.8913 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.2270 mm, 103.3711 mm): Via [/L3_G] on F.Cu - B.Cu
+    @(186.7539 mm, 103.1528 mm): Track [/L3_R] on B.Cu, length 4.8881 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.2270 mm, 103.3711 mm): Via [/L3_G] on F.Cu - B.Cu
+    @(186.7539 mm, 107.0579 mm): Track [/L3_R] on B.Cu, length 3.9051 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.7711 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 2.6461 mm
+    @(183.2975 mm, 99.6964 mm): Track [/L3_R] on B.Cu, length 6.7358 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1979 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.2270 mm, 103.1179 mm): Track [/L3_G] on B.Cu, length 4.4118 mm
+    @(186.7539 mm, 103.1528 mm): Track [/L3_R] on B.Cu, length 4.8881 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.2270 mm, 103.1179 mm): Track [/L3_G] on B.Cu, length 4.4118 mm
+    @(183.2975 mm, 99.6964 mm): Track [/L3_R] on B.Cu, length 6.7358 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1979 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.2270 mm, 103.3711 mm): Track [/L3_G] on B.Cu, length 0.2532 mm
+    @(186.7539 mm, 103.1528 mm): Track [/L3_R] on B.Cu, length 4.8881 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1979 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(183.1074 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 6.3363 mm
+    @(186.7539 mm, 103.1528 mm): Track [/L3_R] on B.Cu, length 4.8881 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(183.1074 mm, 99.9983 mm): Track [/L3_G] on B.Cu, length 6.3363 mm
+    @(183.2975 mm, 99.6964 mm): Track [/L3_R] on B.Cu, length 6.7358 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.7178 mm, 108.3976 mm): Via [/L3_R] on F.Cu - B.Cu
+    @(182.4357 mm, 108.9245 mm): Track [/L5_B] on B.Cu, length 9.6721 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1970 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.7178 mm, 108.3976 mm): Via [/L3_R] on F.Cu - B.Cu
+    @(179.6908 mm, 106.1796 mm): Track [/L5_B] on B.Cu, length 3.8819 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1625 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(186.4153 mm, 106.4672 mm): Track [/L4_B] on F.Cu, length 1.8281 mm
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1563 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(184.5872 mm, 106.4672 mm): Via [/L4_B] on F.Cu - B.Cu
+    @(185.0076 mm, 106.7921 mm): Track [/L4_G] on B.Cu, length 0.7434 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1563 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(184.5872 mm, 106.4672 mm): Via [/L4_B] on F.Cu - B.Cu
+    @(185.1383 mm, 106.6614 mm): Track [/L4_G] on B.Cu, length 0.1848 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1761 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(184.5872 mm, 106.4672 mm): Via [/L4_B] on F.Cu - B.Cu
+    @(185.1383 mm, 103.8815 mm): Track [/L4_G] on B.Cu, length 2.7799 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.8616 mm, 101.2256 mm): Track [/L4_B] on B.Cu, length 3.3398 mm
+    @(177.2081 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 5.4425 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1846 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.8616 mm, 101.2256 mm): Track [/L4_B] on B.Cu, length 3.3398 mm
+    @(176.9000 mm, 104.0125 mm): Pad 16 [/L5_R] of U2 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(180.1231 mm, 101.8264 mm): Track [/L4_B] on B.Cu, length 0.8497 mm
+    @(177.2081 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 5.4425 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(179.5223 mm, 101.2256 mm): Track [/L4_B] on B.Cu, length 0.6607 mm
+    @(177.2081 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 5.4425 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(179.5223 mm, 101.2256 mm): Track [/L4_B] on B.Cu, length 0.6607 mm
+    @(179.2310 mm, 101.7526 mm): Via [/L5_G] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0076 mm, 107.5355 mm): Via [/L4_G] on F.Cu - B.Cu
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0076 mm, 107.5355 mm): Via [/L4_G] on F.Cu - B.Cu
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1575 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0076 mm, 106.7921 mm): Track [/L4_G] on B.Cu, length 0.7434 mm
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.9112 mm, 102.2206 mm): Track [/L4_G] on B.Cu, length 1.8341 mm
+    @(177.0591 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 5.7214 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1689 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.9112 mm, 102.2206 mm): Track [/L4_G] on B.Cu, length 1.8341 mm
+    @(175.5750 mm, 102.1058 mm): Track [/L4_R] on B.Cu, length 2.0988 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1862 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.9112 mm, 102.2206 mm): Track [/L4_G] on B.Cu, length 1.8341 mm
+    @(175.5750 mm, 102.9971 mm): Track [/L4_R] on B.Cu, length 0.8913 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1535 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.1383 mm, 106.6614 mm): Track [/L4_G] on B.Cu, length 0.1848 mm
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1689 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.9112 mm, 102.7463 mm): Track [/L4_G] on B.Cu, length 0.5257 mm
+    @(175.5750 mm, 102.1058 mm): Track [/L4_R] on B.Cu, length 2.0988 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1862 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(175.9112 mm, 102.7463 mm): Track [/L4_G] on B.Cu, length 0.5257 mm
+    @(175.5750 mm, 102.9971 mm): Track [/L4_R] on B.Cu, length 0.8913 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1590 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0963 mm, 103.8395 mm): Track [/L4_G] on B.Cu, length 0.0594 mm
+    @(185.3982 mm, 103.2394 mm): Track [/L4_R] on B.Cu, length 0.4750 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1590 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0963 mm, 103.8395 mm): Track [/L4_G] on B.Cu, length 0.0594 mm
+    @(185.3982 mm, 103.7144 mm): Track [/L4_R] on B.Cu, length 0.2007 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1554 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0963 mm, 103.3694 mm): Track [/L4_G] on B.Cu, length 0.4701 mm
+    @(182.7805 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 3.7020 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0963 mm, 103.3694 mm): Track [/L4_G] on B.Cu, length 0.4701 mm
+    @(185.3982 mm, 103.2394 mm): Track [/L4_R] on B.Cu, length 0.4750 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.0963 mm, 103.3694 mm): Track [/L4_G] on B.Cu, length 0.4701 mm
+    @(185.3982 mm, 103.7144 mm): Track [/L4_R] on B.Cu, length 0.2007 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1535 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.1383 mm, 103.8815 mm): Track [/L4_G] on B.Cu, length 2.7799 mm
+    @(185.5401 mm, 107.0047 mm): Via [/L4_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1590 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.1383 mm, 103.8815 mm): Track [/L4_G] on B.Cu, length 2.7799 mm
+    @(185.3982 mm, 103.2394 mm): Track [/L4_R] on B.Cu, length 0.4750 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1590 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(185.1383 mm, 103.8815 mm): Track [/L4_G] on B.Cu, length 2.7799 mm
+    @(185.3982 mm, 103.7144 mm): Track [/L4_R] on B.Cu, length 0.2007 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1554 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(177.2081 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 5.4425 mm
+    @(182.7805 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 3.7020 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(177.2081 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 5.4425 mm
+    @(177.0591 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 5.7214 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1689 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(177.2081 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 5.4425 mm
+    @(175.5750 mm, 102.1058 mm): Track [/L4_R] on B.Cu, length 2.0988 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1554 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.6506 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 3.4587 mm
+    @(182.7805 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 3.7020 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.6506 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 3.4587 mm
+    @(185.3982 mm, 103.2394 mm): Track [/L4_R] on B.Cu, length 0.4750 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1520 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(182.6506 mm, 100.9237 mm): Track [/L4_G] on B.Cu, length 3.4587 mm
+    @(177.0591 mm, 100.6217 mm): Track [/L4_R] on B.Cu, length 5.7214 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1862 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.1000 mm, 102.9351 mm): Track [/L4_G] on B.Cu, length 0.2670 mm
+    @(175.5750 mm, 102.9971 mm): Track [/L4_R] on B.Cu, length 0.8913 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(187.9250 mm, 107.3731 mm): Track [/L4_R] on F.Cu, length 2.0165 mm
+    @(187.0750 mm, 108.0250 mm): Pad 2 [/L4_G] of D4 on F.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.8900 mm, 103.6788 mm): Track [/L5_B] on B.Cu, length 1.1325 mm
+    @(178.6717 mm, 104.2057 mm): Via [/SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.4535 mm, 103.6788 mm): Track [/L5_B] on B.Cu, length 0.4365 mm
+    @(177.4875 mm, 104.2178 mm): Track [/L5_G] on B.Cu, length 2.4657 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.4535 mm, 103.6788 mm): Track [/L5_B] on B.Cu, length 0.4365 mm
+    @(178.6717 mm, 104.2057 mm): Via [/SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.1410 mm, 104.8003 mm): Track [/L5_B] on B.Cu, length 0.8090 mm
+    @(177.4875 mm, 104.2178 mm): Track [/L5_G] on B.Cu, length 2.4657 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1557 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.1410 mm, 104.8003 mm): Track [/L5_B] on B.Cu, length 0.8090 mm
+    @(178.6717 mm, 104.2057 mm): Via [/SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1910 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.1410 mm, 104.8003 mm): Track [/L5_B] on B.Cu, length 0.8090 mm
+    @(177.4875 mm, 104.6000 mm): Pad 17 [/L5_G] of U2 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.1410 mm, 103.9913 mm): Track [/L5_B] on B.Cu, length 0.4419 mm
+    @(177.4875 mm, 104.2178 mm): Track [/L5_G] on B.Cu, length 2.4657 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(178.1410 mm, 103.9913 mm): Track [/L5_B] on B.Cu, length 0.4419 mm
+    @(178.6717 mm, 104.2057 mm): Via [/SDA] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(194.8189 mm, 100.5170 mm): Track [/L5_G] on F.Cu, length 14.3523 mm
+    @(180.9789 mm, 100.8189 mm): Track [/L5_R] on F.Cu, length 3.7419 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(194.8189 mm, 100.5170 mm): Track [/L5_G] on F.Cu, length 14.3523 mm
+    @(194.2708 mm, 100.8189 mm): Track [/L5_R] on F.Cu, length 13.2919 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1519 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(194.8189 mm, 100.5170 mm): Track [/L5_G] on F.Cu, length 14.3523 mm
+    @(195.3750 mm, 101.9231 mm): Track [/L5_R] on F.Cu, length 1.5616 mm
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1642 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(177.4875 mm, 104.2178 mm): Track [/L5_G] on B.Cu, length 2.4657 mm
+    @(177.4779 mm, 103.4648 mm): Via [/L5_R] on F.Cu - B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1635 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(132.5162 mm, 109.3832 mm): Track [/SCL] on B.Cu, length 4.2197 mm
+    @(134.5000 mm, 106.0750 mm): Pad 3 [/SDA] of J1 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1828 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(173.5125 mm, 107.4000 mm): Pad 1 [/L0_R] of U2 on B.Cu
+    @(174.1000 mm, 107.9875 mm): Pad 32 [/VCAP_LED] of U2 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1828 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(173.5125 mm, 104.6000 mm): Pad 8 [/L2_G] of U2 on B.Cu
+    @(174.1000 mm, 104.0125 mm): Pad 9 [/L2_B] of U2 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1828 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(176.9000 mm, 104.0125 mm): Pad 16 [/L5_R] of U2 on B.Cu
+    @(177.4875 mm, 104.6000 mm): Pad 17 [/L5_G] of U2 on B.Cu
+[clearance]: Clearance violation (netclass 'Default' clearance 0.2000 mm; actual 0.1828 mm)
+    Rule: netclass 'Default'; Severity: error
+    @(177.4875 mm, 107.4000 mm): Pad 24 [unconnected-(U2-OUT23-Pad24)] of U2 on B.Cu
+    @(176.9000 mm, 107.9875 mm): Pad 25 [GND] of U2 on B.Cu
 
 ** Found 0 unconnected pads **
 

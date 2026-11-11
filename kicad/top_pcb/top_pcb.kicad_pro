@@ -186,7 +186,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -203,7 +203,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -214,6 +214,23 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.15,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "Fine",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.15,
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
@@ -232,6 +249,98 @@
       {
         "netclass": "Power",
         "pattern": "GND"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L0_R"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L0_G"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L0_B"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L1_R"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L1_G"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L1_B"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L2_R"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L2_G"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L2_B"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L3_R"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L3_G"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L3_B"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L4_R"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L4_G"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L4_B"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L5_R"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L5_G"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/L5_B"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/SDA"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/SCL"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/IREF_LED"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/VCAP_LED"
+      },
+      {
+        "netclass": "Fine",
+        "pattern": "/LED_EN"
       }
     ]
   },

@@ -25,12 +25,20 @@ os.makedirs(OUT, exist_ok=True)
 pro = json.load(open(os.path.join(TPL, "top_pcb.kicad_pro")))
 cls = pro["net_settings"]["classes"]
 if not any(c["name"] == "Power" for c in cls):
-    pw = dict(cls[0]); pw.update(name="Power", track_width=0.25, clearance=0.2); cls.append(pw)
-pro["net_settings"]["netclass_patterns"] = [{"netclass": "Power", "pattern": "+3V3"}, {"netclass": "Power", "pattern": "GND"}]
+    pw = dict(cls[0]); pw.update(name="Power", track_width=0.25, clearance=0.15); cls.append(pw)
+cls[0]["clearance"] = 0.15
+for c_ in cls:
+    if c_["name"] == "Power": c_["clearance"] = 0.15                                    # Default: JLC 2-layer allows 0.1; the LP5024 fan-out needs 0.15
+if not any(c["name"] == "Fine" for c in cls):                # nets on the LP5024's 0.4 mm pins
+    fn = dict(cls[0]); fn.update(name="Fine", track_width=0.15, clearance=0.15); cls.append(fn)
+FINE = ["/L%d_%s" % (k, c_) for k in range(6) for c_ in "RGB"] + ["/SDA", "/SCL", "/IREF_LED", "/VCAP_LED", "/LED_EN"]
+pro["net_settings"]["netclass_patterns"] = [{"netclass": "Power", "pattern": "+3V3"}, {"netclass": "Power", "pattern": "GND"}] + \
+    [{"netclass": "Fine", "pattern": n} for n in FINE]
 pro["meta"]["filename"] = "top_pcb.kicad_pro"
 os.makedirs(PROJ, exist_ok=True)
 json.dump(pro, open(os.path.join(PROJ, "top_pcb.kicad_pro"), "w"), indent=2)
-shutil.copytree(os.path.join(HERE, "lib"), os.path.join(PROJ, "lib"), dirs_exist_ok=True)     # the OLED tail pads
+shutil.copytree(os.path.join(HERE, "lib"), os.path.join(PROJ, "lib"), dirs_exist_ok=True)     # the OLED tail pads and the LP5024 symbol
+open(os.path.join(PROJ, "sym-lib-table"), "w").write('(sym_lib_table\n  (version 7)\n  (lib (name "OpenTheatreComms")(type "KiCad")(uri "${KIPRJMOD}/lib/OpenTheatreComms.kicad_sym")(options "")(descr "Top PCB parts"))\n)\n')
 open(os.path.join(PROJ, "fp-lib-table"), "w").write('(fp_lib_table\n  (version 7)\n  (lib (name "OpenTheatreComms")(type "KiCad")(uri "${KIPRJMOD}/lib/OpenTheatreComms.pretty")(options "")(descr "Top PCB parts"))\n)\n')
 
 # ------------------------------------------------------------------ schematic netlist (pad -> net) and symbol uuids
@@ -98,12 +106,6 @@ ol = ra.Outline(); ol.NewOutline()
 for x, y in ((-10.6, 6.4), (10.6, 6.4), (10.6, 8.6), (-10.6, 8.6)): ol.Append(MM(float(150 + x)), MM(float(105 - y)))
 b.Add(ra)
 
-# silkscreen: the stacked status LEDs' outlines touch; keep the outline on the red one only (polarity is on the assembly drawing)
-for ref in ("D6", "D8"):
-    fp = fps[ref]; cy = Bf(fp.GetPosition())[1]
-    for g in list(fp.GraphicalItems()):
-        if g.GetClass() == "MGRAPHIC" and g.GetLayer() == pcbnew.F_SilkS:
-            fp.Remove(g)
 for ref, (x, y) in (("U1", (0.0, -4.6)), ("J1", (-13.0, -3.3))):          # references clear of the pads
     fps[ref].Reference().SetPosition(P(x, y))
 
@@ -165,6 +167,50 @@ for fp in b.GetFootprints():
 for vx in (-9.0, -6.0, -2.5, 2.5, 6.0, 9.0):
     if cu.via_ok(vx, 7.9, "GND"): cu.add_track(add_via(vx, 7.9, GND))
 print("fanout skipped:", skipped)
+# the expander's GND pin 12: its fanout goes straight down past the pins to a via near the bottom edge (a via under the
+# chip lands on a top-side island once the key and LED lines are routed across it)
+_u1 = fps["U1"]; _p12 = [p for p in _u1.Pads() if p.GetNumber() == "12"][0]; _q = Bf(_p12.GetPosition())
+_kill = []
+for tr in b.GetTracks():
+    if tr.GetNetname() == "GND" and tr.GetClass() == "PCB_TRACK" and min(math.dist(Bf(tr.GetStart()), _q), math.dist(Bf(tr.GetEnd()), _q)) < 0.05:
+        far = Bf(tr.GetEnd()) if math.dist(Bf(tr.GetStart()), _q) < 0.05 else Bf(tr.GetStart())
+        _kill.append(tr)
+        _kill += [v for v in b.GetTracks() if v.GetClass() == "PCB_VIA" and v.GetNetname() == "GND" and math.dist(Bf(v.GetPosition()), far) < 0.05]
+for it_ in {id(x): x for x in _kill}.values(): b.Delete(it_)
+_dn = (_q[0], _q[1] - 3.2)
+add_track(_q, _dn, pcbnew.B_Cu, b.FindNet("GND"), w=0.3); add_via(*_dn, b.FindNet("GND"))
+# C12 sits just past the link connector's pins 1 (GND) and 2 (+3V3): short fixed links to both
+_j1 = {p.GetNumber(): Bf(p.GetPosition()) for p in fps["J1"].Pads()}
+for p in fps["C12"].Pads():
+    add_track(Bf(p.GetPosition()), _j1["1" if p.GetNetname() == "GND" else "2"], pcbnew.B_Cu, p.GetNet(), w=0.3)
+# LP5024 exposed pad: GND through its pins 25 and 26 (joined below) to the B pour; at about 50 mW it needs no thermal vias
+# LP5024: ADDR0 (GND) joins the exposed pad (its thermal vias reach the F pour) with a short stub straight inward
+u2 = fps["U2"]; ep = [p for p in u2.Pads() if p.GetNumber() == "33" and p.GetSize().x > MM(2)][0]
+ex, ey = Bf(ep.GetPosition()); hw = pcbnew.ToMM(ep.GetSize().x) / 2 - 0.2
+for p in u2.Pads():
+    if p.GetNetname() == "GND" and p.GetNumber() != "33":
+        px, py = Bf(p.GetPosition())
+        tx, ty = min(max(px, ex - hw), ex + hw), min(max(py, ey - hw), ey + hw)
+        add_track((px, py), (tx, ty), pcbnew.B_Cu if u2.IsFlipped() else pcbnew.F_Cu, p.GetNet(), w=0.2); print("U2 pad", p.GetNumber(), "joined to the exposed pad")
+# its VCC pin (27) can't take the 0.25 mm Power width between 0.4 mm pins: a short 0.2 mm stub outward
+L2 = pcbnew.B_Cu if u2.IsFlipped() else pcbnew.F_Cu
+pp = {p.GetNumber(): Bf(p.GetPosition()) for p in u2.Pads()}
+def outward(q, d):
+    dx, dy = q[0] - ex, q[1] - ey
+    return (q[0] + (d if dx > 0 else -d), q[1]) if abs(dx) > abs(dy) else (q[0], q[1] + (d if dy > 0 else -d))
+v33 = b.FindNet("+3V3"); add_track(pp["27"], outward(pp["27"], 1.0), L2, v33, w=0.2)
+for n_ in ("28", "29", "30", "31", "32"):                             # the rest of that side: stubs too, so the router fans them in order
+    pd = [p for p in u2.Pads() if p.GetNumber() == n_][0]; add_track(pp[n_], outward(pp[n_], 1.0), L2, pd.GetNet(), w=0.15)
+# its support parts (placed in design.py with the pad on the pin's net toward the driver): fixed short links from the stubs
+def padxy_(ref_, net_): return [Bf(p.GetPosition()) for p in fps[ref_].Pads() if p.GetNetname() == net_][0]
+def link(pts, net_, w_):
+    for a_, c_ in zip(pts, pts[1:]):
+        if math.dist(a_, c_) > 1e-3: add_track(a_, c_, L2, b.FindNet(net_), w=w_)
+e27, e31, e32 = outward(pp["27"], 1.0), outward(pp["31"], 1.0), outward(pp["32"], 1.0)
+p14, p1_, p13 = padxy_("C14", "+3V3"), padxy_("R1", "/IREF_LED"), padxy_("C13", "/VCAP_LED")
+link([e27, p14], "+3V3", 0.2)                                                   # VCC down-right to C14
+link([e32, (e32[0], p13[1]), p13], "/VCAP_LED", 0.15)                           # VCAP down, then left into C13
+link([e31, (e31[0], p1_[1]), p1_], "/IREF_LED", 0.15)                           # IREF further down, then left into R1
 b.Save(os.path.join(OUT, "placed.kicad_pcb"))
 dsn = os.path.join(OUT, "top_pcb.dsn")
 ok = pcbnew.ExportSpecctraDSN(b, dsn); print("DSN", ok)
@@ -173,7 +219,7 @@ if stage == "place": sys.exit(0)
 # ------------------------------------------------------------------ autoroute everything except GND (that goes to the pours)
 txt = open(dsn).read()
 m = re.search(r'\(class kicad_default "" (.*?)\n\s*\(circuit', txt, re.S)
-toks = [t for t in re.findall(r'"[^"]*"|\S+', m.group(1)) if t not in ("+3V3", "GND")]
+toks = [t for t in re.findall(r'"[^"]*"|\S+', m.group(1)) if t not in ["+3V3", "GND"] + FINE]
 txt = txt[:m.start(1)] + " ".join(toks) + txt[m.end(1):]
 extra = '''    (class Power +3V3
       (circuit (use_via Via[0-1]_600:300_um))
@@ -183,7 +229,11 @@ extra = '''    (class Power +3V3
       (circuit (use_via Via[0-1]_600:300_um))
       (rule (width 400) (clearance 200.1))
     )
-'''
+''' + "    (class Fine " + " ".join(FINE) + """
+      (circuit (use_via Via[0-1]_600:300_um))
+      (rule (width 150) (clearance 150.1))
+    )
+"""
 i = txt.index("  )\n  (wiring")
 txt = txt[:i] + extra + txt[i:]
 # GND is left to the pours: give it a single pin so the router has nothing to connect
@@ -212,7 +262,7 @@ open(dsn, "w").write(txt)
 ses = os.path.join(OUT, "top_pcb.ses")
 if stage != "import":                                                # 'import' reuses the last session file
   if os.path.exists(ses): os.remove(ses)
-  log = subprocess.run(["xvfb-run", "-a", "java", "-jar", FREEROUTING, "-de", dsn, "-do", ses, "-mp", "40"],
+  log = subprocess.run(["xvfb-run", "-a", "java", "-jar", FREEROUTING, "-de", dsn, "-do", ses, "-mp", "100"],
                      capture_output=True, text=True, timeout=1500, cwd=OUT)
   open(os.path.join(OUT, "freerouting.log"), "w").write(log.stdout + log.stderr)
   print("freerouting rc", log.returncode, [l for l in (log.stdout + log.stderr).splitlines() if "pass" in l.lower() or "unrouted" in l.lower()][-4:])
@@ -246,5 +296,68 @@ from pcbgeom import net_islands
 incomplete = {n: [sorted(x) for x in g] for n, g in net_islands(b).items() if len(g) > 1}
 print("incomplete nets after routing:", incomplete or "none")
 
+# a piece the router left alone: a straight track (either layer) to the nearest same-net pad or track end, when the line is clear
+from pcbgeom import Copper
+cu = Copper(b)
+for n, groups in net_islands(b).items():
+    if len(groups) < 2 or n == "GND": continue
+    groups = sorted(groups, key=len); main = groups[-1]
+    tgt = []
+    for ref2, num2 in main:
+        pb = [q for q in b.FindFootprintByReference(ref2).Pads() if q.GetNumber() == num2][0]; tgt.append(Bf(pb.GetPosition()))
+    tgt += [Bf(e) for tr in b.GetTracks() if tr.GetClass() == "PCB_TRACK" and tr.GetNetname() == n for e in (tr.GetStart(), tr.GetEnd())]
+    for piece in groups[:-1]:
+        pads_ = [Bf(q.GetPosition()) for ref, num in piece for q in b.FindFootprintByReference(ref).Pads() if q.GetNumber() == num]
+        srcs = list(pads_)
+        for tr in b.GetTracks():                                      # plus the far end of any stub leaving those pads
+            if tr.GetClass() == "PCB_TRACK" and tr.GetNetname() == n:
+                s_, e_ = Bf(tr.GetStart()), Bf(tr.GetEnd())
+                if any(math.dist(s_, q) < 0.05 for q in pads_): srcs.append(e_)
+                if any(math.dist(e_, q) < 0.05 for q in pads_): srcs.append(s_)
+        best = None
+        for a_ in srcs:
+            for c_ in tgt:
+                d = math.dist(a_, c_)
+                if d < 0.3 or d > 6.0 or (best and d >= best[0]) or any(math.dist(c_, s2) < 0.05 for s2 in srcs): continue
+                for L in (pcbnew.B_Cu, pcbnew.F_Cu):
+                    if cu.clear(LineString([a_, c_]).buffer(0.1), n, [L], 0.16, pads_any_net=False): best = (d, a_, c_, L); break
+        if best:
+            cu.add_track(add_track(best[1], best[2], best[3], b.FindNet(n), w=0.2, locked=False)); print("joined", n, sorted(piece), f"{best[0]:.1f} mm")
+            continue
+        # no straight line: an L (either layer), or a via at the stranded end and then a straight line or an L on the other side
+        fine = n in FINE; w_ = 0.15 if fine else 0.2; cl_ = 0.15
+        tg2 = list(tgt)
+        for tr in b.GetTracks():                                      # points along the main copper too
+            if tr.GetClass() == "PCB_TRACK" and tr.GetNetname() == n:
+                ln = LineString([Bf(tr.GetStart()), Bf(tr.GetEnd())])
+                tg2 += [(ln.interpolate(k * 0.25).x, ln.interpolate(k * 0.25).y) for k in range(int(ln.length / 0.25) + 1)]
+        stubs = [LineString([Bf(tr.GetStart()), Bf(tr.GetEnd())]) for tr in b.GetTracks() if tr.GetClass() == "PCB_TRACK" and tr.GetNetname() == n
+                 and any(min(math.dist(Bf(tr.GetStart()), q), math.dist(Bf(tr.GetEnd()), q)) < 0.05 for q in pads_)]
+        tg2 = [c_ for c_ in tg2 if not any(math.dist(c_, s2) < 0.05 for s2 in srcs) and not any(sg.distance(Point(c_)) < 0.05 for sg in stubs)]
+        def ok_path(pts, L):
+            return all(cu.clear(LineString([pts[i], pts[i + 1]]).buffer(w_ / 2), n, [L], cl_, pads_any_net=False) for i in range(len(pts) - 1) if math.dist(pts[i], pts[i + 1]) > 1e-3)
+        best = None
+        for a_ in srcs:
+            for c_ in tg2:
+                d = abs(c_[0] - a_[0]) + abs(c_[1] - a_[1])
+                if d > 8.0 or (best and d >= best[0]): continue
+                for corner in ((a_[0], c_[1]), (c_[0], a_[1])):
+                    for L in (pcbnew.B_Cu, pcbnew.F_Cu):
+                        on_L = any(tr.GetClass() == "PCB_TRACK" and tr.GetNetname() == n and tr.GetLayer() == L and LineString([Bf(tr.GetStart()), Bf(tr.GetEnd())]).distance(Point(c_)) < 0.01 for tr in b.GetTracks()) or c_ in tgt
+                        if not on_L: continue
+                        start_L = any(tr.GetClass() == "PCB_TRACK" and tr.GetNetname() == n and tr.GetLayer() == L and min(math.dist(Bf(tr.GetStart()), a_), math.dist(Bf(tr.GetEnd()), a_)) < 0.01 for tr in b.GetTracks())
+                        need_via = not start_L
+                        if need_via and not cu.via_ok(a_[0], a_[1], n): continue
+                        if ok_path([a_, corner, c_], L):
+                            best = (d + (1.0 if need_via else 0), a_, corner, c_, L, need_via); break
+                    if best and best[1] == a_ and best[3] == c_: break
+        if best:
+            _, a_, corner, c_, L, need_via = best
+            if need_via: cu.add_track(add_via(a_[0], a_[1], b.FindNet(n), locked=False))
+            for s_, e_ in ((a_, corner), (corner, c_)):
+                if math.dist(s_, e_) > 1e-3: cu.add_track(add_track(s_, e_, L, b.FindNet(n), w=w_, locked=False))
+            print("joined (L)", n, sorted(piece), "via" if need_via else "", f"{best[0]:.1f} mm")
+incomplete = {n: [sorted(x) for x in g] for n, g in net_islands(b).items() if len(g) > 1}
+print("incomplete nets after the joins:", incomplete or "none")
 b.Save(os.path.join(OUT, "routed.kicad_pcb"))
 
