@@ -71,7 +71,7 @@ USB-C's data lines (full speed; about 46 mm of extra track on D+, 20 mm on D−)
 P04 charging, P05 charge done, P06 USB present, P07 accelerometer INT1, P10 gauge alert, P11 LR2021 DIO5,
 P12 LR2021 TX/RX enable, P13 accelerometer INT2.
 
-**I2C bus**: codec 0x1A, accelerometer (LIS3DH) 0x18, gauge 0x36, main expander 0x21, top expander 0x20, OLED 0x3C.
+**I2C bus**: codec 0x1A, accelerometer (LIS3DH) 0x18, gauge 0x36, main expander 0x21, top expander 0x20, OLED 0x3D, top LED driver (LP5024) 0x28 (it also answers 0x3C, its broadcast address).
 The pull-ups are on the top PCB; R39 to R41 here are unfitted (fit them only to run this board without the top PCB).
 
 **Radio.** LR2021 module (915 to 928 MHz port) → pi match (C14, L1, C15: 0 ohm and two unfitted shunts until tuned) →
